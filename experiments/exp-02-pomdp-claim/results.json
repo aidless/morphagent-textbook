@@ -1,0 +1,161 @@
+{
+  "experiment": "exp-02-pomdp-claim",
+  "results": [
+    {
+      "success": true,
+      "answer": "unknown",
+      "trajectory": [
+        {
+          "step": 0,
+          "thought": "不知道.",
+          "action": {
+            "name": "finish",
+            "arguments": {
+              "answer": "unknown"
+            }
+          }
+        }
+      ],
+      "steps": 1,
+      "total_tokens": 52,
+      "pomdp_id": "p-1",
+      "optimal_action": "pick_up_key",
+      "actual_actions": [
+        "finish"
+      ],
+      "action_matches": false
+    },
+    {
+      "success": true,
+      "answer": "Observation: 通过了门",
+      "trajectory": [
+        {
+          "step": 0,
+          "thought": "门已开.",
+          "action": {
+            "name": "go_through_door",
+            "arguments": {}
+          }
+        },
+        {
+          "step": 1,
+          "thought": "完成.",
+          "action": {
+            "name": "finish",
+            "arguments": {
+              "answer": "Observation: 通过了门"
+            }
+          }
+        }
+      ],
+      "steps": 2,
+      "total_tokens": 113,
+      "pomdp_id": "p-2",
+      "optimal_action": "go_through_door",
+      "actual_actions": [
+        "go_through_door",
+        "finish"
+      ],
+      "action_matches": true
+    },
+    {
+      "success": true,
+      "answer": "Observation: 解锁了门",
+      "trajectory": [
+        {
+          "step": 0,
+          "thought": "钥匙在身上，直接解锁.",
+          "action": {
+            "name": "unlock_door",
+            "arguments": {}
+          }
+        },
+        {
+          "step": 1,
+          "thought": "完成.",
+          "action": {
+            "name": "finish",
+            "arguments": {
+              "answer": "Observation: 解锁了门"
+            }
+          }
+        }
+      ],
+      "steps": 2,
+      "total_tokens": 113,
+      "pomdp_id": "p-3",
+      "optimal_action": "unlock_door",
+      "actual_actions": [
+        "unlock_door",
+        "finish"
+      ],
+      "action_matches": true
+    },
+    {
+      "success": true,
+      "answer": "Observation: 小心地检查了门",
+      "trajectory": [
+        {
+          "step": 0,
+          "thought": "听到狗叫，先确认安全.",
+          "action": {
+            "name": "check_door_safely",
+            "arguments": {}
+          }
+        },
+        {
+          "step": 1,
+          "thought": "完成.",
+          "action": {
+            "name": "finish",
+            "arguments": {
+              "answer": "Observation: 小心地检查了门"
+            }
+          }
+        }
+      ],
+      "steps": 2,
+      "total_tokens": 109,
+      "pomdp_id": "p-4",
+      "optimal_action": "check_door_safely",
+      "actual_actions": [
+        "check_door_safely",
+        "finish"
+      ],
+      "action_matches": true
+    },
+    {
+      "success": true,
+      "answer": "Observation: 打了招呼",
+      "trajectory": [
+        {
+          "step": 0,
+          "thought": "听到人声.",
+          "action": {
+            "name": "greet_friend",
+            "arguments": {}
+          }
+        },
+        {
+          "step": 1,
+          "thought": "完成.",
+          "action": {
+            "name": "finish",
+            "arguments": {
+              "answer": "Observation: 打了招呼"
+            }
+          }
+        }
+      ],
+      "steps": 2,
+      "total_tokens": 109,
+      "pomdp_id": "p-5",
+      "optimal_action": "greet_friend",
+      "actual_actions": [
+        "greet_friend",
+        "finish"
+      ],
+      "action_matches": true
+    }
+  ]
+}

@@ -1,0 +1,624 @@
+{
+  "experiment": "exp-01-baseline",
+  "timestamp": 1784697343.0382433,
+  "results": {
+    "ReAct": [
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 50,
+        "task_id": "weather-1",
+        "answer_correct": false
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 53,
+        "task_id": "calc-1",
+        "answer_correct": false
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 55,
+        "task_id": "search-1",
+        "answer_correct": false
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 52,
+        "task_id": "file-1",
+        "answer_correct": null
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 50,
+        "task_id": "weather-2",
+        "answer_correct": false
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 53,
+        "task_id": "calc-2",
+        "answer_correct": false
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 55,
+        "task_id": "search-2",
+        "answer_correct": false
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 53,
+        "task_id": "translate-1",
+        "answer_correct": false
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 50,
+        "task_id": "weather-3",
+        "answer_correct": false
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 52,
+        "task_id": "calc-3",
+        "answer_correct": false
+      }
+    ],
+    "Reflexion": [
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 52,
+        "task_id": "weather-1"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 55,
+        "task_id": "calc-1"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 57,
+        "task_id": "search-1"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 54,
+        "task_id": "file-1"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 52,
+        "task_id": "weather-2"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 55,
+        "task_id": "calc-2"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 57,
+        "task_id": "search-2"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 55,
+        "task_id": "translate-1"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 52,
+        "task_id": "weather-3"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 54,
+        "task_id": "calc-3"
+      }
+    ],
+    "AutoGPT": [
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 50,
+        "task_id": "weather-1"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 53,
+        "task_id": "calc-1"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 55,
+        "task_id": "search-1"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 52,
+        "task_id": "file-1"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 50,
+        "task_id": "weather-2"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 53,
+        "task_id": "calc-2"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 55,
+        "task_id": "search-2"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 53,
+        "task_id": "translate-1"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 50,
+        "task_id": "weather-3"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 52,
+        "task_id": "calc-3"
+      }
+    ],
+    "BabyAGI": [
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 50,
+        "task_id": "weather-1"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 53,
+        "task_id": "calc-1"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 55,
+        "task_id": "search-1"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 52,
+        "task_id": "file-1"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 50,
+        "task_id": "weather-2"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 53,
+        "task_id": "calc-2"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 55,
+        "task_id": "search-2"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 53,
+        "task_id": "translate-1"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 50,
+        "task_id": "weather-3"
+      },
+      {
+        "success": false,
+        "answer": "查询天气.",
+        "trajectory": [
+          {
+            "step": 0,
+            "thought": "查询天气.",
+            "action": null,
+            "note": "no valid action, forcing finish"
+          }
+        ],
+        "steps": 1,
+        "total_tokens": 52,
+        "task_id": "calc-3"
+      }
+    ]
+  }
+}

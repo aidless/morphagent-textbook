@@ -1,0 +1,92 @@
+# Table of Contents
+# Reference: https://jupyterbook.org/en/stable/structure/toc.html
+
+format: jb-book
+root: README
+options:
+  parts:
+    caption: "目录"
+    numbered: true
+  chapters:
+    numbered: true
+
+parts:
+  - caption: "Part I · 基础：LLM 智能体"
+    chapters:
+      - file: chapters/01-llm-agent-era
+        title: "第 1 章 · LLM 智能体时代"
+      - file: chapters/02-agent-basics
+        title: "第 2 章 · 智能体基础"
+      - file: chapters/03-tools-and-function-calling
+        title: "第 3 章 · 工具与函数调用"
+      - file: chapters/04-prompt-engineering
+        title: "第 4 章 · 提示词工程：从静态到动态"
+      - file: chapters/05-context-engineering
+        title: "第 5 章 · 上下文工程与短期记忆"
+      - file: chapters/06-long-term-memory
+        title: "第 6 章 · 长期记忆与检索增强"
+
+  - caption: "Part II · 具身认知与计算形态学"
+    chapters:
+      - file: chapters/07-4e-cognition-history
+        title: "第 7 章 · 4E Cognition 简史"
+      - file: chapters/08-enactivism
+        title: "第 8 章 · Enactivism 与自创生"
+      - file: chapters/09-extended-mind
+        title: "第 9 章 · Extended Mind 与延展心智"
+      - file: chapters/10-embodied-ai-and-robotics
+        title: "第 10 章 · 具身 AI 与机器人认知"
+      - file: chapters/11-operational-morphology
+        title: "第 11 章 · 当工具成为身体：操作形态假说"
+
+  - caption: "Part III · 自进化系统"
+    chapters:
+      - file: chapters/12-self-modifying-prompts
+        title: "第 12 章 · 自修改提示词"
+      - file: chapters/13-automatic-tools
+        title: "第 13 章 · 自动工具创建与重构"
+      - file: chapters/14-adaptive-memory
+        title: "第 14 章 · 自适应记忆结构"
+      - file: chapters/15-self-editing-code
+        title: "第 15 章 · 自我改写代码"
+      - file: chapters/16-joint-self-evolution
+        title: "第 16 章 · 协同自进化：跨组件耦合"
+      - file: chapters/17-meta-controller
+        title: "第 17 章 · 元控制器设计"
+
+  - caption: "Part IV · 系统实现"
+    chapters:
+      - file: chapters/18-morphagent-reference
+        title: "第 18 章 · MorphAgent 参考实现"
+      - file: chapters/19-evaluation-methodology
+        title: "第 19 章 · 评测方法学：MorphBench"
+      - file: chapters/20-debugging-observability
+        title: "第 20 章 · 调试与可观测性"
+      - file: chapters/21-deployment-and-ops
+        title: "第 21 章 · 部署与运维"
+
+  - caption: "Part V · 治理、伦理与未来"
+    chapters:
+      - file: chapters/22-safety-adversarial
+        title: "第 22 章 · 安全性与对抗鲁棒性"
+      - file: chapters/23-verifiable-self-modification
+        title: "第 23 章 · 可验证自改"
+      - file: chapters/24-economics-ethics-society
+        title: "第 24 章 · 经济、伦理与社会影响"
+      - file: chapters/25-open-problems
+        title: "第 25 章 · 开放问题与未来工作"
+
+  - caption: "Part VI · 附录"
+    chapters:
+      - file: chapters/26-appendix-a-glossary
+        title: "附录 A · 术语表"
+      - file: chapters/27-appendix-b-mathematics
+        title: "附录 B · 数学基础"
+      - file: chapters/28-appendix-c-tools
+        title: "附录 C · 工具与库"
+      - file: chapters/29-appendix-d-experiments
+        title: "附录 D · 实验手册"
+      - file: chapters/30-appendix-e-exercise-answers
+        title: "附录 E · 习题答案"
+      - file: chapters/31-appendix-f-references
+        title: "附录 F · 参考文献总目录"

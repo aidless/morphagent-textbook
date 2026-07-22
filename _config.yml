@@ -1,0 +1,87 @@
+# Jupyter Book configuration
+# Reference: https://jupyterbook.org/en/stable/reference/config.html
+
+title: "操作形态学：自修改 LLM 智能体的具身认知"
+subtitle: "Operational Morphology: The Embodied Cognition of Self-Modifying LLM Agents"
+author: "The MorphAgent Textbook Authors"
+copyright: "2026"
+license: "CC-BY-NC-SA-4.0"
+
+only_build_toc_files: true
+
+# Force re-build on each run
+force_eager: false
+
+# Information about the book
+logo: ""
+
+# Information about the book
+site_url: "https://github.com/<待填>/morphagent-textbook"
+repository:
+  url: "https://github.com/<待填>/morphagent-textbook"
+  branch: "main"
+  path_to_book: ""
+
+# Add GitHub buttons to your book
+use_issues_button: true
+use_repository_button: true
+use_edit_page_button: true
+
+# Configure the launch buttons
+launch_buttons:
+  notebook_interface: "classic"
+  binderhub_url: ""
+  jupyterhub_url: ""
+  thebe: true
+  colab_url: ""
+
+# Configure the table of contents
+parse:
+  text_encoding: "utf-8-spilt"
+  myst_enable_extensions:
+    - colon_fence
+    - dollarmath
+    - linkify
+    - replacement
+    - smartquotes
+    - substitution
+    - tasklist
+
+# Setup the HTML
+html:
+  favicon: ""
+  use_edit_page_button: true
+  use_repository_button: true
+  use_issues_button: true
+  extra_footer: |
+    <p>This work is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+
+# Sphinx configuration
+sphinx:
+  extra_extensions:
+    - sphinx_inline_tabs
+    - sphinx_panels
+    - sphinxcontrib.bibtex
+  config:
+    bibtex_bibfiles:
+      - references.bib
+    title: "操作形态学"
+    author: "The MorphAgent Textbook Authors"
+    language: "zh_CN"
+    # Output mode for MyST
+    numfig: true
+    mathjax3_config:
+      loader:
+        load: ["[tex]/boldsymbol"]
+    # Numbered figures
+    numfig_format:
+      figure: "图 %s"
+      table: "表 %s"
+
+# Execution settings (for executable content)
+execute:
+  execute_notebooks: "off"
+  cache: ""
+  exclude_patterns:
+    - "*/.ipynb_checkpoints/*"
+    - "*/_build/*"
