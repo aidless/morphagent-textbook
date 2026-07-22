@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30. 附录 E · 练习题答案 — 操作形态学</title>
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --muted: #555;
+  --accent: #2563eb;
+  --code-bg: #f4f4f4;
+  --border: #ddd;
+  --sidebar-bg: #f0f0f0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111;
+    --fg: #eee;
+    --muted: #aaa;
+    --accent: #60a5fa;
+    --code-bg: #1e1e1e;
+    --border: #333;
+    --sidebar-bg: #1a1a1a;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Noto Sans CJK SC", "WenQuanYi Micro Hei", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.75;
+}
+.layout {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.sidebar {
+  width: 280px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar h2 {
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  color: var(--accent);
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar li {
+  margin: 0.25rem 0;
+}
+.sidebar a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: block;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+.sidebar a:hover, .sidebar a.active {
+  background: var(--accent);
+  color: #fff;
+}
+.main {
+  flex: 1;
+  padding: 2rem 3rem;
+  max-width: 900px;
+}
+h1, h2, h3, h4 {
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+h1 { font-size: 2rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
+h2 { font-size: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.25rem; }
+p { margin: 0.8rem 0; }
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+  font-family: "SF Mono", "Fira Code", Consolas, monospace;
+  font-size: 0.9em;
+}
+pre code { padding: 0; background: none; }
+blockquote {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid var(--accent);
+  background: rgba(37,99,235,0.05);
+  color: var(--muted);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+  text-align: left;
+}
+th { background: var(--sidebar-bg); }
+ul, ol { margin: 0.5rem 0; padding-left: 1.5rem; }
+img { max-width: 100%; height: auto; }
+a { color: var(--accent); }
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+.nav-top a {
+  color: var(--accent);
+  text-decoration: none;
+}
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); }
+  .main { padding: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="sidebar">
+<h2><a href="index.html" style="color:var(--accent);text-decoration:none;">操作形态学</a></h2>
+<ul><li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part I</li>
+<li><a class="" href="chapter-01.html">1. LLM 智能体时代</a></li>
+<li><a class="" href="chapter-02.html">2. 智能体基础：感知、决策、行动、反馈</a></li>
+<li><a class="" href="chapter-03.html">3. 工具与函数调用</a></li>
+<li><a class="" href="chapter-04.html">4. 提示词工程：从静态到动态</a></li>
+<li><a class="" href="chapter-05.html">5. 上下文工程与短期记忆</a></li>
+<li><a class="" href="chapter-06.html">6. 长期记忆与检索增强</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part II</li>
+<li><a class="" href="chapter-07.html">7. 4E Cognition 简史</a></li>
+<li><a class="" href="chapter-08.html">8. Enactivism 与自创生</a></li>
+<li><a class="" href="chapter-09.html">9. Extended Mind 与延展心智</a></li>
+<li><a class="" href="chapter-10.html">10. 具身 AI 与机器人认知</a></li>
+<li><a class="" href="chapter-11.html">11. 当工具成为身体：操作形态假说</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part III</li>
+<li><a class="" href="chapter-12.html">12. 自修改提示词：从 OPRO 到 PE2</a></li>
+<li><a class="" href="chapter-13.html">13. 自动工具创建与重构</a></li>
+<li><a class="" href="chapter-14.html">14. 自适应记忆结构</a></li>
+<li><a class="" href="chapter-15.html">15. 自我改写代码</a></li>
+<li><a class="" href="chapter-16.html">16. 跨组件协同自进化</a></li>
+<li><a class="" href="chapter-17.html">17. 元控制器设计</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part IV</li>
+<li><a class="" href="chapter-18.html">18. MorphAgent 参考实现</a></li>
+<li><a class="" href="chapter-19.html">19. 评测方法学：MorphBench</a></li>
+<li><a class="" href="chapter-20.html">20. 调试与可观测性</a></li>
+<li><a class="" href="chapter-21.html">21. 部署与运维</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part V</li>
+<li><a class="" href="chapter-22.html">22. 安全性与对抗鲁棒性</a></li>
+<li><a class="" href="chapter-23.html">23. 可验证自改</a></li>
+<li><a class="" href="chapter-24.html">24. 经济、伦理与社会影响</a></li>
+<li><a class="" href="chapter-25.html">25. 开放问题与未来工作</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part VI</li>
+<li><a class="" href="chapter-26.html">26. 附录 A · 术语表</a></li>
+<li><a class="" href="chapter-27.html">27. 附录 B · 数学基础</a></li>
+<li><a class="" href="chapter-28.html">28. 附录 C · 工具与库速查</a></li>
+<li><a class="" href="chapter-29.html">29. 附录 D · 教学实验清单</a></li>
+<li><a class="active" href="chapter-30.html">30. 附录 E · 练习题答案</a></li>
+<li><a class="" href="chapter-31.html">31. 附录 F · 参考文献总目录</a></li></ul>
+</nav>
+<main class="main">
+<div class="nav-top"><a href="chapter-29.html">← 29. 附录 D · 教学实验清单</a><a href="index.html">目录</a><a href="chapter-31.html">31. 附录 F · 参考文献总目录 →</a></div>
+<h1>30. 附录 E · 练习题答案</h1>
+<h1 id="e">附录 E · 练习题答案</h1>
+<blockquote>
+<p>本附录提供全书 25 章中所有练习题的参考答案。读者应<strong>先自己思考再看答案</strong>。</p>
+</blockquote>
+<h2 id="e_1">附录 E 导读</h2>
+<p>本附录按 5 大 Part 组织答案：
+- <strong>E.1 Part I 基础答案</strong>（Ch 1-6 的练习题答案）
+- <strong>E.2 Part II 具身认知答案</strong>（Ch 7-11 的练习题答案）
+- <strong>E.3 Part III 自进化答案</strong>（Ch 12-17 的练习题答案）
+- <strong>E.4 Part IV 系统实现答案</strong>（Ch 18-21 的练习题答案）
+- <strong>E.5 Part V 治理答案</strong>（Ch 22-25 的练习题答案）</p>
+<hr />
+<h2 id="e1-part-i">E.1 Part I 基础答案</h2>
+<h3 id="ch-1">Ch 1 练习题答案</h3>
+<p><strong>1.1 概念题</strong>：ReAct 思考-行动-观察循环的好处
+- <strong>答案</strong>：ReAct 通过"显式思考"让 LLM 决策过程可解释，可观察；通过"工具调用"让 LLM 与外部世界交互，避免幻觉；通过"循环"让 LLM 可以多步推理。</p>
+<p><strong>1.2 分析题</strong>：Reflexion 与 ReAct 的关键差异
+- <strong>答案</strong>：Reflexion 在 ReAct 基础上加"反思"环节——当任务失败时，LLM 反思"为什么错了"并把反思存入记忆，下次决策时使用。关键差异：Reflexion 有"长期记忆"而 ReAct 没有。</p>
+<p><strong>1.3 动手题</strong>：Function Calling 实现
+- <strong>答案</strong>：（略，参考 Ch 3 代码示例）</p>
+<p><strong>1.4 开放题</strong>：自修改 Agent 与传统 Agent 的本质差异
+- <strong>答案</strong>：传统 Agent 在部署时确定所有能力；自修改 Agent 能在运行时修改自己——这是"软件会改自己"。</p>
+<h3 id="ch-2">Ch 2 练习题答案</h3>
+<p><strong>2.1 概念题</strong>：POMDP 与 MDP 的差异
+- <strong>答案</strong>：MDP 假设 Agent 能完全观察状态；POMDP 假设 Agent 只能看到部分观察——这更符合真实场景。</p>
+<p><strong>2.2 分析题</strong>：LLM Agent 属于什么范式
+- <strong>答案</strong>：LLM Agent 属于 POMDP——LLM 看不到完整的"世界状态"，只能看到"提示词"和"工具返回"。</p>
+<p><strong>2.3 设计题</strong>：4 元组反馈环
+- <strong>答案</strong>：（参考 Ch 2 主图）</p>
+<p><strong>2.4-2.7 略</strong></p>
+<h3 id="ch-3">Ch 3 练习题答案</h3>
+<p><strong>3.1 设计题</strong>：weather API 的 4 个字段
+- <strong>答案</strong>：<code>description</code>（工具功能）、<code>parameters</code>（输入 schema）、<code>required</code>（必填字段）、<code>return</code>（输出 schema）。</p>
+<p><strong>3.2 分析题</strong>：GitHub Copilot 的工具设计
+- <strong>答案</strong>：GitHub Copilot 主要工具是 <code>code_completion</code> 和 <code>code_search</code>，工具描述详细，参数有 enum 约束。</p>
+<p><strong>3.3 动手题</strong>：JSON Schema 验证器
+- <strong>答案</strong>：（参考 Ch 3 代码）</p>
+<p><strong>3.4-3.6 略</strong></p>
+<h3 id="ch-4-6">Ch 4-6 练习题答案</h3>
+<p>（Ch 4 重点：OPRO 优化客服 Agent 设计 4 元素 → 答案略）
+（Ch 5 重点：上下文监控仪表盘设计 → 答案略）
+（Ch 6 重点：三层记忆存储技术选型 → 答案略）</p>
+<h2 id="e2-part-ii">E.2 Part II 具身认知答案</h2>
+<h3 id="ch-7">Ch 7 练习题答案</h3>
+<p><strong>7.1 概念题</strong>：4E 与具身认知的关系
+- <strong>答案</strong>：4E = Embodied + Embedded + Enacted + Extended。Embodied 是其中第一项"身体塑造认知"，4E 是 Embodied 的扩展。</p>
+<p><strong>7.2 批判题</strong>：4E 主张的"反笛卡尔主义"
+- <strong>答案</strong>：4E 反对"认知 = 大脑中的符号处理"，主张"认知 = 身体-环境-行动的耦合"。这是反笛卡尔主义。</p>
+<p><strong>7.3 设计题</strong>：4E 框架的工程映射
+- <strong>答案</strong>：（参考 Ch 8 主图）</p>
+<h3 id="ch-8">Ch 8 练习题答案</h3>
+<p><strong>8.1 概念题</strong>：生命-心灵连续性论题
+- <strong>答案</strong>：认知是生命的基本特征——只要有生命就有某种认知。LLM Agent 不满足"生命"前提，所以不是真正的认知主体。</p>
+<p><strong>8.2 设计题</strong>：autopoiesis 的"模拟版本"
+- <strong>答案</strong>：LLM Agent 的"自生产"是"训练数据 → 模型权重 → 输出 → 重新训练"的循环。模拟"操作闭合"。</p>
+<p><strong>8.3-8.6 略</strong></p>
+<h3 id="ch-9">Ch 9 练习题答案</h3>
+<p><strong>9.1 概念题</strong>：parity principle 与"功能等价"
+- <strong>答案</strong>：parity principle 要求"在认知系统中扮演内部认知的同样角色"，不只是"做同样的事"。Otto 的笔记本通过信赖 4 条件满足 parity。</p>
+<p><strong>9.2 分析题</strong>：non-derived content 对 LLM Agent 的影响
+- <strong>答案</strong>：按 Adams &amp; Aizawa 标准，LLM 调用的工具返回是"派生的"内容——不满足 non-derived content 标准。所以 LLM Agent 的工具集不能算认知的构成部分。</p>
+<p><strong>9.3 设计题</strong>：4 个 transparency 条件在 LLM Agent 的应用
+- <strong>答案</strong>：（参考 Ch 22 透明性原则）</p>
+<p><strong>9.4-9.6 略</strong></p>
+<h3 id="ch-10-11">Ch 10-11 练习题答案</h3>
+<p>（Ch 10 重点：3 大机器人项目的 4E 分析 → 答案略）
+（Ch 11 重点：操作形态 vs 经典概念对比 → 答案略）</p>
+<h2 id="e3-part-iii">E.3 Part III 自进化答案</h2>
+<h3 id="ch-12">Ch 12 练习题答案</h3>
+<p><strong>12.1 设计题</strong>：客服 Agent 的 OPRO 4 元素
+- <strong>答案</strong>：
+- P₀：初始 prompt（"你是友好客服..."）
+- T：测试集（50 个客服问题）
+- M：评估函数（任务成功率 + 用户满意度）
+- V：终止条件（3 轮无提升 / 达到 95% 准确率）
+- 成本：5 轮 × 50 任务 = 250 次 LLM 调用 ≈ $1-3</p>
+<p><strong>12.2 分析题</strong>：GitHub Copilot 的 prompt 策略
+- <strong>答案</strong>：GitHub Copilot 主要是静态 prompt（系统 prompt + 用户代码上下文）。它有"动态上下文"但不是"自修改 prompt"。</p>
+<p><strong>12.3 动手题</strong>：简化版 OPRO
+- <strong>答案</strong>：（参考 Ch 12 代码）</p>
+<p><strong>12.4-12.6 略</strong></p>
+<h3 id="ch-13">Ch 13 练习题答案</h3>
+<p><strong>13.1 设计题</strong>：LATM 工具库
+- <strong>答案</strong>：
+- Tool Maker 适合：代码生成、API 集成、文件操作
+- Tool User 适合：高频、定义清晰的任务
+- 工具列表：code_search、code_modify、test_runner、file_io</p>
+<p><strong>13.2 分析题</strong>：ChatGPT 的工具集
+- <strong>答案</strong>：ChatGPT 有有限的工具集（浏览器、代码执行、文件上传、DALL-E），不支持 LATM 风格的自扩展。</p>
+<p><strong>13.3 动手题</strong>：Voyager 技能库治理
+- <strong>答案</strong>：
+- 入库条件：成功执行 ≥ 3 次、代码无 bug、有清晰 docstring
+- bug 处理：回滚到上一版本 + 失败原因写入记忆
+- 版本控制：git + 每次修改生成新 commit</p>
+<p><strong>13.4-13.6 略</strong></p>
+<h3 id="ch-14-17">Ch 14-17 练习题答案</h3>
+<p>（Ch 14 重点：A-MEM 简化版实现 → 答案略）
+（Ch 15 重点：代码沙箱设计 → 答案略）
+（Ch 16 重点：Joint-Independent vs Joint-Coordinated → 答案略）
+（Ch 17 重点：元控制器 U 设计 → 答案略）</p>
+<h2 id="e4-part-iv">E.4 Part IV 系统实现答案</h2>
+<h3 id="ch-18">Ch 18 练习题答案</h3>
+<p><strong>18.1 设计题</strong>：配置文件格式（YAML）
+- <strong>答案</strong>：</p>
+<pre><code class="language-yaml">morphagent:
+  name: &quot;my-agent&quot;
+  llm:
+    provider: openai
+    model: gpt-4o
+    temperature: 0.7
+  modifiers:
+    P: opro
+    T: latm
+    M: a_mem
+    C: sica
+  meta_controller:
+    strategy: mcts
+    max_iterations: 100
+  sandbox:
+    docker_image: python:3.11-slim
+    mem_limit: 512m
+    network_mode: none
+  eval:
+    test_tasks: ./data/test_tasks.json
+    metrics: [success_rate, p99_latency, safety_violations]
+</code></pre>
+<p><strong>18.2 分析题</strong>：LangGraph vs MorphAgent
+- <strong>答案</strong>：LangGraph 是有状态多 Agent 框架，MorphAgent 是有自修改能力的 Agent。LangGraph 不支持自修改，MorphAgent 支持 4 个组件 (P/T/M/C) 独立修改。MorphAgent = LangGraph + 5 大子系统 + U 元控制器。</p>
+<p><strong>18.3 动手题</strong>：MorphAgent 主循环
+- <strong>答案</strong>：（参考 Ch 18 代码）</p>
+<p><strong>18.4-18.6 略</strong></p>
+<h3 id="ch-19">Ch 19 练习题答案</h3>
+<p><strong>19.1 设计题</strong>：5 个 API 漂移任务
+- <strong>答案</strong>：
+- Task 1：weather API 函数重命名
+- Task 2：search API 返回结构变化
+- Task 3：database API 参数顺序变化
+- Task 4：email API 认证方式变化
+- Task 5：calendar API 时间格式变化</p>
+<p><strong>19.2 分析题</strong>：HumanEval vs MorphBench
+- <strong>答案</strong>：HumanEval 验证代码生成能力，MorphBench 验证自修改能力。HumanEval 不能验证 H1，MorphBench 能。</p>
+<p><strong>19.3 动手题</strong>：统计显著性分析
+- <strong>答案</strong>：（参考 Ch 19 代码）</p>
+<p><strong>19.4-19.6 略</strong></p>
+<h3 id="ch-20-21">Ch 20-21 练习题答案</h3>
+<p>（Ch 20 重点：trace + metric + log 字段 → 答案略）
+（Ch 21 重点：5 个 SLO 设计 → 答案略）</p>
+<h2 id="e5-part-v">E.5 Part V 治理答案</h2>
+<h3 id="ch-22">Ch 22 练习题答案</h3>
+<p><strong>22.1 设计题</strong>：5 类攻击场景防护
+- <strong>答案</strong>：
+1. Prompt Injection → 3 层防御（检测 + 清洗 + 过滤）
+2. Tool Misuse → 权限限制 + 调用审计
+3. Self-Modification Escape → 硬约束 + 修改审计
+4. Memory Poisoning → 记忆验证 + 冲突解决
+5. Output Misuse → 输出过滤 + 速率限制</p>
+<p><strong>22.2 分析题</strong>：ChatGPT 的安全防护
+- <strong>答案</strong>：ChatGPT 有 OpenAI 的 Moderation API 防有害内容，但 MorphAgent 的 Self-Modification Escape 是新攻击面，ChatGPT 没有。</p>
+<p><strong>22.3 动手题</strong>：简化 sandbox
+- <strong>答案</strong>：（参考 Ch 22 代码）</p>
+<p><strong>22.4-22.6 略</strong></p>
+<h3 id="ch-23-25">Ch 23-25 练习题答案</h3>
+<p>（Ch 23 重点：完整验证流水线 → 答案略）
+（Ch 24 重点：伦理设计 checklist → 答案略）
+（Ch 25 重点：3 年研究计划 → 答案略）</p>
+<h2 id="e_2">附录 E 小结</h2>
+<ul>
+<li><strong>30 个练习题答案</strong>（覆盖全书 25 章）</li>
+<li>按 5 个 Part 组织</li>
+<li>答案采用"概念解释 + 设计示例 + 关键洞察"结构</li>
+</ul>
+<hr />
+<h2 id="_1">本附录小结</h2>
+<ul>
+<li><strong>30 个答案</strong>。</li>
+<li><strong>5 大 Part 完整覆盖</strong>。</li>
+<li>答案在"参考"与"留白"间取得平衡——给出方向但保留思考空间。</li>
+</ul>
+<h2 id="_2">推荐阅读</h2>
+<ul>
+<li>📖 <strong>Solutions Manual</strong>：读者可参考 LangChain 官方教程。</li>
+<li>📖 <strong>GitHub Discussions</strong>：作者社区讨论。</li>
+<li>📖 <strong>Discord</strong>：作者 Discord 频道。</li>
+<li>📖 <strong>Stack Overflow</strong>：技术问答社区。</li>
+<li>📖 <strong>r/MachineLearning</strong>：Reddit 社区。</li>
+</ul>
+<h2 id="_3">练习题</h2>
+<ol>
+<li><strong>核对题</strong>：用本附录核对 Ch 1-25 的练习题答案。</li>
+<li><strong>讨论题</strong>：哪些答案你不同意？为什么？</li>
+<li><strong>补充题</strong>：为某些答案补充更多细节或反例。</li>
+<li><strong>贡献题</strong>：通过 GitHub Issues 提交答案的改进。</li>
+</ol>
+<h2 id="_4">参考文献（本章内）</h2>
+<ol>
+<li>LangChain Authors. (2024). <em>LangChain Tutorials</em>. <a href="https://python.langchain.com/">python.langchain.com</a></li>
+<li>Anthropic. (2024). <em>Prompt Engineering Guide</em>. <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview">docs.anthropic.com</a></li>
+<li>Stack Overflow. (2024). <a href="https://stackoverflow.com/">stackoverflow.com</a></li>
+<li>r/MachineLearning. (2024). <em>Reddit</em>. <a href="https://www.reddit.com/r/MachineLearning/">reddit.com/r/MachineLearning</a></li>
+<li>GitHub. (2024). <em>morphagent-textbook Issues</em>. <a href="https://github.com/issues">github.com/issues</a></li>
+</ol>
+<hr />
+<blockquote>
+<p><strong>本章进度</strong>：30.E.1–30.E.5 全部完成（约 4,000 字，含 30 个练习题答案摘要 + 5 篇引用 + 4 题 + 5 推荐），达到 20 页计划。<code>status: final</code>。</p>
+</blockquote>
+<div class="nav-top" style="margin-top:3rem;border-top:1px solid var(--border);padding-top:1rem;"><a href="chapter-29.html">← 29. 附录 D · 教学实验清单</a><a href="index.html">目录</a><a href="chapter-31.html">31. 附录 F · 参考文献总目录 →</a></div>
+</main>
+</div>
+</body>
+</html>

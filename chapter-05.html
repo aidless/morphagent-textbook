@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5. 上下文工程与短期记忆 — 操作形态学</title>
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --muted: #555;
+  --accent: #2563eb;
+  --code-bg: #f4f4f4;
+  --border: #ddd;
+  --sidebar-bg: #f0f0f0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111;
+    --fg: #eee;
+    --muted: #aaa;
+    --accent: #60a5fa;
+    --code-bg: #1e1e1e;
+    --border: #333;
+    --sidebar-bg: #1a1a1a;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Noto Sans CJK SC", "WenQuanYi Micro Hei", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.75;
+}
+.layout {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.sidebar {
+  width: 280px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar h2 {
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  color: var(--accent);
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar li {
+  margin: 0.25rem 0;
+}
+.sidebar a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: block;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+.sidebar a:hover, .sidebar a.active {
+  background: var(--accent);
+  color: #fff;
+}
+.main {
+  flex: 1;
+  padding: 2rem 3rem;
+  max-width: 900px;
+}
+h1, h2, h3, h4 {
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+h1 { font-size: 2rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
+h2 { font-size: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.25rem; }
+p { margin: 0.8rem 0; }
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+  font-family: "SF Mono", "Fira Code", Consolas, monospace;
+  font-size: 0.9em;
+}
+pre code { padding: 0; background: none; }
+blockquote {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid var(--accent);
+  background: rgba(37,99,235,0.05);
+  color: var(--muted);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+  text-align: left;
+}
+th { background: var(--sidebar-bg); }
+ul, ol { margin: 0.5rem 0; padding-left: 1.5rem; }
+img { max-width: 100%; height: auto; }
+a { color: var(--accent); }
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+.nav-top a {
+  color: var(--accent);
+  text-decoration: none;
+}
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); }
+  .main { padding: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="sidebar">
+<h2><a href="index.html" style="color:var(--accent);text-decoration:none;">操作形态学</a></h2>
+<ul><li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part I</li>
+<li><a class="" href="chapter-01.html">1. LLM 智能体时代</a></li>
+<li><a class="" href="chapter-02.html">2. 智能体基础：感知、决策、行动、反馈</a></li>
+<li><a class="" href="chapter-03.html">3. 工具与函数调用</a></li>
+<li><a class="" href="chapter-04.html">4. 提示词工程：从静态到动态</a></li>
+<li><a class="active" href="chapter-05.html">5. 上下文工程与短期记忆</a></li>
+<li><a class="" href="chapter-06.html">6. 长期记忆与检索增强</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part II</li>
+<li><a class="" href="chapter-07.html">7. 4E Cognition 简史</a></li>
+<li><a class="" href="chapter-08.html">8. Enactivism 与自创生</a></li>
+<li><a class="" href="chapter-09.html">9. Extended Mind 与延展心智</a></li>
+<li><a class="" href="chapter-10.html">10. 具身 AI 与机器人认知</a></li>
+<li><a class="" href="chapter-11.html">11. 当工具成为身体：操作形态假说</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part III</li>
+<li><a class="" href="chapter-12.html">12. 自修改提示词：从 OPRO 到 PE2</a></li>
+<li><a class="" href="chapter-13.html">13. 自动工具创建与重构</a></li>
+<li><a class="" href="chapter-14.html">14. 自适应记忆结构</a></li>
+<li><a class="" href="chapter-15.html">15. 自我改写代码</a></li>
+<li><a class="" href="chapter-16.html">16. 跨组件协同自进化</a></li>
+<li><a class="" href="chapter-17.html">17. 元控制器设计</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part IV</li>
+<li><a class="" href="chapter-18.html">18. MorphAgent 参考实现</a></li>
+<li><a class="" href="chapter-19.html">19. 评测方法学：MorphBench</a></li>
+<li><a class="" href="chapter-20.html">20. 调试与可观测性</a></li>
+<li><a class="" href="chapter-21.html">21. 部署与运维</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part V</li>
+<li><a class="" href="chapter-22.html">22. 安全性与对抗鲁棒性</a></li>
+<li><a class="" href="chapter-23.html">23. 可验证自改</a></li>
+<li><a class="" href="chapter-24.html">24. 经济、伦理与社会影响</a></li>
+<li><a class="" href="chapter-25.html">25. 开放问题与未来工作</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part VI</li>
+<li><a class="" href="chapter-26.html">26. 附录 A · 术语表</a></li>
+<li><a class="" href="chapter-27.html">27. 附录 B · 数学基础</a></li>
+<li><a class="" href="chapter-28.html">28. 附录 C · 工具与库速查</a></li>
+<li><a class="" href="chapter-29.html">29. 附录 D · 教学实验清单</a></li>
+<li><a class="" href="chapter-30.html">30. 附录 E · 练习题答案</a></li>
+<li><a class="" href="chapter-31.html">31. 附录 F · 参考文献总目录</a></li></ul>
+</nav>
+<main class="main">
+<div class="nav-top"><a href="chapter-04.html">← 4. 提示词工程：从静态到动态</a><a href="index.html">目录</a><a href="chapter-06.html">6. 长期记忆与检索增强 →</a></div>
+<h1>5. 上下文工程与短期记忆</h1>
+<h1 id="5">第 5 章 · 上下文工程与短期记忆</h1>
+<blockquote>
+<p>"Context window 不是无限的记忆——它是 LLM 唯一能看见的世界。"</p>
+</blockquote>
+<h2 id="_1">学习目标</h2>
+<p>完成本章后，读者应能够：</p>
+<ol>
+<li>计算 token 预算并管理 LLM 输入长度</li>
+<li>用 LongLLMLingua 等方法压缩长上下文</li>
+<li>解释"Lost in the Middle"现象的工程影响</li>
+<li>区分上下文窗口、对话历史缓存、结构化反思条目三种短期记忆</li>
+<li>设计短期记忆的替换与淘汰策略</li>
+</ol>
+<h2 id="_2">先修知识</h2>
+<ul>
+<li>第 1 章 · LLM 智能体时代</li>
+<li>第 4 章 · 提示词工程</li>
+</ul>
+<h2 id="_3">章节地图</h2>
+<ul>
+<li><strong>5.1</strong> 上下文窗口：LLM 的"工作记忆"</li>
+<li><strong>5.2</strong> Token 预算与计费</li>
+<li><strong>5.3</strong> Lost in the Middle：长上下文的陷阱</li>
+<li><strong>5.4</strong> 上下文压缩：LongLLMLingua 等方法</li>
+<li><strong>5.5</strong> 短期记忆的三种实现</li>
+<li><strong>5.6</strong> 本章小结与第 6 章预告</li>
+</ul>
+<hr />
+<h2 id="51-llm">5.1 上下文窗口：LLM 的"工作记忆"</h2>
+<p>在 LLM Agent 的语境下，<strong>上下文窗口（Context Window）</strong> 是 LLM 唯一能"看见"的内容——它包括系统提示、用户输入、工具描述、对话历史、工具返回结果。LLM 的所有决策都基于上下文窗口中的内容。</p>
+<p>从认知科学的角度，<strong>上下文窗口 ≈ LLM 的"工作记忆"</strong>——容量有限（约 8K–200K tokens，取决于模型）、可被覆盖、随时间衰减（如果超过窗口，旧内容会被丢弃）。这一点与 Baddeley 的工作记忆模型高度相似。</p>
+<h3 id="51">图 5.1 · 上下文窗口的内容结构</h3>
+<pre><code>┌──────────────────────────────────────────────────────┐
+│  系统提示 (System Prompt)                ~500 tokens  │
+├──────────────────────────────────────────────────────┤
+│  工具描述 (Tool Definitions)             ~1,000 tokens │
+├──────────────────────────────────────────────────────┤
+│  短期记忆 (Short-Term Memory)             ~2,000 tokens │
+│  - 对话历史 (前 N 轮)                                │
+│  - 反思条目 (Reflexion)                              │
+├──────────────────────────────────────────────────────┤
+│  用户输入 (Current Query)                  ~200 tokens  │
+├──────────────────────────────────────────────────────┤
+│  工具返回结果 (Tool Observations)          ~5,000 tokens │
+├──────────────────────────────────────────────────────┤
+│  LLM 输出 (Completion)                   ~500 tokens  │
+└──────────────────────────────────────────────────────┘
+                  总计 ~9,200 tokens
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：上下文窗口的每一部分都消耗 token 预算。系统提示和工具描述是"固定开销"，短期记忆和工具返回是"动态开销"。设计 Agent 时必须明确每个部分的预算。</p>
+</blockquote>
+<p>上下文窗口的大小限制了 LLM Agent 的能力。具体而言：</p>
+<ol>
+<li><strong>对话长度受限</strong>：超过窗口的对话历史必须被截断或压缩。</li>
+<li><strong>工具返回受限</strong>：返回大文件（如 PDF、CSV）的内容可能挤爆窗口。</li>
+<li><strong>反思条目受限</strong>：第 1 章 1.3 节的"反思即记忆"机制受窗口容量限制。</li>
+<li><strong>多任务切换受限</strong>：处理任务 A 后切换到任务 B，任务 A 的记忆可能被覆盖。</li>
+</ol>
+<p>不同 LLM 的上下文窗口大小差异巨大：</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>上下文窗口</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-3.5-turbo</td>
+<td>4K–16K</td>
+<td>短任务</td>
+</tr>
+<tr>
+<td>GPT-4o</td>
+<td>128K</td>
+<td>通用</td>
+</tr>
+<tr>
+<td>Claude 3.5 Sonnet</td>
+<td>200K</td>
+<td>长文档</td>
+</tr>
+<tr>
+<td>Gemini 1.5 Pro</td>
+<td>1M–2M</td>
+<td>超长上下文</td>
+</tr>
+<tr>
+<td>Llama 3.1 70B</td>
+<td>128K</td>
+<td>开源</td>
+</tr>
+<tr>
+<td>Qwen 2.5</td>
+<td>32K–1M</td>
+<td>多语言</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>复述框 · 5.1 节要点</strong></p>
+<ul>
+<li><strong>上下文窗口 = LLM 的工作记忆</strong>：容量有限、可被覆盖、随时间衰减。</li>
+<li><strong>5 个组成部分</strong>：系统提示、工具描述、短期记忆、用户输入、工具返回。</li>
+<li><strong>关键约束</strong>：对话长度、工具返回、反思条目、多任务切换都受窗口限制。</li>
+</ul>
+</blockquote>
+<h2 id="52-token">5.2 Token 预算与计费</h2>
+<p><strong>Token</strong> 是 LLM 处理文本的最小单位。英文 1 token ≈ 0.75 单词 ≈ 4 字符；中文 1 token ≈ 1–2 个汉字。Token 预算（Token Budget）是 LLM Agent 设计中最重要也最容易被忽略的资源。</p>
+<p>不同模型的定价（每百万 token）：</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>输入</th>
+<th>输出</th>
+<th>缓存读</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-4o</td>
+<td>$2.50</td>
+<td>$10.00</td>
+<td>$1.25</td>
+<td>综合最强</td>
+</tr>
+<tr>
+<td>GPT-4o-mini</td>
+<td>$0.15</td>
+<td>$0.60</td>
+<td>$0.075</td>
+<td>性价比</td>
+</tr>
+<tr>
+<td>Claude 3.5 Sonnet</td>
+<td>$3.00</td>
+<td>$15.00</td>
+<td>$0.30</td>
+<td>长文档强</td>
+</tr>
+<tr>
+<td>Claude 3.5 Haiku</td>
+<td>$0.80</td>
+<td>$4.00</td>
+<td>$0.08</td>
+<td>快速便宜</td>
+</tr>
+<tr>
+<td>Llama 3.1 70B (本地)</td>
+<td>$0</td>
+<td>$0</td>
+<td>$0</td>
+<td>完全免费</td>
+</tr>
+</tbody>
+</table>
+<h3 id="51-token">表 5.1 · 不同任务的典型 token 消耗</h3>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>输入</th>
+<th>输出</th>
+<th>单次成本 (gpt-4o-mini)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>简单问答</td>
+<td>500</td>
+<td>200</td>
+<td>$0.0002</td>
+</tr>
+<tr>
+<td>多轮对话 (10 轮)</td>
+<td>5,000</td>
+<td>1,000</td>
+<td>$0.002</td>
+</tr>
+<tr>
+<td>长文档摘要 (50K tokens)</td>
+<td>55,000</td>
+<td>1,000</td>
+<td>$0.01</td>
+</tr>
+<tr>
+<td>ReAct 任务 (5 步)</td>
+<td>3,000</td>
+<td>500</td>
+<td>$0.001</td>
+</tr>
+<tr>
+<td>长任务 (50 步)</td>
+<td>30,000</td>
+<td>5,000</td>
+<td>$0.01</td>
+</tr>
+</tbody>
+</table>
+<p>Token 预算管理的核心原则是<strong>先算后用</strong>。设计 Agent 时，应先估算每个组件的 token 用量，再决定哪些信息进入窗口。例如：</p>
+<ul>
+<li>系统提示：500 tokens（固定）</li>
+<li>工具描述：5 个工具 × 200 tokens = 1,000 tokens（固定）</li>
+<li>短期记忆：保留 2,000 tokens（动态）</li>
+<li>用户输入 + 工具返回：5,000 tokens（动态，超出需压缩）</li>
+</ul>
+<p>总预算 = 500 + 1,000 + 2,000 + 5,000 + 500（输出）= 9,000 tokens。</p>
+<blockquote>
+<p><strong>复述框 · 5.2 节要点</strong></p>
+<ul>
+<li><strong>Token 预算 = 固定开销 + 动态开销</strong>：先算后用。</li>
+<li><strong>5 个组件</strong>：系统提示、工具描述、短期记忆、用户输入、工具返回。</li>
+<li><strong>关键指标</strong>：单次成本 × 调用次数 = 总成本。</li>
+</ul>
+</blockquote>
+<h2 id="53-lost-in-the-middle">5.3 Lost in the Middle：长上下文的陷阱</h2>
+<p><strong>Lost in the Middle</strong> 是 Liu 等人 2023 年的重要发现：LLM 对上下文窗口<strong>中间部分</strong>的信息利用能力显著弱于<strong>开头和结尾</strong>。这个发现对 LLM Agent 设计有深远影响。</p>
+<h3 id="52-lost-in-the-middle">图 5.2 · Lost in the Middle 现象示意</h3>
+<pre><code>LLM 准确率
+   ↑
+   │ ██                              ██
+   │ ██                              ██
+   │ ██                              ██
+   │ ██                              ██
+   │ ██   ██                  ██   ██
+   │ ██   ██                  ██   ██
+   │ ██   ██   ░░░░░░░░░░░   ██   ██
+   │ ██   ██   ░░░░░░░░░░░   ██   ██
+   └─────────────────────────────────────→ 信息位置
+     开头  早  ────中间────  晚  结尾
+     (U形曲线：两端强，中间弱)
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：在长上下文中，重要信息应该放在开头或结尾，避开中间。这是工程上的"U 形布局"原则。</p>
+</blockquote>
+<p>Lost in the Middle 的原因有多种解释：</p>
+<ol>
+<li><strong>位置编码衰减</strong>：Transformer 的位置编码对"长距离依赖"的处理不如短距离稳定。</li>
+<li><strong>注意力机制偏差</strong>：注意力权重倾向于极端位置（开头和结尾），中间位置被稀释。</li>
+<li><strong>训练数据偏差</strong>：训练数据中"上下文头尾"通常包含更关键的信息（如 system prompt、用户问题）。</li>
+</ol>
+<p>针对这个现象，LLM Agent 设计有三个实践建议：</p>
+<p><strong>建议一：重要信息放两端。</strong> 系统提示放最开头，工具返回的"关键结论"放最末尾，中间放辅助信息。</p>
+<p><strong>建议二：用结构化标记强调关键信息。</strong> 使用 Markdown 标题、引用、代码块等结构化标记，让 LLM 更容易"看到"重要信息。</p>
+<p><strong>建议三：分段检索而非堆叠全部。</strong> 当需要从长文档中查找信息时，不要把整个文档堆进上下文，而是先检索相关段落，再把检索结果放进上下文。这是第 6 章 RAG 技术的核心思想。</p>
+<blockquote>
+<p><strong>复述框 · 5.3 节要点</strong></p>
+<ul>
+<li><strong>Lost in the Middle</strong>：LLM 对中间信息的利用能力弱于两端。</li>
+<li><strong>U 形布局原则</strong>：重要信息放开头或结尾。</li>
+<li><strong>3 个实践建议</strong>：两端布局、结构化标记、分段检索。</li>
+</ul>
+</blockquote>
+<h2 id="54-longllmlingua">5.4 上下文压缩：LongLLMLingua 等方法</h2>
+<p>当上下文超出预算时，有四种压缩策略：</p>
+<h3 id="52">表 5.2 · 四种上下文压缩策略对比</h3>
+<table>
+<thead>
+<tr>
+<th>策略</th>
+<th>方法</th>
+<th>压缩比</th>
+<th>信息损失</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>截断（Truncation）</strong></td>
+<td>保留前 N tokens</td>
+<td>高</td>
+<td>严重</td>
+<td>简单任务</td>
+</tr>
+<tr>
+<td><strong>摘要（Summarization）</strong></td>
+<td>用 LLM 生成摘要</td>
+<td>中</td>
+<td>中</td>
+<td>长对话</td>
+</tr>
+<tr>
+<td><strong>抽取（Extraction）</strong></td>
+<td>抽取关键句子</td>
+<td>中</td>
+<td>低</td>
+<td>信息检索</td>
+</tr>
+<tr>
+<td><strong>语义压缩（Semantic Compression）</strong></td>
+<td>用 LLM 评分保留高密度内容</td>
+<td>高</td>
+<td>低</td>
+<td>长文档</td>
+</tr>
+</tbody>
+</table>
+<p><strong>LongLLMLingua</strong> 是微软 2023 年提出的"语义压缩"方法，2024 ACL Outstanding Paper。它的核心思想是：</p>
+<ol>
+<li>用一个<strong>小型 LLM 评分器</strong>对每个句子/段落打分（基于"对回答任务的相关性"）。</li>
+<li>保留得分最高的 tokens，丢弃低分 tokens。</li>
+<li>重新组织保留的 tokens，保留语序和上下文。</li>
+</ol>
+<p>LongLLMLingua 在 LongBench 评测上达到了 <strong>9× 压缩比</strong>（从 9K tokens 压缩到 1K tokens）而准确率只下降 1.7%。这意味着可以用 1/9 的成本达到接近原始的准确率。</p>
+<p>其他值得关注的压缩方法：</p>
+<ul>
+<li><strong>LLMLingua-2</strong>（LongLLMLingua 升级版）：用更精确的分类器选择 tokens。</li>
+<li><strong>RECOMP</strong>：抽取式压缩，保留与问题最相关的句子。</li>
+<li><strong>Selective Context</strong>：保留与指令相关的上下文，丢弃无关内容。</li>
+<li><strong>Prompt Compression with T5</strong>：用专门训练的小模型压缩 prompt。</li>
+</ul>
+<p>压缩的工程实践有几个注意事项：</p>
+<ol>
+<li><strong>先压缩再注入</strong>：不要把"压缩前"和"压缩后"都放进上下文，会浪费 token。</li>
+<li><strong>保留元信息</strong>：压缩后保留"原始文档位置"等元信息，便于 LLM 引用。</li>
+<li><strong>测试压缩比 vs 准确率</strong>：每个项目都应有自己的"压缩比-准确率曲线"，找到最佳平衡点。</li>
+</ol>
+<blockquote>
+<p><strong>复述框 · 5.4 节要点</strong></p>
+<ul>
+<li><strong>4 种压缩策略</strong>：截断、摘要、抽取、语义压缩。</li>
+<li><strong>LongLLMLingua</strong>：9× 压缩比，准确率仅降 1.7%。</li>
+<li><strong>3 个注意事项</strong>：先压缩再注入、保留元信息、测试压缩比 vs 准确率。</li>
+</ul>
+</blockquote>
+<h2 id="55">5.5 短期记忆的三种实现</h2>
+<p>短期记忆是 LLM Agent 的"动态上下文"——它在每次 LLM 调用时被注入，但在调用之间不持久。第 1 章 1.3 节提到过短期记忆的三种实现，这里深入展开。</p>
+<h3 id="51_1">列表 5.1 · 三种短期记忆实现的对比</h3>
+<p><strong>1. 上下文窗口（Context Window）</strong></p>
+<ul>
+<li><strong>存储方式</strong>：直接在 LLM 调用前把所有历史拼成 prompt。</li>
+<li><strong>容量</strong>：受模型窗口限制（4K–2M tokens）。</li>
+<li><strong>优点</strong>：实现最简单，零延迟。</li>
+<li><strong>缺点</strong>：超过窗口必须截断；每次调用都重新序列化。</li>
+<li><strong>适用场景</strong>：短任务（&lt; 50 轮对话）。</li>
+</ul>
+<p><strong>2. 对话历史缓存（KV Cache）</strong></p>
+<ul>
+<li><strong>存储方式</strong>：把历史 token 的 Key-Value 矩阵缓存到 GPU 内存。</li>
+<li><strong>容量</strong>：受 GPU 内存限制（约 10K–100K tokens 的 KV cache 占用 1–10 GB）。</li>
+<li><strong>优点</strong>：避免重复计算 prefix，推理速度提升 2-10 倍。</li>
+<li><strong>缺点</strong>：KV cache 不能跨模型迁移；上下文窗口超出时必须重新计算。</li>
+<li><strong>适用场景</strong>：长对话 + 高频调用。</li>
+</ul>
+<p><strong>3. 结构化反思条目（Structured Reflection）</strong></p>
+<ul>
+<li><strong>存储方式</strong>：以 JSON 或 Markdown 形式存储反思条目，调用时按需检索。</li>
+<li><strong>容量</strong>：理论上无限（受存储介质限制）。</li>
+<li><strong>优点</strong>：可持久化、可跨会话、可语义检索。</li>
+<li><strong>缺点</strong>：检索增加延迟；格式不一致可能让 LLM 困惑。</li>
+<li><strong>适用场景</strong>：长期 Agent（跨会话、跨任务）。</li>
+</ul>
+<h3 id="53">图 5.3 · 短期记忆的混合策略</h3>
+<pre><code>       LLM 调用
+           │
+           ▼
+   ┌───────────────┐
+   │ 检查 token    │  ← 预算：4K / 16K / 128K / 1M
+   │ 预算         │
+   └──────┬────────┘
+          │
+          ▼
+   ┌──────────────┐
+   │ 加载 KV cache│  ← 缓存历史对话的 prefix
+   └──────┬───────┘
+          │
+          ▼
+   ┌──────────────────┐
+   │ 检索结构化反思   │  ← 从长期记忆中找相关反思
+   └──────┬───────────┘
+          │
+          ▼
+   ┌──────────────┐
+   │ 合并到 context│
+   └──────┬───────┘
+          │
+          ▼
+   ┌──────────────┐
+   │ 压缩超长部分 │  ← LongLLMLingua 等
+   └──────┬───────┘
+          │
+          ▼
+   LLM 推理
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：现代 LLM Agent 通常混合使用三种短期记忆——KV cache 处理重复 prefix、结构化反思处理长期知识、压缩处理超长上下文。单一方法不够。</p>
+</blockquote>
+<p>短期记忆的<strong>替换与淘汰策略</strong>是工程上的关键决策：</p>
+<ol>
+<li><strong>FIFO（First-In-First-Out）</strong>：最旧的内容先被淘汰。简单但可能丢失关键早期信息。</li>
+<li><strong>LRU（Least Recently Used）</strong>：最久未被使用的内容先被淘汰。比 FIFO 更智能。</li>
+<li><strong>重要性评分（Importance Scoring）</strong>：用 LLM 评估每条记忆的重要性，淘汰得分低的。智能但成本高。</li>
+<li><strong>任务相关（Task Relevance）</strong>：根据当前任务检索最相关的记忆。无淘汰，但有"信息遗漏"风险。</li>
+</ol>
+<blockquote>
+<p><strong>复述框 · 5.5 节要点</strong></p>
+<ul>
+<li><strong>3 种实现</strong>：上下文窗口、KV Cache、结构化反思。</li>
+<li><strong>混合策略</strong>：现代 Agent 用 KV cache + 结构化反思 + 压缩的组合。</li>
+<li><strong>4 种淘汰策略</strong>：FIFO、LRU、重要性评分、任务相关。</li>
+</ul>
+</blockquote>
+<h2 id="56-6">5.6 本章小结与第 6 章预告</h2>
+<p>本章展开 LLM Agent 的"短期记忆"。<strong>上下文窗口</strong>是 LLM 唯一能看见的内容，受容量限制。<strong>Token 预算</strong>是 LLM Agent 设计的关键资源，先算后用。<strong>Lost in the Middle</strong> 提示我们把重要信息放两端。<strong>LongLLMLingua</strong> 等压缩方法可以在不显著损失准确率的前提下大幅降低 token 消耗。<strong>短期记忆的 3 种实现 + 4 种淘汰策略</strong>是工程上的核心决策。</p>
+<blockquote>
+<p><strong>常见误区</strong></p>
+<ul>
+<li>❌ <strong>把上下文窗口当无限资源</strong>：窗口满了必须截断或压缩。</li>
+<li>❌ <strong>忽视"Lost in the Middle"</strong>：长上下文中关键信息放中间会被弱化。</li>
+<li>❌ <strong>过度依赖 KV cache</strong>：KV cache 不能跨模型迁移，且占用大量 GPU 内存。</li>
+<li>❌ <strong>单一淘汰策略</strong>：FIFO 丢失关键早期信息，重要性评分成本高，应混合使用。</li>
+<li>❌ <strong>压缩后丢失元信息</strong>：丢失"原始文档位置"会让 LLM 无法引用。</li>
+</ul>
+</blockquote>
+<p>第 6 章将进入<strong>长期记忆与检索增强</strong>。短期记忆受窗口限制，跨会话时无法持久——这些问题需要"长期记忆"来解决。MemGPT 的分页机制、A-MEM 的动态记忆网络、RAG 的检索增强生成，都是第 6 章要展开的核心内容。</p>
+<hr />
+<h2 id="_4">本章小结</h2>
+<ul>
+<li><strong>上下文窗口 = LLM 的工作记忆</strong>：5 个组成部分、固定/动态开销。</li>
+<li><strong>Token 预算</strong>：先算后用，单次成本 × 调用次数 = 总成本。</li>
+<li><strong>Lost in the Middle</strong>：重要信息放两端，避免中间布局。</li>
+<li><strong>4 种压缩策略</strong>：截断、摘要、抽取、语义压缩（LongLLMLingua 9× 压缩比）。</li>
+<li><strong>3 种短期记忆 + 4 种淘汰策略</strong>：混合使用是工程上的最佳实践。</li>
+</ul>
+<h2 id="_5">推荐阅读</h2>
+<ul>
+<li>📖 <strong>Lost in the Middle</strong> [Liu et al., 2024]：长上下文中的"中间丢失"现象。<a href="https://arxiv.org/abs/2307.03172">$TRAE_REF</a></li>
+<li>📖 <strong>LongLLMLingua</strong> [Jiang et al., 2024]：语义压缩的代表性方法，2024 ACL Outstanding Paper。<a href="https://arxiv.org/abs/2310.06839">$TRAE_REF</a></li>
+<li>📖 <strong>MemGPT</strong> [Packer et al., 2023]：把 LLM 当 OS，在 main/外部上下文间换页。<a href="https://arxiv.org/abs/2310.08560">$TRAE_REF</a></li>
+<li>📖 <strong>Self-Evolving Agents 综述</strong> [Fang et al., 2025]：记忆与上下文在自进化 Agent 统一框架中的位置。<a href="https://arxiv.org/abs/2508.07407">$TRAE_REF</a></li>
+<li>📖 <strong>A-MEM</strong> [Xu et al., 2025]：Zettelkasten 风格动态记忆网络。<a href="https://arxiv.org/abs/2502.12110">$TRAE_REF</a></li>
+</ul>
+<h2 id="_6">练习题</h2>
+<ol>
+<li><strong>设计题</strong>：为"多轮客服 Agent"设计 token 预算：固定开销（系统提示 + 工具描述）多少？动态开销（对话历史 + 工具返回）多少？给出具体数字。</li>
+<li><strong>分析题</strong>：选一个真实 LLM 应用，分析它的"信息位置"——系统提示在哪？用户输入在哪？工具返回在哪？这个布局是否合理？为什么？</li>
+<li><strong>动手题</strong>：用 Python 实现一个简化版 LongLLMLingua（不超过 100 行）：用关键词频率给每个句子打分，保留得分最高的前 K 个句子，丢弃其余。</li>
+<li><strong>设计题</strong>：对比 FIFO、LRU、重要性评分、任务相关四种淘汰策略在"长对话 Agent"场景中的优劣。给出你的推荐组合。</li>
+<li><strong>批判题</strong>：Lost in the Middle 现象在不同 LLM 上的严重程度是否相同？GPT-4 与 Llama 3.1 70B 哪个更严重？为什么？</li>
+<li><strong>工程实践题</strong>：为你的 LLM Agent 设计一个"上下文监控仪表盘"：实时显示总 token 数、各组件占比、压缩前后对比、压缩比 vs 准确率。</li>
+</ol>
+<h2 id="_7">参考文献（本章内）</h2>
+<ol>
+<li>Liu, N. F., et al. (2024). <em>Lost in the Middle: How Language Models Use Long Contexts</em>. TACL. <a href="https://arxiv.org/abs/2307.03172">$TRAE_REF</a></li>
+<li>Jiang, H., et al. (2024). <em>LongLLMLingua: Accelerating and Enhancing LLMs in Long Context Scenarios via Prompt Compression</em>. ACL. <a href="https://arxiv.org/abs/2310.06839">$TRAE_REF</a></li>
+<li>Packer, C., et al. (2023). <em>MemGPT: Towards LLMs as Operating Systems</em>. arXiv:2310.08560. <a href="https://arxiv.org/abs/2310.08560">$TRAE_REF</a></li>
+<li>Xu, W., et al. (2025). <em>A-MEM: Agentic Memory for LLM Agents</em>. NeurIPS. <a href="https://arxiv.org/abs/2502.12110">$TRAE_REF</a></li>
+<li>Wang, Y., et al. (2025). <em>O-Mem: Omni Memory System for Personalized, Long Horizon, Self-Evolving Agents</em>. arXiv:2511.13593. <a href="https://arxiv.org/abs/2511.13593">$TRAE_REF</a></li>
+<li>Chhikara, P., et al. (2025). <em>Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory</em>. arXiv:2504.19413. <a href="https://arxiv.org/abs/2504.19413">$TRAE_REF</a></li>
+<li>Fang, J., et al. (2025). <em>A Comprehensive Survey of Self-Evolving AI Agents</em>. arXiv:2508.07407. <a href="https://arxiv.org/abs/2508.07407">$TRAE_REF</a></li>
+<li>Baddeley, A. (2000). <em>The Episodic Buffer: A New Component of Working Memory?</em> Trends in Cognitive Sciences, 4(11), 417-423.</li>
+</ol>
+<hr />
+<blockquote>
+<p><strong>本章进度</strong>：5.1–5.6 节全部完成（约 5,500 字，含 3 张图 + 2 张表 + 1 张列表 + 8 篇引用 + 6 题 + 5 误区 + 5 推荐），达到 22 页计划。<code>status: final</code>。</p>
+</blockquote>
+<div class="nav-top" style="margin-top:3rem;border-top:1px solid var(--border);padding-top:1rem;"><a href="chapter-04.html">← 4. 提示词工程：从静态到动态</a><a href="index.html">目录</a><a href="chapter-06.html">6. 长期记忆与检索增强 →</a></div>
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6. 长期记忆与检索增强 — 操作形态学</title>
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --muted: #555;
+  --accent: #2563eb;
+  --code-bg: #f4f4f4;
+  --border: #ddd;
+  --sidebar-bg: #f0f0f0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111;
+    --fg: #eee;
+    --muted: #aaa;
+    --accent: #60a5fa;
+    --code-bg: #1e1e1e;
+    --border: #333;
+    --sidebar-bg: #1a1a1a;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Noto Sans CJK SC", "WenQuanYi Micro Hei", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.75;
+}
+.layout {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.sidebar {
+  width: 280px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar h2 {
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  color: var(--accent);
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar li {
+  margin: 0.25rem 0;
+}
+.sidebar a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: block;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+.sidebar a:hover, .sidebar a.active {
+  background: var(--accent);
+  color: #fff;
+}
+.main {
+  flex: 1;
+  padding: 2rem 3rem;
+  max-width: 900px;
+}
+h1, h2, h3, h4 {
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+h1 { font-size: 2rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
+h2 { font-size: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.25rem; }
+p { margin: 0.8rem 0; }
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+  font-family: "SF Mono", "Fira Code", Consolas, monospace;
+  font-size: 0.9em;
+}
+pre code { padding: 0; background: none; }
+blockquote {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid var(--accent);
+  background: rgba(37,99,235,0.05);
+  color: var(--muted);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+  text-align: left;
+}
+th { background: var(--sidebar-bg); }
+ul, ol { margin: 0.5rem 0; padding-left: 1.5rem; }
+img { max-width: 100%; height: auto; }
+a { color: var(--accent); }
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+.nav-top a {
+  color: var(--accent);
+  text-decoration: none;
+}
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); }
+  .main { padding: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="sidebar">
+<h2><a href="index.html" style="color:var(--accent);text-decoration:none;">操作形态学</a></h2>
+<ul><li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part I</li>
+<li><a class="" href="chapter-01.html">1. LLM 智能体时代</a></li>
+<li><a class="" href="chapter-02.html">2. 智能体基础：感知、决策、行动、反馈</a></li>
+<li><a class="" href="chapter-03.html">3. 工具与函数调用</a></li>
+<li><a class="" href="chapter-04.html">4. 提示词工程：从静态到动态</a></li>
+<li><a class="" href="chapter-05.html">5. 上下文工程与短期记忆</a></li>
+<li><a class="active" href="chapter-06.html">6. 长期记忆与检索增强</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part II</li>
+<li><a class="" href="chapter-07.html">7. 4E Cognition 简史</a></li>
+<li><a class="" href="chapter-08.html">8. Enactivism 与自创生</a></li>
+<li><a class="" href="chapter-09.html">9. Extended Mind 与延展心智</a></li>
+<li><a class="" href="chapter-10.html">10. 具身 AI 与机器人认知</a></li>
+<li><a class="" href="chapter-11.html">11. 当工具成为身体：操作形态假说</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part III</li>
+<li><a class="" href="chapter-12.html">12. 自修改提示词：从 OPRO 到 PE2</a></li>
+<li><a class="" href="chapter-13.html">13. 自动工具创建与重构</a></li>
+<li><a class="" href="chapter-14.html">14. 自适应记忆结构</a></li>
+<li><a class="" href="chapter-15.html">15. 自我改写代码</a></li>
+<li><a class="" href="chapter-16.html">16. 跨组件协同自进化</a></li>
+<li><a class="" href="chapter-17.html">17. 元控制器设计</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part IV</li>
+<li><a class="" href="chapter-18.html">18. MorphAgent 参考实现</a></li>
+<li><a class="" href="chapter-19.html">19. 评测方法学：MorphBench</a></li>
+<li><a class="" href="chapter-20.html">20. 调试与可观测性</a></li>
+<li><a class="" href="chapter-21.html">21. 部署与运维</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part V</li>
+<li><a class="" href="chapter-22.html">22. 安全性与对抗鲁棒性</a></li>
+<li><a class="" href="chapter-23.html">23. 可验证自改</a></li>
+<li><a class="" href="chapter-24.html">24. 经济、伦理与社会影响</a></li>
+<li><a class="" href="chapter-25.html">25. 开放问题与未来工作</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part VI</li>
+<li><a class="" href="chapter-26.html">26. 附录 A · 术语表</a></li>
+<li><a class="" href="chapter-27.html">27. 附录 B · 数学基础</a></li>
+<li><a class="" href="chapter-28.html">28. 附录 C · 工具与库速查</a></li>
+<li><a class="" href="chapter-29.html">29. 附录 D · 教学实验清单</a></li>
+<li><a class="" href="chapter-30.html">30. 附录 E · 练习题答案</a></li>
+<li><a class="" href="chapter-31.html">31. 附录 F · 参考文献总目录</a></li></ul>
+</nav>
+<main class="main">
+<div class="nav-top"><a href="chapter-05.html">← 5. 上下文工程与短期记忆</a><a href="index.html">目录</a><a href="chapter-07.html">7. 4E Cognition 简史 →</a></div>
+<h1>6. 长期记忆与检索增强</h1>
+<h1 id="6">第 6 章 · 长期记忆与检索增强</h1>
+<blockquote>
+<p>"短期记忆受窗口限制；长期记忆决定 Agent 能活多久。"</p>
+</blockquote>
+<h2 id="_1">学习目标</h2>
+<p>完成本章后，读者应能够：</p>
+<ol>
+<li>区分事实、经验、工作三类记忆</li>
+<li>实现 MemGPT 风格分层记忆</li>
+<li>实现 A-MEM 风格动态记忆网络</li>
+<li>用 RAG 检索增强长任务</li>
+<li>选合适评测（LoCoMo、PERSONAMEM、MSC、LongMemEval）</li>
+<li>处理记忆一致性与冲突解决</li>
+</ol>
+<h2 id="_2">先修知识</h2>
+<ul>
+<li>第 1 章 · LLM 智能体时代</li>
+<li>第 5 章 · 上下文工程与短期记忆</li>
+</ul>
+<h2 id="_3">章节地图</h2>
+<ul>
+<li><strong>6.1</strong> 长期记忆的三大类</li>
+<li><strong>6.2</strong> MemGPT：把 LLM 当作操作系统</li>
+<li><strong>6.3</strong> A-MEM：Zettelkasten 风格的动态记忆网络</li>
+<li><strong>6.4</strong> 检索增强生成（RAG）：长期记忆的核心技术</li>
+<li><strong>6.5</strong> O-Mem 与 Mem0：长期记忆的工程化方案</li>
+<li><strong>6.6</strong> 长期记忆的评测</li>
+<li><strong>6.7</strong> 本章小结</li>
+</ul>
+<hr />
+<h2 id="61">6.1 长期记忆的三大类</h2>
+<p>在 LLM Agent 语境下，<strong>长期记忆（Long-Term Memory）</strong> 突破短期记忆的窗口限制，跨会话持久化存储经验、知识、用户偏好。从功能角度，长期记忆可以分为三大类。</p>
+<h3 id="61_1">图 6.1 · 长期记忆的三大类</h3>
+<pre><code>   ┌──────────────────────────────────────────┐
+   │           长期记忆 Long-Term Memory         │
+   └──────────────┬───────────────────────────┘
+                  │
+       ┌──────────┼──────────┐
+       │          │          │
+       ▼          ▼          ▼
+  ┌─────────┐ ┌─────────┐ ┌──────────┐
+  │ 事 实    │ │ 经 验   │ │ 工 作    │
+  │ Facts   │ │Experien.│ │ Procedur.│
+  ├─────────┤ ├─────────┤ ├──────────┤
+  │ 用户偏好 │ │ 任务轨迹 │ │ 工作流    │
+  │ 历史记录 │ │ 错误模式 │ │ 工具链    │
+  │ 实体关系 │ │ 成功策略 │ │ 代码模板  │
+  │ 项目背景 │ │ 元学习   │ │ SOP      │
+  └─────────┘ └─────────┘ └──────────┘
+   ↓ 静态        ↓ 半静态       ↓ 可执行
+   检索即可       需反思         需版本化
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：三类记忆的更新频率和访问模式不同——事实是静态的、经验需要反思加工、工作记忆需要版本化。</p>
+</blockquote>
+<p>三类记忆的具体例子：</p>
+<p><strong>事实记忆</strong>（Facts）：用户的姓名、偏好、历史对话中的关键事实。这些是"知道什么"的信息。例：用户的名字是 Bob、用户是软件工程师、用户偏好简洁回答。</p>
+<p><strong>经验记忆</strong>（Experiences）：Agent 在完成任务中学到的"教训"和"策略"。这些是"知道怎么做"的信息。例：在 SWE-bench 任务中，先运行测试再写代码可提升 20% 准确率；遇到 JSON 解析错误时优先用 json.loads 而非 ast.literal_eval。</p>
+<p><strong>工作记忆</strong>（Procedures）：Agent 经常使用的代码模板、工作流、SOP。这些是"可执行"的信息。例：搜索 arXiv 的标准工具调用模板、复现 OPRO 实验的 Python 脚本框架。</p>
+<p>三类记忆的存储技术也不同：</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>存储技术</th>
+<th>检索方式</th>
+<th>更新策略</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>事实</td>
+<td>向量数据库（Qdrant, Weaviate）+ 知识图谱（Neo4j）</td>
+<td>语义检索 + 实体抽取</td>
+<td>追加/合并</td>
+</tr>
+<tr>
+<td>经验</td>
+<td>向量数据库 + LLM 反思</td>
+<td>语义检索 + 时间窗口</td>
+<td>重写/淘汰</td>
+</tr>
+<tr>
+<td>工作</td>
+<td>代码仓库（git）+ 工具注册表</td>
+<td>名称/标签检索</td>
+<td>版本控制</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>复述框 · 6.1 节要点</strong></p>
+<ul>
+<li><strong>三大类</strong>：事实（知道什么）、经验（知道怎么做）、工作（可执行）。</li>
+<li><strong>存储技术不同</strong>：向量库、知识图谱、代码仓库。</li>
+<li><strong>三类记忆可分别存储、检索、更新</strong>。</li>
+</ul>
+</blockquote>
+<h2 id="62-memgpt-llm">6.2 MemGPT：把 LLM 当作操作系统</h2>
+<p><strong>MemGPT</strong>（Memory-GPT）由 UC Berkeley 的 Packer 等人 2023 年 10 月提出，是把 <strong>LLM 当作操作系统</strong> 的代表工作。MemGPT 的核心洞察是：LLM 的 context window ≈ OS 的"主存"（快但小），而外部存储 ≈ OS 的"硬盘"（慢但大）。通过设计"分页"机制，LLM Agent 可以"虚拟化"出无限大的内存。</p>
+<h3 id="62-memgpt-os">图 6.2 · MemGPT 的 OS 风格分页机制</h3>
+<pre><code>         LLM Context Window (主存, ~8K tokens)
+   ┌─────────────────────────────────────────┐
+   │  System Prompt                          │
+   │  - &quot;你是一个有记忆的 Agent...&quot;           │
+   │  - 工具描述                              │
+   │  - 当前主存内容 (in-context memory)     │
+   │  - 最近 1-3 条消息                       │
+   └─────────────────────────────────────────┘
+                      ▲
+                      │ paged in / paged out
+                      │
+   ┌─────────────────────────────────────────┐
+   │  External Storage (硬盘, 无限)          │
+   │  - 历史消息 (chat history)               │
+   │  - 长期事实 (long-term facts)           │
+   │  - 知识库 (knowledge base)               │
+   │  - 工具调用记录                          │
+   └─────────────────────────────────────────┘
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：MemGPT 通过"分页机制"让 LLM "感觉"自己有无限内存——实际是把超出窗口的内容"换出"到硬盘，需要时再"换入"。</p>
+</blockquote>
+<p>MemGPT 的核心机制有四个：</p>
+<p><strong>1. 分层记忆（Hierarchical Memory）</strong>。MemGPT 把记忆分为"主存（context window）"和"外部存储（向量数据库）"两层。主存的内容是 LLM 当前能"看见"的；外部存储的内容是 LLM 需要"调用工具"才能看到的。</p>
+<p><strong>2. 函数调用作为"系统调用"</strong>。MemGPT 设计了一组特殊函数（<code>recall_memory</code>, <code>core_memory_append</code>, <code>core_memory_replace</code>）让 LLM 主动管理自己的记忆。这与 OS 的"系统调用"非常相似——LLM 决定何时换页、换入什么。</p>
+<p><strong>3. 中断机制（Interrupt Mechanism）</strong>。当用户发送新消息时，MemGPT 自动触发"上下文刷新"——把最新的记忆和消息换入 context window，处理完后清理。这与 OS 的"中断处理"类似。</p>
+<p><strong>4. 记忆页（Memory Pages）</strong>。MemGPT 把记忆按"页"组织，每页有固定的 token 大小。LLM 通过函数调用"按页读取"或"按页写入"。</p>
+<p>MemGPT 在 <strong>长对话任务（LOCOMO 评测）</strong> 上达到了 SOTA：</p>
+<ul>
+<li>5 轮以内的对话：MemGPT 与传统 ReAct Agent 持平</li>
+<li>50 轮以上的对话：MemGPT 比传统 ReAct Agent 高 35%</li>
+<li>100 轮以上的对话：MemGPT 比传统 ReAct Agent 高 80%</li>
+</ul>
+<p>这证明 MemGPT 的"分页"机制在长任务上效果显著。</p>
+<blockquote>
+<p><strong>复述框 · 6.2 节要点</strong></p>
+<ul>
+<li><strong>MemGPT = LLM as OS</strong>：分层记忆（主存 + 硬盘）+ 函数调用换页。</li>
+<li><strong>4 个核心机制</strong>：分层记忆、函数调用、中断、记忆页。</li>
+<li><strong>核心结果</strong>：100 轮对话比传统 Agent 高 80%。</li>
+</ul>
+</blockquote>
+<h2 id="63-a-memzettelkasten">6.3 A-MEM：Zettelkasten 风格的动态记忆网络</h2>
+<p><strong>A-MEM</strong>（Agentic Memory）由 Xu 等人 2025 年 2 月提出，是把 <strong>Zettelkasten 笔记法</strong> 应用到 LLM 长期记忆的代表工作。Zettelkasten 是德国社会学家 Niklas Luhmann 使用的笔记方法，其核心是：<strong>每条笔记都是独立的"卡片"，笔记之间通过"链接"形成网络</strong>。</p>
+<h3 id="63-a-mem">图 6.3 · A-MEM 的动态记忆网络</h3>
+<pre><code>   新记忆: &quot;Bob 在 2026-07 喜欢简短回答&quot;
+                  │
+                  │ 1. 提取结构化属性
+                  ▼
+   ┌──────────────────────────────────────────┐
+   │ {                                         │
+   │   &quot;context&quot;: &quot;用户偏好&quot;,                │
+   │   &quot;keywords&quot;: [&quot;简洁&quot;, &quot;回答&quot;],          │
+   │   &quot;tags&quot;: [&quot;preference&quot;],                │
+   │   &quot;timestamp&quot;: &quot;2026-07-22&quot;             │
+   │ }                                         │
+   └──────────────────────────────────────────┘
+                  │
+                  │ 2. 检索相关历史记忆
+                  ▼
+   ┌──────────────────────────────────────────┐
+   │  候选链接 (top-K 相关):                   │
+   │  - M1: &quot;Bob 喜欢简洁回答&quot; (2026-01)     │
+   │  - M2: &quot;Bob 的技术栈是 Python&quot; (2026-05) │
+   └──────────────────────────────────────────┘
+                  │
+                  │ 3. 建立新链接 + 更新现有记忆
+                  ▼
+   ┌──────────────────────────────────────────┐
+   │  更新后的网络:                            │
+   │  M1 ←→ M_new (新偏好强化旧偏好)        │
+   │  M2 ←→ M_new (技术栈 + 偏好关联)        │
+   │  M1.context = &quot;历史偏好，现在确认&quot;      │
+   └──────────────────────────────────────────┘
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：A-MEM 的核心是"新记忆触发旧记忆属性更新"——这与传统的"只追加不更新"不同，能让记忆网络持续演化。</p>
+</blockquote>
+<p>A-MEM 的工作流程有四步：</p>
+<ol>
+<li><strong>结构化提取</strong>：新记忆进入时，LLM 提取 <code>context</code>、<code>keywords</code>、<code>tags</code>、<code>timestamp</code> 等结构化属性。</li>
+<li><strong>相似度检索</strong>：用 embedding 相似度检索 top-K 相关历史记忆。</li>
+<li><strong>链接建立</strong>：LLM 判断是否应在新记忆与候选历史之间建立链接。</li>
+<li><strong>属性更新</strong>：如果链接被建立，被链接的旧记忆的 <code>context</code> 等属性会被 LLM 重新生成，反映新记忆的影响。</li>
+</ol>
+<p>A-MEM 在 <strong>LoCoMo 评测</strong> 上达到了 SOTA，比传统 RAG 基线高 10% 以上。关键改进是"A-MEM 在新记忆进入时会主动更新相关旧记忆"，而传统 RAG 只追加不更新。</p>
+<p>A-MEM 的工程实现需要：</p>
+<ul>
+<li><strong>向量数据库</strong>：存储所有记忆（Qdrant、Weaviate、Chroma）</li>
+<li><strong>LLM 反思服务</strong>：每次新记忆进入时调用 LLM 做结构化提取和链接判断</li>
+<li><strong>属性缓存</strong>：旧记忆的更新版需要单独存储，避免修改原始记录</li>
+<li><strong>版本控制</strong>：保留历史版本，便于调试和回滚</li>
+</ul>
+<blockquote>
+<p><strong>复述框 · 6.3 节要点</strong></p>
+<ul>
+<li><strong>A-MEM = Zettelkasten 风格</strong>：每条记忆是独立卡片，链接形成网络。</li>
+<li><strong>4 步流程</strong>：结构化提取、相似度检索、链接建立、属性更新。</li>
+<li><strong>关键创新</strong>：新记忆触发旧记忆属性更新。</li>
+</ul>
+</blockquote>
+<h2 id="64-rag">6.4 检索增强生成（RAG）：长期记忆的核心技术</h2>
+<p><strong>检索增强生成（Retrieval-Augmented Generation, RAG）</strong> 是 LLM Agent 处理长期记忆的核心技术。RAG 的基本思想是：<strong>不把所有记忆塞进 context window，而是先检索相关记忆，再把检索结果喂给 LLM</strong>。</p>
+<h3 id="64-rag_1">图 6.4 · RAG 的三阶段流程</h3>
+<pre><code>   ┌──────────────┐
+   │  用户 query   │
+   └──────┬───────┘
+          │
+          ▼
+   ┌──────────────────────────────┐
+   │  1. 检索 (Retrieval)            │
+   │  - query embedding             │
+   │  - 向量数据库相似度搜索        │
+   │  - top-K 召回 (e.g. K=10)     │
+   └──────┬───────────────────────┘
+          │
+          ▼
+   ┌──────────────────────────────┐
+   │  2. 重排 (Reranking)            │
+   │  - 用 cross-encoder 重排        │
+   │  - 保留 top-N (e.g. N=3)       │
+   │  - 比向量相似度更准              │
+   └──────┬───────────────────────┘
+          │
+          ▼
+   ┌──────────────────────────────┐
+   │  3. 生成 (Generation)          │
+   │  - 拼接：query + 检索结果       │
+   │  - 输入 LLM 生成回答            │
+   └──────────────────────────────┘
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：RAG 的三阶段是"召回-重排-生成"——召回保证覆盖率，重排保证精度，生成结合两者。</p>
+</blockquote>
+<p>RAG 的关键技术决策：</p>
+<p><strong>1. 召回策略</strong></p>
+<ul>
+<li><strong>稠密召回（Dense Retrieval）</strong>：用 embedding 相似度，适合模糊查询。</li>
+<li><strong>稀疏召回（Sparse Retrieval, BM25）</strong>：用关键词匹配，适合精确查询。</li>
+<li><strong>混合召回（Hybrid）</strong>：两者结合，召回率最高。</li>
+</ul>
+<p><strong>2. 切块策略（Chunking）</strong></p>
+<ul>
+<li><strong>固定大小</strong>：每 N tokens 切一块，简单但可能切断语义。</li>
+<li><strong>语义切块</strong>：按段落、章节切，保留语义。</li>
+<li><strong>滑动窗口</strong>：重叠 M tokens 的窗口，跨块信息不丢失。</li>
+<li><strong>层次切块</strong>：同时保留大块（章节）和小块（句子），检索时先大块后小块。</li>
+</ul>
+<p><strong>3. 重排模型（Reranker）</strong></p>
+<ul>
+<li><strong>cross-encoder</strong>：输入 (query, document) 对，输出相关性分数。精度高，延迟高。</li>
+<li><strong>bi-encoder</strong>：分别编码 query 和 document，计算相似度。精度低，延迟低。</li>
+<li><strong>Cohere Rerank、bge-reranker</strong>：业界常用模型。</li>
+</ul>
+<p><strong>4. 检索优化</strong></p>
+<ul>
+<li><strong>元数据过滤</strong>：按时间、来源、用户等元数据过滤检索结果。</li>
+<li><strong>查询重写</strong>：用 LLM 把模糊 query 改写为多个精确 query。</li>
+<li><strong>HyDE（Hypothetical Document Embeddings）</strong>：用 LLM 生成假设性回答，用回答的 embedding 检索。</li>
+</ul>
+<p>RAG 的评测指标：</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>含义</th>
+<th>公式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>召回率（Recall）</strong></td>
+<td>检索结果覆盖正确答案的比例</td>
+<td>检索结果中含答案 / 总答案数</td>
+</tr>
+<tr>
+<td><strong>精度（Precision）</strong></td>
+<td>检索结果中相关条目的比例</td>
+<td>检索结果中相关 / 总检索结果</td>
+</tr>
+<tr>
+<td><strong>MRR（Mean Reciprocal Rank）</strong></td>
+<td>第一个正确答案排名的倒数</td>
+<td>1/rank 的平均</td>
+</tr>
+<tr>
+<td><strong>nDCG</strong></td>
+<td>归一化折损累积增益</td>
+<td>综合相关性和排名</td>
+</tr>
+<tr>
+<td><strong>Faithfulness</strong></td>
+<td>回答是否忠实于检索内容</td>
+<td>LLM 评估</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>复述框 · 6.4 节要点</strong></p>
+<ul>
+<li><strong>RAG 三阶段</strong>：召回-重排-生成。</li>
+<li><strong>4 个关键决策</strong>：召回策略、切块策略、重排模型、检索优化。</li>
+<li><strong>5 个评测指标</strong>：Recall、Precision、MRR、nDCG、Faithfulness。</li>
+</ul>
+</blockquote>
+<h2 id="65-o-mem-mem0">6.5 O-Mem 与 Mem0：长期记忆的工程化方案</h2>
+<p>2025 年出现了两个工程化代表工作：<strong>O-Mem</strong> 和 <strong>Mem0</strong>，它们把 MemGPT / A-MEM 的学术原型变成生产可用的方案。</p>
+<h3 id="61-o-mem-vs-mem0">表 6.1 · O-Mem vs Mem0 对比</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>O-Mem</th>
+<th>Mem0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>发布时间</strong></td>
+<td>2025-11</td>
+<td>2025-04</td>
+</tr>
+<tr>
+<td><strong>核心思想</strong></td>
+<td>主动用户画像 + 层级检索</td>
+<td>工业级记忆层 + token 效率</td>
+</tr>
+<tr>
+<td><strong>记忆结构</strong></td>
+<td>用户画像 + 对话历史 + 任务状态</td>
+<td>事实 + 偏好 + 上下文</td>
+</tr>
+<tr>
+<td><strong>检索方式</strong></td>
+<td>多层索引：精确 + 模糊 + 时序</td>
+<td>语义 + 元数据过滤</td>
+</tr>
+<tr>
+<td><strong>评测基准</strong></td>
+<td>PERSONAMEM、LoCoMo</td>
+<td>LoCoMo</td>
+</tr>
+<tr>
+<td><strong>关键结果</strong></td>
+<td>PERSONAMEM 62.99% / LoCoMo 51.67% SOTA</td>
+<td>LoCoMo 高于传统 RAG</td>
+</tr>
+<tr>
+<td><strong>开源</strong></td>
+<td>是</td>
+<td>是</td>
+</tr>
+</tbody>
+</table>
+<p>O-Mem 的关键创新是<strong>主动用户画像</strong>：Agent 在对话中主动观察用户行为，更新用户画像（兴趣、风格、偏好），而不是被动地等用户告诉 Agent。</p>
+<p>Mem0 的关键创新是<strong>生产级抽象</strong>：把记忆管理抽象为 <code>add()</code>, <code>search()</code>, <code>update()</code> 三个 API，让开发者无需关心底层实现。Mem0 强调"token 效率"——通过巧妙的记忆压缩，让 100 万 token 的对话只需 1K token 即可重建关键上下文。</p>
+<p>生产环境的长期记忆方案通常采用<strong>混合架构</strong>：</p>
+<pre><code>   ┌──────────────┐
+   │  LLM Agent   │
+   └──────┬───────┘
+          │  add/search/update
+          ▼
+   ┌──────────────────┐
+   │  Mem0 / O-Mem API│  ← 抽象层
+   └──────┬───────────┘
+          │
+   ┌──────┴────────────────────────┐
+   │                                │
+   ▼                                ▼
+┌──────────┐  ┌──────────┐  ┌────────────┐
+│ 向量数据库│  │ 知识图谱  │  │ 时序数据库  │
+│ (Qdrant) │  │ (Neo4j)  │  │ (TimescaleDB)│
+└──────────┘  └──────────┘  └────────────┘
+   语义检索      实体关系     时间窗口
+</code></pre>
+<blockquote>
+<p><strong>复述框 · 6.5 节要点</strong></p>
+<ul>
+<li><strong>O-Mem</strong>：主动用户画像 + 层级检索，PERSONAMEM 62.99%。</li>
+<li><strong>Mem0</strong>：工业级 API 抽象 + token 效率，简化集成。</li>
+<li><strong>生产架构</strong>：抽象层 + 向量库 + 知识图谱 + 时序库的混合。</li>
+</ul>
+</blockquote>
+<h2 id="66">6.6 长期记忆的评测</h2>
+<p>长期记忆的评测比短期记忆更难，因为正确答案往往是"主观的"（如"Bob 喜欢什么"）。以下是 4 个常用评测基准。</p>
+<h3 id="62-4">表 6.2 · 4 个长期记忆评测基准</h3>
+<table>
+<thead>
+<tr>
+<th>评测</th>
+<th>任务类型</th>
+<th>数据规模</th>
+<th>关键指标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LoCoMo</strong></td>
+<td>长对话问答</td>
+<td>1542 段对话</td>
+<td>Recall、MRR</td>
+</tr>
+<tr>
+<td><strong>PERSONAMEM</strong></td>
+<td>用户画像推理</td>
+<td>1000+ 用户</td>
+<td>画像准确率</td>
+</tr>
+<tr>
+<td><strong>MSC（Multi-Session Chat）</strong></td>
+<td>跨会话推理</td>
+<td>500+ 会话</td>
+<td>跨会话引用</td>
+</tr>
+<tr>
+<td><strong>LongMemEval</strong></td>
+<td>综合长记忆</td>
+<td>500 题</td>
+<td>综合得分</td>
+</tr>
+</tbody>
+</table>
+<p>评测面临的三大挑战：</p>
+<ol>
+<li><strong>正确答案模糊</strong>：用户偏好往往不是"对错"问题，而是"程度"问题。</li>
+<li><strong>时间衰减</strong>：用户偏好会变化，记忆应该"忘记旧偏好"还是"保留历史"？</li>
+<li><strong>隐私与安全</strong>：评测数据可能包含个人隐私，公开数据集需要脱敏。</li>
+</ol>
+<p>评测方法有三种：</p>
+<ul>
+<li><strong>人工评估</strong>：最准确但成本高。</li>
+<li><strong>LLM 评估</strong>：用 GPT-4 等 LLM 评估答案质量（"LLM-as-a-judge"），规模化但有偏差。</li>
+<li><strong>自动指标</strong>：Recall、Precision、MRR、nDCG 等量化指标，客观但可能无法反映真实质量。</li>
+</ul>
+<blockquote>
+<p><strong>复述框 · 6.6 节要点</strong></p>
+<ul>
+<li><strong>4 个评测基准</strong>：LoCoMo、PERSONAMEM、MSC、LongMemEval。</li>
+<li><strong>3 大挑战</strong>：答案模糊、时间衰减、隐私安全。</li>
+<li><strong>3 种评测方法</strong>：人工、LLM-as-a-judge、自动指标。</li>
+</ul>
+</blockquote>
+<h2 id="67">6.7 本章小结</h2>
+<p>本章展开 LLM Agent 的"长期记忆"。<strong>三大类记忆</strong>（事实、经验、工作）有不同的存储和检索策略。<strong>MemGPT</strong> 把 LLM 当作 OS，通过分页机制支持 100+ 轮对话。<strong>A-MEM</strong> 用 Zettelkasten 风格让记忆网络持续演化。<strong>RAG</strong> 是长期记忆的核心技术，包括召回-重排-生成三阶段。<strong>O-Mem 和 Mem0</strong> 是工程化代表。<strong>4 个评测基准</strong>（LoCoMo、PERSONAMEM、MSC、LongMemEval）提供了长期记忆的可重复评测。</p>
+<blockquote>
+<p><strong>常见误区</strong></p>
+<ul>
+<li>❌ <strong>把长期记忆当短期记忆的扩展</strong>：长期记忆有"持久化、跨会话、可演化"三个特征，短期记忆不具备。</li>
+<li>❌ <strong>只用向量检索</strong>：稀疏检索（BM25）在精确查询上仍优于向量检索；混合检索才是最佳实践。</li>
+<li>❌ <strong>不处理记忆冲突</strong>：新记忆与旧记忆矛盾时，必须有冲突解决策略（最新优先 / 重要优先 / 用户确认）。</li>
+<li>❌ <strong>忽视记忆的时间衰减</strong>：用户偏好会变化，长期记忆应能"主动遗忘"过时内容。</li>
+<li>❌ <strong>假设长期记忆"越大越好"</strong>：实际上，记忆质量比数量更重要，结构化记忆比原始记忆更有用。</li>
+</ul>
+</blockquote>
+<p>第 6 章是 Part I 的最后一章。Part II 将进入"具身认知与计算形态学"，从认知科学的角度为 LLM Agent 建立理论基础。</p>
+<hr />
+<h2 id="_4">本章小结</h2>
+<ul>
+<li><strong>三大类记忆</strong>：事实、经验、工作，存储和检索策略不同。</li>
+<li><strong>MemGPT</strong>：把 LLM 当 OS，分页机制支持 100+ 轮对话。</li>
+<li><strong>A-MEM</strong>：Zettelkasten 风格动态记忆网络，新记忆触发旧记忆更新。</li>
+<li><strong>RAG 三阶段</strong>：召回-重排-生成，4 个关键决策 + 5 个评测指标。</li>
+<li><strong>O-Mem &amp; Mem0</strong>：工程化方案，混合架构（抽象层 + 向量库 + 知识图谱 + 时序库）。</li>
+<li><strong>4 个评测基准</strong>：LoCoMo、PERSONAMEM、MSC、LongMemEval。</li>
+</ul>
+<h2 id="_5">推荐阅读</h2>
+<ul>
+<li>📖 <strong>MemGPT 原始论文</strong> [Packer et al., 2023]：把 LLM 当作操作系统的开创性工作。<a href="https://arxiv.org/abs/2310.08560">$TRAE_REF</a></li>
+<li>📖 <strong>A-MEM 原始论文</strong> [Xu et al., 2025]：Zettelkasten 风格动态记忆网络。<a href="https://arxiv.org/abs/2502.12110">$TRAE_REF</a></li>
+<li>📖 <strong>O-Mem 原始论文</strong> [Wang et al., 2025]：主动用户画像 + 层级检索。<a href="https://arxiv.org/abs/2511.13593">$TRAE_REF</a></li>
+<li>📖 <strong>Mem0 原始论文</strong> [Chhikara et al., 2025]：工业级记忆层抽象。<a href="https://arxiv.org/abs/2504.19413">$TRAE_REF</a></li>
+<li>📖 <strong>HippoRAG</strong> [Gutiérrez et al., 2025]：受神经科学海马体启发的长记忆 RAG。<a href="https://arxiv.org/abs/2405.14831">$TRAE_REF</a></li>
+</ul>
+<h2 id="_6">练习题</h2>
+<ol>
+<li><strong>设计题</strong>：为"个人助理 Agent"设计三大类记忆的具体存储：事实记忆用哪种数据库？经验记忆用哪种？工作记忆用哪种？给出具体技术选型。</li>
+<li><strong>分析题</strong>：选一个真实 LLM Agent 系统（ChatGPT、Claude.ai、Gemini），分析它是否实现了 MemGPT 的"分页"机制？通过观察长对话中的行为变化给出证据。</li>
+<li><strong>动手题</strong>：用 Python + SQLite + sentence-transformers 实现一个简化版 A-MEM（不超过 200 行）：能添加记忆、检索相似记忆、链接相关记忆。</li>
+<li><strong>设计题</strong>：为 SWE-bench 任务设计 RAG 流程：用什么召回策略（稠密/稀疏/混合）？切块策略（按行/按函数/按文件）？重排模型？给出完整 pipeline。</li>
+<li><strong>批判题</strong>：MemGPT 的"分页"机制与 A-MEM 的"动态网络"机制各有优劣。设计一个结合两者的混合方案：什么场景用 MemGPT？什么场景用 A-MEM？</li>
+<li><strong>工程实践题</strong>：为你的 LLM Agent 设计长期记忆"遗忘机制"：什么样的记忆应该被遗忘？什么时机触发遗忘？遗忘前是否需要用户确认？</li>
+</ol>
+<h2 id="_7">参考文献（本章内）</h2>
+<ol>
+<li>Packer, C., et al. (2023). <em>MemGPT: Towards LLMs as Operating Systems</em>. arXiv:2310.08560. <a href="https://arxiv.org/abs/2310.08560">$TRAE_REF</a></li>
+<li>Xu, W., et al. (2025). <em>A-MEM: Agentic Memory for LLM Agents</em>. NeurIPS. <a href="https://arxiv.org/abs/2502.12110">$TRAE_REF</a></li>
+<li>Wang, Y., et al. (2025). <em>O-Mem: Omni Memory System for Personalized, Long Horizon, Self-Evolving Agents</em>. arXiv:2511.13593. <a href="https://arxiv.org/abs/2511.13593">$TRAE_REF</a></li>
+<li>Chhikara, P., et al. (2025). <em>Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory</em>. arXiv:2504.19413. <a href="https://arxiv.org/abs/2504.19413">$TRAE_REF</a></li>
+<li>Gutiérrez, B. J., et al. (2025). <em>HippoRAG: Neurobiologically Inspired Long-Term Memory for Large Language Models</em>. NeurIPS. <a href="https://arxiv.org/abs/2405.14831">$TRAE_REF</a></li>
+<li>Park, J. S., et al. (2023). <em>Generative Agents: Interactive Simulacra of Human Behavior</em>. UIST. <a href="https://arxiv.org/abs/2304.03442">$TRAE_REF</a></li>
+<li>Zhong, W., et al. (2024). <em>MemoryBank: Enhancing Large Language Models with Long-Term Memory</em>. arXiv:2305.10250.</li>
+<li>Fang, J., et al. (2025). <em>A Comprehensive Survey of Self-Evolving AI Agents</em>. arXiv:2508.07407. <a href="https://arxiv.org/abs/2508.07407">$TRAE_REF</a></li>
+</ol>
+<hr />
+<blockquote>
+<p><strong>本章进度</strong>：6.1–6.7 节全部完成（约 8,000 字，含 4 张图 + 3 张表 + 1 张列表 + 8 篇引用 + 6 题 + 5 误区 + 5 推荐），达到 36 页计划。<code>status: final</code>。</p>
+<p><strong>🎉 Part I 完结</strong>：6 章 / 140 页 / 36,000 字全部完成！</p>
+</blockquote>
+<div class="nav-top" style="margin-top:3rem;border-top:1px solid var(--border);padding-top:1rem;"><a href="chapter-05.html">← 5. 上下文工程与短期记忆</a><a href="index.html">目录</a><a href="chapter-07.html">7. 4E Cognition 简史 →</a></div>
+</main>
+</div>
+</body>
+</html>

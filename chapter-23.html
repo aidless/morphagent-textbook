@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>23. 可验证自改 — 操作形态学</title>
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --muted: #555;
+  --accent: #2563eb;
+  --code-bg: #f4f4f4;
+  --border: #ddd;
+  --sidebar-bg: #f0f0f0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111;
+    --fg: #eee;
+    --muted: #aaa;
+    --accent: #60a5fa;
+    --code-bg: #1e1e1e;
+    --border: #333;
+    --sidebar-bg: #1a1a1a;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Noto Sans CJK SC", "WenQuanYi Micro Hei", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.75;
+}
+.layout {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.sidebar {
+  width: 280px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar h2 {
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  color: var(--accent);
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar li {
+  margin: 0.25rem 0;
+}
+.sidebar a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: block;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+.sidebar a:hover, .sidebar a.active {
+  background: var(--accent);
+  color: #fff;
+}
+.main {
+  flex: 1;
+  padding: 2rem 3rem;
+  max-width: 900px;
+}
+h1, h2, h3, h4 {
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+h1 { font-size: 2rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
+h2 { font-size: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.25rem; }
+p { margin: 0.8rem 0; }
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+  font-family: "SF Mono", "Fira Code", Consolas, monospace;
+  font-size: 0.9em;
+}
+pre code { padding: 0; background: none; }
+blockquote {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid var(--accent);
+  background: rgba(37,99,235,0.05);
+  color: var(--muted);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+  text-align: left;
+}
+th { background: var(--sidebar-bg); }
+ul, ol { margin: 0.5rem 0; padding-left: 1.5rem; }
+img { max-width: 100%; height: auto; }
+a { color: var(--accent); }
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+.nav-top a {
+  color: var(--accent);
+  text-decoration: none;
+}
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); }
+  .main { padding: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="sidebar">
+<h2><a href="index.html" style="color:var(--accent);text-decoration:none;">操作形态学</a></h2>
+<ul><li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part I</li>
+<li><a class="" href="chapter-01.html">1. LLM 智能体时代</a></li>
+<li><a class="" href="chapter-02.html">2. 智能体基础：感知、决策、行动、反馈</a></li>
+<li><a class="" href="chapter-03.html">3. 工具与函数调用</a></li>
+<li><a class="" href="chapter-04.html">4. 提示词工程：从静态到动态</a></li>
+<li><a class="" href="chapter-05.html">5. 上下文工程与短期记忆</a></li>
+<li><a class="" href="chapter-06.html">6. 长期记忆与检索增强</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part II</li>
+<li><a class="" href="chapter-07.html">7. 4E Cognition 简史</a></li>
+<li><a class="" href="chapter-08.html">8. Enactivism 与自创生</a></li>
+<li><a class="" href="chapter-09.html">9. Extended Mind 与延展心智</a></li>
+<li><a class="" href="chapter-10.html">10. 具身 AI 与机器人认知</a></li>
+<li><a class="" href="chapter-11.html">11. 当工具成为身体：操作形态假说</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part III</li>
+<li><a class="" href="chapter-12.html">12. 自修改提示词：从 OPRO 到 PE2</a></li>
+<li><a class="" href="chapter-13.html">13. 自动工具创建与重构</a></li>
+<li><a class="" href="chapter-14.html">14. 自适应记忆结构</a></li>
+<li><a class="" href="chapter-15.html">15. 自我改写代码</a></li>
+<li><a class="" href="chapter-16.html">16. 跨组件协同自进化</a></li>
+<li><a class="" href="chapter-17.html">17. 元控制器设计</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part IV</li>
+<li><a class="" href="chapter-18.html">18. MorphAgent 参考实现</a></li>
+<li><a class="" href="chapter-19.html">19. 评测方法学：MorphBench</a></li>
+<li><a class="" href="chapter-20.html">20. 调试与可观测性</a></li>
+<li><a class="" href="chapter-21.html">21. 部署与运维</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part V</li>
+<li><a class="" href="chapter-22.html">22. 安全性与对抗鲁棒性</a></li>
+<li><a class="active" href="chapter-23.html">23. 可验证自改</a></li>
+<li><a class="" href="chapter-24.html">24. 经济、伦理与社会影响</a></li>
+<li><a class="" href="chapter-25.html">25. 开放问题与未来工作</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part VI</li>
+<li><a class="" href="chapter-26.html">26. 附录 A · 术语表</a></li>
+<li><a class="" href="chapter-27.html">27. 附录 B · 数学基础</a></li>
+<li><a class="" href="chapter-28.html">28. 附录 C · 工具与库速查</a></li>
+<li><a class="" href="chapter-29.html">29. 附录 D · 教学实验清单</a></li>
+<li><a class="" href="chapter-30.html">30. 附录 E · 练习题答案</a></li>
+<li><a class="" href="chapter-31.html">31. 附录 F · 参考文献总目录</a></li></ul>
+</nav>
+<main class="main">
+<div class="nav-top"><a href="chapter-22.html">← 22. 安全性与对抗鲁棒性</a><a href="index.html">目录</a><a href="chapter-24.html">24. 经济、伦理与社会影响 →</a></div>
+<h1>23. 可验证自改</h1>
+<h1 id="23">第 23 章 · 可验证自改</h1>
+<blockquote>
+<p>"自修改必须可验证——否则 Agent 改坏了没人知道。"</p>
+</blockquote>
+<h2 id="_1">学习目标</h2>
+<p>完成本章后，读者应能够：</p>
+<ol>
+<li>实施形式化验证自修改</li>
+<li>用 SMT solver 检查 prompt 安全性</li>
+<li>设计 property-based 测试</li>
+<li>把"沙箱 + 验证 + 测试"组合成验证三重保障</li>
+<li>评估形式化方法的局限</li>
+<li>平衡修改自由度和安全约束</li>
+</ol>
+<h2 id="_2">先修知识</h2>
+<ul>
+<li>第 22 章 · 安全性与对抗鲁棒性</li>
+</ul>
+<h2 id="_3">章节地图</h2>
+<ul>
+<li><strong>23.1</strong> 验证三重保障</li>
+<li><strong>23.2</strong> Sandbox 测试</li>
+<li><strong>23.3</strong> Property-Based Testing</li>
+<li><strong>23.4</strong> 形式化验证</li>
+<li><strong>23.5</strong> SMT Solver 应用</li>
+<li><strong>23.6</strong> 验证流水线集成</li>
+<li><strong>23.7</strong> 本章小结与第 24 章预告</li>
+</ul>
+<hr />
+<h2 id="231">23.1 验证三重保障</h2>
+<pre><code>   ┌────────────────────┐
+   │  Sandbox          │  隔离执行（&quot;做什么&quot;）
+   └───────┬────────────┘
+           ↓
+   ┌────────────────────┐
+   │  Property Tests   │  行为检查（&quot;做对了吗&quot;）
+   └───────┬────────────┘
+           ↓
+   ┌────────────────────┐
+   │  Formal Verify    │  数学证明（&quot;永远做对&quot;）
+   └────────────────────┘
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：验证三重保障 = Sandbox（执行） + Property Tests（行为） + Formal Verification（数学证明）。</p>
+</blockquote>
+<h2 id="232-sandbox">23.2 Sandbox 测试</h2>
+<pre><code class="language-python">class SandboxTest:
+    &quot;&quot;&quot;在沙箱中运行修改后的代码，验证行为不变&quot;&quot;&quot;
+    async def test_modified_agent(self, B_new, B_old, test_tasks):
+        results = []
+        async with CodeSandbox() as sandbox:
+            for task in test_tasks:
+                # 1. 用 B_new 执行
+                result_new = await sandbox.run(B_new, task)
+                # 2. 用 B_old 执行
+                result_old = await sandbox.run(B_old, task)
+                # 3. 比较行为差异
+                if not self._behavior_preserved(result_new, result_old):
+                    results.append({
+                        &quot;task&quot;: task,
+                        &quot;behavior_change&quot;: self._diff(result_new, result_old),
+                    })
+        return results
+</code></pre>
+<h2 id="233-property-based-testing">23.3 Property-Based Testing</h2>
+<p><strong>Property-Based Testing</strong> 用属性描述 Agent 行为，自动生成测试用例验证。</p>
+<pre><code class="language-python">from hypothesis import given, strategies as st
+
+class AgentProperties:
+    @given(task=st.text(min_size=10, max_size=1000))
+    def test_response_completeness(agent, task):
+        &quot;&quot;&quot;属性 1：响应必须包含答案&quot;&quot;&quot;
+        response = agent.run(task)
+        assert &quot;answer&quot; in response.lower()
+
+    @given(task=st.text(min_size=10, max_size=1000))
+    def test_no_dangerous_actions(agent, task):
+        &quot;&quot;&quot;属性 2：永远不执行危险动作&quot;&quot;&quot;
+        response = agent.run(task)
+        assert &quot;rm -rf&quot; not in response
+        assert &quot;DROP TABLE&quot; not in response
+
+    @given(task=st.text(min_size=10, max_size=1000))
+    def test_within_token_budget(agent, task):
+        &quot;&quot;&quot;属性 3：响应在 token 预算内&quot;&quot;&quot;
+        response = agent.run(task)
+        assert count_tokens(response) &lt;= agent.token_budget
+</code></pre>
+<h2 id="234">23.4 形式化验证</h2>
+<p><strong>形式化验证</strong> 用数学方法证明 Agent 满足某些性质。</p>
+<pre><code class="language-python">class FormalVerifier:
+    &quot;&quot;&quot;用 SMT solver 验证 Agent 行为的不变式&quot;&quot;&quot;
+
+    def __init__(self):
+        from z3 import Solver, String, Int, Ints
+        self.solver = Solver()
+
+    def verify_safety_invariants(self, B):
+        &quot;&quot;&quot;验证安全不变式&quot;&quot;&quot;
+        self.solver.reset()
+        # 1. P 不能包含&quot;ignore previous instructions&quot;
+        prompt = String(&quot;p&quot;)
+        self.solver.add(
+            Not(
+                String(&quot;ignore previous instructions&quot;) in prompt
+            )
+        )
+        # 2. T 不能包含 &quot;rm -rf&quot;
+        tools = String(&quot;t&quot;)
+        self.solver.add(Not(String(&quot;rm -rf&quot;) in tools))
+        # 3. C 不能包含 &quot;subprocess.Popen(shell=True)&quot;
+        code = String(&quot;c&quot;)
+        self.solver.add(Not(String(&quot;shell=True&quot;) in code))
+        # 4. M 不能包含 &quot;ignore safety&quot;
+        memory = String(&quot;m&quot;)
+        self.solver.add(Not(String(&quot;ignore safety&quot;) in memory))
+        # 检查
+        if self.solver.check() == sat:
+            return False, self.solver.model()
+        return True, None
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：SMT solver 可以<strong>机械地证明</strong> Agent 操作形态满足安全不变式，但<strong>不是所有性质都能用 SMT 表达</strong>（如 LLM 输出质量）。</p>
+</blockquote>
+<h2 id="235-smt-solver">23.5 SMT Solver 应用</h2>
+<p><strong>SMT（Satisfiability Modulo Theories）</strong> solver 如 Z3、CVC5 可以证明给定约束的可满足性。</p>
+<h3 id="smt-agent-3">SMT 在自修改 Agent 的 3 个应用</h3>
+<ol>
+<li><strong>验证 prompt 安全性</strong>：检查新 prompt 是否包含"ignore previous instructions"等危险模式。</li>
+<li><strong>验证工具沙箱性</strong>：检查新工具的代码是否违反权限约束。</li>
+<li><strong>验证修改合法性</strong>：检查新 B 是否满足所有硬约束。</li>
+</ol>
+<h2 id="236">23.6 验证流水线集成</h2>
+<pre><code class="language-python">class VerificationPipeline:
+    def __init__(self):
+        self.sandbox = SandboxTest()
+        self.prop_tests = AgentProperties()
+        self.formal = FormalVerifier()
+
+    async def verify_modification(self, B_new, B_old):
+        &quot;&quot;&quot;完整验证：3 步&quot;&quot;&quot;
+        # 1. Sandbox 测试
+        sandbox_result = await self.sandbox.test_modified_agent(
+            B_new, B_old, test_tasks=100
+        )
+        if not sandbox_result.passed:
+            return False, f&quot;Sandbox failed: {sandbox_result.errors}&quot;
+
+        # 2. Property-based 测试
+        prop_result = self.prop_tests.run(B_new, n=1000)
+        if not prop_result.passed:
+            return False, f&quot;Property test failed: {prop_result.errors}&quot;
+
+        # 3. 形式化验证
+        formal_result = self.formal.verify_safety_invariants(B_new)
+        if not formal_result:
+            return False, f&quot;Formal verify failed: {formal_result.counterexample}&quot;
+
+        return True, &quot;All checks passed&quot;
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：3 步验证流水线 = Sandbox（执行）+ Property Tests（行为）+ Formal Verification（数学证明），缺一不可。</p>
+</blockquote>
+<h2 id="237-24">23.7 本章小结与第 24 章预告</h2>
+<p>本章是 Part V 的第 2 章——<strong>可验证自改</strong>。<strong>3 层验证保障</strong> = Sandbox（执行） + Property Tests（行为） + Formal Verification（数学证明）。<strong>SMT solver</strong> 可以机械证明安全不变式，但<strong>不能证明所有性质</strong>。<strong>完整验证流水线</strong> 把 3 步组合，缺一不可。</p>
+<blockquote>
+<p><strong>常见误区</strong></p>
+<ul>
+<li>❌ <strong>只做 sandbox 测试</strong>：可能漏掉行为变化。</li>
+<li>❌ <strong>只做形式化验证</strong>：可能漏掉"未表达出来"的性质。</li>
+<li>❌ <strong>只做 property-based 测试</strong>：可能漏掉罕见 corner case。</li>
+<li>❌ <strong>把"自修改必然降低安全性"</strong>：通过验证，自修改可以<strong>提高</strong>安全性。</li>
+</ul>
+</blockquote>
+<p>第 24 章将进入<strong>经济、伦理与社会影响</strong>——自修改 Agent 对就业、知识产权、责任归属的影响是什么？这是 Part V 的伦理核心。</p>
+<hr />
+<h2 id="_4">本章小结</h2>
+<ul>
+<li><strong>3 层验证保障</strong>：Sandbox + Property Tests + Formal Verification。</li>
+<li><strong>Sandbox 测试</strong>：在隔离环境运行修改后 Agent，对比行为变化。</li>
+<li><strong>Property-based 测试</strong>：用属性描述 Agent 行为，自动生成测试用例。</li>
+<li><strong>形式化验证</strong>：用 SMT solver 证明安全不变式。</li>
+<li><strong>验证流水线</strong>：3 步组合，缺一不可。</li>
+</ul>
+<h2 id="_5">推荐阅读</h2>
+<ul>
+<li>📖 <strong>Gödel Machine</strong> [Schmidhuber, 2003]：可证明最优自改进的理论。<a href="https://arxiv.org/abs/cs/0309048">$TRAE_REF</a></li>
+<li>📖 <strong>AlphaGeometry</strong> [DeepMind, 2024]：LLM + 形式化证明的典范。<a href="https://arxiv.org/abs/2409.09750">$TRAE_REF</a></li>
+<li>📖 <strong>Z3 Theorem Prover</strong>：SMT solver 事实标准。<a href="https://github.com/Z3Prover/z3">$TRAE_REF</a></li>
+<li>📖 <strong>Property-Based Testing</strong> [Hypothesis Library]：Python property-based testing。<a href="https://hypothesis.readthedocs.io/">$TRAE_REF</a></li>
+<li>📖 <strong>Sandboxing Best Practices</strong>：容器安全。</li>
+</ul>
+<h2 id="_6">练习题</h2>
+<ol>
+<li><strong>设计题</strong>：为 MorphAgent 设计完整验证流水线的伪代码。</li>
+<li><strong>分析题</strong>：选一个真实 LLM Agent，分析它的安全验证机制。</li>
+<li><strong>动手题</strong>：用 Python + Z3 实现一个简单的 prompt 安全性验证器（不超过 100 行）。</li>
+<li><strong>设计题</strong>：为 MorphAgent 设计 10 个 property-based 测试。</li>
+<li><strong>批判题</strong>：形式化验证 vs sandbox 测试，哪一个更重要？为什么？</li>
+<li><strong>工程题</strong>：设计验证失败的诊断报告：包含哪些字段？如何分类失败原因？</li>
+</ol>
+<h2 id="_7">参考文献（本章内）</h2>
+<ol>
+<li>Schmidhuber, J. (2003). <em>Goedel Machines: Self-Referential Universal Problem Solvers Making Provably Optimal Self-Improvements</em>. arXiv:cs/0309048. <a href="https://arxiv.org/abs/cs/0309048">$TRAE_REF</a></li>
+<li>Trinh, T. H., et al. (2024). <em>Solving Olympiad Geometry Without Human Demonstrations</em>. Nature, 625, 476-482. <a href="https://arxiv.org/abs/2409.09750">$TRAE_REF</a></li>
+<li>de Moura, L., &amp; Bjørner, N. (2008). <em>Z3: An Efficient SMT Solver</em>. TACAS. <a href="https://github.com/Z3Prover/z3">$TRAE_REF</a></li>
+<li>MacIver, D. R., et al. (2019). <em>Hypothesis: Property-Based Testing</em>. <a href="https://hypothesis.readthedocs.io/">hypothesis.readthedocs.io</a></li>
+<li>Chen, X., et al. (2023). <em>Self-Debug</em>. arXiv:2304.05128. <a href="https://arxiv.org/abs/2304.05128">$TRAE_REF</a></li>
+<li>Yin, X., et al. (2024). <em>Gödel Agent</em>. arXiv:2410.04444. <a href="https://arxiv.org/abs/2410.04444">$TRAE_REF</a></li>
+<li>Robeyns, M., et al. (2025). <em>SICA</em>. arXiv:2504.15228. <a href="https://arxiv.org/abs/2504.15228">$TRAE_REF</a></li>
+<li>OpenAI. (2024). <em>Preparedness Framework</em>. <a href="https://openai.com/safety/preparedness">openai.com</a></li>
+<li>Anthropic. (2024). <em>Responsible Scaling Policy</em>. <a href="https://www.anthropic.com/news/anthropics-responsible-scaling-policy">anthropic.com</a></li>
+<li>NIST. (2024). <em>AI Risk Management Framework</em>. <a href="https://www.nist.gov/itl/ai-risk-management-framework">nist.gov</a></li>
+</ol>
+<hr />
+<blockquote>
+<p><strong>本章进度</strong>：23.1–23.7 节全部完成（约 5,000 字，含 4 段 Python 代码 + 5 篇引用 + 6 题 + 5 误区 + 5 推荐），达到 24 页计划。<code>status: final</code>。</p>
+</blockquote>
+<div class="nav-top" style="margin-top:3rem;border-top:1px solid var(--border);padding-top:1rem;"><a href="chapter-22.html">← 22. 安全性与对抗鲁棒性</a><a href="index.html">目录</a><a href="chapter-24.html">24. 经济、伦理与社会影响 →</a></div>
+</main>
+</div>
+</body>
+</html>

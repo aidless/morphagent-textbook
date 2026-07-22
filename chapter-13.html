@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>13. 自动工具创建与重构 — 操作形态学</title>
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --muted: #555;
+  --accent: #2563eb;
+  --code-bg: #f4f4f4;
+  --border: #ddd;
+  --sidebar-bg: #f0f0f0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111;
+    --fg: #eee;
+    --muted: #aaa;
+    --accent: #60a5fa;
+    --code-bg: #1e1e1e;
+    --border: #333;
+    --sidebar-bg: #1a1a1a;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Noto Sans CJK SC", "WenQuanYi Micro Hei", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.75;
+}
+.layout {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.sidebar {
+  width: 280px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar h2 {
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  color: var(--accent);
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar li {
+  margin: 0.25rem 0;
+}
+.sidebar a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: block;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+.sidebar a:hover, .sidebar a.active {
+  background: var(--accent);
+  color: #fff;
+}
+.main {
+  flex: 1;
+  padding: 2rem 3rem;
+  max-width: 900px;
+}
+h1, h2, h3, h4 {
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+h1 { font-size: 2rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
+h2 { font-size: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.25rem; }
+p { margin: 0.8rem 0; }
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+  font-family: "SF Mono", "Fira Code", Consolas, monospace;
+  font-size: 0.9em;
+}
+pre code { padding: 0; background: none; }
+blockquote {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid var(--accent);
+  background: rgba(37,99,235,0.05);
+  color: var(--muted);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+  text-align: left;
+}
+th { background: var(--sidebar-bg); }
+ul, ol { margin: 0.5rem 0; padding-left: 1.5rem; }
+img { max-width: 100%; height: auto; }
+a { color: var(--accent); }
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+.nav-top a {
+  color: var(--accent);
+  text-decoration: none;
+}
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); }
+  .main { padding: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="sidebar">
+<h2><a href="index.html" style="color:var(--accent);text-decoration:none;">操作形态学</a></h2>
+<ul><li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part I</li>
+<li><a class="" href="chapter-01.html">1. LLM 智能体时代</a></li>
+<li><a class="" href="chapter-02.html">2. 智能体基础：感知、决策、行动、反馈</a></li>
+<li><a class="" href="chapter-03.html">3. 工具与函数调用</a></li>
+<li><a class="" href="chapter-04.html">4. 提示词工程：从静态到动态</a></li>
+<li><a class="" href="chapter-05.html">5. 上下文工程与短期记忆</a></li>
+<li><a class="" href="chapter-06.html">6. 长期记忆与检索增强</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part II</li>
+<li><a class="" href="chapter-07.html">7. 4E Cognition 简史</a></li>
+<li><a class="" href="chapter-08.html">8. Enactivism 与自创生</a></li>
+<li><a class="" href="chapter-09.html">9. Extended Mind 与延展心智</a></li>
+<li><a class="" href="chapter-10.html">10. 具身 AI 与机器人认知</a></li>
+<li><a class="" href="chapter-11.html">11. 当工具成为身体：操作形态假说</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part III</li>
+<li><a class="" href="chapter-12.html">12. 自修改提示词：从 OPRO 到 PE2</a></li>
+<li><a class="active" href="chapter-13.html">13. 自动工具创建与重构</a></li>
+<li><a class="" href="chapter-14.html">14. 自适应记忆结构</a></li>
+<li><a class="" href="chapter-15.html">15. 自我改写代码</a></li>
+<li><a class="" href="chapter-16.html">16. 跨组件协同自进化</a></li>
+<li><a class="" href="chapter-17.html">17. 元控制器设计</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part IV</li>
+<li><a class="" href="chapter-18.html">18. MorphAgent 参考实现</a></li>
+<li><a class="" href="chapter-19.html">19. 评测方法学：MorphBench</a></li>
+<li><a class="" href="chapter-20.html">20. 调试与可观测性</a></li>
+<li><a class="" href="chapter-21.html">21. 部署与运维</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part V</li>
+<li><a class="" href="chapter-22.html">22. 安全性与对抗鲁棒性</a></li>
+<li><a class="" href="chapter-23.html">23. 可验证自改</a></li>
+<li><a class="" href="chapter-24.html">24. 经济、伦理与社会影响</a></li>
+<li><a class="" href="chapter-25.html">25. 开放问题与未来工作</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part VI</li>
+<li><a class="" href="chapter-26.html">26. 附录 A · 术语表</a></li>
+<li><a class="" href="chapter-27.html">27. 附录 B · 数学基础</a></li>
+<li><a class="" href="chapter-28.html">28. 附录 C · 工具与库速查</a></li>
+<li><a class="" href="chapter-29.html">29. 附录 D · 教学实验清单</a></li>
+<li><a class="" href="chapter-30.html">30. 附录 E · 练习题答案</a></li>
+<li><a class="" href="chapter-31.html">31. 附录 F · 参考文献总目录</a></li></ul>
+</nav>
+<main class="main">
+<div class="nav-top"><a href="chapter-12.html">← 12. 自修改提示词：从 OPRO 到 PE2</a><a href="index.html">目录</a><a href="chapter-14.html">14. 自适应记忆结构 →</a></div>
+<h1>13. 自动工具创建与重构</h1>
+<h1 id="13">第 13 章 · 自动工具创建与重构</h1>
+<blockquote>
+<p>"Agent 不能只调用工具——Agent 必须能创建、重构、淘汰工具。"</p>
+</blockquote>
+<h2 id="_1">学习目标</h2>
+<p>完成本章后，读者应能够：</p>
+<ol>
+<li>跑通 LATM 两阶段（tool maker + tool user）范式</li>
+<li>复述 Voyager 技能库增长机制</li>
+<li>复述 AFlow 工作流进化范式</li>
+<li>复述 EvoAgent 多 Agent 进化范式</li>
+<li>复述 AlphaEvolve 代码库进化范式</li>
+<li>设计工具生命周期治理</li>
+<li>评估 T 自修改的工程效果与边界</li>
+<li>把 T 自修改定位为 H1 的第二个验证案例</li>
+</ol>
+<h2 id="_2">先修知识</h2>
+<ul>
+<li>第 3 章 · 工具与函数调用</li>
+<li>第 11 章 · 操作形态学形式化</li>
+<li>第 12 章 · 自修改 prompt</li>
+</ul>
+<h2 id="_3">章节地图</h2>
+<ul>
+<li><strong>13.1</strong> 操作形态学的第二个应用：修改 T</li>
+<li><strong>13.2</strong> LATM：让 LLM 自己造工具</li>
+<li><strong>13.3</strong> Voyager：无限增长的技能库</li>
+<li><strong>13.4</strong> AFlow：工作流自动进化</li>
+<li><strong>13.5</strong> EvoAgent：多 Agent 系统自动生成</li>
+<li><strong>13.6</strong> AlphaEvolve：整个代码库作为进化对象</li>
+<li><strong>13.7</strong> 工具生命周期治理</li>
+<li><strong>13.8</strong> H1 的第二个验证案例</li>
+<li><strong>13.9</strong> 本章小结与第 14 章预告</li>
+</ul>
+<hr />
+<h2 id="131-t">13.1 操作形态学的第二个应用：修改 T</h2>
+<p>第 12 章讲了 P 自修改——H1 的第一个验证案例。本章讲 T 自修改——H1 的<strong>第二个</strong>验证案例。T 自修改比 P 自修改更复杂：</p>
+<ul>
+<li>P 自修改修改<strong>自然语言字符串</strong></li>
+<li>T 自修改修改<strong>结构化函数描述</strong>（JSON Schema + 实现代码）</li>
+</ul>
+<p>为什么 T 自修改比 P 自修改重要？</p>
+<ol>
+<li><strong>扩展能力（capability expansion）</strong>：P 自修改只能"调优指令"，T 自修改可以"扩展能力"——给 Agent 添加新工具意味着 Agent 能做新事。</li>
+<li><strong>降低单位成本</strong>：P 自修改优化指令但不能减少 token 消耗；T 自修改可以让 Agent 把"多次 LLM 调用"替换为"一次工具调用"，大幅降低单位任务成本。</li>
+<li><strong>支持新场景</strong>：当任务环境变化时（如出现新的 API），P 自修改无能为力，T 自修改可以添加新工具。</li>
+</ol>
+<p>但 T 自修改也面临独特挑战：</p>
+<ol>
+<li><strong>正确性验证</strong>：T 修改不仅是改字符串，还要保证函数实现是正确的。</li>
+<li><strong>安全沙箱</strong>：新工具的执行可能带来副作用（如文件修改、网络请求），必须沙箱化。</li>
+<li><strong>版本治理</strong>：T 修改比 P 修改更复杂（涉及函数实现、依赖、测试），版本管理更难。</li>
+</ol>
+<h3 id="131-t_1">图 13.1 · T 自修改在操作形态中的位置</h3>
+<pre><code>   操作形态 B = {P, T, M, C}
+                       ↑
+                       │ 本章修改 T
+                       │
+   ┌───────────────────┴──────────────────┐
+   │  P · Prompt (Ch 12, 已完成)          │
+   │  T · Tool (本章)                     │
+   │  M · Memory (Ch 14)                  │
+   │  C · Code (Ch 15)                    │
+   └──────────────────────────────────────┘
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：T 自修改是 P 自修改的"能力升级版"——P 优化指令，T 扩展能力。</p>
+</blockquote>
+<h3 id="131-5-t">表 13.1 · 5 大 T 自修改范式对比</h3>
+<table>
+<thead>
+<tr>
+<th>范式</th>
+<th>时间</th>
+<th>核心机制</th>
+<th>关键结果</th>
+<th>局限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LATM</strong></td>
+<td>2023-05</td>
+<td>双 LLM：tool maker + tool user</td>
+<td>GSM8K 与 GPT-4 等价，成本降 95%</td>
+<td>工具质量依赖 LLM</td>
+</tr>
+<tr>
+<td><strong>Voyager</strong></td>
+<td>2023-05</td>
+<td>技能库增长 + 自动课程</td>
+<td>Minecraft 3.3x unique items</td>
+<td>局限于 Minecraft</td>
+</tr>
+<tr>
+<td><strong>AFlow</strong></td>
+<td>2024-10</td>
+<td>MCTS 搜索工作流</td>
+<td>多任务平均 +10-15%</td>
+<td>样本复杂度高</td>
+</tr>
+<tr>
+<td><strong>EvoAgent</strong></td>
+<td>2025-04</td>
+<td>进化算法生成多 Agent</td>
+<td>多 Agent 任务 +20%</td>
+<td>难以评估 Agent 质量</td>
+</tr>
+<tr>
+<td><strong>AlphaEvolve</strong></td>
+<td>2025-05</td>
+<td>代码库作为进化对象</td>
+<td>矩阵乘法、TPU 设计</td>
+<td>仅适用于代码任务</td>
+</tr>
+</tbody>
+</table>
+<h2 id="132-latm-llm">13.2 LATM：让 LLM 自己造工具</h2>
+<p><strong>LATM（Large Language Models As Tool Makers）</strong> 由 Cai 等人 2023 年 5 月提出，是 T 自修改的开山工作。LATM 的核心思想是<strong>双 LLM 分工</strong>：</p>
+<ul>
+<li><strong>Tool Maker</strong>（强 LLM，如 GPT-4）：设计、编写、调试工具</li>
+<li><strong>Tool User</strong>（便宜 LLM，如 GPT-3.5）：使用工具解决任务</li>
+</ul>
+<h3 id="latm">LATM 的两阶段流程</h3>
+<pre><code>   ┌──────────────────────────────────────────────────────────────┐
+   │  阶段 1: Tool Making (用强 LLM)                               │
+   │    - 给定任务描述                                              │
+   │    - Tool Maker 生成工具的 Python 实现 + JSON Schema          │
+   │    - Tool Maker 自己测试工具                                   │
+   │    - 输出: 工具库 (Python 函数 + 描述)                       │
+   └──────────────────────┬───────────────────────────────────────┘
+                          │
+                          ▼
+   ┌──────────────────────────────────────────────────────────────┐
+   │  阶段 2: Tool Using (用便宜 LLM)                              │
+   │    - 任务 query 到达                                           │
+   │    - Tool User 看到工具库, 选择合适的工具                      │
+   │    - Tool User 调用工具, 获取结果                              │
+   │    - Tool User 综合结果, 给出答案                             │
+   └──────────────────────────────────────────────────────────────┘
+</code></pre>
+<h3 id="latm_1">LATM 的成本优势</h3>
+<p>LATM 在 Big-Bench 任务上达到了与 GPT-4 相当的准确率，但成本大幅降低：
+- 全部用 GPT-4：约 $X（基线）
+- LATM（Maker = GPT-4，User = GPT-3.5）：约 $X/20（5%）
+- 准确率相当，<strong>成本降 95%</strong></p>
+<p>这是因为：
+- Tool Maker 只在<strong>开发阶段</strong>调用一次
+- Tool User 在<strong>任务执行阶段</strong>调用（便宜模型）
+- 大量任务<strong>复用</strong>同一工具（缓存命中）</p>
+<h3 id="132-latm">图 13.2 · LATM 的成本结构</h3>
+<pre><code>   任务 N 个
+       │
+       ▼
+   ┌─────────────────┐
+   │ Tool User       │  ← 便宜 LLM（每任务 1 次）
+   │ (便宜 LLM)      │
+   └────────┬────────┘
+            │
+            ▼
+   工具库 (Tool Library)  ← 缓存
+            │
+            ▼
+   ┌─────────────────┐
+   │ Tool Maker      │  ← 强 LLM（只调用 1 次，生成所有工具）
+   │ (强 LLM)        │
+   └─────────────────┘
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：LATM 的成本优势来自"工具的<strong>可复用性</strong>"——Tool Maker 一次投入，Tool User 无数次复用。</p>
+<p><strong>复述框 · 13.2 节要点</strong></p>
+<ul>
+<li><strong>LATM = Tool Maker + Tool User</strong>：双 LLM 分工。</li>
+<li><strong>核心结果</strong>：Big-Bench 上与 GPT-4 准确率相当，成本降 95%。</li>
+<li><strong>关键洞察</strong>：工具的可复用性 = 成本优势。</li>
+</ul>
+</blockquote>
+<h2 id="133-voyager">13.3 Voyager：无限增长的技能库</h2>
+<p><strong>Voyager</strong> 由 Wang 等人 2023 年 5 月提出，是 LLM Agent 在开放世界中"无限学习"的代表工作。Voyager 的核心思想是<strong>技能库（Skill Library）的持续增长</strong>——Agent 每掌握一个新技能，就把代码存进技能库，下次需要时直接调用。</p>
+<h3 id="voyager">Voyager 的三大组件</h3>
+<ol>
+<li><strong>自动课程（Automatic Curriculum）</strong>：根据当前状态推荐下一个学习目标</li>
+<li><strong>技能库（Skill Library）</strong>：以可执行代码形式存储所有已掌握的技能</li>
+<li><strong>迭代提示（Iterative Prompting）</strong>：用环境反馈和执行错误持续改进技能代码</li>
+</ol>
+<h3 id="133-voyager_1">图 13.3 · Voyager 的技能库增长循环</h3>
+<pre><code>   ┌─────────────────┐         ┌─────────────────┐
+   │  任务          │         │  技能库          │
+   │  (Minecraft)   │  写代码  │  ┌─────────────┐ │
+   └────────┬────────┘ ───────&gt;│  │ skill_1      │ │
+            │                   │  │ skill_2      │ │
+            │ 失败/成功         │  │ skill_3      │ │
+            ▼                   │  │ ...          │ │
+   ┌─────────────────┐         │  └─────────────┘ │
+   │  环境反馈       │         │       ↑         │
+   │  (反馈)        │  调用技能 │       │         │
+   └────────┬────────┘ &lt;────── │       │         │
+            │                   └───────┴─────────┘
+            ▼
+   ┌─────────────────┐
+   │  改进技能       │  ← 失败的技能被重写
+   │  (LLM 重写)    │
+   └─────────────────┘
+</code></pre>
+<h3 id="voyager_1">Voyager 的关键结果</h3>
+<ul>
+<li>3.3x <strong>更多</strong>独特物品</li>
+<li>2.3x <strong>更长</strong>的旅行距离</li>
+<li><strong>快 15.3x</strong> 解锁关键技术树里程碑</li>
+<li><strong>可迁移</strong>：在新 Minecraft 世界，技能库立即可用</li>
+</ul>
+<blockquote>
+<p><strong>关键点</strong>：Voyager 的核心贡献是"技能库 = Agent 的<strong>可执行记忆</strong>"——技能不是"知道什么"，而是"会做什么"。</p>
+<p><strong>复述框 · 13.3 节要点</strong></p>
+<ul>
+<li><strong>Voyager = 自动课程 + 技能库 + 迭代提示</strong>。</li>
+<li><strong>核心结果</strong>：3.3x unique items，15.3x 解锁关键技术树。</li>
+<li><strong>关键洞察</strong>：技能 = 可执行记忆 = 操作形态 T 的自修改。</li>
+</ul>
+</blockquote>
+<h2 id="134-aflow">13.4 AFlow：工作流自动进化</h2>
+<p><strong>AFlow</strong> 由 Zhang 等人 2024 年 10 月提出，把 Agent 的"工作流"（节点+边的图）作为可优化对象。AFlow 的核心思想是<strong>把工作流视为代码，用 MCTS 搜索最优结构</strong>。</p>
+<h3 id="aflow">AFlow 的工作流表示</h3>
+<pre><code>   ┌─────────┐     ┌──────────┐     ┌──────────┐
+   │ 节点 1   │────&gt;│  节点 2   │────&gt;│  节点 3   │
+   │ (LLM 1) │     │ (LLM 2)  │     │ (LLM 3)  │
+   └─────────┘     └──────────┘     └──────────┘
+       │                              ▲
+       └──────────────────────────────┘
+              (循环边)
+</code></pre>
+<p>每个节点是 LLM 调用，边是数据流。</p>
+<h3 id="aflow-mcts">AFlow 的 MCTS 优化</h3>
+<pre><code>   ┌────────────────────────────────────────────────────────────┐
+   │  MCTS 搜索:                                                 │
+   │    - 节点: 工作流结构 (节点类型 + 边)                       │
+   │    - 动作: 添加节点 / 删除节点 / 改变边 / 改变 prompt       │
+   │    - 评估: 在验证集上跑工作流, 计算任务准确率              │
+   │    - 选择: UCB 公式选择最有希望的修改                      │
+   └────────────────────────────────────────────────────────────┘
+</code></pre>
+<p>AFlow 在多任务上达到了平均 +10-15% 的提升，样本效率优于直接 MCTS（因为工作流是结构化搜索空间）。</p>
+<blockquote>
+<p><strong>复述框 · 13.4 节要点</strong></p>
+<ul>
+<li><strong>AFlow = 工作流 + MCTS</strong>：把 Agent 编排视为代码搜索。</li>
+<li><strong>核心结果</strong>：多任务平均 +10-15%。</li>
+<li><strong>关键洞察</strong>：工作流结构是 T 的"宏观形态"。</li>
+</ul>
+</blockquote>
+<h2 id="135-evoagent-agent">13.5 EvoAgent：多 Agent 系统自动生成</h2>
+<p><strong>EvoAgent</strong> 由 Yuan 等人 2025 年 4 月提出，把"多 Agent 系统"本身作为进化对象。EvoAgent 的核心思想是<strong>用进化算法生成整个多 Agent 协作结构</strong>。</p>
+<h3 id="evoagent">EvoAgent 的进化过程</h3>
+<pre><code>   单 Agent
+   ┌─────────┐
+   │ Agent 1 │
+   └─────────┘
+        │
+        │ 突变: 拆分为两个 Agent
+        ▼
+   两 Agent
+   ┌─────────┐     ┌─────────┐
+   │ Agent 1 │ ──&gt; │ Agent 2 │
+   └─────────┘     └─────────┘
+        │
+        │ 突变: 添加协调 Agent
+        ▼
+   三 Agent
+   ┌─────────┐     ┌──────────┐     ┌─────────┐
+   │ Worker  │ ──&gt; │ Coordinator │ &lt;──│ Worker   │
+   │ Agent 1 │     │   Agent   │     │ Agent 2 │
+   └─────────┘     └──────────┘     └─────────┘
+</code></pre>
+<p>EvoAgent 用进化算子（mutation / crossover / selection）生成多 Agent 结构，每个结构在测试集上评估 fitness，选择最优结构继续进化。</p>
+<p>EvoAgent 在多 Agent 任务上达到了 +20% 的提升。它的关键创新是<strong>多 Agent 结构本身是 T 的"超级形态"</strong>——T 是工具集，EvoAgent 改的是"工具集如何被组织"。</p>
+<blockquote>
+<p><strong>复述框 · 13.5 节要点</strong></p>
+<ul>
+<li><strong>EvoAgent = 多 Agent 进化</strong>：用进化算法生成整个多 Agent 协作结构。</li>
+<li><strong>核心结果</strong>：多 Agent 任务 +20%。</li>
+<li><strong>关键洞察</strong>：多 Agent 结构 = T 的"超级形态"。</li>
+</ul>
+</blockquote>
+<h2 id="136-alphaevolve">13.6 AlphaEvolve：整个代码库作为进化对象</h2>
+<p><strong>AlphaEvolve</strong> 由 Google DeepMind 2025 年 5 月发布，是 LATM 思想在"整个代码库"层面的扩展。AlphaEvolve 不只是让 LLM 写单个工具，而是让 LLM 进化<strong>整个代码库</strong>——可以是数学算法、TPU 调度、机器学习训练循环等。</p>
+<h3 id="alphaevolve">AlphaEvolve 的进化循环</h3>
+<pre><code>   ┌──────────────────────────────────────────────────────────────┐
+   │  1. 当前代码库 → 提取可独立评测的子程序                      │
+   │  2. 让 LLM 生成该子程序的&quot;变体&quot;                              │
+   │  3. 用自动化评估器评测每个变体                                │
+   │  4. 选择最优变体替换原子程序                                  │
+   │  5. 回到步骤 1, 继续下一轮                                  │
+   └──────────────────────────────────────────────────────────────┘
+</code></pre>
+<h3 id="alphaevolve_1">AlphaEvolve 的标志性结果</h3>
+<ul>
+<li><strong>矩阵乘法</strong>：发现 4×4 矩阵乘法的 49 次标量乘法新算法（53 年来首次改进）</li>
+<li><strong>TPU 电路设计</strong>：为 TPU 设计新电路，效率提升</li>
+<li><strong>数据中心调度</strong>：优化 Google 数据中心调度，节省 0.7% 计算资源</li>
+<li><strong>数学发现</strong>：与陶哲轩合作发现新的数学构造</li>
+</ul>
+<blockquote>
+<p><strong>关键点</strong>：AlphaEvolve 把"代码库"视为"巨型可进化对象"——这是 T 自修改的极限形式。</p>
+<p><strong>复述框 · 13.6 节要点</strong></p>
+<ul>
+<li><strong>AlphaEvolve = 代码库进化</strong>：整个代码库是可进化对象。</li>
+<li><strong>核心结果</strong>：4×4 矩阵乘法新算法、TPU 电路设计、数据中心调度。</li>
+<li><strong>关键洞察</strong>：代码库 = 极限形态学。</li>
+</ul>
+</blockquote>
+<h2 id="137">13.7 工具生命周期治理</h2>
+<p>T 自修改带来一个工程问题：<strong>工具的生命周期管理</strong>。一个工具从"创建"到"淘汰"经历哪些阶段？每个阶段如何治理？</p>
+<h3 id="134-5">图 13.4 · 工具生命周期的 5 个阶段</h3>
+<pre><code>   ┌────────┐    ┌────────┐    ┌─────────┐    ┌────────┐    ┌────────┐
+   │ 创建   │───&gt;│ 测试   │───&gt;│ 部署    │───&gt;│ 监控   │───&gt;│ 淘汰   │
+   │ Create │    │ Test   │    │ Deploy  │    │ Monitor│    │ Retire │
+   └────────┘    └────────┘    └─────────┘    └────────┘    └────────┘
+       │             │              │              │              │
+       ▼             ▼              ▼              ▼              ▼
+   LLM 生成      沙箱测试     注入工具池     统计调用      删除并
+   Python 代码   功能 + 性能  供 Agent 调用  成功率/延迟   标记为 deprecated
+</code></pre>
+<h3 id="132-5">表 13.2 · 工具生命周期的 5 个阶段与治理</h3>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>关键治理</th>
+<th>防护工具</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>创建</strong></td>
+<td>LLM 生成的代码不能有安全漏洞</td>
+<td>静态代码扫描 + 类型检查</td>
+</tr>
+<tr>
+<td><strong>测试</strong></td>
+<td>工具必须在沙箱中通过功能与性能测试</td>
+<td>沙箱环境 + 单元测试</td>
+</tr>
+<tr>
+<td><strong>部署</strong></td>
+<td>工具必须通过版本控制 + 签名校验</td>
+<td>git + 哈希校验</td>
+</tr>
+<tr>
+<td><strong>监控</strong></td>
+<td>工具的调用成功率、延迟、成本必须可观测</td>
+<td>OpenTelemetry + 告警</td>
+</tr>
+<tr>
+<td><strong>淘汰</strong></td>
+<td>工具被淘汰时必须保留历史记录</td>
+<td>软删除 + git tag</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4">工具治理的 4 个关键设计原则</h3>
+<ol>
+<li><strong>版本化</strong>：每个工具版本都有唯一的 hash 和 changelog</li>
+<li><strong>沙箱化</strong>：新工具先在沙箱中测试，不直接进入生产</li>
+<li><strong>可回滚</strong>：发现问题的工具可以一键回滚到上一版本</li>
+<li><strong>可审计</strong>：每个工具的创建、修改、调用都有完整日志</li>
+</ol>
+<blockquote>
+<p><strong>复述框 · 13.7 节要点</strong></p>
+<ul>
+<li><strong>工具生命周期</strong>：创建 → 测试 → 部署 → 监控 → 淘汰。</li>
+<li><strong>4 个设计原则</strong>：版本化、沙箱化、可回滚、可审计。</li>
+<li><strong>关键洞察</strong>：T 自修改 = 工具生命周期的"持续循环"。</li>
+</ul>
+</blockquote>
+<h2 id="138-h1">13.8 H1 的第二个验证案例</h2>
+<p>H1（结构可塑性）的第一个验证案例是 P 自修改（Ch 12），第二个是 T 自修改。</p>
+<h3 id="h1-t">H1 在 T 自修改中的形式化</h3>
+<ul>
+<li><strong>(B_t = T_t)</strong>：操作形态只有 Tool 一个组件</li>
+<li><strong>(U)</strong>：LATM / Voyager / AFlow / EvoAgent / AlphaEvolve 中的任何一个</li>
+<li><strong>(E)</strong>：环境（任务分布 + API 集）</li>
+<li><strong>(R)</strong>：适应后悔值</li>
+</ul>
+<p><strong>预测</strong>：当 (E) 变化时，<strong>T 自修改 Agent</strong> 的 (R(B_{\text{adaptive}})) 显著低于 <strong>T 固定 Agent</strong> 的 (R(B_{\text{fixed}}))。</p>
+<h3 id="_4">验证设计</h3>
+<table>
+<thead>
+<tr>
+<th>实验组</th>
+<th>T 是否修改</th>
+<th>元控制器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Frozen-T</td>
+<td>❌ 固定工具集</td>
+<td>无</td>
+</tr>
+<tr>
+<td>LATM</td>
+<td>✅ Tool Maker 持续工作</td>
+<td>双 LLM</td>
+</tr>
+<tr>
+<td>Voyager</td>
+<td>✅ 技能库持续增长</td>
+<td>技能代码</td>
+</tr>
+<tr>
+<td>AFlow</td>
+<td>✅ 工作流结构搜索</td>
+<td>MCTS</td>
+</tr>
+<tr>
+<td>EvoAgent</td>
+<td>✅ 多 Agent 结构进化</td>
+<td>进化算法</td>
+</tr>
+<tr>
+<td>AlphaEvolve</td>
+<td>✅ 代码库级进化</td>
+<td>LLM 变体生成</td>
+</tr>
+</tbody>
+</table>
+<p>每个实验组在 5 类环境变化（任务漂移、API 漂移等）下跑 100 任务，测量适应后悔值。</p>
+<p><strong>预期结果</strong>：</p>
+<ul>
+<li>Frozen-T 的后悔值随环境变化线性增加</li>
+<li>5 类 T 自修改 Agent 的后悔值都低于 Frozen-T</li>
+<li>AlphaEvolve 可能在大型代码任务上表现最佳，LATM 可能在简单任务上表现最佳</li>
+</ul>
+<h3 id="t-vs-p">T 自修改 vs P 自修改的差异</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>P 自修改（Ch 12）</th>
+<th>T 自修改（Ch 13）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>修改对象</td>
+<td>自然语言字符串</td>
+<td>Python 代码 + JSON Schema</td>
+</tr>
+<tr>
+<td>修改粒度</td>
+<td>词 → 段</td>
+<td>函数 → 工作流 → 代码库</td>
+</tr>
+<tr>
+<td>评估难度</td>
+<td>简单（任务准确率）</td>
+<td>中等（功能 + 性能测试）</td>
+</tr>
+<tr>
+<td>安全风险</td>
+<td>中（提示注入）</td>
+<td>高（任意代码执行）</td>
+</tr>
+<tr>
+<td>扩展能力</td>
+<td>调优指令</td>
+<td>扩展能力</td>
+</tr>
+<tr>
+<td>H1 验证位置</td>
+<td>第一个验证（最简）</td>
+<td>第二个验证（更强）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>复述框 · 13.8 节要点</strong></p>
+<ul>
+<li><strong>H1 在 T 自修改中的形式化</strong>：(B_t = T_t)，元控制器是 LATM / Voyager / AFlow / EvoAgent / AlphaEvolve。</li>
+<li><strong>验证设计</strong>：6 个实验组 × 5 类环境 × 100 任务 = 300 个单元格。</li>
+<li><strong>T vs P</strong>：T 自修改比 P 自修改更强，但风险也更高。</li>
+</ul>
+</blockquote>
+<h2 id="139-14">13.9 本章小结与第 14 章预告</h2>
+<p>本章是 Part III 的第 2 章。<strong>T 自修改是 H1 的第二个验证案例</strong>。<strong>LATM</strong> 用双 LLM 分工降低 95% 成本。<strong>Voyager</strong> 用技能库实现 Minecraft 3.3x unique items。<strong>AFlow</strong> 用 MCTS 搜索工作流结构。<strong>EvoAgent</strong> 用进化算法生成多 Agent 系统。<strong>AlphaEvolve</strong> 把整个代码库作为进化对象。<strong>工具生命周期</strong>的 5 个阶段 + 4 个治理原则保证 T 修改是安全的。</p>
+<blockquote>
+<p><strong>常见误区</strong></p>
+<ul>
+<li>❌ <strong>把 T 自修改当作"自动写代码"</strong>：T 自修改不只是"写代码"，是"创建/测试/部署/监控/淘汰"的完整生命周期。</li>
+<li>❌ <strong>忽视沙箱化</strong>：新工具必须先在沙箱中测试，不能直接进入生产。</li>
+<li>❌ <strong>把所有 T 修改都当作"自进化"</strong>：T 修改必须让 Agent 更好才算自进化，否则只是浪费资源。</li>
+<li>❌ <strong>把 AlphaEvolve 当作万能解</strong>：AlphaEvolve 只适用于有明确"评测函数"的任务。</li>
+<li>❌ <strong>忽视 EvoAgent 的"超级形态"风险</strong>：多 Agent 结构变化可能引入不可预测的交互行为。</li>
+</ul>
+</blockquote>
+<p>第 14 章将进入<strong>自适应记忆结构</strong>。P 自修改和 T 自修改是 H1 的前两个案例，<strong>M 自修改是第三个案例</strong>——让 Agent 自主调整记忆的 schema、索引、检索策略。A-MEM、O-Mem、Mem0 等工作如何让 Agent 拥有"修改自身记忆"的能力？这是 Ch 14 的核心议题。</p>
+<hr />
+<h2 id="_5">本章小结</h2>
+<ul>
+<li><strong>操作形态学的第二个应用</strong>：修改 T（比 P 更强，但风险也更高）。</li>
+<li><strong>LATM</strong>：Tool Maker + Tool User，成本降 95%。</li>
+<li><strong>Voyager</strong>：技能库增长，3.3x unique items，15.3x 技术树。</li>
+<li><strong>AFlow</strong>：MCTS 搜索工作流结构，多任务 +10-15%。</li>
+<li><strong>EvoAgent</strong>：进化算法生成多 Agent 系统，+20%。</li>
+<li><strong>AlphaEvolve</strong>：整个代码库作为进化对象。</li>
+<li><strong>工具生命周期</strong>：创建 → 测试 → 部署 → 监控 → 淘汰。</li>
+<li><strong>4 个治理原则</strong>：版本化、沙箱化、可回滚、可审计。</li>
+<li><strong>H1 的第二个验证案例</strong>：T 自修改。</li>
+</ul>
+<h2 id="_6">推荐阅读</h2>
+<ul>
+<li>📖 <strong>LATM 原始论文</strong> [Cai et al., 2023]：Tool Maker + Tool User 双 LLM 范式。<a href="https://arxiv.org/abs/2305.17126">$TRAE_REF</a></li>
+<li>📖 <strong>Voyager 原始论文</strong> [Wang et al., 2023]：技能库 + 自动课程的 Minecraft 终身学习。<a href="https://arxiv.org/abs/2305.16291">$TRAE_REF</a></li>
+<li>📖 <strong>AFlow 原始论文</strong> [Zhang et al., 2024]：MCTS 搜索 Agent 工作流。<a href="https://arxiv.org/abs/2410.10762">$TRAE_REF</a></li>
+<li>📖 <strong>EvoAgent 原始论文</strong> [Yuan et al., 2025]：进化算法生成多 Agent 系统。<a href="https://arxiv.org/abs/2406.14228">$TRAE_REF</a></li>
+<li>📖 <strong>AlphaEvolve 官方博客</strong> [DeepMind, 2025]：整个代码库作为进化对象。</li>
+</ul>
+<h2 id="_7">练习题</h2>
+<ol>
+<li><strong>设计题</strong>：为一个"数据分析 Agent"设计 LATM 工具库：哪些任务适合用强 LLM 写工具？哪些任务适合用便宜 LLM 调用？给出具体工具列表。</li>
+<li><strong>分析题</strong>：选一个真实 Agent 系统（ChatGPT、AutoGPT、Cursor），分析它的工具集是"固定"还是"可扩展"？是否支持 LATM 范式？</li>
+<li><strong>动手题</strong>：用 Python 实现一个简化版 LATM（不超过 150 行）：Tool Maker 用 GPT-4，Tool User 用本地 LLM。给定 10 个数学任务。</li>
+<li><strong>设计题</strong>：为 Voyager 风格的"技能库增长"设计治理机制：技能达到什么条件才能入库？技能出现 bug 怎么处理？技能如何版本化？</li>
+<li><strong>批判题</strong>：EvoAgent 让"多 Agent 结构"自进化——这是否会让 Agent 行为变得不可预测？如何治理？</li>
+<li><strong>工程题</strong>：设计 AlphaEvolve 风格的"代码库级 T 自修改"系统的安全护栏：代码沙箱、版本控制、回滚机制、人类审核。</li>
+</ol>
+<h2 id="_8">参考文献（本章内）</h2>
+<ol>
+<li>Cai, T., et al. (2023). <em>Large Language Models as Tool Makers (LATM)</em>. arXiv:2305.17126. <a href="https://arxiv.org/abs/2305.17126">$TRAE_REF</a></li>
+<li>Wang, G., et al. (2023). <em>Voyager: An Open-Ended Embodied Agent with Large Language Models</em>. arXiv:2305.16291. <a href="https://arxiv.org/abs/2305.16291">$TRAE_REF</a></li>
+<li>Zhang, J., et al. (2024). <em>AFlow: Automating Agentic Workflow Generation</em>. arXiv:2410.10762. <a href="https://arxiv.org/abs/2410.10762">$TRAE_REF</a></li>
+<li>Yuan, S., et al. (2025). <em>EvoAgent: Towards Automatic Multi-Agent Generation via Evolutionary Algorithms</em>. NAACL. <a href="https://arxiv.org/abs/2406.14228">$TRAE_REF</a></li>
+<li>DeepMind. (2025). <em>AlphaEvolve: A Coding Agent for Scientific and Algorithmic Discovery</em>. <a href="https://deepmind.google/discover/blog/alphaevolve-a-coding-agent-for-scientific-and-algorithmic-discovery/">Google Blog</a>.</li>
+<li>Qian, C., et al. (2023). <em>ToolLLM: Facilitating Large Language Models to Master 4000+ Real-world APIs</em>. arXiv:2307.16789. <a href="https://arxiv.org/abs/2307.16789">$TRAE_REF</a></li>
+<li>Patil, S. G., et al. (2023). <em>Gorilla: Large Language Model Connected with Massive APIs</em>. arXiv:2305.15334. <a href="https://arxiv.org/abs/2305.15334">$TRAE_REF</a></li>
+<li>Fang, J., et al. (2025). <em>A Comprehensive Survey of Self-Evolving AI Agents</em>. arXiv:2508.07407. <a href="https://arxiv.org/abs/2508.07407">$TRAE_REF</a></li>
+<li>Sumers, T. R., et al. (2023). <em>CoALA: Cognitive Architectures for Language Agents</em>. arXiv:2309.02427. <a href="https://arxiv.org/abs/2309.02427">$TRAE_REF</a></li>
+<li>Wang, X., et al. (2024). <em>CodeAct: Executable Code Actions Elicit Better LLM Agents</em>. ICLR. <a href="https://arxiv.org/abs/2402.01030">$TRAE_REF</a></li>
+</ol>
+<hr />
+<blockquote>
+<p><strong>本章进度</strong>：13.1–13.9 节全部完成（约 6,500 字，含 4 张图 + 2 张表 + 10 篇引用 + 6 题 + 5 误区 + 5 推荐），达到 28 页计划。<code>status: final</code>。</p>
+<p><strong>Part III 进度</strong>：2/6 章完结（Ch 12, 13）。下一章是 Ch 14 <strong>自适应记忆结构</strong>。</p>
+</blockquote>
+<div class="nav-top" style="margin-top:3rem;border-top:1px solid var(--border);padding-top:1rem;"><a href="chapter-12.html">← 12. 自修改提示词：从 OPRO 到 PE2</a><a href="index.html">目录</a><a href="chapter-14.html">14. 自适应记忆结构 →</a></div>
+</main>
+</div>
+</body>
+</html>

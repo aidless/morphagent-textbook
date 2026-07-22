@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>操作形态学：自修改 LLM 智能体的具身认知</title>
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --muted: #555;
+  --accent: #2563eb;
+  --code-bg: #f4f4f4;
+  --border: #ddd;
+  --sidebar-bg: #f0f0f0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111;
+    --fg: #eee;
+    --muted: #aaa;
+    --accent: #60a5fa;
+    --code-bg: #1e1e1e;
+    --border: #333;
+    --sidebar-bg: #1a1a1a;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Noto Sans CJK SC", "WenQuanYi Micro Hei", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.75;
+}
+.layout {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.sidebar {
+  width: 280px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar h2 {
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  color: var(--accent);
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar li {
+  margin: 0.25rem 0;
+}
+.sidebar a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: block;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+.sidebar a:hover, .sidebar a.active {
+  background: var(--accent);
+  color: #fff;
+}
+.main {
+  flex: 1;
+  padding: 2rem 3rem;
+  max-width: 900px;
+}
+h1, h2, h3, h4 {
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+h1 { font-size: 2rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
+h2 { font-size: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.25rem; }
+p { margin: 0.8rem 0; }
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+  font-family: "SF Mono", "Fira Code", Consolas, monospace;
+  font-size: 0.9em;
+}
+pre code { padding: 0; background: none; }
+blockquote {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid var(--accent);
+  background: rgba(37,99,235,0.05);
+  color: var(--muted);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+  text-align: left;
+}
+th { background: var(--sidebar-bg); }
+ul, ol { margin: 0.5rem 0; padding-left: 1.5rem; }
+img { max-width: 100%; height: auto; }
+a { color: var(--accent); }
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+.nav-top a {
+  color: var(--accent);
+  text-decoration: none;
+}
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); }
+  .main { padding: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="sidebar">
+<h2><a href="index.html" style="color:var(--accent);text-decoration:none;">操作形态学</a></h2>
+<ul><li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part I</li>
+<li><a class="" href="chapter-01.html">1. LLM 智能体时代</a></li>
+<li><a class="" href="chapter-02.html">2. 智能体基础：感知、决策、行动、反馈</a></li>
+<li><a class="" href="chapter-03.html">3. 工具与函数调用</a></li>
+<li><a class="" href="chapter-04.html">4. 提示词工程：从静态到动态</a></li>
+<li><a class="" href="chapter-05.html">5. 上下文工程与短期记忆</a></li>
+<li><a class="" href="chapter-06.html">6. 长期记忆与检索增强</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part II</li>
+<li><a class="" href="chapter-07.html">7. 4E Cognition 简史</a></li>
+<li><a class="" href="chapter-08.html">8. Enactivism 与自创生</a></li>
+<li><a class="" href="chapter-09.html">9. Extended Mind 与延展心智</a></li>
+<li><a class="" href="chapter-10.html">10. 具身 AI 与机器人认知</a></li>
+<li><a class="" href="chapter-11.html">11. 当工具成为身体：操作形态假说</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part III</li>
+<li><a class="" href="chapter-12.html">12. 自修改提示词：从 OPRO 到 PE2</a></li>
+<li><a class="" href="chapter-13.html">13. 自动工具创建与重构</a></li>
+<li><a class="" href="chapter-14.html">14. 自适应记忆结构</a></li>
+<li><a class="" href="chapter-15.html">15. 自我改写代码</a></li>
+<li><a class="" href="chapter-16.html">16. 跨组件协同自进化</a></li>
+<li><a class="" href="chapter-17.html">17. 元控制器设计</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part IV</li>
+<li><a class="" href="chapter-18.html">18. MorphAgent 参考实现</a></li>
+<li><a class="" href="chapter-19.html">19. 评测方法学：MorphBench</a></li>
+<li><a class="" href="chapter-20.html">20. 调试与可观测性</a></li>
+<li><a class="" href="chapter-21.html">21. 部署与运维</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part V</li>
+<li><a class="" href="chapter-22.html">22. 安全性与对抗鲁棒性</a></li>
+<li><a class="" href="chapter-23.html">23. 可验证自改</a></li>
+<li><a class="" href="chapter-24.html">24. 经济、伦理与社会影响</a></li>
+<li><a class="" href="chapter-25.html">25. 开放问题与未来工作</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part VI</li>
+<li><a class="" href="chapter-26.html">26. 附录 A · 术语表</a></li>
+<li><a class="" href="chapter-27.html">27. 附录 B · 数学基础</a></li>
+<li><a class="" href="chapter-28.html">28. 附录 C · 工具与库速查</a></li>
+<li><a class="" href="chapter-29.html">29. 附录 D · 教学实验清单</a></li>
+<li><a class="" href="chapter-30.html">30. 附录 E · 练习题答案</a></li>
+<li><a class="" href="chapter-31.html">31. 附录 F · 参考文献总目录</a></li></ul>
+</nav>
+<main class="main">
+<h1>操作形态学：自修改 LLM 智能体的具身认知</h1>
+<p><strong>Operational Morphology: The Embodied Cognition of Self-Modifying LLM Agents</strong></p>
+<p>一本开源的研究生级教科书，覆盖 LLM 智能体从「工具」到「自进化体」的全部路程。</p>
+<p>全书共 <strong>31 章</strong>（25 章正文 + 6 个附录），约 <strong>800 页</strong>，<strong>150,000+ 字</strong>。</p>
+<hr>
+<h2>Part I</h2>
+<ul>
+<li><a href="chapter-01.html">1. LLM 智能体时代</a></li>
+<li><a href="chapter-02.html">2. 智能体基础：感知、决策、行动、反馈</a></li>
+<li><a href="chapter-03.html">3. 工具与函数调用</a></li>
+<li><a href="chapter-04.html">4. 提示词工程：从静态到动态</a></li>
+<li><a href="chapter-05.html">5. 上下文工程与短期记忆</a></li>
+<li><a href="chapter-06.html">6. 长期记忆与检索增强</a></li>
+</ul>
+<h2>Part II</h2>
+<ul>
+<li><a href="chapter-07.html">7. 4E Cognition 简史</a></li>
+<li><a href="chapter-08.html">8. Enactivism 与自创生</a></li>
+<li><a href="chapter-09.html">9. Extended Mind 与延展心智</a></li>
+<li><a href="chapter-10.html">10. 具身 AI 与机器人认知</a></li>
+<li><a href="chapter-11.html">11. 当工具成为身体：操作形态假说</a></li>
+</ul>
+<h2>Part III</h2>
+<ul>
+<li><a href="chapter-12.html">12. 自修改提示词：从 OPRO 到 PE2</a></li>
+<li><a href="chapter-13.html">13. 自动工具创建与重构</a></li>
+<li><a href="chapter-14.html">14. 自适应记忆结构</a></li>
+<li><a href="chapter-15.html">15. 自我改写代码</a></li>
+<li><a href="chapter-16.html">16. 跨组件协同自进化</a></li>
+<li><a href="chapter-17.html">17. 元控制器设计</a></li>
+</ul>
+<h2>Part IV</h2>
+<ul>
+<li><a href="chapter-18.html">18. MorphAgent 参考实现</a></li>
+<li><a href="chapter-19.html">19. 评测方法学：MorphBench</a></li>
+<li><a href="chapter-20.html">20. 调试与可观测性</a></li>
+<li><a href="chapter-21.html">21. 部署与运维</a></li>
+</ul>
+<h2>Part V</h2>
+<ul>
+<li><a href="chapter-22.html">22. 安全性与对抗鲁棒性</a></li>
+<li><a href="chapter-23.html">23. 可验证自改</a></li>
+<li><a href="chapter-24.html">24. 经济、伦理与社会影响</a></li>
+<li><a href="chapter-25.html">25. 开放问题与未来工作</a></li>
+</ul>
+<h2>Part VI</h2>
+<ul>
+<li><a href="chapter-26.html">26. 附录 A · 术语表</a></li>
+<li><a href="chapter-27.html">27. 附录 B · 数学基础</a></li>
+<li><a href="chapter-28.html">28. 附录 C · 工具与库速查</a></li>
+<li><a href="chapter-29.html">29. 附录 D · 教学实验清单</a></li>
+<li><a href="chapter-30.html">30. 附录 E · 练习题答案</a></li>
+<li><a href="chapter-31.html">31. 附录 F · 参考文献总目录</a></li>
+</ul>
+
+</main>
+</div>
+</body>
+</html>

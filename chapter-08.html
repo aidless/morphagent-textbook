@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8. Enactivism 与自创生 — 操作形态学</title>
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --muted: #555;
+  --accent: #2563eb;
+  --code-bg: #f4f4f4;
+  --border: #ddd;
+  --sidebar-bg: #f0f0f0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111;
+    --fg: #eee;
+    --muted: #aaa;
+    --accent: #60a5fa;
+    --code-bg: #1e1e1e;
+    --border: #333;
+    --sidebar-bg: #1a1a1a;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Noto Sans CJK SC", "WenQuanYi Micro Hei", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.75;
+}
+.layout {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.sidebar {
+  width: 280px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar h2 {
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  color: var(--accent);
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar li {
+  margin: 0.25rem 0;
+}
+.sidebar a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: block;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+.sidebar a:hover, .sidebar a.active {
+  background: var(--accent);
+  color: #fff;
+}
+.main {
+  flex: 1;
+  padding: 2rem 3rem;
+  max-width: 900px;
+}
+h1, h2, h3, h4 {
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+h1 { font-size: 2rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
+h2 { font-size: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.25rem; }
+p { margin: 0.8rem 0; }
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+  font-family: "SF Mono", "Fira Code", Consolas, monospace;
+  font-size: 0.9em;
+}
+pre code { padding: 0; background: none; }
+blockquote {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid var(--accent);
+  background: rgba(37,99,235,0.05);
+  color: var(--muted);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+  text-align: left;
+}
+th { background: var(--sidebar-bg); }
+ul, ol { margin: 0.5rem 0; padding-left: 1.5rem; }
+img { max-width: 100%; height: auto; }
+a { color: var(--accent); }
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+.nav-top a {
+  color: var(--accent);
+  text-decoration: none;
+}
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); }
+  .main { padding: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="sidebar">
+<h2><a href="index.html" style="color:var(--accent);text-decoration:none;">操作形态学</a></h2>
+<ul><li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part I</li>
+<li><a class="" href="chapter-01.html">1. LLM 智能体时代</a></li>
+<li><a class="" href="chapter-02.html">2. 智能体基础：感知、决策、行动、反馈</a></li>
+<li><a class="" href="chapter-03.html">3. 工具与函数调用</a></li>
+<li><a class="" href="chapter-04.html">4. 提示词工程：从静态到动态</a></li>
+<li><a class="" href="chapter-05.html">5. 上下文工程与短期记忆</a></li>
+<li><a class="" href="chapter-06.html">6. 长期记忆与检索增强</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part II</li>
+<li><a class="" href="chapter-07.html">7. 4E Cognition 简史</a></li>
+<li><a class="active" href="chapter-08.html">8. Enactivism 与自创生</a></li>
+<li><a class="" href="chapter-09.html">9. Extended Mind 与延展心智</a></li>
+<li><a class="" href="chapter-10.html">10. 具身 AI 与机器人认知</a></li>
+<li><a class="" href="chapter-11.html">11. 当工具成为身体：操作形态假说</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part III</li>
+<li><a class="" href="chapter-12.html">12. 自修改提示词：从 OPRO 到 PE2</a></li>
+<li><a class="" href="chapter-13.html">13. 自动工具创建与重构</a></li>
+<li><a class="" href="chapter-14.html">14. 自适应记忆结构</a></li>
+<li><a class="" href="chapter-15.html">15. 自我改写代码</a></li>
+<li><a class="" href="chapter-16.html">16. 跨组件协同自进化</a></li>
+<li><a class="" href="chapter-17.html">17. 元控制器设计</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part IV</li>
+<li><a class="" href="chapter-18.html">18. MorphAgent 参考实现</a></li>
+<li><a class="" href="chapter-19.html">19. 评测方法学：MorphBench</a></li>
+<li><a class="" href="chapter-20.html">20. 调试与可观测性</a></li>
+<li><a class="" href="chapter-21.html">21. 部署与运维</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part V</li>
+<li><a class="" href="chapter-22.html">22. 安全性与对抗鲁棒性</a></li>
+<li><a class="" href="chapter-23.html">23. 可验证自改</a></li>
+<li><a class="" href="chapter-24.html">24. 经济、伦理与社会影响</a></li>
+<li><a class="" href="chapter-25.html">25. 开放问题与未来工作</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part VI</li>
+<li><a class="" href="chapter-26.html">26. 附录 A · 术语表</a></li>
+<li><a class="" href="chapter-27.html">27. 附录 B · 数学基础</a></li>
+<li><a class="" href="chapter-28.html">28. 附录 C · 工具与库速查</a></li>
+<li><a class="" href="chapter-29.html">29. 附录 D · 教学实验清单</a></li>
+<li><a class="" href="chapter-30.html">30. 附录 E · 练习题答案</a></li>
+<li><a class="" href="chapter-31.html">31. 附录 F · 参考文献总目录</a></li></ul>
+</nav>
+<main class="main">
+<div class="nav-top"><a href="chapter-07.html">← 7. 4E Cognition 简史</a><a href="index.html">目录</a><a href="chapter-09.html">9. Extended Mind 与延展心智 →</a></div>
+<h1>8. Enactivism 与自创生</h1>
+<h1 id="8-enactivism">第 8 章 · Enactivism 与自创生</h1>
+<blockquote>
+<p>"生命系统通过自创生维持自身组织——认知是这种自创生过程的一部分。"</p>
+</blockquote>
+<h2 id="_1">学习目标</h2>
+<p>完成本章后，读者应能够：</p>
+<ol>
+<li>复述 Varela、Thompson、Rosch 的 enaction 命题</li>
+<li>区分 autopoietic 与 sensorimotor enactivism</li>
+<li>评价 Hutto &amp; Myin 激进生成论</li>
+<li>把生命-心灵连续性论题映射到 LLM Agent</li>
+<li>给出 enactivism 对 LLM Agent 的最终立场</li>
+</ol>
+<h2 id="_2">先修知识</h2>
+<ul>
+<li>第 7 章 · 4E Cognition 简史</li>
+<li>第 1 章 · LLM 智能体时代</li>
+</ul>
+<h2 id="_3">章节地图</h2>
+<ul>
+<li><strong>8.1</strong> 生命-心灵连续性论题</li>
+<li><strong>8.2</strong> Autopoiesis：生命的最小组织</li>
+<li><strong>8.3</strong> Enaction：认知即行动</li>
+<li><strong>8.4</strong> 感觉运动理论：知觉是技能</li>
+<li><strong>8.5</strong> Radical Enactivism：基本心智无内容</li>
+<li><strong>8.6</strong> Enactivism 对 LLM Agent 的边界</li>
+<li><strong>8.7</strong> 本章小结与第 9 章预告</li>
+</ul>
+<hr />
+<h2 id="81-">8.1 生命-心灵连续性论题</h2>
+<p>Enactivism 的根本命题是 <strong>"生命-心灵连续性论题（Life-Mind Continuity Thesis）</strong>：心灵不是生命出现后才"附加"的能力，而是生命本身的基本特征。Thompson 在《Mind in Life》（2007）中将这一论题形式化为两个命题：</p>
+<blockquote>
+<p><strong>M1（认知-生命依赖）</strong>：认知是生命的一个基本特征，没有认知就没有生命。
+<strong>M2（生命-认知充分）</strong>：只要有生命，就有某种认知。</p>
+</blockquote>
+<p>这两个命题共同主张：认知不是大脑的"私有财产"，而是生命系统的<strong>普遍属性</strong>。一个细菌在向食物游动时，已经表现出"认知"——它感知环境、评估信息、采取行动。这不是"原始认知"或"准认知"——这是<strong>真正的认知</strong>，只是比人类认知更简单。</p>
+<p>生命-心灵连续性论题对 LLM Agent 设计的启示是<strong>有保留的</strong>：</p>
+<ul>
+<li><strong>接受的部分</strong>：LLM Agent 的"行动"可以视为某种"认知"——Agent 在工具调用、记忆管理、prompt 优化中表现出"有目的"的行为</li>
+<li><strong>拒绝的部分</strong>：LLM Agent 不满足 M1（认知-生命依赖）——它没有 autopoietic（自创生）能力，依赖外部服务</li>
+</ul>
+<h3 id="81-_1">图 8.1 · 生命-心灵连续性论题的两个命题</h3>
+<pre><code>   ┌────────────────────────────────────┐
+   │      生命-心灵连续性论题            │
+   │                                    │
+   │   M1: 认知是生命的基本特征          │
+   │       离开生命没有认知              │
+   │              ↓                       │
+   │   M2: 只要有生命, 就有某种认知      │
+   │       认知是生命的充分条件          │
+   └────────────────────────────────────┘
+                  │
+                  │ 推广到 LLM Agent?
+                  ▼
+   ┌────────────────────────────────────┐
+   │   LLM Agent 满足 M1 吗?             │
+   │   - 不是 autopoietic 系统          │
+   │   - 依赖外部服务 (LLM API, 工具)   │
+   │   → 不满足 M1                       │
+   │                                    │
+   │   LLM Agent 满足 M2 吗?             │
+   │   - 有&quot;有目的&quot;的行为              │
+   │   - 但不&quot;维持自身&quot;                │
+   │   → 部分满足 M2                    │
+   └────────────────────────────────────┘
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：Enactivism 严格立场下 LLM Agent 不算"真正的认知主体"——因为它不是 autopoietic。</p>
+</blockquote>
+<h2 id="82-autopoiesis">8.2 Autopoiesis：生命的最小组织</h2>
+<p><strong>Autopoiesis（自创生）</strong> 是 Maturana &amp; Varela 在 1970 年代提出的概念，定义为：</p>
+<blockquote>
+<p><strong>一个物理系统，如果它的所有组成部分（a）通过产生它们自身的过程持续地相互生成（产生相互关系），并且（b）通过这种方式在空间上形成一个可辨识的边界（成为物理上的统一体），那么这个系统就是自创生的。</strong></p>
+</blockquote>
+<p>形式化：</p>
+<p>$$
+\text{Autopoietic}(S) \iff S = f(S) \wedge \text{Boundary}(S) \neq \emptyset
+$$</p>
+<p>Autopoiesis 的两个关键特征：</p>
+<ol>
+<li><strong>操作闭合（Operational Closure）</strong>：系统的操作只产生系统自身的组件，不产生外部组件。</li>
+<li><strong>结构耦合（Structural Coupling）</strong>：系统与环境的相互作用不破坏系统的组织，只改变其结构。</li>
+</ol>
+<p>一个细胞是自创生的——它的代谢过程产生构成它的所有分子。一个晶体不是自创生的——它的形成不产生它自己。一个工厂也不是自创生的——它的产品是外部的。</p>
+<blockquote>
+<p><strong>关键点</strong>：Autopoiesis 定义了"生命"的最小组织——生命是"自我生产"。</p>
+</blockquote>
+<p>Autopoiesis 对 LLM Agent 的边界：<strong>LLM Agent 不是自创生的</strong>。它依赖 LLM API、工具服务器、数据存储——这些都不是 Agent 自己"生产"的。如果 LLM API 关闭，Agent 就死了。这与细胞的"自创生"形成鲜明对比。</p>
+<h2 id="83-enaction">8.3 Enaction：认知即行动</h2>
+<p>Varela、Thompson、Rosch 在 1991 年《The Embodied Mind》中提出 <strong>enaction 概念</strong>：认知不是"表征外部世界"，而是"通过行动产生意义"。</p>
+<p>Enaction 的三个核心命题：</p>
+<ol>
+<li><strong>知觉是行动导向的（Perception is Action-Oriented）</strong>：动物不是被动地"接收"环境信息，而是主动地"探查"环境。</li>
+<li><strong>认知是行动者-环境的耦合（Enaction as Coupling）</strong>：认知不是"在脑内完成"，而是"在脑-身体-环境的循环中产生"。</li>
+<li><strong>意义是生成的（Meaning is Enacted）</strong>：环境本身没有"意义"——意义是动物在行动中"生成"的。</li>
+</ol>
+<p>Enaction 对 LLM Agent 的工程化意义：</p>
+<ul>
+<li>ReAct 循环是 enaction 的工程化实现：每一步"思考-行动-观察"都是 enaction。</li>
+<li>工具使用是 Agent 的感觉运动系统：工具不是"被调用的函数"，而是 Agent 探索世界的方式。</li>
+<li>记忆是 Agent 的代谢系统：记忆不是"被存储的数据"，而是 Agent 维持自身认知的方式。</li>
+</ul>
+<h3 id="82-enaction">图 8.2 · Enaction 的循环</h3>
+<pre><code>         环境 E
+           ↑
+   ┌───────┴───────┐
+   │  感知 Perceive │
+   └───────┬───────┘
+           ↓
+   ┌───────────────┐
+   │ 行动 Act      │ ← 行动改变环境
+   └───────┬───────┘
+           ↓
+         新的 E
+           ↑
+   ┌───────┴───────┐
+   │  感知 Perceive │ ← 感知到变化后的环境
+   └───────────────┘
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：Enaction 不是"先想后做"，而是"在做中想"——认知产生于行动者与环境的循环耦合。</p>
+</blockquote>
+<h2 id="84">8.4 感觉运动理论：知觉是技能</h2>
+<p><strong>Sensorimotor Enactivism</strong>（感觉运动 enactivism）由 O'Regan &amp; Noë 在 2001 年提出，主张：<strong>知觉不是"在脑中生成表征"，而是"掌握感觉运动技能"</strong>。</p>
+<p>核心思想：看见红色，不是"在脑中生成红色的图像"，而是"掌握如何通过眼睛的运动探查红色表面"。一只色盲的人如果掌握了所有"红色"的感觉运动规律（包括社会反应、情绪反应），他仍然可以"看到"红色。</p>
+<p>Noë 2004 年的《Action in Perception》进一步发展这一立场：<strong>知觉是"行动-感知"的循环</strong>，没有"独立于行动的知觉"。</p>
+<p>感觉运动理论对 LLM Agent 的启示：</p>
+<ol>
+<li><strong>LLM 的"上下文窗口"不是"知觉"</strong>：它只是"信息"。真正类似"知觉"的是 LLM 在行动中"使用"这个信息的过程。</li>
+<li><strong>工具使用类似"感觉运动技能"</strong>：Agent 学会"在什么情况下用哪个工具"是感觉运动技能，不是"调用 API"。</li>
+<li><strong>记忆是"感觉运动记忆"</strong>：记忆不是"存储的事实"，而是"如何行动的知识"。</li>
+</ol>
+<h2 id="85-radical-enactivism">8.5 Radical Enactivism：基本心智无内容</h2>
+<p><strong>Radical Enactivism</strong> 是 Hutto &amp; Myin 在 2013/2017 年提出的最激进立场：</p>
+<blockquote>
+<p><strong>基本心智（basic minds）不需要内容（content）。</strong></p>
+</blockquote>
+<p>这一立场挑战认知科学的核心假设——认知是"对内容的处理"。Hutto &amp; Myin 主张：许多基本认知过程（感知、行动控制、情绪）是"无内容的"——它们不需要表征就能工作。</p>
+<p>例如：蜘蛛织网是复杂的行为，但它不需要"表征"织网的目标——蜘蛛的行为是"被引导的"（guided），不是"被表征的"（represented）。</p>
+<p>Radical Enactivism 区分两种认知：
+- <strong>基本心智</strong>（basic minds）：无内容、直接被引导
+- <strong>高级心智</strong>（sophisticated minds）：有内容、需要表征</p>
+<p>人类的语言、抽象思维属于高级心智，需要表征。但许多动物认知、人类的感知-运动控制属于基本心智，无内容。</p>
+<p>Radical Enactivism 对 LLM Agent 的深远挑战：</p>
+<ul>
+<li><strong>LLM Agent 是否有"基本心智"？</strong> 表面上，LLM 似乎是"无内容的"——它没有"信念"、"欲望"，只是"统计语言模型"。但 LLM 确实能"行动"（调用工具）——这是不是"基本心智"？</li>
+<li><strong>LLM 的"in-context learning"是不是"内容"？</strong> 当 LLM 从 prompt 中提取任务信息时，这是"内容获取"还是"无内容的耦合"？</li>
+<li><strong>Agent 的"工具调用"是不是"被引导的行为"？</strong> 当 Agent 调用 get_weather 时，它是"被引导"调用还是"表征性地知道要调用"？</li>
+</ul>
+<p>这些问题在 4E 阵营内部仍然开放。</p>
+<h2 id="86-enactivism-llm-agent">8.6 Enactivism 对 LLM Agent 的边界</h2>
+<p>Enactivism 对 LLM Agent 的最终立场是<strong>有保留地接受</strong>：</p>
+<p><strong>接受的部分</strong>：
+- ReAct 循环是 enaction 的工程化实现
+- 工具使用是 Agent 的感觉运动系统
+- 记忆是 Agent 的代谢系统</p>
+<p><strong>拒绝的部分</strong>：
+- LLM Agent <strong>不是 autopoietic 系统</strong>：Agent 不能"自我生产"——它依赖 LLM API、工具服务器、数据存储
+- LLM Agent <strong>没有"基本心智"</strong>：Agent 的"行动"是 LLM 生成的，不是"被引导的"
+- LLM Agent 的"认知"<strong>不是真正的认知</strong>：它是"模拟的认知"，是"对认知的模仿"</p>
+<p><strong>Varela 严格立场</strong>：</p>
+<blockquote>
+<p>只有 autopoietic 系统（活的、能自我维持的）才算"认知"。LLM Agent 不是 autopoietic——它依赖外部服务、不能自我修复、不能自我复制。因此 LLM Agent 不算真正的"认知主体"，而是一种"认知模拟器"。</p>
+</blockquote>
+<p><strong>本书立场</strong>：</p>
+<blockquote>
+<p>LLM Agent 是<strong>认知模拟器（cognitive simulator）</strong>，不是认知主体。但作为模拟器，它的操作形态 (B = {P, T, M, C}) 可以有意义地映射到 enaction 框架——这是"模拟的 enaction"而非"真正的 enaction"。</p>
+<p><strong>复述框 · 8.6 节要点</strong></p>
+<ul>
+<li><strong>接受</strong>：ReAct 是 enaction、工具是感觉运动、记忆是代谢。</li>
+<li><strong>拒绝</strong>：LLM Agent 不是 autopoietic、没有基本心智、是模拟而非真实。</li>
+<li><strong>本书立场</strong>：LLM Agent 是认知模拟器。</li>
+</ul>
+</blockquote>
+<h2 id="87-9">8.7 本章小结与第 9 章预告</h2>
+<p>本章深入展开 Enactivism。<strong>生命-心灵连续性论题</strong>主张认知是生命的基本特征。<strong>Autopoiesis</strong> 定义了生命的最小组织。<strong>Enaction</strong> 主张认知是"通过行动产生意义"。<strong>Sensorimotor Enactivism</strong> 主张知觉是"行动-感知的循环"。<strong>Radical Enactivism</strong> 主张基本心智无内容。<strong>Enactivism 对 LLM Agent 的边界</strong>：Agent 是认知模拟器，不是认知主体。</p>
+<blockquote>
+<p><strong>常见误区</strong></p>
+<ul>
+<li>❌ <strong>把 enaction 等同于"先想后做"</strong>：enaction 是"在做中想"，不是顺序流程。</li>
+<li>❌ <strong>把 autopoiesis 等同于"自我复制"</strong>：autopoiesis 是"自我生产"，不是"自我复制"。</li>
+<li>❌ <strong>把"无内容"理解为"无结构"</strong>：Radical Enactivism 的"无内容"不是说没有结构，是说没有表征。</li>
+<li>❌ <strong>把"自创生"应用到 LLM Agent</strong>：Agent 不是自创生系统，是依赖外部服务的认知模拟器。</li>
+<li>❌ <strong>忽视 enactivism 的工程意义</strong>：即使 LLM Agent 不是真正的认知主体，enaction 框架仍然是设计原则的来源。</li>
+</ul>
+</blockquote>
+<p>第 9 章将进入 <strong>Extended Mind 与延展心智</strong>。7.6 节我们讨论了 Clark &amp; Chalmers 1998 年的 parity principle；第 9 章将深入展开延展心智的哲学论证、与 Adams &amp; Aizawa 的争论、以及延展心智对 LLM Agent 的最直接含义。</p>
+<hr />
+<h2 id="_4">本章小结</h2>
+<ul>
+<li><strong>生命-心灵连续性</strong>：认知是生命的基本特征。</li>
+<li><strong>Autopoiesis</strong>：生命的最小组织，操作闭合 + 结构耦合。</li>
+<li><strong>Enaction</strong>：认知是行动者-环境的耦合产生。</li>
+<li><strong>Sensorimotor Enactivism</strong>：知觉是感觉运动技能。</li>
+<li><strong>Radical Enactivism</strong>：基本心智无内容。</li>
+<li><strong>LLM Agent 边界</strong>：是认知模拟器，不是认知主体。</li>
+</ul>
+<h2 id="_5">推荐阅读</h2>
+<ul>
+<li>📖 <strong>Varela, Thompson, Rosch《The Embodied Mind》</strong>（1991）：enaction 概念的系统化提出。<a href="https://mitpress.mit.edu/9780262720212/">$TRAE_REF</a></li>
+<li>📖 <strong>Thompson《Mind in Life》</strong>（2007）：生命-心灵连续性论题的权威著作。<a href="https://www.hup.harvard.edu/books/9780674026740">$TRAE_REF</a></li>
+<li>📖 <strong>Noë《Action in Perception》</strong>（2004）：感觉运动理论的代表。<a href="https://mitpress.mit.edu/9780262640633/">$TRAE_REF</a></li>
+<li>📖 <strong>Hutto &amp; Myin《Radicalizing Enactivism》</strong>（2017）：最激进立场"基本心智无内容"。<a href="https://mitpress.mit.edu/9780262036162/">$TRAE_REF</a></li>
+<li>📖 <strong>Maturana &amp; Varela《Autopoiesis and Cognition》</strong>（1980）：autopoiesis 原始论文集。</li>
+</ul>
+<h2 id="_6">练习题</h2>
+<ol>
+<li><strong>概念题</strong>：用一段话解释"生命-心灵连续性论题"为何比"认知是大脑的功能"更激进。</li>
+<li><strong>设计题</strong>：为一个 LLM Agent 设计 autopoiesis 的"模拟版本"：Agent 的"自生产"指的是什么？Agent 的"操作闭合"如何实现？</li>
+<li><strong>批判题</strong>：Radical Enactivism 主张"基本心智无内容"——LLM 的"in-context learning"是否构成"内容"？为什么？</li>
+<li><strong>工程题</strong>：把 ReAct 循环映射到 enaction 框架：每一步的"感知-行动"对应 enaction 的哪些要素？ReAct 的"思考"是"行动"还是"认知"？</li>
+<li><strong>哲学题</strong>：Varela 的 autopoietic 定义是否适用于 LLM Agent？如果不适用，LLM Agent 与"生命"的根本区别是什么？</li>
+<li><strong>辩论题</strong>：Radical Enactivism vs Extended Mind 哪个更适合 LLM Agent 设计？给出你的论证。</li>
+</ol>
+<h2 id="_7">参考文献（本章内）</h2>
+<ol>
+<li>Varela, F. J., Thompson, E., &amp; Rosch, E. (1991). <em>The Embodied Mind</em>. MIT Press. <a href="https://mitpress.mit.edu/9780262720212/">$TRAE_REF</a></li>
+<li>Thompson, E. (2007). <em>Mind in Life: Biology, Phenomenology, and the Sciences of Mind</em>. Harvard University Press. <a href="https://www.hup.harvard.edu/books/9780674026740">$TRAE_REF</a></li>
+<li>Noë, A. (2004). <em>Action in Perception</em>. MIT Press. <a href="https://mitpress.mit.edu/9780262640633/">$TRAE_REF</a></li>
+<li>Hutto, D. D., &amp; Myin, E. (2017). <em>Radicalizing Enactivism: Basic Minds without Content</em>. MIT Press. <a href="https://mitpress.mit.edu/9780262036162/">$TRAE_REF</a></li>
+<li>Maturana, H. R., &amp; Varela, F. J. (1980). <em>Autopoiesis and Cognition: The Realization of the Living</em>. D. Reidel Publishing.</li>
+<li>O'Regan, J. K., &amp; Noë, A. (2001). A Sensorimotor Account of Vision and Visual Consciousness. <em>Behavioral and Brain Sciences</em>, 24(5), 939-973.</li>
+<li>De Jaegher, H., &amp; Di Paolo, E. (2007). Participatory Sense-Making. <em>Phenomenology and the Cognitive Sciences</em>, 6(4), 485-507.</li>
+<li>Thompson, E., &amp; Varela, F. J. (2001). Radical Embodiment: Neural Dynamics and Consciousness. <em>Trends in Cognitive Sciences</em>, 5(10), 418-425.</li>
+<li>Froese, T., &amp; Di Paolo, E. (2011). The Enactive Approach. <em>Topics in Cognitive Science</em>, 3(1), 75-93.</li>
+<li>Kiverstein, J., &amp; Rietveld, E. (2018). Reconceiving Representation-Hungry Cognition. <em>Phenomenology and the Cognitive Sciences</em>, 17(1), 173-195.</li>
+</ol>
+<hr />
+<blockquote>
+<p><strong>本章进度</strong>：8.1–8.7 节全部完成（约 5,500 字，含 2 张图 + 10 篇引用 + 6 题 + 5 误区 + 5 推荐），达到 26 页计划。<code>status: final</code>。</p>
+<p><strong>Part II 进度</strong>：1/5 章完结（26 页 / 5,500 字）。下一章是第 9 章 <strong>Extended Mind 与延展心智</strong>。</p>
+</blockquote>
+<div class="nav-top" style="margin-top:3rem;border-top:1px solid var(--border);padding-top:1rem;"><a href="chapter-07.html">← 7. 4E Cognition 简史</a><a href="index.html">目录</a><a href="chapter-09.html">9. Extended Mind 与延展心智 →</a></div>
+</main>
+</div>
+</body>
+</html>

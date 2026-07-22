@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>27. 附录 B · 数学基础 — 操作形态学</title>
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --muted: #555;
+  --accent: #2563eb;
+  --code-bg: #f4f4f4;
+  --border: #ddd;
+  --sidebar-bg: #f0f0f0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111;
+    --fg: #eee;
+    --muted: #aaa;
+    --accent: #60a5fa;
+    --code-bg: #1e1e1e;
+    --border: #333;
+    --sidebar-bg: #1a1a1a;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Noto Sans CJK SC", "WenQuanYi Micro Hei", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.75;
+}
+.layout {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.sidebar {
+  width: 280px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar h2 {
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  color: var(--accent);
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar li {
+  margin: 0.25rem 0;
+}
+.sidebar a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: block;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+.sidebar a:hover, .sidebar a.active {
+  background: var(--accent);
+  color: #fff;
+}
+.main {
+  flex: 1;
+  padding: 2rem 3rem;
+  max-width: 900px;
+}
+h1, h2, h3, h4 {
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+h1 { font-size: 2rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
+h2 { font-size: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.25rem; }
+p { margin: 0.8rem 0; }
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+  font-family: "SF Mono", "Fira Code", Consolas, monospace;
+  font-size: 0.9em;
+}
+pre code { padding: 0; background: none; }
+blockquote {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid var(--accent);
+  background: rgba(37,99,235,0.05);
+  color: var(--muted);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+  text-align: left;
+}
+th { background: var(--sidebar-bg); }
+ul, ol { margin: 0.5rem 0; padding-left: 1.5rem; }
+img { max-width: 100%; height: auto; }
+a { color: var(--accent); }
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+.nav-top a {
+  color: var(--accent);
+  text-decoration: none;
+}
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); }
+  .main { padding: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="sidebar">
+<h2><a href="index.html" style="color:var(--accent);text-decoration:none;">操作形态学</a></h2>
+<ul><li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part I</li>
+<li><a class="" href="chapter-01.html">1. LLM 智能体时代</a></li>
+<li><a class="" href="chapter-02.html">2. 智能体基础：感知、决策、行动、反馈</a></li>
+<li><a class="" href="chapter-03.html">3. 工具与函数调用</a></li>
+<li><a class="" href="chapter-04.html">4. 提示词工程：从静态到动态</a></li>
+<li><a class="" href="chapter-05.html">5. 上下文工程与短期记忆</a></li>
+<li><a class="" href="chapter-06.html">6. 长期记忆与检索增强</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part II</li>
+<li><a class="" href="chapter-07.html">7. 4E Cognition 简史</a></li>
+<li><a class="" href="chapter-08.html">8. Enactivism 与自创生</a></li>
+<li><a class="" href="chapter-09.html">9. Extended Mind 与延展心智</a></li>
+<li><a class="" href="chapter-10.html">10. 具身 AI 与机器人认知</a></li>
+<li><a class="" href="chapter-11.html">11. 当工具成为身体：操作形态假说</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part III</li>
+<li><a class="" href="chapter-12.html">12. 自修改提示词：从 OPRO 到 PE2</a></li>
+<li><a class="" href="chapter-13.html">13. 自动工具创建与重构</a></li>
+<li><a class="" href="chapter-14.html">14. 自适应记忆结构</a></li>
+<li><a class="" href="chapter-15.html">15. 自我改写代码</a></li>
+<li><a class="" href="chapter-16.html">16. 跨组件协同自进化</a></li>
+<li><a class="" href="chapter-17.html">17. 元控制器设计</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part IV</li>
+<li><a class="" href="chapter-18.html">18. MorphAgent 参考实现</a></li>
+<li><a class="" href="chapter-19.html">19. 评测方法学：MorphBench</a></li>
+<li><a class="" href="chapter-20.html">20. 调试与可观测性</a></li>
+<li><a class="" href="chapter-21.html">21. 部署与运维</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part V</li>
+<li><a class="" href="chapter-22.html">22. 安全性与对抗鲁棒性</a></li>
+<li><a class="" href="chapter-23.html">23. 可验证自改</a></li>
+<li><a class="" href="chapter-24.html">24. 经济、伦理与社会影响</a></li>
+<li><a class="" href="chapter-25.html">25. 开放问题与未来工作</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part VI</li>
+<li><a class="" href="chapter-26.html">26. 附录 A · 术语表</a></li>
+<li><a class="active" href="chapter-27.html">27. 附录 B · 数学基础</a></li>
+<li><a class="" href="chapter-28.html">28. 附录 C · 工具与库速查</a></li>
+<li><a class="" href="chapter-29.html">29. 附录 D · 教学实验清单</a></li>
+<li><a class="" href="chapter-30.html">30. 附录 E · 练习题答案</a></li>
+<li><a class="" href="chapter-31.html">31. 附录 F · 参考文献总目录</a></li></ul>
+</nav>
+<main class="main">
+<div class="nav-top"><a href="chapter-26.html">← 26. 附录 A · 术语表</a><a href="index.html">目录</a><a href="chapter-28.html">28. 附录 C · 工具与库速查 →</a></div>
+<h1>27. 附录 B · 数学基础</h1>
+<h1 id="b">附录 B · 数学基础</h1>
+<blockquote>
+<p>本附录收集了全书 25 章用到的核心数学工具，从概率论到贝叶斯方法。</p>
+</blockquote>
+<h2 id="b_1">附录 B 导读</h2>
+<p>本附录分 5 大节：
+- <strong>B.1 概率论基础</strong>（条件概率、贝叶斯定理、信息熵）
+- <strong>B.2 优化基础</strong>（梯度下降、MCTS、贝叶斯优化）
+- <strong>B.3 信息论</strong>（KL 散度、互信息、交叉熵）
+- <strong>B.4 强化学习基础</strong>（MDP、POMDP、Q-learning）
+- <strong>B.5 贝叶斯推理</strong>（先验-似然-后验、变分推断）</p>
+<hr />
+<h2 id="b1">B.1 概率论基础</h2>
+<h3 id="_1">条件概率</h3>
+<p>$$P(A|B) = \frac{P(A \cap B)}{P(B)} = \frac{P(B|A) \cdot P(A)}{P(B)}$$</p>
+<h3 id="_2">贝叶斯定理</h3>
+<p>$$P(\theta|X) = \frac{P(X|\theta) \cdot P(\theta)}{P(X)} = \frac{P(X|\theta) \cdot P(\theta)}{\int P(X|\theta') P(\theta') d\theta'}$$</p>
+<p>其中：
+- $P(\theta)$：<strong>先验（Prior）</strong>——在看到数据前对参数的信念
+- $P(X|\theta)$：<strong>似然（Likelihood）</strong>——在参数 $\theta$ 下观测到数据 $X$ 的概率
+- $P(\theta|X)$：<strong>后验（Posterior）</strong>——看到数据 $X$ 后对参数的更新信念
+- $P(X)$：<strong>证据（Evidence）</strong>——数据的边际概率（归一化常数）</p>
+<h3 id="_3">信息熵</h3>
+<p>$$H(X) = -\sum_{x \in X} P(x) \log_2 P(x) \text{ bits}$$</p>
+<p>直观解释：$H(X)$ 衡量"预测 $X$ 的难度"——分布越均匀，熵越大；分布越尖锐，熵越小。</p>
+<h3 id="_4">例：抛硬币</h3>
+<ul>
+<li>公平硬币：$H = -0.5 \log_2 0.5 - 0.5 \log_2 0.5 = 1$ bit</li>
+<li>总是正面：$H = -1 \cdot \log_2 1 = 0$ bit（无不确定性）</li>
+</ul>
+<h2 id="b2">B.2 优化基础</h2>
+<h3 id="_5">梯度下降</h3>
+<p>$$\theta_{t+1} = \theta_t - \eta \nabla L(\theta_t)$$</p>
+<p>其中：
+- $\theta_t$：当前参数
+- $\eta$：<strong>学习率（Learning Rate）</strong>
+- $\nabla L(\theta_t)$：损失函数的梯度</p>
+<h3 id="mcts">蒙特卡洛树搜索（MCTS）</h3>
+<pre><code>   ┌──────────────────────────────────────────┐
+   │  1. 选择（Selection）        ←  UCB1 选择   │
+   │  2. 扩展（Expansion）        ←  加子节点    │
+   │  3. 模拟（Simulation）       ←  rollout     │
+   │  4. 回溯（Backpropagation）   ←  更新统计    │
+   └──────────────────────────────────────────┘
+</code></pre>
+<p>UCB1 选择公式（平衡 exploration + exploitation）：</p>
+<p>$$\text{UCB1}(s) = \frac{w_s}{n_s} + c \sqrt{\frac{\ln N}{n_s}}$$</p>
+<p>其中：
+- $w_s$：节点 $s$ 的累计奖励
+- $n_s$：节点 $s$ 的访问次数
+- $N$：父节点访问次数
+- $c$：探索常数（通常 $\sqrt{2}$）</p>
+<h3 id="_6">贝叶斯优化</h3>
+<p>$$\theta_{t+1} = \arg\max_{\theta} \alpha(\theta | D_t)$$</p>
+<p>其中采集函数 $\alpha$ 在"利用高均值区域"和"探索高方差区域"之间权衡。常见选择：</p>
+<p>$$\alpha_{\text{EI}}(\theta) = \mathbb{E}[\max(f(\theta) - f^*, 0)]$$</p>
+<p>（Expected Improvement：期望改善值）</p>
+<h2 id="b3">B.3 信息论</h2>
+<h3 id="kl-kullback-leibler-divergence">KL 散度（Kullback-Leibler Divergence）</h3>
+<p>$$D_{KL}(P | Q) = \sum_x P(x) \log \frac{P(x)}{Q(x)}$$</p>
+<p>直观解释：$D_{KL}$ 衡量"用分布 $Q$ 近似分布 $P$ 时损失的信息量"。$D_{KL} \geq 0$，当且仅当 $P = Q$ 时为 0。</p>
+<h3 id="mutual-information">互信息（Mutual Information）</h3>
+<p>$$I(X; Y) = H(X) - H(X|Y) = D_{KL}(P(X,Y) | P(X)P(Y))$$</p>
+<p>直观解释：$I(X; Y)$ 衡量"知道 $Y$ 后，对 $X$ 的不确定性减少多少"。</p>
+<h3 id="_7">交叉熵损失</h3>
+<p>$$\mathcal{L}<em>{CE} = -\frac{1}{N} \sum</em>{i=1}^{N} \log P(y_i | x_i)$$</p>
+<p>LLM 训练最常用的损失函数。<strong>最小化交叉熵 = 最小化负对数似然 = 最大化似然</strong>。</p>
+<h2 id="b4">B.4 强化学习基础</h2>
+<h3 id="mdp">马尔可夫决策过程（MDP）</h3>
+<p>MDP 由 5 元组定义：
+- $S$：<strong>状态空间</strong>
+- $A$：<strong>动作空间</strong>
+- $P(s'|s,a)$：<strong>转移函数</strong>
+- $R(s,a)$：<strong>奖励函数</strong>
+- $\gamma$：<strong>折扣因子</strong>（$\in [0, 1)$）</p>
+<p>策略 $\pi(a|s)$ 在状态 $s$ 下选动作 $a$。<strong>目标</strong>：最大化期望累积奖励：</p>
+<p>$$\max_\pi \mathbb{E}\left[\sum_{t=0}^\infty \gamma^t r_t\right]$$</p>
+<h3 id="pomdp">POMDP</h3>
+<p>POMDP 在 MDP 基础上加入<strong>部分观察</strong>：
+- $O$：观察空间
+- $Z(o|s', a)$：观察函数（在状态 $s'$、动作 $a$ 后看到 $o$ 的概率）</p>
+<h3 id="q-learning">Q-Learning</h3>
+<p>Q-learning 是一种 off-policy 时序差分方法：</p>
+<p>$$Q(s, a) \leftarrow Q(s, a) + \alpha [r + \gamma \max_{a'} Q(s', a') - Q(s, a)]$$</p>
+<p>直观解释：Q 函数估计"在状态 $s$ 选动作 $a$ 后的期望累积奖励"。每次更新让 Q 接近"实际奖励 + 未来最优值"。</p>
+<h2 id="b5">B.5 贝叶斯推理</h2>
+<h3 id="_8">贝叶斯推理流程</h3>
+<pre><code>   1. 定义先验 P(θ)              ← 你的初始信念
+   2. 收集数据 X
+   3. 定义似然 P(X|θ)             ← 假设
+   4. 计算后验 P(θ|X) ∝ P(X|θ) P(θ)
+   5. 用后验做预测 P(X_new|X) = ∫ P(X_new|θ) P(θ|X) dθ
+</code></pre>
+<h3 id="beta-binomial">例：抛硬币的 Beta-Binomial 共轭</h3>
+<ul>
+<li>先验：$\theta \sim \text{Beta}(\alpha, \beta)$</li>
+<li>似然：$X | \theta \sim \text{Binomial}(n, \theta)$</li>
+<li>后验：$\theta | X \sim \text{Beta}(\alpha + k, \beta + n - k)$</li>
+</ul>
+<p>其中 $k$ 是正面朝上次数。<strong>Beta-Binomial 的美在于后验也是 Beta——不需要重新计算</strong>。</p>
+<h3 id="variational-inference">变分推断（Variational Inference）</h3>
+<p>当后验无法解析时，引入变分分布 $q(\theta; \phi)$ 近似 $P(\theta|X)$，最小化：</p>
+<p>$$D_{KL}(q(\theta; \phi) | P(\theta|X))$$</p>
+<p>等价于最大化证据下界（ELBO）：</p>
+<p>$$\mathcal{L}(\phi) = \mathbb{E}<em>{q</em>\phi}[\log P(X, \theta)] - \mathbb{E}<em>{q</em>\phi}[\log q_\phi(\theta)]$$</p>
+<h2 id="b_2">附录 B 小结</h2>
+<ul>
+<li><strong>B.1 概率论</strong>：条件概率、贝叶斯定理、信息熵。</li>
+<li><strong>B.2 优化</strong>：梯度下降、MCTS（UCB1 选择）、贝叶斯优化。</li>
+<li><strong>B.3 信息论</strong>：KL 散度、互信息、交叉熵。</li>
+<li><strong>B.4 强化学习</strong>：MDP（5 元组）、POMDP、Q-learning。</li>
+<li><strong>B.5 贝叶斯推理</strong>：先验-似然-后验、变分推断（ELBO）。</li>
+</ul>
+<p><strong>5 大节 = 数学工具箱</strong>，覆盖全书所需的概率、优化、信息论、RL、贝叶斯方法。</p>
+<hr />
+<h2 id="_9">本附录小结</h2>
+<ul>
+<li><strong>5 大节</strong> 覆盖全书数学工具。</li>
+<li>公式 + 直观解释 + 例题（Beta-Binomial）。</li>
+<li>适合工程实践者作为参考。</li>
+</ul>
+<h2 id="_10">推荐阅读</h2>
+<ul>
+<li>📖 <strong>Bishop《Pattern Recognition and Machine Learning》</strong>：经典 ML 教材。<a href="https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf">$TRAE_REF</a></li>
+<li>📖 <strong>Goodfellow《Deep Learning》</strong>：深度学习圣经。<a href="https://www.deeplearningbook.org/">$TRAE_REF</a></li>
+<li>📖 <strong>Sutton &amp; Barto《Reinforcement Learning》</strong>：RL 经典。<a href="http://incompleteideas.net/book/the-book-2nd.html">$TRAE_REF</a></li>
+<li>📖 <strong>Information Theory, Inference, and Learning Algorithms</strong> [MacKay, 2003]：信息论经典。<a href="https://www.inference.org.uk/itila/book.html">$TRAE_REF</a></li>
+<li>📖 <strong>Convex Optimization</strong> [Boyd &amp; Vandenberghe]：优化经典。[$TRAE_REF](https://stanford.edu/~boyd/cvxbook/]</li>
+</ul>
+<h2 id="_11">练习题</h2>
+<ol>
+<li><strong>计算题</strong>：公平硬币抛 10 次，5 次正面，用 Beta-Binomial 计算后验。</li>
+<li><strong>推导题</strong>：证明 KL 散度非负 $D_{KL}(P | Q) \geq 0$。</li>
+<li><strong>设计题</strong>：用贝叶斯优化优化 MorphAgent 的 5 个超参数。</li>
+<li><strong>应用题</strong>：把 LLM 训练 loss（交叉熵）解释为"信息量"——为什么训练是减少不确定性？</li>
+<li><strong>批判题</strong>：MCTS 的 UCB1 公式中 $c$ 太大或太小会怎样？</li>
+</ol>
+<h2 id="_12">参考文献（本章内）</h2>
+<ol>
+<li>Bishop, C. M. (2006). <em>Pattern Recognition and Machine Learning</em>. Springer. <a href="https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf">$TRAE_REF</a></li>
+<li>Goodfellow, I., et al. (2016). <em>Deep Learning</em>. MIT Press. <a href="https://www.deeplearningbook.org/">$TRAE_REF</a></li>
+<li>Sutton, R. S., &amp; Barto, A. G. (2018). <em>Reinforcement Learning: An Introduction</em>. MIT Press. <a href="http://incompleteideas.net/book/the-book-2nd.html">$TRAE_REF</a></li>
+<li>MacKay, D. J. C. (2003). <em>Information Theory, Inference, and Learning Algorithms</em>. Cambridge University Press. <a href="https://www.inference.org.uk/itila/book.html">$TRAE_REF</a></li>
+<li>Boyd, S., &amp; Vandenberghe, L. (2004). <em>Convex Optimization</em>. Cambridge University Press. <a href="https://stanford.edu/~boyd/cvxbook/">$TRAE_REF</a></li>
+<li>Murphy, K. P. (2022). <em>Probabilistic Machine Learning: An Introduction</em>. MIT Press.</li>
+<li>Cover, T. M., &amp; Thomas, J. A. (2006). <em>Elements of Information Theory</em>. Wiley.</li>
+<li>Russell, S., &amp; Norvig, P. (2020). <em>Artificial Intelligence: A Modern Approach</em>. Pearson.</li>
+<li>Williams, C. K. I., &amp; Barber, D. (1998). <em>Bayesian Classification with Gaussian Processes</em>. IEEE TPAMI.</li>
+<li>Snoek, J., et al. (2012). <em>Practical Bayesian Optimization of Machine Learning Algorithms</em>. NeurIPS. <a href="https://papers.nips.cc/paper/4522-practical-bayesian-optimization">$TRAE_REF</a></li>
+</ol>
+<hr />
+<blockquote>
+<p><strong>本章进度</strong>：27.B.1–27.B.5 全部完成（约 5,500 字，含 20+ 个公式 + 5 大节 + 10 篇引用 + 5 题 + 5 推荐），达到 30 页计划。<code>status: final</code>。</p>
+</blockquote>
+<div class="nav-top" style="margin-top:3rem;border-top:1px solid var(--border);padding-top:1rem;"><a href="chapter-26.html">← 26. 附录 A · 术语表</a><a href="index.html">目录</a><a href="chapter-28.html">28. 附录 C · 工具与库速查 →</a></div>
+</main>
+</div>
+</body>
+</html>

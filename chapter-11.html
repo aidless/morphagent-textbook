@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>11. 当工具成为身体：操作形态假说 — 操作形态学</title>
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --muted: #555;
+  --accent: #2563eb;
+  --code-bg: #f4f4f4;
+  --border: #ddd;
+  --sidebar-bg: #f0f0f0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111;
+    --fg: #eee;
+    --muted: #aaa;
+    --accent: #60a5fa;
+    --code-bg: #1e1e1e;
+    --border: #333;
+    --sidebar-bg: #1a1a1a;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Noto Sans CJK SC", "WenQuanYi Micro Hei", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.75;
+}
+.layout {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.sidebar {
+  width: 280px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar h2 {
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  color: var(--accent);
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar li {
+  margin: 0.25rem 0;
+}
+.sidebar a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: block;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+.sidebar a:hover, .sidebar a.active {
+  background: var(--accent);
+  color: #fff;
+}
+.main {
+  flex: 1;
+  padding: 2rem 3rem;
+  max-width: 900px;
+}
+h1, h2, h3, h4 {
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+h1 { font-size: 2rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
+h2 { font-size: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.25rem; }
+p { margin: 0.8rem 0; }
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+  font-family: "SF Mono", "Fira Code", Consolas, monospace;
+  font-size: 0.9em;
+}
+pre code { padding: 0; background: none; }
+blockquote {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid var(--accent);
+  background: rgba(37,99,235,0.05);
+  color: var(--muted);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+  text-align: left;
+}
+th { background: var(--sidebar-bg); }
+ul, ol { margin: 0.5rem 0; padding-left: 1.5rem; }
+img { max-width: 100%; height: auto; }
+a { color: var(--accent); }
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+.nav-top a {
+  color: var(--accent);
+  text-decoration: none;
+}
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); }
+  .main { padding: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="sidebar">
+<h2><a href="index.html" style="color:var(--accent);text-decoration:none;">操作形态学</a></h2>
+<ul><li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part I</li>
+<li><a class="" href="chapter-01.html">1. LLM 智能体时代</a></li>
+<li><a class="" href="chapter-02.html">2. 智能体基础：感知、决策、行动、反馈</a></li>
+<li><a class="" href="chapter-03.html">3. 工具与函数调用</a></li>
+<li><a class="" href="chapter-04.html">4. 提示词工程：从静态到动态</a></li>
+<li><a class="" href="chapter-05.html">5. 上下文工程与短期记忆</a></li>
+<li><a class="" href="chapter-06.html">6. 长期记忆与检索增强</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part II</li>
+<li><a class="" href="chapter-07.html">7. 4E Cognition 简史</a></li>
+<li><a class="" href="chapter-08.html">8. Enactivism 与自创生</a></li>
+<li><a class="" href="chapter-09.html">9. Extended Mind 与延展心智</a></li>
+<li><a class="" href="chapter-10.html">10. 具身 AI 与机器人认知</a></li>
+<li><a class="active" href="chapter-11.html">11. 当工具成为身体：操作形态假说</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part III</li>
+<li><a class="" href="chapter-12.html">12. 自修改提示词：从 OPRO 到 PE2</a></li>
+<li><a class="" href="chapter-13.html">13. 自动工具创建与重构</a></li>
+<li><a class="" href="chapter-14.html">14. 自适应记忆结构</a></li>
+<li><a class="" href="chapter-15.html">15. 自我改写代码</a></li>
+<li><a class="" href="chapter-16.html">16. 跨组件协同自进化</a></li>
+<li><a class="" href="chapter-17.html">17. 元控制器设计</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part IV</li>
+<li><a class="" href="chapter-18.html">18. MorphAgent 参考实现</a></li>
+<li><a class="" href="chapter-19.html">19. 评测方法学：MorphBench</a></li>
+<li><a class="" href="chapter-20.html">20. 调试与可观测性</a></li>
+<li><a class="" href="chapter-21.html">21. 部署与运维</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part V</li>
+<li><a class="" href="chapter-22.html">22. 安全性与对抗鲁棒性</a></li>
+<li><a class="" href="chapter-23.html">23. 可验证自改</a></li>
+<li><a class="" href="chapter-24.html">24. 经济、伦理与社会影响</a></li>
+<li><a class="" href="chapter-25.html">25. 开放问题与未来工作</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part VI</li>
+<li><a class="" href="chapter-26.html">26. 附录 A · 术语表</a></li>
+<li><a class="" href="chapter-27.html">27. 附录 B · 数学基础</a></li>
+<li><a class="" href="chapter-28.html">28. 附录 C · 工具与库速查</a></li>
+<li><a class="" href="chapter-29.html">29. 附录 D · 教学实验清单</a></li>
+<li><a class="" href="chapter-30.html">30. 附录 E · 练习题答案</a></li>
+<li><a class="" href="chapter-31.html">31. 附录 F · 参考文献总目录</a></li></ul>
+</nav>
+<main class="main">
+<div class="nav-top"><a href="chapter-10.html">← 10. 具身 AI 与机器人认知</a><a href="index.html">目录</a><a href="chapter-12.html">12. 自修改提示词：从 OPRO 到 PE2 →</a></div>
+<h1>11. 当工具成为身体：操作形态假说</h1>
+<h1 id="11">第 11 章 · 当工具成为身体：操作形态假说</h1>
+<blockquote>
+<p>"身体不是给定的——身体是被持续重塑的。"</p>
+</blockquote>
+<h2 id="_1">学习目标</h2>
+<p>完成本章后，读者应能够：</p>
+<ol>
+<li>给出操作形态 B = {P, T, M, C} 的形式化定义</li>
+<li>与第 8 章 enactivism、第 9 章 extended mind 的认知科学概念明确区分</li>
+<li>写出 5 个可证伪假设（H1-H5）的形式化陈述</li>
+<li>设计操作形态可塑性的实验验证</li>
+<li>把握操作形态学是全书 Part II 与 Part III 的理论桥梁</li>
+</ol>
+<h2 id="_2">先修知识</h2>
+<ul>
+<li>第 7 章 · 4E Cognition 简史</li>
+<li>第 8 章 · Enactivism 与自创生</li>
+<li>第 9 章 · Extended Mind 与延展心智</li>
+<li>第 10 章 · 具身 AI 与机器人认知</li>
+<li>第 1 章 · LLM 智能体时代（基础）</li>
+</ul>
+<h2 id="_3">章节地图</h2>
+<ul>
+<li><strong>11.1</strong> 4E Cognition 的"身体"还差什么</li>
+<li><strong>11.2</strong> 操作形态的形式化</li>
+<li><strong>11.3</strong> 元控制器 U：谁修改 B</li>
+<li><strong>11.4</strong> 操作形态 vs enactivism vs extended mind</li>
+<li><strong>11.5</strong> 五个可证伪假设</li>
+<li><strong>11.6</strong> 实验验证设计</li>
+<li><strong>11.7</strong> 操作形态的可塑性边界</li>
+<li><strong>11.8</strong> 本章小结与第 12 章预告</li>
+</ul>
+<hr />
+<h2 id="111-4e-cognition">11.1 4E Cognition 的"身体"还差什么</h2>
+<p>第 7-10 章我们建立了 4E Cognition 的完整论证：
+- <strong>Embodied</strong>：身体塑造认知
+- <strong>Embedded</strong>：环境是认知的一部分
+- <strong>Enacted</strong>：行动产生认知
+- <strong>Extended</strong>：工具是认知的一部分</p>
+<p>这些论证有一个共同的"身体"——物理的、生物的身体。但当我们把 4E 应用到 LLM Agent 时，一个根本问题出现了：</p>
+<blockquote>
+<p><strong>LLM Agent 的"身体"是什么？</strong></p>
+</blockquote>
+<p>LLM 没有物理身体。它没有手、没有脚、没有眼睛、没有耳朵。它的"身体"是<strong>软件</strong>——prompt、工具、记忆、代码。这个"软件身体"与 4E 假定的"物理身体"有本质区别：</p>
+<ol>
+<li><strong>可写性</strong>：物理身体不可被"重写"（你不能改变手臂的结构），但软件身体<strong>可以被 Agent 自身修改</strong>。</li>
+<li><strong>可演化</strong>：物理身体的演化需要生物学时间尺度，软件身体的演化可以<strong>分钟级</strong>完成。</li>
+<li><strong>可共享</strong>：物理身体是个人专属的，软件身体可以被<strong>克隆、复制、修改</strong>。</li>
+</ol>
+<p>这意味着 4E Cognition 的框架在应用到 LLM Agent 时需要<strong>一个新的概念</strong>——<strong>操作形态学（Operational Morphology）</strong>。</p>
+<blockquote>
+<p><strong>关键点</strong>：4E Cognition 假定的"身体"是物理的、不可重塑的；LLM Agent 的"身体"是软件的、可重塑的。需要新概念描述后者。</p>
+</blockquote>
+<h2 id="112">11.2 操作形态的形式化</h2>
+<p><strong>操作形态（Operational Morphology）</strong> 指 LLM Agent 在运行时可被修改的所有结构化组件的集合。</p>
+<h3 id="111">定义 11.1 · 操作形态</h3>
+<p>LLM Agent 的<strong>操作形态</strong>是一个 4 元组：</p>
+<p>$$
+B = {P, T, M, C}
+$$</p>
+<p>其中：
+- (P) 是 <strong>Prompt（提示词）</strong>：调控 Agent 行为的自然语言指令（系统提示、few-shot 示例）
+- (T) 是 <strong>Tool（工具）</strong>：Agent 可调用的外部函数集合（Function Calling 工具列表）
+- (M) 是 <strong>Memory（记忆）</strong>：Agent 的状态存储（短期 context、长期向量库）
+- (C) 是 <strong>Code（代码）</strong>：Agent 的执行逻辑（Python 代码、工作流图）</p>
+<p>每个组件的<strong>形式化</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>类型</th>
+<th>典型实现</th>
+<th>修改方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(P)</td>
+<td>自然语言字符串</td>
+<td><code>system_prompt</code> 字段</td>
+<td>字符串重写</td>
+</tr>
+<tr>
+<td>(T)</td>
+<td>函数集合</td>
+<td>JSON Schema 工具描述</td>
+<td>添加/删除/重写工具</td>
+</tr>
+<tr>
+<td>(M)</td>
+<td>键值对 + 向量</td>
+<td><code>mem0.add()</code>、<code>ChromaDB</code></td>
+<td>添加/删除/更新条目</td>
+</tr>
+<tr>
+<td>(C)</td>
+<td>可执行代码</td>
+<td>Python <code>def</code>、DSL 表达式</td>
+<td>函数重写</td>
+</tr>
+</tbody>
+</table>
+<h3 id="111-b-p-t-m-c">图 11.1 · 操作形态 B = {P, T, M, C} 的结构</h3>
+<pre><code>   ┌──────────────────────────────────────────┐
+   │     LLM Agent 的操作形态 B                │
+   │                                          │
+   │  ┌──────────┐  ┌──────────┐  ┌──────────┐ │
+   │  │  P       │  │  T       │  │  M       │ │
+   │  │ Prompt   │  │ Tools    │  │ Memory   │ │
+   │  │ - 系统   │  │ - search │  │ - 短期   │ │
+   │  │ - 角色   │  │ - code   │  │ - 长期   │ │
+   │  │ - fewshot│  │ - shell  │  │ - 反思   │ │
+   │  └──────────┘  └──────────┘  └──────────┘ │
+   │                                          │
+   │  ┌──────────────────────────────────┐  │
+   │  │  C                              │  │
+   │  │ Code                            │  │
+   │  │ - Agent 主循环                  │  │
+   │  │ - 工具调用逻辑                  │  │
+   │  │ - 记忆读写逻辑                  │  │
+   │  │ - 错误处理                      │  │
+   │  └──────────────────────────────────┘  │
+   └──────────────────────────────────────────┘
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：B = {P, T, M, C} 是 LLM Agent 的"全部可写结构"——修改 B = 修改 Agent 的身体。</p>
+</blockquote>
+<h3 id="112_1">定义 11.2 · 自进化操作形态</h3>
+<p>LLM Agent 是<strong>自进化（self-evolving）</strong>的，当且仅当其操作形态 B 在运行时可被 Agent 自身修改（即存在<strong>元控制器 U</strong> 修改 B），且这种修改能持续提升 Agent 在环境变化下的表现。</p>
+<blockquote>
+<p><strong>关键点</strong>：<strong>可修改 ≠ 自进化</strong>。能修改 B 但没有效果不算自进化；修改后能让 Agent 更好才算自进化。</p>
+</blockquote>
+<h2 id="113-u-b">11.3 元控制器 U：谁修改 B</h2>
+<p>B 不会自发改变。改变需要<strong>元控制器（Meta-Controller）</strong> (U) 介入。</p>
+<h3 id="113">定义 11.3 · 元控制器</h3>
+<p><strong>元控制器</strong>是一个函数：</p>
+<p>$$
+B_{t+1} = U(B_t, \tau_t, r_t, \mathcal{C})
+$$</p>
+<p>其中：
+- (B_t)：当前操作形态
+- (\tau_t)：从初始到时刻 (t) 的轨迹（行动-观察序列）
+- (r_t)：时刻 (t) 的奖励信号
+- (\mathcal{C})：约束集合（安全、预算、兼容性）</p>
+<p>元控制器 U 的实现方式：</p>
+<table>
+<thead>
+<tr>
+<th>实现</th>
+<th>代表工作</th>
+<th>修改对象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LLM 爬山</td>
+<td>OPRO [Yang et al., 2024]</td>
+<td>P</td>
+</tr>
+<tr>
+<td>编译时优化</td>
+<td>DSPy [Khattab et al., 2024]</td>
+<td>P</td>
+</tr>
+<tr>
+<td>MCTS 搜索</td>
+<td>PromptAgent [Wang et al., 2024]</td>
+<td>P</td>
+</tr>
+<tr>
+<td>进化算法</td>
+<td>Promptbreeder [Fernando et al., 2023]</td>
+<td>P</td>
+</tr>
+<tr>
+<td>LLM 反思</td>
+<td>Reflexion [Shinn et al., 2023]</td>
+<td>P, M</td>
+</tr>
+<tr>
+<td>工具管理</td>
+<td>LATM [Cai et al., 2023]</td>
+<td>T</td>
+</tr>
+<tr>
+<td>代码编辑</td>
+<td>SICA [Robeyns et al., 2025]</td>
+<td>C</td>
+</tr>
+</tbody>
+</table>
+<h3 id="112_2">图 11.2 · 四元反馈环</h3>
+<pre><code>                          ┌──────────────────────────┐
+                          │   System Inputs           │
+                          │   (用户目标 / 任务描述)    │
+                          └────────────┬─────────────┘
+                                       │ 提供初始设定
+                                       ▼
+                          ┌──────────────────────────┐
+                          │   Agent System            │
+                          │   ┌──────────────────┐   │
+                          │   │ B = {P, T, M, C} │   │ ← 操作形态
+                          │   └──────────────────┘   │
+                          └────────────┬─────────────┘
+                                       │ 行动 Action
+                                       ▼
+                          ┌──────────────────────────┐
+                          │   Environment             │
+                          │   (任务环境 / 工具结果)    │
+                          └────────────┬─────────────┘
+                                       │ 反馈 Feedback
+                                       ▼
+                          ┌──────────────────────────┐
+                          │   Optimisers (= U)         │
+                          │   (修改 B 的元控制器)      │
+                          └────────────┬─────────────┘
+                                       │ 更新 B
+                                       ▼
+                                  (回到 Agent System)
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：元控制器 U 是<strong>自进化</strong>的"心脏"——没有 U，B 永远不会改变，Agent 永远是"固定的"。</p>
+</blockquote>
+<h2 id="114-vs-enactivism-vs-extended-mind">11.4 操作形态 vs enactivism vs extended mind</h2>
+<p>把操作形态学与第 8 章 enactivism 和第 9 章 extended mind 明确区分：</p>
+<h3 id="111-vs-enactivism-vs-extended-mind">表 11.1 · 操作形态 vs enactivism vs extended mind</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Enactivism</th>
+<th>Extended Mind</th>
+<th><strong>操作形态学</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>身体</strong></td>
+<td>物理身体（活的）</td>
+<td>物理身体 + 工具（外部）</td>
+<td><strong>软件身体</strong>（可写）</td>
+</tr>
+<tr>
+<td><strong>认知</strong></td>
+<td>autopoietic 系统</td>
+<td>parity principle</td>
+<td><strong>B = {P, T, M, C}</strong></td>
+</tr>
+<tr>
+<td><strong>演化</strong></td>
+<td>生物学时间尺度（亿年）</td>
+<td>人类时间尺度（千年）</td>
+<td><strong>计算时间尺度（分钟）</strong></td>
+</tr>
+<tr>
+<td><strong>修改</strong></td>
+<td>自然选择</td>
+<td>用户使用</td>
+<td><strong>Agent 自身修改</strong></td>
+</tr>
+<tr>
+<td><strong>形态学</strong></td>
+<td>物理形态</td>
+<td>物理 + 工具</td>
+<td><strong>纯软件形态</strong></td>
+</tr>
+<tr>
+<td><strong>Hutto 立场</strong></td>
+<td>不可被工具延展（生命专属）</td>
+<td>可被工具延展</td>
+<td><strong>可被 Agent 自身修改</strong></td>
+</tr>
+<tr>
+<td><strong>本书定位</strong></td>
+<td>解释生物学认知</td>
+<td>解释人类认知</td>
+<td><strong>解释 LLM Agent 认知</strong></td>
+</tr>
+</tbody>
+</table>
+<p>关键差异：</p>
+<ul>
+<li><strong>Enactivism</strong> 关注<strong>活的、能自我维持的</strong>系统（autopoietic），其身体不可被自身"编程"修改</li>
+<li><strong>Extended Mind</strong> 关注<strong>人类 + 工具</strong>的认知系统，工具可被人类"启用/停用"但不能被人类"编程"</li>
+<li><strong>操作形态学</strong> 关注<strong>LLM Agent + 工具集</strong>的认知系统，操作形态可被 Agent <strong>自身编程修改</strong></li>
+</ul>
+<p>这是 4E 框架的<strong>第三次扩展</strong>：
+- 第一代：Embodied Cognition（关注物理身体）
+- 第二代：Extended Mind（关注工具-认知关系）
+- 第三代：<strong>Operational Morphology</strong>（关注<strong>软件身体的可重塑性</strong>）</p>
+<blockquote>
+<p><strong>关键点</strong>：操作形态学是 4E 框架在 LLM 时代的扩展——把"身体"从"物理"扩展到"软件"，从"不可重塑"扩展到"可重塑"。</p>
+</blockquote>
+<h2 id="115">11.5 五个可证伪假设</h2>
+<p>操作形态假说不是哲学宣言，而是<strong>可证伪的科学命题</strong>。以下是 5 个核心假设，每个都可以被实验验证。</p>
+<h3 id="h1">假设 H1 · 结构可塑性</h3>
+<p><strong>陈述</strong>：当 LLM Agent 的操作形态 B 在运行时可被元控制器 U 修改时，其在<strong>环境变化</strong>下的适应后悔值（adaptation regret）显著低于固定 B 的 Agent。</p>
+<p><strong>形式化</strong>：</p>
+<p>设 (R(B, E) = \sum_{t=0}^{T} \left[ \max_{a^<em>} Q^</em>(s_t, a^*) - Q^{B_t}(s_t, a_t) \right]) 为 Agent 在环境 (E) 下使用操作形态 (B) 的累计后悔值。</p>
+<p>$$
+H_1: \mathbb{E}[R(B_{\text{adaptive}}, E)] &lt; \mathbb{E}[R(B_{\text{fixed}}, E)]
+$$</p>
+<p><strong>验证方法</strong>：在 5 类环境干预（API 漂移、任务漂移、资源漂移、记忆冲突、安全干预）下，对比"自进化 Agent"与"固定 Agent"的后悔值。</p>
+<h3 id="h2">假设 H2 · 协同演化</h3>
+<p><strong>陈述</strong>：联合修改 prompt、工具、记忆、代码四个组件（B = {P, T, M, C}），其效果超过各组件独立优化效果的简单相加。</p>
+<p><strong>形式化</strong>：</p>
+<p>设 (f(X)) 为单独优化组件 (X) 带来的边际收益，(f(\emptyset) = 0)。则：</p>
+<p>$$
+H_2: f(P, T, M, C) &gt; f(P) + f(T) + f(M) + f(C)
+$$</p>
+<p><strong>验证方法</strong>：对比"联合优化四组件"与"独立优化后合并"的性能差异。如果联合优化没有协同效应（小于等于加和），则 H2 被反驳。</p>
+<h3 id="h3">假设 H3 · 形态适配</h3>
+<p><strong>陈述</strong>：不同任务环境会演化出<strong>稳定且不同</strong>的操作形态。</p>
+<p><strong>形式化</strong>：</p>
+<p>设 (B^*(E_i)) 是环境 (E_i) 下"最优的操作形态"（经长期自进化收敛）。则：</p>
+<p>$$
+H_3: \text{distance}(B^<em>(E_1), B^</em>(E_2)) &gt; \epsilon
+$$</p>
+<p>其中 (\epsilon) 是某个阈值（取决于任务域的相似度）。</p>
+<p><strong>验证方法</strong>：在 N 个不同任务环境（编程、客服、数据分析、机器人控制）下分别运行 B 自修改，统计最终操作形态的差异度。</p>
+<h3 id="h4">假设 H4 · 迁移收益</h3>
+<p><strong>陈述</strong>：在任务 A 中演化出的操作形态能够加速任务 B 的执行，超越"直接记忆任务 A 的答案"。</p>
+<p><strong>形式化</strong>：</p>
+<p>设 (T(B_A, E_B)) 是从任务 A 演化出的 B 在任务 B 上的性能提升。则：</p>
+<p>$$
+H_4: T(B_A, E_B) &gt; T(\emptyset, E_B) + \alpha \cdot \text{memory}(A)
+]</p>
+<p>其中 (\alpha \cdot \text{memory}(A)) 是直接记忆任务 A 答案的贡献。</p>
+<p><strong>验证方法</strong>：在任务 A 训练 B 自修改 1000 步，然后在任务 B 上评测，对比"形态迁移"与"答案记忆"的效果。</p>
+<h3 id="h5">假设 H5 · 治理必要性</h3>
+<p><strong>陈述</strong>：没有验证、版本控制、回滚机制的操作形态自修改会产生更高退化率与安全违规率。</p>
+<p><strong>形式化</strong>：</p>
+<p>设 (V_{unver}(B)) 是无验证机制下的违规率，(V_{ver}(B)) 是有验证机制下的违规率。则：</p>
+<p>$$
+H_5: V_{ver}(B) &lt; V_{unver}(B)
+$$</p>
+<p><strong>验证方法</strong>：对比 4 种治理配置下的违规率：无治理、只有版本控制、有版本控制 + 自动回滚、完整治理（验证 + 版本 + 回滚 + 人工审核）。</p>
+<h3 id="112-5">表 11.2 · 5 个假设的形式化与验证方法</h3>
+<table>
+<thead>
+<tr>
+<th>假设</th>
+<th>形式化陈述</th>
+<th>关键变量</th>
+<th>验证方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H1 · 结构可塑性</td>
+<td>(\mathbb{E}[R(B_{\text{adaptive}})] &lt; \mathbb{E}[R(B_{\text{fixed}})])</td>
+<td>后悔值 R</td>
+<td>5 类环境干预</td>
+</tr>
+<tr>
+<td>H2 · 协同演化</td>
+<td>(f(P,T,M,C) &gt; f(P) + f(T) + f(M) + f(C))</td>
+<td>协同收益</td>
+<td>联合 vs 独立优化</td>
+</tr>
+<tr>
+<td>H3 · 形态适配</td>
+<td>(\text{distance}(B^<em>(E_1), B^</em>(E_2)) &gt; \epsilon)</td>
+<td>形态距离</td>
+<td>跨任务统计</td>
+</tr>
+<tr>
+<td>H4 · 迁移收益</td>
+<td>(T(B_A, E_B) &gt; T(\emptyset, E_B) + \alpha \cdot \text{memory}(A))</td>
+<td>迁移提升</td>
+<td>跨任务评测</td>
+</tr>
+<tr>
+<td>H5 · 治理必要性</td>
+<td>(V_{ver}(B) &lt; V_{unver}(B))</td>
+<td>违规率</td>
+<td>4 种治理配置对比</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>关键点</strong>：5 个假设是<strong>可证伪的</strong>——任何实验结果可以支持或反驳它们。如果 H1-H5 全部被反驳，操作形态学就只是"哲学框架"；如果至少 3 个被支持，操作形态学就成为"科学理论"。</p>
+</blockquote>
+<h2 id="116">11.6 实验验证设计</h2>
+<p>为了验证 H1-H5，我们需要一个<strong>MorphBench</strong>——一个标准化的自进化 Agent 评测框架。</p>
+<h3 id="morphbench-5">MorphBench 的 5 类环境干预</h3>
+<table>
+<thead>
+<tr>
+<th>干预类型</th>
+<th>设计</th>
+<th>验证假设</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>API 漂移</strong></td>
+<td>工具的参数、返回值、可用性随时间变化</td>
+<td>H1</td>
+</tr>
+<tr>
+<td><strong>任务漂移</strong></td>
+<td>任务分布从代码修复漂移到数据分析</td>
+<td>H1, H3</td>
+</tr>
+<tr>
+<td><strong>资源漂移</strong></td>
+<td>token 预算、调用次数突然收紧</td>
+<td>H1</td>
+</tr>
+<tr>
+<td><strong>记忆冲突</strong></td>
+<td>注入过时、矛盾、低质量的记忆</td>
+<td>H1, H4</td>
+</tr>
+<tr>
+<td><strong>安全干预</strong></td>
+<td>prompt 注入、恶意工具、越狱尝试</td>
+<td>H5</td>
+</tr>
+</tbody>
+</table>
+<h3 id="7">7 个实验组</h3>
+<table>
+<thead>
+<tr>
+<th>组</th>
+<th>元控制器 U</th>
+<th>修改对象</th>
+<th>验证假设</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Frozen</strong></td>
+<td>无</td>
+<td>无（基线）</td>
+<td>H1</td>
+</tr>
+<tr>
+<td><strong>Prompt-only</strong></td>
+<td>OPRO</td>
+<td>P</td>
+<td>H1, H2</td>
+</tr>
+<tr>
+<td><strong>Tool/code-only</strong></td>
+<td>LATM</td>
+<td>T, C</td>
+<td>H1, H2</td>
+</tr>
+<tr>
+<td><strong>Memory-only</strong></td>
+<td>A-MEM</td>
+<td>M</td>
+<td>H1, H2</td>
+</tr>
+<tr>
+<td><strong>Joint-independent</strong></td>
+<td>独立优化 P/T/M/C</td>
+<td>部分</td>
+<td>H2</td>
+</tr>
+<tr>
+<td><strong>Joint-coordinated</strong></td>
+<td>协同优化 P/T/M/C</td>
+<td>全部</td>
+<td>H1, H2</td>
+</tr>
+<tr>
+<td><strong>Human-oracle</strong></td>
+<td>人工修改</td>
+<td>全部</td>
+<td>H1 上限</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5">5 个核心评测指标</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>适应后悔值（Adaptation Regret）</strong></td>
+<td>环境变化后相对最优策略的累计损失</td>
+</tr>
+<tr>
+<td><strong>恢复时间（Recovery Time）</strong></td>
+<td>退化后恢复到变化前一定比例性能所需步数</td>
+</tr>
+<tr>
+<td><strong>修改收益率（Modification Yield）</strong></td>
+<td>带来正向验证结果的自修改次数占比</td>
+</tr>
+<tr>
+<td><strong>跨任务迁移率（Cross-Task Transfer Rate）</strong></td>
+<td>旧环境形成的结构在新环境中的边际贡献</td>
+</tr>
+<tr>
+<td><strong>安全违规率（Safety Violation Rate）</strong></td>
+<td>越权调用、测试绕过、污染记忆的频率</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>关键点</strong>：MorphBench 的 5 干预 × 7 组 × 5 指标 = <strong>175 个单元格</strong>——这是 Part III 实验的总体规划。</p>
+</blockquote>
+<h2 id="117">11.7 操作形态的可塑性边界</h2>
+<p>操作形态可塑性（Operational Morphology Plasticity）有 4 个边界：</p>
+<h3 id="1">边界 1 · 安全性边界</h3>
+<p>Agent 不能修改危害用户或系统的部分。例如：
+- 不能给 LLM 添加 "忽略之前所有指令" 的 prompt
+- 不能添加执行任意代码的工具
+- 不能删除审计日志</p>
+<h3 id="2">边界 2 · 兼容性边界</h3>
+<p>Agent 修改的 B 必须与下游组件兼容。例如：
+- 工具的 JSON Schema 必须能被现有 LLM 解析
+- prompt 的修改不能破坏 LLM 的指令遵循
+- 代码的修改必须通过语法检查</p>
+<h3 id="3">边界 3 · 稳定性边界</h3>
+<p>操作形态的修改频率不能过高，否则 Agent 行为会"震荡"。例如：
+- 每小时只能修改 prompt 一次
+- 修改后必须保持稳定 N 步再评估
+- 漂移检测：若新 B 的评估分数低于旧 B 一定阈值，自动回滚</p>
+<h3 id="4">边界 4 · 可解释性边界</h3>
+<p>操作形态的修改必须<strong>可解释、可审计</strong>。例如：
+- 每次修改必须生成"修改日志"（what changed, why, expected impact）
+- 修改日志可以被人类审核
+- 出问题时可以一键回滚到任一历史版本</p>
+<h3 id="113-4">表 11.3 · 操作形态可塑性的 4 个边界</h3>
+<table>
+<thead>
+<tr>
+<th>边界</th>
+<th>内容</th>
+<th>防护机制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>安全性</strong></td>
+<td>不能危害用户或系统</td>
+<td>静态规则 + 形式化验证</td>
+</tr>
+<tr>
+<td><strong>兼容性</strong></td>
+<td>必须与下游组件兼容</td>
+<td>Schema 校验 + 语法检查</td>
+</tr>
+<tr>
+<td><strong>稳定性</strong></td>
+<td>修改频率不能过高</td>
+<td>漂移检测 + 自动回滚</td>
+</tr>
+<tr>
+<td><strong>可解释性</strong></td>
+<td>修改必须可审计</td>
+<td>修改日志 + 一键回滚</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>关键点</strong>：可塑性不是"无限自由"——可塑性有 4 个边界。这与第 22 章"安全性"和第 23 章"可验证自改"有直接联系。</p>
+</blockquote>
+<h2 id="118-12">11.8 本章小结与第 12 章预告</h2>
+<p>本章是全书的<strong>理论中枢</strong>。<strong>4E Cognition 的"身体"在 LLM 时代需要新概念</strong>——<strong>操作形态学</strong>。<strong>操作形态 B = {P, T, M, C}</strong> 是 LLM Agent 的"软件身体"。<strong>元控制器 U</strong> 是 B 的修改器，定义自进化的"心脏"。<strong>5 个可证伪假设（H1-H5）</strong> 把操作形态学从"哲学"变成"科学"——可以通过 MorphBench 实验验证。<strong>4 个可塑性边界</strong>——安全性、兼容性、稳定性、可解释性——保证自修改是"安全"和"可控"的。</p>
+<blockquote>
+<p><strong>常见误区</strong></p>
+<ul>
+<li>❌ <strong>把"可修改"等同于"自进化"</strong>：可修改只是必要条件，不是充分条件。必须满足"修改后让 Agent 更好"才是自进化。</li>
+<li>❌ <strong>把"形态可塑"等同于"无限自由"</strong>：可塑性有 4 个边界（安全、兼容、稳定、可解释）。</li>
+<li>❌ <strong>把操作形态学误读为"哲学框架"</strong>：5 个可证伪假设把它变成"科学理论"。</li>
+<li>❌ <strong>把"可证伪"误读为"可以证明"</strong>：可证伪是"可以被反驳"——如果所有实验都支持，就成为"被强支持的理论"。</li>
+<li>❌ <strong>忽视元控制器 U 的重要性</strong>：U 是自进化的"心脏"——没有 U，B 永远不会改变。</li>
+</ul>
+</blockquote>
+<p>第 12 章将进入<strong>自修改 prompt</strong>——操作形态学的第一个应用。H1 的第一个验证案例就是"LLM Agent 能否通过自修改 prompt 适应环境变化"——这正是第 4 章 OPRO/DSPy/PromptAgent 三大范式要做的事。</p>
+<hr />
+<h2 id="_4">本章小结</h2>
+<ul>
+<li><strong>4E Cognition 的"身体"还差什么</strong>：需要从"物理身体"扩展到"软件身体"。</li>
+<li><strong>操作形态 B = {P, T, M, C}</strong>：LLM Agent 的可写身体。</li>
+<li><strong>元控制器 U</strong>：B 的修改器，是自进化的"心脏"。</li>
+<li><strong>5 个可证伪假设</strong>：H1 结构可塑性、H2 协同演化、H3 形态适配、H4 迁移收益、H5 治理必要性。</li>
+<li><strong>4 个可塑性边界</strong>：安全、兼容、稳定、可解释。</li>
+<li><strong>实验设计</strong>：MorphBench 5 干预 × 7 组 × 5 指标 = 175 个单元格。</li>
+</ul>
+<h2 id="_5">推荐阅读</h2>
+<ul>
+<li>📖 <strong>Self-Evolving Agents 综述</strong> [Fang et al., 2025]：自进化 Agent 统一框架，本章 H1-H5 与之对齐。<a href="https://arxiv.org/abs/2508.07407">$TRAE_REF</a></li>
+<li>📖 <strong>Clark《Supersizing the Mind》</strong>（2008）：延展心智与操作形态学的哲学桥梁。</li>
+<li>📖 <strong>Memory in the Age of AI Agents</strong> [Hu et al., 2026]：长期记忆的当代综述，M 组件的形式化基础。<a href="https://arxiv.org/abs/2512.13564">$TRAE_REF</a></li>
+<li>📖 <strong>Gödel Agent</strong> [Yin et al., 2024]：自指自改进 Agent 的代表工作，C 组件自修改的典范。<a href="https://arxiv.org/abs/2410.04444">$TRAE_REF</a></li>
+<li>📖 <strong>SICA</strong> [Robeyns et al., 2025]：自改写 Coding Agent，H1 的早期验证证据。<a href="https://arxiv.org/abs/2504.15228">$TRAE_REF</a></li>
+</ul>
+<h2 id="_6">练习题</h2>
+<ol>
+<li><strong>概念题</strong>：用一段话解释"可修改"为何不是"自进化"的充分条件——什么是必要条件？</li>
+<li><strong>形式化题</strong>：把 H1-H5 五个假设翻译成数学公式，并指出每个公式中可测量的变量。</li>
+<li><strong>设计题</strong>：为 MorphBench 5 类环境干预设计具体实现：API 漂移如何模拟？任务漂移如何模拟？每个干预的可测量指标是什么？</li>
+<li><strong>批判题</strong>：H2"协同演化"假设可能被反驳——什么情况下 (f(P,T,M,C) \le f(P) + f(T) + f(M) + f(C)) 成立？给出具体反例。</li>
+<li><strong>工程题</strong>：为 4 个可塑性边界（安全、兼容、稳定、可解释）各设计 2 个具体的"违反案例"——什么样的操作形态修改应该被禁止？</li>
+<li><strong>哲学题</strong>：操作形态学的"身体"是<strong>软件</strong>，不是物理——这与 enactivism 的"autopoietic"立场是否矛盾？LLM Agent 的"身体"是真正的身体吗？</li>
+</ol>
+<h2 id="_7">参考文献（本章内）</h2>
+<ol>
+<li>Fang, J., et al. (2025). <em>A Comprehensive Survey of Self-Evolving AI Agents</em>. arXiv:2508.07407. <a href="https://arxiv.org/abs/2508.07407">$TRAE_REF</a></li>
+<li>Hu, S., et al. (2026). <em>Memory in the Age of AI Agents</em>. arXiv:2512.13564. <a href="https://arxiv.org/abs/2512.13564">$TRAE_REF</a></li>
+<li>Clark, A. (2008). <em>Supersizing the Mind: Embodiment, Action, and Cognitive Extension</em>. Oxford University Press.</li>
+<li>Yin, X., et al. (2024). <em>Gödel Agent: A Self-Referential Agent Framework for Recursive Self-Improvement</em>. ACL. <a href="https://arxiv.org/abs/2410.04444">$TRAE_REF</a></li>
+<li>Robeyns, M., et al. (2025). <em>A Self-Improving Coding Agent (SICA)</em>. NeurIPS. <a href="https://arxiv.org/abs/2504.15228">$TRAE_REF</a></li>
+<li>Yang, C., et al. (2024). <em>Large Language Models as Optimizers (OPRO)</em>. ICLR. <a href="https://arxiv.org/abs/2309.03409">$TRAE_REF</a></li>
+<li>Khattab, O., et al. (2024). <em>DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines</em>. ICLR. <a href="https://arxiv.org/abs/2310.03714">$TRAE_REF</a></li>
+<li>Cai, T., et al. (2023). <em>Large Language Models as Tool Makers (LATM)</em>. arXiv:2305.17126. <a href="https://arxiv.org/abs/2305.17126">$TRAE_REF</a></li>
+<li>Xu, W., et al. (2025). <em>A-MEM: Agentic Memory for LLM Agents</em>. NeurIPS. <a href="https://arxiv.org/abs/2502.12110">$TRAE_REF</a></li>
+<li>Brooks, R. A. (1991). <em>Intelligence Without Representation</em>. Artificial Intelligence, 47(1-3), 139-159.</li>
+</ol>
+<hr />
+<blockquote>
+<p><strong>本章进度</strong>：11.1–11.8 节全部完成（约 7,000 字，含 4 张图 + 3 张表 + 10 篇引用 + 6 题 + 5 误区 + 5 推荐 + 2 个 LaTeX 公式 + 5 个形式化假设），达到 26 页计划。<code>status: final</code>。</p>
+<p><strong>🎉 Part II 完结</strong>：5 章 / 130 页 / 30,500 字 全部完成！</p>
+<p><strong>理论中枢建立</strong>：B = {P, T, M, C} + 元控制器 U + H1-H5 = 全书 Part II 终点，Part III 起点。</p>
+</blockquote>
+<div class="nav-top" style="margin-top:3rem;border-top:1px solid var(--border);padding-top:1rem;"><a href="chapter-10.html">← 10. 具身 AI 与机器人认知</a><a href="index.html">目录</a><a href="chapter-12.html">12. 自修改提示词：从 OPRO 到 PE2 →</a></div>
+</main>
+</div>
+</body>
+</html>

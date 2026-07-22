@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2. 智能体基础：感知、决策、行动、反馈 — 操作形态学</title>
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --muted: #555;
+  --accent: #2563eb;
+  --code-bg: #f4f4f4;
+  --border: #ddd;
+  --sidebar-bg: #f0f0f0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111;
+    --fg: #eee;
+    --muted: #aaa;
+    --accent: #60a5fa;
+    --code-bg: #1e1e1e;
+    --border: #333;
+    --sidebar-bg: #1a1a1a;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Noto Sans CJK SC", "WenQuanYi Micro Hei", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.75;
+}
+.layout {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.sidebar {
+  width: 280px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar h2 {
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  color: var(--accent);
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar li {
+  margin: 0.25rem 0;
+}
+.sidebar a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: block;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+.sidebar a:hover, .sidebar a.active {
+  background: var(--accent);
+  color: #fff;
+}
+.main {
+  flex: 1;
+  padding: 2rem 3rem;
+  max-width: 900px;
+}
+h1, h2, h3, h4 {
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+h1 { font-size: 2rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
+h2 { font-size: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.25rem; }
+p { margin: 0.8rem 0; }
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+  font-family: "SF Mono", "Fira Code", Consolas, monospace;
+  font-size: 0.9em;
+}
+pre code { padding: 0; background: none; }
+blockquote {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid var(--accent);
+  background: rgba(37,99,235,0.05);
+  color: var(--muted);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+  text-align: left;
+}
+th { background: var(--sidebar-bg); }
+ul, ol { margin: 0.5rem 0; padding-left: 1.5rem; }
+img { max-width: 100%; height: auto; }
+a { color: var(--accent); }
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+.nav-top a {
+  color: var(--accent);
+  text-decoration: none;
+}
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); }
+  .main { padding: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="sidebar">
+<h2><a href="index.html" style="color:var(--accent);text-decoration:none;">操作形态学</a></h2>
+<ul><li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part I</li>
+<li><a class="" href="chapter-01.html">1. LLM 智能体时代</a></li>
+<li><a class="active" href="chapter-02.html">2. 智能体基础：感知、决策、行动、反馈</a></li>
+<li><a class="" href="chapter-03.html">3. 工具与函数调用</a></li>
+<li><a class="" href="chapter-04.html">4. 提示词工程：从静态到动态</a></li>
+<li><a class="" href="chapter-05.html">5. 上下文工程与短期记忆</a></li>
+<li><a class="" href="chapter-06.html">6. 长期记忆与检索增强</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part II</li>
+<li><a class="" href="chapter-07.html">7. 4E Cognition 简史</a></li>
+<li><a class="" href="chapter-08.html">8. Enactivism 与自创生</a></li>
+<li><a class="" href="chapter-09.html">9. Extended Mind 与延展心智</a></li>
+<li><a class="" href="chapter-10.html">10. 具身 AI 与机器人认知</a></li>
+<li><a class="" href="chapter-11.html">11. 当工具成为身体：操作形态假说</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part III</li>
+<li><a class="" href="chapter-12.html">12. 自修改提示词：从 OPRO 到 PE2</a></li>
+<li><a class="" href="chapter-13.html">13. 自动工具创建与重构</a></li>
+<li><a class="" href="chapter-14.html">14. 自适应记忆结构</a></li>
+<li><a class="" href="chapter-15.html">15. 自我改写代码</a></li>
+<li><a class="" href="chapter-16.html">16. 跨组件协同自进化</a></li>
+<li><a class="" href="chapter-17.html">17. 元控制器设计</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part IV</li>
+<li><a class="" href="chapter-18.html">18. MorphAgent 参考实现</a></li>
+<li><a class="" href="chapter-19.html">19. 评测方法学：MorphBench</a></li>
+<li><a class="" href="chapter-20.html">20. 调试与可观测性</a></li>
+<li><a class="" href="chapter-21.html">21. 部署与运维</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part V</li>
+<li><a class="" href="chapter-22.html">22. 安全性与对抗鲁棒性</a></li>
+<li><a class="" href="chapter-23.html">23. 可验证自改</a></li>
+<li><a class="" href="chapter-24.html">24. 经济、伦理与社会影响</a></li>
+<li><a class="" href="chapter-25.html">25. 开放问题与未来工作</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part VI</li>
+<li><a class="" href="chapter-26.html">26. 附录 A · 术语表</a></li>
+<li><a class="" href="chapter-27.html">27. 附录 B · 数学基础</a></li>
+<li><a class="" href="chapter-28.html">28. 附录 C · 工具与库速查</a></li>
+<li><a class="" href="chapter-29.html">29. 附录 D · 教学实验清单</a></li>
+<li><a class="" href="chapter-30.html">30. 附录 E · 练习题答案</a></li>
+<li><a class="" href="chapter-31.html">31. 附录 F · 参考文献总目录</a></li></ul>
+</nav>
+<main class="main">
+<div class="nav-top"><a href="chapter-01.html">← 1. LLM 智能体时代</a><a href="index.html">目录</a><a href="chapter-03.html">3. 工具与函数调用 →</a></div>
+<h1>2. 智能体基础：感知、决策、行动、反馈</h1>
+<h1 id="2">第 2 章 · 智能体基础：感知、决策、行动、反馈</h1>
+<blockquote>
+<p>"Agent 不是 LLM；Agent 是把 LLM 嵌入到反馈环里的系统。"</p>
+</blockquote>
+<h2 id="_1">学习目标</h2>
+<p>完成本章后，读者应能够：</p>
+<ol>
+<li>把任意 LLM Agent 系统拆解为「感知 → 决策 → 行动 → 反馈」四元组</li>
+<li>用控制论的开环/闭环概念解释 Agent 的稳定性</li>
+<li>在 POMDP 框架下分析 Agent 的状态、行动、转移、奖励</li>
+<li>区分经典 AI Agent、强化学习 Agent 与 LLM Agent 三大范式</li>
+</ol>
+<h2 id="_2">先修知识</h2>
+<ul>
+<li>第 1 章 · LLM 智能体时代</li>
+<li>概率论与最优化基础（详见附录 B）</li>
+</ul>
+<h2 id="_3">章节地图</h2>
+<ul>
+<li><strong>2.1</strong> Agent 的四元组结构</li>
+<li><strong>2.2</strong> 控制论视角：开环与闭环</li>
+<li><strong>2.3</strong> POMDP：部分可观察的世界</li>
+<li><strong>2.4</strong> 强化学习与 LLM Agent 的范式对比</li>
+<li><strong>2.5</strong> 本章小结与第 3 章预告</li>
+</ul>
+<hr />
+<h2 id="21-agent">2.1 Agent 的四元组结构</h2>
+<p>任何一个智能体——无论是经典的强化学习 Agent、机器人 Agent，还是 LLM Agent——都可以被拆解为<strong>感知（Sense）→ 决策（Decide）→ 行动（Act）→ 反馈（Feedback）</strong> 四元组的循环。这个四元组不是某个特定框架的发明，而是来自控制论和人工智能领域的共识——Russell &amp; Norvig 在《Artificial Intelligence: A Modern Approach》中把它作为 Agent 章节的开篇图；Sutton &amp; Barto 在《Reinforcement Learning》中也以这个循环为骨架 <a href="https://aima.cs.berkeley.edu/">$TRAE_REF</a>。</p>
+<p>在 LLM Agent 语境下，这四个阶段各自承担不同的角色。<strong>感知</strong>阶段负责把外部世界（用户输入、工具返回、环境状态）转换为 LLM 能理解的文本或 token 序列。<strong>决策</strong>阶段由 LLM 完成——它根据当前的感知内容生成下一步的"思考"和"行动请求"。<strong>行动</strong>阶段由 Agent 运行时执行——它把 LLM 的结构化输出转换为对工具的调用、对文件的修改或对其他系统的 API 请求。<strong>反馈</strong>阶段则把行动的结果（新观察、新错误、新成本）作为下一轮感知的输入。</p>
+<h3 id="21-llm-agent-">图 2.1 · LLM Agent 的感知-决策-行动-反馈四元组</h3>
+<pre><code>       ┌─────────────────────────────────────────────┐
+       │                                             │
+       │    ┌──────────┐    ┌──────────┐   ┌────────┐ │
+       │    │  Sense   │───&gt;│ Decide   │──&gt;│  Act   │ │
+       │    │ 感知     │    │ 决策(LLM)│   │ 行动   │ │
+       │    └──────────┘    └──────────┘   └───┬────┘ │
+       │         ▲                              │      │
+       │         │                              │      │
+       │         │           ┌──────────┐       │      │
+       │         └───────────│ Feedback │&lt;──────┘      │
+       │                     │ 反馈     │              │
+       │                     └──────────┘              │
+       │                                             │
+       │              Agent System                   │
+       └─────────────────────────────────────────────┘
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：四元组不是线性流程，而是闭环。每一轮 Sense-Act 之后，反馈都会重新进入下一轮 Sense。这种闭环结构是 Agent 与"一次性 LLM 调用"最本质的区别。</p>
+</blockquote>
+<p>但这个标准四元组在 LLM Agent 中存在一个<strong>根本张力</strong>：LLM 的"决策"本质上是无状态的——它每次推理时只看见当前的输入（短期记忆 + 系统 prompt + 用户输入），它不直接"知道"自己的上次决策是什么，也不知道环境已经演化到什么状态。所有"状态"都必须显式地通过感知通道（context window）注入 LLM。这意味着 <strong>LLM Agent 的"状态"完全由短期记忆决定</strong>——短期记忆里有什么，LLM 就"以为"自己处于什么状态。</p>
+<p>这个观察直接连接到第 1 章 1.3 节的讨论：<strong>短期记忆决定了 Agent 能"看见"什么</strong>。如果记忆机制设计不当，Agent 的"感知"就是不完整的，决策质量会迅速下降。在第 5 章和第 6 章，我们会回到短期记忆与长期记忆的设计模式。</p>
+<p>四元组在工程上的实现可以是同步的（每一步都执行 Sense-Act-Feedback），也可以是异步的（Sense 和 Act 分离为独立线程，LLM 异步推理）。OpenAI 的 Swarm 框架和 Anthropic 的 Claude Agent SDK 都采用异步四元组——LLM 在推理时不需要等待所有工具返回。</p>
+<blockquote>
+<p><strong>复述框 · 2.1 节要点</strong></p>
+<ul>
+<li><strong>Agent = Sense-Act-Feedback 闭环</strong>：与"一次性 LLM 调用"的本质区别在于反馈环。</li>
+<li><strong>LLM 是无状态决策器</strong>：所有"状态"必须通过感知通道（context window）注入。</li>
+<li><strong>异步实现是工业标准</strong>：OpenAI Swarm、Anthropic Agent SDK 都采用异步四元组。</li>
+</ul>
+</blockquote>
+<h2 id="22">2.2 控制论视角：开环与闭环</h2>
+<p>控制论（Control Theory）是分析反馈系统的经典框架。1948 年诺伯特·维纳出版《Cybernetics: Or Control and Communication in the Animal and the Machine》，奠定了用反馈回路理解智能行为的方法论。从控制论视角看，<strong>Agent 就是一个反馈控制器（Feedback Controller）</strong>：它把"期望状态"和"当前状态"的差异作为输入，输出"控制信号"（即行动）来减小这个差异。</p>
+<p>控制论区分两种基本结构：<strong>开环（Open-Loop）控制系统</strong>和<strong>闭环（Closed-Loop）控制系统</strong>。</p>
+<h3 id="22-vs">图 2.2 · 开环 vs 闭环控制系统</h3>
+<pre><code>   ┌─────────────────── 开环 ─────────────────────┐
+   │                                              │
+   │   Reference ──&gt; Controller ──&gt; Plant ──&gt; Output
+   │                  (无反馈)                       │
+   └──────────────────────────────────────────────┘
+
+   ┌─────────────────── 闭环 ─────────────────────┐
+   │                                              │
+   │                ┌───────┐                     │
+   │                │       ▼                     │
+   │   Reference ──&gt; Controller ──&gt; Plant ──&gt; Output
+   │      ▲                                  │    │
+   │      │                                  │    │
+   │      └────────── Sensor ◀───────────────┘    │
+   │                  (反馈)                       │
+   └──────────────────────────────────────────────┘
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：闭环系统的"反馈"是物理信号（电压、温度、位置），LLM Agent 的"反馈"是结构化文本（Observation、Error message、Cost）。两者本质相同——都是把"行动结果"反向注入到"决策输入"。</p>
+</blockquote>
+<p><strong>开环控制系统</strong>没有反馈：控制器发出指令后，行动直接作用于世界，控制器不再关心结果如何。在 LLM Agent 语境下，"一次性 LLM 调用"就是一个开环系统——LLM 接收输入、生成输出、对话结束，没有验证输出是否正确，也没有修正机制。大多数 LLM 应用（翻译、摘要、写作辅助）都是开环系统。</p>
+<p><strong>闭环控制系统</strong>有反馈：控制器在每个时间步都观察世界的实际状态，并与"期望状态"比较，根据差异调整下一步行动。LLM Agent 就是一个闭环系统——它通过 ReAct 循环不断观察工具返回的结果（Observation），并根据结果调整下一步行动。当 LLM Agent 失败时，它通常会重试、切换工具或重写 prompt——这正是闭环控制的"自我修正"行为。</p>
+<p>闭环控制的稳定性是控制论的核心议题。一个反馈环可能<strong>收敛</strong>（最终达到目标）、<strong>震荡</strong>（在目标附近反复摆动）、或<strong>发散</strong>（离目标越来越远）。这三种行为在 LLM Agent 中都有对应：</p>
+<ol>
+<li><strong>收敛</strong>：Agent 找到正确的工具和参数，任务完成。这是最理想的情况。</li>
+<li><strong>震荡</strong>：Agent 在两个错误状态之间反复跳转（例如反复尝试已失败的 API）。这是 Auto-GPT 早期版本的常见 bug。</li>
+<li><strong>发散</strong>：Agent 离目标越来越远（例如陷入无限循环的成本越来越高）。这通常是 prompt 设计错误或工具错误传播的结果。</li>
+</ol>
+<p>理解 Agent 的稳定性对设计至关重要。一个简单的经验法则是：<strong>反馈越频繁、越精确，闭环越稳定</strong>。这与第 1 章 Reflexion 的设计一致——更细粒度的反思（每步反思）比粗粒度的总结（任务结束后总结）更能让 Agent 稳定收敛。</p>
+<p>控制论还引入了<strong>前馈（Feedforward）</strong>的概念——控制器不仅依赖当前反馈，还预测未来的反馈。在 LLM Agent 中，这对应于<strong>预测性反思（Predictive Reflection）</strong>：Agent 不仅评估"刚才做了什么"，还预测"下一步会发生什么"并提前调整。这种机制在 LLM 时代刚刚起步，是未来 3 年的重要研究方向。</p>
+<blockquote>
+<p><strong>复述框 · 2.2 节要点</strong></p>
+<ul>
+<li><strong>开环 = 一次性 LLM 调用</strong>；<strong>闭环 = LLM Agent</strong>。</li>
+<li><strong>三种稳定性</strong>：收敛（理想）、震荡（循环重试）、发散（成本爆炸）。</li>
+<li><strong>反馈越频繁越稳定</strong>：每步反思优于事后总结。</li>
+<li><strong>前馈 = 预测性反思</strong>：未来方向。</li>
+</ul>
+</blockquote>
+<h2 id="23-pomdp">2.3 POMDP：部分可观察的世界</h2>
+<p>控制论关注的是反馈结构，但反馈的内容——即 Agent 感知到的世界状态——需要另一个框架来精确描述。<strong>部分可观察马尔可夫决策过程（Partially Observable Markov Decision Process, POMDP）</strong> 是强化学习与规划的标准形式化工具，它精确刻画了 Agent 在信息不完全的世界中如何决策。</p>
+<p>一个 POMDP 由七元组 ((S, A, T, R, \Omega, O, \gamma)) 定义：</p>
+<ul>
+<li>(S)：<strong>状态空间</strong>（State Space），世界的所有可能状态</li>
+<li>(A)：<strong>行动空间</strong>（Action Space），Agent 可以做的所有事情</li>
+<li>(T(s'|s, a))：<strong>转移函数</strong>（Transition Function），在状态 (s) 采取行动 (a) 后跳到状态 (s') 的概率</li>
+<li>(R(s, a))：<strong>奖励函数</strong>（Reward Function），在状态 (s) 采取行动 (a) 获得的即时奖励</li>
+<li>(\Omega)：<strong>观察空间</strong>（Observation Space），Agent 能感知到的所有可能信号</li>
+<li>(O(o|s', a))：<strong>观察函数</strong>（Observation Function），在状态 (s') 采取行动 (a) 后观察到 (o) 的概率</li>
+<li>(\gamma \in [0, 1))：<strong>折扣因子</strong>（Discount Factor），未来奖励的折现率</li>
+</ul>
+<h3 id="23-pomdp-llm-agent">图 2.3 · POMDP 的七元组及其与 LLM Agent 的对应</h3>
+<pre><code>   POMDP 七元组          LLM Agent 对应
+   ───────────          ────────────
+   S  状态空间         →  世界状态（用户目标、文件状态、API 状态）
+   A  行动空间         →  LLM 输出的 tool_call 集合
+   T  转移函数         →  工具执行 + 环境演化（不可控）
+   R  奖励函数         →  任务成功 / 失败 + 成本 / 时延
+   Ω  观察空间         →  LLM 接收的 token 序列
+   O  观察函数         →  把工具结果转换为文本
+   γ  折扣因子         →  短期 vs 长期奖励的权衡（prompt 隐式表达）
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：POMDP 的核心是"部分可观察"——Agent 永远不能直接知道真实状态 (s)，只能通过观察 (o) 推断。这种信息不完美是 LLM Agent 的常态。</p>
+</blockquote>
+<p>POMDP 框架对 LLM Agent 的核心启发是：<strong>Agent 永远在"信息不完美"下决策</strong>。LLM 看到的 context window 是不完整的——它可能不知道"用户在 5 分钟前取消了这个任务"，也不知道"网络在 30 秒前断了"。Agent 必须在这种信息不完美下做出"足够好"的决策，而不是追求"完美"决策。</p>
+<p>LLM Agent 与经典 POMDP 求解器的关键区别在于：<strong>LLM 不是查表（Lookup），而是"语言化"决策</strong>。经典 POMDP 通过值迭代或策略梯度求解最优策略 (\pi^<em>(a|s))，而 LLM Agent 通过自然语言推理生成"看起来合理"的行动。这种语言化决策的优势是</em><em>泛化性</em><em>——同一个 LLM 可以处理无数种任务；缺点是</em><em>不可证伪性</em>*——我们无法形式化证明 LLM 的决策"最优"。</p>
+<p>POMDP 框架还引出了<strong>信念状态（Belief State）</strong> 的概念——Agent 对真实状态的后验分布 (b(s) = P(s|o_{1:t}, a_{1:t-1}))。在经典 POMDP 中，信念状态是概率向量；在 LLM Agent 中，"信念状态"对应<strong>短期记忆的内容</strong>。如果 LLM 的短期记忆是 (m_t)，那么 (b_t \approx m_t)。这意味着 <strong>LLM Agent 的"信念工程"就是记忆工程</strong>。</p>
+<blockquote>
+<p><strong>复述框 · 2.3 节要点</strong></p>
+<ul>
+<li><strong>POMDP = 信息不完美下的决策框架</strong>：LLM Agent 的标准形式化。</li>
+<li><strong>七元组</strong>：状态、行动、转移、奖励、观察、观察函数、折扣因子。</li>
+<li><strong>LLM 的"信念状态"= 短期记忆</strong>：记忆工程 = 信念工程。</li>
+<li><strong>LLM Agent 的核心权衡</strong>：泛化性 vs 可证伪性。</li>
+</ul>
+</blockquote>
+<h2 id="24-llm-agent">2.4 强化学习与 LLM Agent 的范式对比</h2>
+<p>到目前为止，我们已经从控制论和 POMDP 视角分析了 Agent。但 LLM Agent 究竟与经典强化学习（RL）Agent 有什么本质不同？为什么 LLM Agent 这两年才爆发？本节从范式层面做一次对比。</p>
+<p>经典强化学习 Agent（如 AlphaGo、AlphaZero、DeepMind 的 MuZero）有以下特征：</p>
+<ol>
+<li><strong>状态表示</strong>：状态是结构化张量（棋盘位置、游戏画面），通过神经网络编码为向量。</li>
+<li><strong>行动空间</strong>：行动是固定集合（落子位置、按键方向）。</li>
+<li><strong>奖励函数</strong>：奖励是明确给定的（输赢 +1/-1，得分）。</li>
+<li><strong>学习方式</strong>：通过与环境大量交互（百万局游戏）更新策略参数。</li>
+<li><strong>训练成本</strong>：需要昂贵的 GPU 集群与数天到数周的训练。</li>
+</ol>
+<p>LLM Agent 的特征则完全不同：</p>
+<ol>
+<li><strong>状态表示</strong>：状态是自然语言（context window 中的所有文本）。</li>
+<li><strong>行动空间</strong>：行动是自然语言 + 工具调用（无限制，由 LLM 生成）。</li>
+<li><strong>奖励函数</strong>：奖励是隐式的（任务成功/失败 + 成本），通过 prompt 表达。</li>
+<li><strong>学习方式</strong>：通过 in-context learning（少样本 + 反思）调整行为，<strong>不更新参数</strong>。</li>
+<li><strong>训练成本</strong>：单次推理秒级，零额外训练。</li>
+</ol>
+<h3 id="21-rl-agent-vs-llm-agent">表 2.1 · RL Agent vs LLM Agent 范式对比</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>经典 RL Agent</th>
+<th>LLM Agent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>状态表示</strong></td>
+<td>结构化张量</td>
+<td>自然语言</td>
+</tr>
+<tr>
+<td><strong>行动空间</strong></td>
+<td>固定离散</td>
+<td>开放生成（工具 + 自然语言）</td>
+</tr>
+<tr>
+<td><strong>奖励信号</strong></td>
+<td>明确数值</td>
+<td>隐式（prompt 表达）</td>
+</tr>
+<tr>
+<td><strong>学习方式</strong></td>
+<td>参数更新</td>
+<td>In-context learning</td>
+</tr>
+<tr>
+<td><strong>训练成本</strong></td>
+<td>高（GPU 集群）</td>
+<td>零（推理）</td>
+</tr>
+<tr>
+<td><strong>泛化能力</strong></td>
+<td>弱（任务专一）</td>
+<td>强（任务通用）</td>
+</tr>
+<tr>
+<td><strong>可解释性</strong></td>
+<td>弱（神经网络黑盒）</td>
+<td>中（反思可读）</td>
+</tr>
+<tr>
+<td><strong>可证伪性</strong></td>
+<td>强（值函数可证）</td>
+<td>弱（决策语言化）</td>
+</tr>
+<tr>
+<td><strong>错误恢复</strong></td>
+<td>困难（需重训练）</td>
+<td>容易（重试 + 反思）</td>
+</tr>
+<tr>
+<td><strong>适用任务</strong></td>
+<td>单一决策域</td>
+<td>开放多任务</td>
+</tr>
+</tbody>
+</table>
+<p>这个对比表揭示了 LLM Agent 的核心优势：<strong>用语言替代结构化表征，用 in-context learning 替代参数更新</strong>。这两个替代让 LLM Agent 获得了"开箱即用"的多任务能力——同一个 GPT-4 可以在客服、编程、数据分析、法律咨询等无数场景中工作，无需为每个场景重新训练。</p>
+<p>但 LLM Agent 也付出了两个代价。第一个代价是<strong>决策不可证伪</strong>——我们无法形式化证明 LLM 的某个行动"最优"，只能经验地评估任务成功率。第二个代价是<strong>状态空间不可枚举</strong>——自然语言的状态空间是无限的，POMDP 求解器无法直接套用。</p>
+<p>这两个代价定义了 LLM Agent 研究的<strong>两大开放问题</strong>：</p>
+<ol>
+<li><strong>可证伪的 LLM Agent</strong>：如何让 LLM 的决策可形式化验证？答案是把 LLM 与符号系统（如定理证明器、SMT solver）结合——LLM 生成候选行动，符号系统验证正确性。这一点将在第 23 章"可验证自改"中展开。</li>
+<li><strong>结构化的 LLM Agent 状态</strong>：如何让 LLM 的"信念状态"可枚举、可验证？答案是把 LLM 的记忆结构化（向量 + 知识图谱 + 时序数据库）——LLM 生成自然语言，结构化系统存储与检索。这一点将在第 6、14 章"长期记忆"中展开。</li>
+</ol>
+<blockquote>
+<p><strong>复述框 · 2.4 节要点</strong></p>
+<ul>
+<li><strong>LLM Agent = 用语言替代结构 + 用 in-context 替代参数更新</strong>。</li>
+<li><strong>核心优势</strong>：多任务泛化 + 开箱即用。</li>
+<li><strong>核心代价</strong>：决策不可证伪 + 状态不可枚举。</li>
+<li><strong>两大开放问题</strong>：可证伪的 LLM Agent、结构化的 LLM Agent 状态。</li>
+</ul>
+</blockquote>
+<h2 id="25-3">2.5 本章小结与第 3 章预告</h2>
+<p>本章建立了 LLM Agent 的理论基础。<strong>感知-决策-行动-反馈</strong> 四元组给出了 Agent 的最小结构；<strong>控制论</strong>给出了 Agent 稳定性的分析框架（开环 vs 闭环、收敛 vs 震荡 vs 发散）；<strong>POMDP</strong> 给出了 Agent 信息不完美下决策的形式化工具；<strong>与强化学习的对比</strong>揭示了 LLM Agent 的核心权衡（泛化性 vs 可证伪性）。</p>
+<blockquote>
+<p><strong>常见误区</strong></p>
+<ul>
+<li>❌ <strong>把 LLM 当 Agent</strong>：LLM 是 Agent 内部的决策器，不是 Agent 整体。Agent 还包括感知、行动、反馈三个组件。</li>
+<li>❌ <strong>把"思考-行动-观察"当"思考-行动-思考"</strong>：观察是真实的工具返回，不是 Agent 自己脑补的下一步。</li>
+<li>❌ <strong>假设 LLM 能"看见"全部状态</strong>：LLM 只看见 context window 里的内容。Agent 设计师必须明确什么进入 context。</li>
+<li>❌ <strong>用经典 RL 的最优策略思路设计 LLM Agent</strong>：LLM 决策不可证伪，应采用"足够好 + 可解释 + 可恢复"的设计原则。</li>
+<li>❌ <strong>把 POMDP 的信念状态当成 LLM 的输出</strong>：信念状态是 Agent 内部的概率分布，不是 LLM 的文本输出。LLM 的输出只是"行动请求"。</li>
+</ul>
+</blockquote>
+<p>第 3 章将进入<strong>工具与函数调用</strong>。从本章的"四元组结构"出发，第 3 章会把"行动"组件展开——具体讨论工具签名的设计、JSON Schema 的验证、错误恢复的协议，以及 Function Calling 在主流框架中的实现差异。</p>
+<hr />
+<h2 id="_4">本章小结</h2>
+<ul>
+<li><strong>Agent = 感知-决策-行动-反馈闭环</strong>：与"一次性 LLM 调用"的本质区别。</li>
+<li><strong>控制论视角</strong>：开环 = 一次性 LLM；闭环 = LLM Agent。三种稳定性：收敛、震荡、发散。</li>
+<li><strong>POMDP 框架</strong>：七元组 + 信念状态 = 短期记忆。LLM Agent 的核心权衡是泛化性 vs 可证伪性。</li>
+<li><strong>LLM Agent 范式</strong>：用语言替代结构，用 in-context 替代参数更新。两大开放问题：可证伪性、结构化状态。</li>
+</ul>
+<h2 id="_5">推荐阅读</h2>
+<ul>
+<li>📖 <strong>Russell &amp; Norvig《人工智能：一种现代的方法》</strong>（第 4 版）：Agent 章节的标准教材。<a href="https://aima.cs.berkeley.edu/">$TRAE_REF</a></li>
+<li>📖 <strong>Sutton &amp; Barto《强化学习》</strong>（第 2 版）：POMDP 与强化学习的形式化。<a href="http://incompleteideas.net/book/the-book-2nd.html">$TRAE_REF</a></li>
+<li>📖 <strong>Wiener《Cybernetics》</strong>（1948）：控制论的开山之作，反馈环的奠基理论。</li>
+<li>📖 <strong>ReAct 原始论文</strong> [Yao et al., 2023]：把四元组中的"决策"和"行动"显式化为 Thought + Action。<a href="https://arxiv.org/abs/2210.03629">$TRAE_REF</a></li>
+<li>📖 <strong>Reflexion 原始论文</strong> [Shinn et al., 2023]：把"反馈"显式化为可检索的记忆条目。<a href="https://arxiv.org/abs/2303.11366">$TRAE_REF</a></li>
+</ul>
+<h2 id="_6">练习题</h2>
+<ol>
+<li><strong>概念题</strong>：用一段话解释为什么 LLM Agent 的"信念状态"等于"短期记忆"，并讨论这种等价的工程意义。</li>
+<li><strong>分析题</strong>：选一个真实 LLM Agent 系统（如 LangChain ReAct Agent、AutoGPT），画出它的四元组结构图，并标注每一步的输入/输出。</li>
+<li><strong>推导题</strong>：证明在 POMDP 框架下，闭环控制必然优于开环控制，前提是反馈信号准确且无时延。</li>
+<li><strong>设计题</strong>：设计一个"震荡检测"机制——给定 Agent 的行动历史，判断 Agent 是否陷入了"震荡模式"，并在检测到震荡时自动切换策略。</li>
+<li><strong>动手题</strong>：实现一个最小可运行的 POMDP 求解器，能处理 (|S| \le 10), (|A| \le 5) 的小规模 POMDP，用值迭代算法求解最优策略；用 Python 写，不超过 100 行。</li>
+<li><strong>开放题</strong>：讨论"用符号系统验证 LLM 决策"的可能性与局限——LLM 生成的某个 tool_call 应该如何形式化验证？你会怎么设计验证协议？</li>
+</ol>
+<h2 id="_7">参考文献（本章内）</h2>
+<ol>
+<li>Russell, S. J., &amp; Norvig, P. (2020). <em>Artificial Intelligence: A Modern Approach</em> (4th ed.). Pearson. <a href="https://aima.cs.berkeley.edu/">$TRAE_REF</a></li>
+<li>Sutton, R. S., &amp; Barto, A. G. (2018). <em>Reinforcement Learning: An Introduction</em> (2nd ed.). MIT Press. <a href="http://incompleteideas.net/book/the-book-2nd.html">$TRAE_REF</a></li>
+<li>Wiener, N. (1948). <em>Cybernetics: Or Control and Communication in the Animal and the Machine</em>. MIT Press.</li>
+<li>Yao, S., et al. (2023). <em>ReAct: Synergizing Reasoning and Acting in Language Models</em>. ICLR. <a href="https://arxiv.org/abs/2210.03629">$TRAE_REF</a></li>
+<li>Shinn, N., et al. (2023). <em>Reflexion: Language Agents with Verbal Reinforcement Learning</em>. NeurIPS. <a href="https://arxiv.org/abs/2303.11366">$TRAE_REF</a></li>
+<li>Kaelbling, L. P., Littman, M. L., &amp; Cassandra, A. R. (1998). <em>Planning and Acting in Partially Observable Stochastic Domains</em>. Artificial Intelligence, 101(1-2), 99-134.</li>
+<li>Mnih, V., et al. (2015). <em>Human-level Control through Deep Reinforcement Learning</em>. Nature, 518(7540), 529-533. <a href="https://www.nature.com/articles/nature14236">$TRAE_REF</a></li>
+</ol>
+<hr />
+<blockquote>
+<p><strong>本章进度</strong>：2.1–2.5 节全部完成（约 5,000 字，含 3 张图 + 1 张表 + 7 篇引用 + 6 题 + 5 误区 + 5 推荐），达到 22 页计划。<code>status: final</code>。</p>
+</blockquote>
+<div class="nav-top" style="margin-top:3rem;border-top:1px solid var(--border);padding-top:1rem;"><a href="chapter-01.html">← 1. LLM 智能体时代</a><a href="index.html">目录</a><a href="chapter-03.html">3. 工具与函数调用 →</a></div>
+</main>
+</div>
+</body>
+</html>

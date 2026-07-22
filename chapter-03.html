@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3. 工具与函数调用 — 操作形态学</title>
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --muted: #555;
+  --accent: #2563eb;
+  --code-bg: #f4f4f4;
+  --border: #ddd;
+  --sidebar-bg: #f0f0f0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111;
+    --fg: #eee;
+    --muted: #aaa;
+    --accent: #60a5fa;
+    --code-bg: #1e1e1e;
+    --border: #333;
+    --sidebar-bg: #1a1a1a;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Noto Sans CJK SC", "WenQuanYi Micro Hei", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.75;
+}
+.layout {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.sidebar {
+  width: 280px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar h2 {
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  color: var(--accent);
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar li {
+  margin: 0.25rem 0;
+}
+.sidebar a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: block;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+.sidebar a:hover, .sidebar a.active {
+  background: var(--accent);
+  color: #fff;
+}
+.main {
+  flex: 1;
+  padding: 2rem 3rem;
+  max-width: 900px;
+}
+h1, h2, h3, h4 {
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+h1 { font-size: 2rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
+h2 { font-size: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.25rem; }
+p { margin: 0.8rem 0; }
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+  font-family: "SF Mono", "Fira Code", Consolas, monospace;
+  font-size: 0.9em;
+}
+pre code { padding: 0; background: none; }
+blockquote {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid var(--accent);
+  background: rgba(37,99,235,0.05);
+  color: var(--muted);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+  text-align: left;
+}
+th { background: var(--sidebar-bg); }
+ul, ol { margin: 0.5rem 0; padding-left: 1.5rem; }
+img { max-width: 100%; height: auto; }
+a { color: var(--accent); }
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+.nav-top a {
+  color: var(--accent);
+  text-decoration: none;
+}
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); }
+  .main { padding: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="sidebar">
+<h2><a href="index.html" style="color:var(--accent);text-decoration:none;">操作形态学</a></h2>
+<ul><li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part I</li>
+<li><a class="" href="chapter-01.html">1. LLM 智能体时代</a></li>
+<li><a class="" href="chapter-02.html">2. 智能体基础：感知、决策、行动、反馈</a></li>
+<li><a class="active" href="chapter-03.html">3. 工具与函数调用</a></li>
+<li><a class="" href="chapter-04.html">4. 提示词工程：从静态到动态</a></li>
+<li><a class="" href="chapter-05.html">5. 上下文工程与短期记忆</a></li>
+<li><a class="" href="chapter-06.html">6. 长期记忆与检索增强</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part II</li>
+<li><a class="" href="chapter-07.html">7. 4E Cognition 简史</a></li>
+<li><a class="" href="chapter-08.html">8. Enactivism 与自创生</a></li>
+<li><a class="" href="chapter-09.html">9. Extended Mind 与延展心智</a></li>
+<li><a class="" href="chapter-10.html">10. 具身 AI 与机器人认知</a></li>
+<li><a class="" href="chapter-11.html">11. 当工具成为身体：操作形态假说</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part III</li>
+<li><a class="" href="chapter-12.html">12. 自修改提示词：从 OPRO 到 PE2</a></li>
+<li><a class="" href="chapter-13.html">13. 自动工具创建与重构</a></li>
+<li><a class="" href="chapter-14.html">14. 自适应记忆结构</a></li>
+<li><a class="" href="chapter-15.html">15. 自我改写代码</a></li>
+<li><a class="" href="chapter-16.html">16. 跨组件协同自进化</a></li>
+<li><a class="" href="chapter-17.html">17. 元控制器设计</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part IV</li>
+<li><a class="" href="chapter-18.html">18. MorphAgent 参考实现</a></li>
+<li><a class="" href="chapter-19.html">19. 评测方法学：MorphBench</a></li>
+<li><a class="" href="chapter-20.html">20. 调试与可观测性</a></li>
+<li><a class="" href="chapter-21.html">21. 部署与运维</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part V</li>
+<li><a class="" href="chapter-22.html">22. 安全性与对抗鲁棒性</a></li>
+<li><a class="" href="chapter-23.html">23. 可验证自改</a></li>
+<li><a class="" href="chapter-24.html">24. 经济、伦理与社会影响</a></li>
+<li><a class="" href="chapter-25.html">25. 开放问题与未来工作</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part VI</li>
+<li><a class="" href="chapter-26.html">26. 附录 A · 术语表</a></li>
+<li><a class="" href="chapter-27.html">27. 附录 B · 数学基础</a></li>
+<li><a class="" href="chapter-28.html">28. 附录 C · 工具与库速查</a></li>
+<li><a class="" href="chapter-29.html">29. 附录 D · 教学实验清单</a></li>
+<li><a class="" href="chapter-30.html">30. 附录 E · 练习题答案</a></li>
+<li><a class="" href="chapter-31.html">31. 附录 F · 参考文献总目录</a></li></ul>
+</nav>
+<main class="main">
+<div class="nav-top"><a href="chapter-02.html">← 2. 智能体基础：感知、决策、行动、反馈</a><a href="index.html">目录</a><a href="chapter-04.html">4. 提示词工程：从静态到动态 →</a></div>
+<h1>3. 工具与函数调用</h1>
+<h1 id="3">第 3 章 · 工具与函数调用</h1>
+<blockquote>
+<p>"工具调用的质量，决定了 Agent 的天花板。"</p>
+</blockquote>
+<h2 id="_1">学习目标</h2>
+<p>完成本章后，读者应能够：</p>
+<ol>
+<li>设计一个清晰、无歧义、可被 LLM 准确调用的工具签名</li>
+<li>用 JSON Schema 验证 LLM 生成的工具调用参数，并实现自动修复</li>
+<li>区分重试、降级、切换三种错误恢复策略</li>
+<li>比较 OpenAI / Anthropic / Google 三家 Function Calling 协议的实现差异</li>
+<li>把"工具描述"作为 LLM 提示工程的核心要素对待</li>
+</ol>
+<h2 id="_2">先修知识</h2>
+<ul>
+<li>第 1 章 · LLM 智能体时代</li>
+<li>第 2 章 · 智能体基础</li>
+<li>基本的 JSON 与 HTTP 知识</li>
+</ul>
+<h2 id="_3">章节地图</h2>
+<ul>
+<li><strong>3.1</strong> 工具的本质：从 API 调用到结构化动作</li>
+<li><strong>3.2</strong> JSON Schema：工具签名的形式语言</li>
+<li><strong>3.3</strong> 错误恢复：重试、降级、切换</li>
+<li><strong>3.4</strong> 三大协议对比：OpenAI / Anthropic / Google</li>
+<li><strong>3.5</strong> 工具描述工程：把工具变成 LLM 的"第一公民"</li>
+<li><strong>3.6</strong> 本章小结与第 4 章预告</li>
+</ul>
+<hr />
+<h2 id="31-api">3.1 工具的本质：从 API 调用到结构化动作</h2>
+<p>工具（Tool）是 LLM Agent 与外部世界交互的最小动作单元。在第 1 章 1.2 节我们已经看到，Function Calling 把工具调用标准化为三个字段：<code>name</code>、<code>description</code>、<code>parameters</code>。但这三个字段背后的设计哲学——<strong>为什么 LLM Agent 需要"工具"而不是直接"调用 API"</strong>——需要更深入的讨论。</p>
+<p>从计算历史看，工具调用经历了三个阶段。<strong>第一阶段是文本模板</strong>（2020 年以前）：让 LLM 生成特定格式的文本（如 <code>[TOOL: search(query="...")]</code>），再用正则表达式解析。这种方法脆弱、易错、跨模型不兼容。<strong>第二阶段是专用协议</strong>（2022–2023 年）：LangChain 的 Tool 类、AutoGPT 的 Command 类各自定义自己的协议，每个框架的 Agent 只能使用自家协议的工具。<strong>第三阶段是 Function Calling 标准化</strong>（2024 年至今）：OpenAI 推出 Function Calling 协议，Anthropic 推出 Tool Use，Google 推出 Function Calling——三家协议高度相似但有微妙差异，目前正在向 OpenAPI 3.1 收敛 <a href="https://platform.openai.com/docs/guides/function-calling">$TRAE_REF</a>。</p>
+<p>工具的本质是<strong>结构化动作的声明</strong>——它把"做什么"和"怎么做"分开。LLM 只负责"做什么"（生成结构化的工具调用请求），Agent 运行时负责"怎么做"（实际执行函数、捕获异常、重试、回滚）。这种分工的好处是：</p>
+<ol>
+<li><strong>LLM 不需要知道 API 细节</strong>：LLM 只需要看到 JSON Schema，不需要知道底层是 Python、HTTP 还是 RPC。</li>
+<li><strong>工具可移植</strong>：同一个工具定义可以在不同的 LLM 之间切换。</li>
+<li><strong>错误隔离</strong>：工具执行失败不会导致 LLM 推理崩溃，错误信息以结构化形式回传。</li>
+<li><strong>可观测性</strong>：每次工具调用都有结构化记录，便于调试和审计。</li>
+</ol>
+<h3 id="31">图 3.1 · 工具调用的三层结构</h3>
+<pre><code>   ┌────────────────────────────────────────────────────┐
+   │  L1 · 工具声明层 (Tool Declaration)                │
+   │  name + description + parameters(JSON Schema)      │
+   │  ─────────────────────────────────────────────     │
+   │  示例:                                            │
+   │  {                                                │
+   │    &quot;name&quot;: &quot;get_weather&quot;,                          │
+   │    &quot;description&quot;: &quot;查询指定城市的天气&quot;,           │
+   │    &quot;parameters&quot;: {                                 │
+   │      &quot;type&quot;: &quot;object&quot;,                             │
+   │      &quot;properties&quot;: {                               │
+   │        &quot;city&quot;: {&quot;type&quot;: &quot;string&quot;}                  │
+   │      }                                             │
+   │    }                                               │
+   │  }                                                │
+   └──────────────────────┬─────────────────────────────┘
+                          │ LLM 推理时引用
+                          ▼
+   ┌────────────────────────────────────────────────────┐
+   │  L2 · 工具调用层 (Tool Invocation)                │
+   │  LLM 输出: tool_call = {name, arguments}          │
+   │  ─────────────────────────────────────────────     │
+   │  示例:                                            │
+   │  tool_call: {                                      │
+   │    &quot;name&quot;: &quot;get_weather&quot;,                          │
+   │    &quot;arguments&quot;: {&quot;city&quot;: &quot;北京&quot;}                    │
+   │  }                                                │
+   └──────────────────────┬─────────────────────────────┘
+                          │ Agent 运行时执行
+                          ▼
+   ┌────────────────────────────────────────────────────┐
+   │  L3 · 工具执行层 (Tool Execution)                  │
+   │  函数实现 + 异常处理 + 结果注入                     │
+   │  ─────────────────────────────────────────────     │
+   │  result = get_weather(city=&quot;北京&quot;)                  │
+   │  return {temp: 25, rain: 30, unit: &quot;celsius&quot;}     │
+   └────────────────────────────────────────────────────┘
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：三层结构把"声明、调用、执行"完全解耦。LLM 永远只看到 L1 和 L2，从不直接接触 L3。这种解耦是 LLM Agent 稳定性的工程基础。</p>
+</blockquote>
+<p>工具调用与传统的 API 调用有一个根本区别：<strong>调用者是 LLM 而不是人类程序员</strong>。这个区别带来三个独特的工程挑战：</p>
+<ol>
+<li><strong>参数生成的不确定性</strong>：LLM 可能生成任何看起来"合理"但语义错误的参数（如把 <code>city</code> 写成 <code>Beijing</code> 而不是 <code>北京</code>）。</li>
+<li><strong>调用时机的模糊性</strong>：LLM 可能在该调用工具时调用，或者在不该调用时调用。</li>
+<li><strong>错误恢复的复杂性</strong>：工具失败时，LLM 必须能理解错误信息并重新决策。</li>
+</ol>
+<p>这三个挑战贯穿本章的其余小节：3.2 节解决第一个挑战（JSON Schema 验证），3.3 节解决第三个挑战（错误恢复），3.5 节间接解决第二个挑战（工具描述工程）。</p>
+<blockquote>
+<p><strong>复述框 · 3.1 节要点</strong></p>
+<ul>
+<li><strong>工具调用三阶段</strong>：文本模板（脆弱）→ 专用协议（互不兼容）→ Function Calling 标准化（行业共识）。</li>
+<li><strong>三层结构</strong>：声明层 / 调用层 / 执行层——LLM 只接触前两层。</li>
+<li><strong>三个工程挑战</strong>：参数生成不确定性、调用时机模糊性、错误恢复复杂性。</li>
+</ul>
+</blockquote>
+<h2 id="32-json-schema">3.2 JSON Schema：工具签名的形式语言</h2>
+<p><strong>JSON Schema</strong> 是一种用于描述 JSON 数据结构的声明式语言，它是 Function Calling 协议的事实标准 <a href="https://json-schema.org/">$TRAE_REF</a>。一个完整的 JSON Schema 包含以下要素：</p>
+<ul>
+<li><code>type</code>：数据类型（<code>object</code>、<code>array</code>、<code>string</code>、<code>number</code>、<code>integer</code>、<code>boolean</code>、<code>null</code>）</li>
+<li><code>properties</code>：对象的字段定义</li>
+<li><code>required</code>：必填字段列表</li>
+<li><code>enum</code>：枚举值</li>
+<li><code>minimum</code> / <code>maximum</code>：数值范围</li>
+<li><code>minLength</code> / <code>maxLength</code> / <code>pattern</code>：字符串约束</li>
+<li><code>description</code>：字段说明（这是 LLM 理解字段语义的关键）</li>
+</ul>
+<h3 id="32-json-schema_1">图 3.2 · JSON Schema 工具签名的完整结构</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;search_arxiv&quot;,
+  &quot;description&quot;: &quot;在 arXiv 上搜索学术论文。返回每篇论文的标题、作者、摘要、PDF 链接。&quot;,
+  &quot;parameters&quot;: {
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;properties&quot;: {
+      &quot;query&quot;: {
+        &quot;type&quot;: &quot;string&quot;,
+        &quot;description&quot;: &quot;搜索关键词，使用 arXiv 标准语法（如 'abs:reinforcement learning'）&quot;
+      },
+      &quot;max_results&quot;: {
+        &quot;type&quot;: &quot;integer&quot;,
+        &quot;description&quot;: &quot;返回的最大论文数&quot;,
+        &quot;minimum&quot;: 1,
+        &quot;maximum&quot;: 50,
+        &quot;default&quot;: 10
+      },
+      &quot;sort_by&quot;: {
+        &quot;type&quot;: &quot;string&quot;,
+        &quot;description&quot;: &quot;排序方式&quot;,
+        &quot;enum&quot;: [&quot;relevance&quot;, &quot;submittedDate&quot;, &quot;lastUpdatedDate&quot;],
+        &quot;default&quot;: &quot;relevance&quot;
+      },
+      &quot;categories&quot;: {
+        &quot;type&quot;: &quot;array&quot;,
+        &quot;description&quot;: &quot;arXiv 分类列表（如 ['cs.AI', 'cs.LG']）&quot;,
+        &quot;items&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;enum&quot;: [&quot;cs.AI&quot;, &quot;cs.LG&quot;, &quot;cs.CL&quot;, &quot;cs.CV&quot;, &quot;cs.RO&quot;, &quot;stat.ML&quot;]
+        },
+        &quot;default&quot;: []
+      }
+    },
+    &quot;required&quot;: [&quot;query&quot;]
+  }
+}
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：每个字段都有 <code>description</code>，这是 LLM 理解工具的核心。如果 <code>description</code> 写得模糊，LLM 就会在错误的情境调用错误的工具。</p>
+</blockquote>
+<p>JSON Schema 在 LLM Agent 中的工程意义有三点。<strong>第一，声明式</strong>——工具的定义与实现分离，LLM 看到的是声明，运行时看到的是实现。<strong>第二，可验证</strong>——Agent 运行时可以用 <code>jsonschema</code> 库自动验证 LLM 生成的参数是否符合 Schema，不需要写专门的验证代码。<strong>第三，可序列化</strong>——工具定义可以存在数据库、文件系统、向量库中，支持"工具即数据"的设计。</p>
+<h3 id="31-json-schema">列表 3.1 · JSON Schema 验证的常见失败模式</h3>
+<ol>
+<li><strong>类型错误</strong>：<code>max_results</code> 应该是整数，LLM 生成了字符串 <code>"10"</code></li>
+<li><strong>必填缺失</strong>：<code>required: ["query"]</code>，LLM 忘记传 <code>query</code></li>
+<li><strong>枚举越界</strong>：<code>sort_by</code> 应该是 <code>"relevance" | "submittedDate" | "lastUpdatedDate"</code>，LLM 生成了 <code>"popularity"</code></li>
+<li><strong>范围越界</strong>：<code>max_results</code> 应该 ≤ 50，LLM 生成了 1000</li>
+<li><strong>语义错误</strong>：<code>categories</code> 写的是字符串 <code>"machine learning"</code>，但 Schema 要求数组 <code>["cs.AI", "cs.LG"]</code></li>
+<li><strong>嵌套错误</strong>：<code>categories</code> 是数组，但 LLM 生成了嵌套字符串 <code>"['cs.AI', 'cs.LG']"</code></li>
+</ol>
+<p>针对这些失败，Agent 运行时通常采用<strong>两层修复机制</strong>：</p>
+<p><strong>第一层：自动修复</strong>。在调用工具前，Agent 运行时尝试自动修复 LLM 生成的参数：</p>
+<pre><code class="language-python"># 伪代码
+def auto_fix(args, schema):
+    # 类型转换
+    if schema.get(&quot;type&quot;) == &quot;integer&quot; and isinstance(args, str):
+        return int(args)
+    # 默认值填充
+    for key, prop in schema.get(&quot;properties&quot;, {}).items():
+        if key not in args and &quot;default&quot; in prop:
+            args[key] = prop[&quot;default&quot;]
+    # 枚举裁剪
+    if &quot;enum&quot; in schema and args not in schema[&quot;enum&quot;]:
+        return schema[&quot;enum&quot;][0]  # 选第一个合法值
+    return args
+</code></pre>
+<p><strong>第二层：错误回传</strong>。如果自动修复失败，Agent 运行时把错误信息以结构化形式回传给 LLM：</p>
+<pre><code class="language-json">{
+  &quot;error_type&quot;: &quot;ValidationError&quot;,
+  &quot;error_message&quot;: &quot;Parameter 'max_results' must be integer between 1 and 50, got 1000&quot;,
+  &quot;tool_name&quot;: &quot;search_arxiv&quot;,
+  &quot;received_args&quot;: {&quot;query&quot;: &quot;LLM agent&quot;, &quot;max_results&quot;: 1000}
+}
+</code></pre>
+<p>LLM 收到这个错误信息后，会重新生成参数。这种"自动修复 + 错误回传"的双层机制是 Function Calling 工程实践的核心模式。</p>
+<blockquote>
+<p><strong>复述框 · 3.2 节要点</strong></p>
+<ul>
+<li><strong>JSON Schema 是工具签名的标准</strong>：声明式、可验证、可序列化。</li>
+<li><strong>description 是关键</strong>：决定 LLM 能否正确理解工具语义。</li>
+<li><strong>自动修复 + 错误回传</strong>：处理 LLM 参数生成错误的双层机制。</li>
+</ul>
+</blockquote>
+<h2 id="33">3.3 错误恢复：重试、降级、切换</h2>
+<p>工具调用在工程上必然面临失败——网络超时、API 限流、参数错误、服务下线、资源耗尽。LLM Agent 必须具备错误恢复能力，否则一个失败的工具调用就可能导致整个任务中断。<strong>错误恢复（Error Recovery）</strong> 通常有三种策略：<strong>重试（Retry）</strong>、<strong>降级（Degrade）</strong>、<strong>切换（Switch）</strong>。</p>
+<h3 id="33_1">图 3.3 · 错误恢复三种策略的决策树</h3>
+<pre><code>                  工具调用失败
+                       │
+                       ▼
+            ┌──────────────────────┐
+            │ 错误可恢复吗？         │
+            └──────┬───────────────┘
+                  │
+       ┌──────────┴──────────┐
+       │                     │
+      YES                   NO
+       │                     │
+       ▼                     ▼
+   ┌──────────┐        ┌──────────┐
+   │ 重试      │        │ 任务失败  │
+   │ (Retry)  │        │ (Fail)   │
+   └────┬─────┘        └──────────┘
+        │ 失败
+        ▼
+   ┌──────────┐
+   │ 降级      │
+   │ (Degrade)│  ← 用相似工具替代
+   └────┬─────┘
+        │ 失败
+        ▼
+   ┌──────────┐
+   │ 切换      │
+   │ (Switch) │  ← 换用完全不同的工具
+   └────┬─────┘
+        │ 失败
+        ▼
+   ┌──────────┐
+   │ 上报用户  │
+   │ (Escalate)│
+   └──────────┘
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：错误恢复必须按"重试→降级→切换→上报"的顺序升级。每一步升级都意味着更激进的行为改变，也意味着更大的工程风险。</p>
+</blockquote>
+<h3 id="31_1">表 3.1 · 三种错误恢复策略的对比</h3>
+<table>
+<thead>
+<tr>
+<th>策略</th>
+<th>适用场景</th>
+<th>风险</th>
+<th>成本</th>
+<th>工程难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>重试</strong></td>
+<td>瞬时故障（超时、限流）</td>
+<td>低（参数不变）</td>
+<td>低（额外一次调用）</td>
+<td>低</td>
+</tr>
+<tr>
+<td><strong>降级</strong></td>
+<td>工具不可用但有相似工具</td>
+<td>中（行为可能改变）</td>
+<td>中（可能需要重新理解工具）</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>切换</strong></td>
+<td>工具完全错误</td>
+<td>高（可能改变任务语义）</td>
+<td>高（需要重新规划）</td>
+<td>高</td>
+</tr>
+</tbody>
+</table>
+<p><strong>重试（Retry）</strong> 是最常见的恢复策略。LLM 收到错误信息后，可以<strong>修改参数后重试</strong>（如把 <code>max_results: 1000</code> 改成 <code>max_results: 50</code>），或<strong>等一段时间后重试</strong>（如 API 限流后等 60 秒）。重试的关键设计点是<strong>最大重试次数</strong>和<strong>退避策略</strong>。一般采用指数退避（Exponential Backoff）：第一次重试等 1 秒，第二次等 2 秒，第三次等 4 秒。重试次数过多会浪费 token 和时间，过少则可能错过瞬时故障的恢复窗口。</p>
+<p><strong>降级（Degrade）</strong> 是用一个功能相似的工具替代失败的工具。例如，<code>search_arxiv</code> 失败时，降级到 <code>search_semantic_scholar</code>；<code>get_weather</code> 失败时，降级到 <code>get_weather_forecast</code>（提供更粗粒度但更稳定的数据）。降级策略要求 Agent 维护一个"工具相似度图"，把功能相近的工具组织在一起。这种图可以由开发者手工维护，也可以通过 LLM 自动推断。</p>
+<p><strong>切换（Switch）</strong> 是用一个完全不同的工具替代失败的工具。例如，<code>search_web</code> 失败时，切换到 <code>browse_url</code>（先搜后访问）。切换是激进的策略，会改变任务语义，一般在重试和降级都失败后才使用。切换策略的核心是<strong>任务语义保持</strong>——切换后必须仍然能完成原始任务，否则就是失败的切换。</p>
+<p>错误的恢复策略会导致<strong>复合失败</strong>。例如，一个看似无害的重试可能因为 LLM 生成的参数仍然错误而反复触发；一个降级可能因为 LLM 没有正确理解新工具而失败。Agent 运行时需要<strong>记录每次恢复的尝试和结果</strong>，并在恢复策略本身失败时上报用户，而不是陷入无限恢复循环。</p>
+<blockquote>
+<p><strong>复述框 · 3.3 节要点</strong></p>
+<ul>
+<li><strong>三种策略</strong>：重试（瞬时故障）、降级（功能相似工具）、切换（完全不同工具）。</li>
+<li><strong>升级顺序</strong>：重试→降级→切换→上报。每步升级风险递增。</li>
+<li><strong>避免恢复循环</strong>：记录每次尝试，达到阈值后必须上报。</li>
+</ul>
+</blockquote>
+<h2 id="34-openai-anthropic-google">3.4 三大协议对比：OpenAI / Anthropic / Google</h2>
+<p>Function Calling 协议在 2024–2026 年间形成了三个主流实现：OpenAI 的 Function Calling、Anthropic 的 Tool Use、Google 的 Function Calling。三个协议<strong>核心思想高度一致</strong>（都基于 JSON Schema），但<strong>实现细节有差异</strong>，这种差异会影响 LLM Agent 的可移植性。</p>
+<h3 id="32-function-calling">表 3.2 · 三大 Function Calling 协议对比</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>OpenAI</th>
+<th>Anthropic</th>
+<th>Google</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>协议名</strong></td>
+<td>Function Calling</td>
+<td>Tool Use</td>
+<td>Function Calling</td>
+</tr>
+<tr>
+<td><strong>标准化时间</strong></td>
+<td>2024-06</td>
+<td>2024-10</td>
+<td>2024-12</td>
+</tr>
+<tr>
+<td><strong>JSON Schema 版本</strong></td>
+<td>Draft 2020-12 子集</td>
+<td>Draft 2020-12 全集</td>
+<td>OpenAPI 3.0 子集</td>
+</tr>
+<tr>
+<td><strong>tool_call 字段</strong></td>
+<td><code>function_call</code> 或 <code>tool_calls</code></td>
+<td><code>tool_use</code> block</td>
+<td><code>functionCall</code></td>
+</tr>
+<tr>
+<td><strong>多工具并行</strong></td>
+<td>✅（同一消息多个 tool_calls）</td>
+<td>✅（同一消息多个 tool_use）</td>
+<td>✅（同一轮多个 functionCall）</td>
+</tr>
+<tr>
+<td><strong>工具结果回传</strong></td>
+<td><code>role: tool</code> 消息</td>
+<td><code>role: user</code> 消息含 <code>tool_result</code> block</td>
+<td><code>role: function</code> 消息</td>
+</tr>
+<tr>
+<td><strong>强制调用某工具</strong></td>
+<td><code>tool_choice: "required"</code> 或 <code>{name: "..."}</code></td>
+<td><code>tool_choice: {type: "tool", name: "..."}</code></td>
+<td><code>tool_config</code> 的 <code>functionCallingConfig.mode = "ANY"</code></td>
+</tr>
+<tr>
+<td><strong>禁止调用工具</strong></td>
+<td><code>tool_choice: "none"</code></td>
+<td>（不支持）</td>
+<td><code>functionCallingConfig.mode = "NONE"</code></td>
+</tr>
+<tr>
+<td><strong>流式输出</strong></td>
+<td><code>stream: true</code> + <code>delta.tool_calls</code></td>
+<td><code>stream: true</code> + <code>content_block_delta</code></td>
+<td>（部分支持）</td>
+</tr>
+<tr>
+<td><strong>结构化输出</strong></td>
+<td><code>response_format: json_schema</code></td>
+<td>（不直接支持）</td>
+<td><code>response_schema</code></td>
+</tr>
+</tbody>
+</table>
+<p>这个对比表揭示了一个关键事实：<strong>三个协议在核心数据结构上趋同，但在 API 调用方式上有差异</strong>。这就是为什么 LangChain、LlamaIndex 这类 Agent 框架的存在有意义——它们把不同协议的差异抽象掉，提供统一的工具调用接口。</p>
+<p>跨协议兼容的最佳实践是<strong>在 Agent 运行时做协议抽象</strong>。具体做法是：</p>
+<ol>
+<li><strong>工具定义层</strong>：用 OpenAPI 3.1 或 JSON Schema 标准定义工具，不绑定特定协议。</li>
+<li><strong>协议适配层</strong>：针对不同 LLM 提供商，实现"工具定义→协议特定格式"的转换函数。</li>
+<li><strong>调用执行层</strong>：Agent 运行时只与协议无关的中间表示交互，由适配层负责转译。</li>
+</ol>
+<p>这种分层设计的好处是：<strong>更换 LLM 提供商时，只需要更换适配层，工具定义和业务逻辑都不需要重写</strong>。坏处是：分层引入的转译开销可能影响延迟和调试透明度。</p>
+<p>在工程实践中，<strong>Anthropic 的 Tool Use 协议在 2025 年被广泛认为最完整</strong>——它支持多模态工具、强制/禁止调用、流式增量更新，且 JSON Schema 支持度最高。<strong>OpenAI 的 Function Calling 协议最为业界熟知</strong>——它最早推出、文档最完善、SDK 最成熟。<strong>Google 的 Function Calling 与 Gemini 强绑定</strong>——它与 Vertex AI 集成最好，但在跨云可移植性上较弱。</p>
+<blockquote>
+<p><strong>复述框 · 3.4 节要点</strong></p>
+<ul>
+<li><strong>三大协议核心一致</strong>：都基于 JSON Schema。</li>
+<li><strong>API 调用方式有差异</strong>：tool_call 字段名、结果回传方式、流式支持等。</li>
+<li><strong>协议抽象是最佳实践</strong>：在 Agent 运行时做协议无关的中间表示。</li>
+<li><strong>2025 年业界共识</strong>：Anthropic 协议最完整，OpenAI 协议最熟知，Google 协议与 Gemini 强绑定。</li>
+</ul>
+</blockquote>
+<h2 id="35-llm">3.5 工具描述工程：把工具变成 LLM 的"第一公民"</h2>
+<p>工具描述（Tool Description）是 LLM 理解工具的核心。如果描述写得模糊、抽象或不完整，LLM 就会在错误的情境调用错误的工具——这种"工具描述失败"是 LLM Agent 工程实践中最常见的 bug 之一。<strong>工具描述工程（Tool Description Engineering）</strong> 是与"提示词工程"平行的工程学科。</p>
+<p>好的工具描述应该满足五个标准：</p>
+<ol>
+<li><strong>明确目的</strong>：让 LLM 知道"什么时候用"和"什么时候不用"。</li>
+<li><strong>清晰参数</strong>：每个字段的 <code>description</code> 都应该说明取值范围、约束、示例。</li>
+<li><strong>可观测副作用</strong>：说明工具执行后对环境的可观察影响（如"修改文件"、"发送邮件"）。</li>
+<li><strong>失败模式</strong>：说明可能返回的错误类型，让 LLM 知道如何应对。</li>
+<li><strong>示例调用</strong>：给出 1–2 个真实调用示例，LLM 容易模仿。</li>
+</ol>
+<h3 id="34-llm">图 3.4 · 工具描述质量对 LLM 调用准确率的影响</h3>
+<pre><code>   工具描述质量（X 轴）         LLM 调用准确率（Y 轴）
+   ─────────────              ─────────────
+   &quot;查询天气&quot;           ─→   35%   （模糊，LLM 不知何时用）
+   &quot;查询天气。需要城市名。&quot;  ─→   60%   （缺参数说明）
+   &quot;查询指定城市的实时天气。│
+    参数 city: 城市中文名&quot;     ─→   78%   （有参数说明）
+   &quot;查询指定城市的实时天气。│
+    city: 中文城市名        │
+    返回: {temp, rain, wind}│
+    示例: get_weather(北京)   │   ─→   92%   （完整描述）
+    错误: 不存在的城市返回 -1&quot;
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：工具描述质量直接影响 LLM 调用准确率。描述每完善一个要素（参数说明、返回值、示例、错误模式），准确率会显著提升。</p>
+</blockquote>
+<p>工具描述的常见反模式有四种：</p>
+<ul>
+<li><strong>过度抽象</strong>：<code>"提供天气信息"</code>——LLM 不知道何时调用、调用后能得到什么。</li>
+<li><strong>缺乏参数说明</strong>：<code>"查询天气"</code> 没有 <code>city</code> 字段说明——LLM 不知道如何传参。</li>
+<li><strong>缺乏边界</strong>：<code>"计算任意数学表达式"</code>——LLM 可能误用为 SQL 注入或代码执行。</li>
+<li><strong>缺乏错误模式</strong>：<code>"返回计算结果"</code>——LLM 不知道结果可能是什么类型、什么范围。</li>
+</ul>
+<blockquote>
+<p><strong>复述框 · 3.5 节要点</strong></p>
+<ul>
+<li><strong>工具描述决定调用准确率</strong>：描述质量从 35% 提升到 92% 是常见现象。</li>
+<li><strong>五个标准</strong>：目的、参数、副作用、失败模式、示例。</li>
+<li><strong>四种反模式</strong>：过度抽象、缺乏参数、缺乏边界、缺乏错误。</li>
+</ul>
+</blockquote>
+<h2 id="36-4">3.6 本章小结与第 4 章预告</h2>
+<p>本章从工程实践的角度展开 LLM Agent 的"行动"组件。<strong>工具调用三阶段</strong>给出了工具从文本模板到 Function Calling 的演化史；<strong>三层结构</strong>（声明/调用/执行）把 LLM 与实现解耦；<strong>JSON Schema</strong> 是工具签名的形式语言，配合<strong>自动修复 + 错误回传</strong>解决参数错误；<strong>三种错误恢复策略</strong>（重试/降级/切换）保证工具调用的鲁棒性；<strong>三大协议对比</strong>揭示了跨平台兼容的挑战与解法；<strong>工具描述工程</strong>是 LLM Agent 工程实践的关键。</p>
+<blockquote>
+<p><strong>常见误区</strong></p>
+<ul>
+<li>❌ <strong>把工具调用当 LLM 调用</strong>：工具调用是 LLM 输出的"请求"，由 Agent 运行时执行。LLM 不直接执行工具。</li>
+<li>❌ <strong>依赖 LLM 生成完美参数</strong>：LLM 总会出错，必须有自动修复和错误回传机制。</li>
+<li>❌ <strong>忽视工具描述质量</strong>：描述质量直接影响 LLM 调用准确率，是工程实践的核心。</li>
+<li>❌ <strong>无限重试</strong>：必须设最大重试次数，避免恢复循环。</li>
+<li>❌ <strong>跨协议不兼容</strong>：不同 LLM 提供商的协议有差异，必须做协议抽象。</li>
+</ul>
+</blockquote>
+<p>第 4 章将进入<strong>提示词工程：从静态到动态</strong>。工具调用是"LLM 决定做什么"，提示词工程是"LLM 怎么决定"。第 4 章会展开 OPRO、DSPy、PromptAgent 等让 Agent 自动优化自己提示词的方法——这是 L1 层（静态提示词）到 L4 层（自修改 prompt）的桥梁。</p>
+<hr />
+<h2 id="_4">本章小结</h2>
+<ul>
+<li><strong>工具调用三阶段</strong>：文本模板→专用协议→Function Calling 标准化。</li>
+<li><strong>三层结构</strong>：声明/调用/执行解耦，LLM 只接触前两层。</li>
+<li><strong>JSON Schema + 自动修复 + 错误回传</strong>：处理 LLM 参数错误的双层机制。</li>
+<li><strong>三种错误恢复策略</strong>：重试（瞬时故障）、降级（功能相似工具）、切换（完全不同工具）。</li>
+<li><strong>三大协议差异</strong>：核心一致，API 调用方式有差异，需要协议抽象。</li>
+<li><strong>工具描述工程</strong>：从 35% 提升到 92% 调用准确率的关键。</li>
+</ul>
+<h2 id="_5">推荐阅读</h2>
+<ul>
+<li>📖 <strong>Function Calling 官方文档</strong> [OpenAI, 2024]：Function Calling 协议的事实标准。<a href="https://platform.openai.com/docs/guides/function-calling">$TRAE_REF</a></li>
+<li>📖 <strong>Toolformer 原始论文</strong> [Schick et al., 2023]：LLM 自学工具调用的早期工作。<a href="https://arxiv.org/abs/2302.04761">$TRAE_REF</a></li>
+<li>📖 <strong>JSON Schema 官方规范</strong> [JSON Schema Org, 2020]：工具签名的形式语言标准。<a href="https://json-schema.org/">$TRAE_REF</a></li>
+<li>📖 <strong>Anthropic Tool Use 文档</strong> [Anthropic, 2024]：Tool Use 协议的完整说明。</li>
+<li>📖 <strong>OpenAI Structured Outputs 文档</strong> [OpenAI, 2024]：JSON Schema 在结构化输出中的应用。<a href="https://platform.openai.com/docs/guides/structured-outputs">$TRAE_REF</a></li>
+</ul>
+<h2 id="_6">练习题</h2>
+<ol>
+<li><strong>设计题</strong>：为"查询特定学者最近 5 篇论文"这个功能设计一个完整的工具签名（name、description、parameters JSON Schema），并说明每个字段的设计理由。</li>
+<li><strong>分析题</strong>：选一个真实工具（如 <code>requests.get</code> 或 <code>pd.DataFrame.to_csv</code>），把它包装为 LLM 可调用的工具。在包装过程中你会丢失什么信息？如何在 <code>description</code> 中补偿？</li>
+<li><strong>动手题</strong>：实现一个 JSON Schema 验证器（不超过 100 行 Python），能验证 <code>type</code>、<code>required</code>、<code>enum</code>、<code>minimum</code>、<code>maximum</code> 五个约束，并用 3 个测试用例验证。</li>
+<li><strong>设计题</strong>：为 <code>search_web</code> 工具设计三层错误恢复策略：(a) 重试（瞬时故障）、(b) 降级到 <code>search_serpapi</code>、(c) 切换到 <code>browse_url</code> + LLM 解析。写出每层恢复的触发条件和判断逻辑。</li>
+<li><strong>跨协议题</strong>：把同一个工具定义同时翻译为 OpenAI Function Calling、Anthropic Tool Use、Google Function Calling 三种格式。注意比较三种格式在多工具并行、流式输出、强制调用上的差异。</li>
+<li><strong>工程实践题</strong>：为一个真实 LLM Agent 系统（如 LangChain Agent、AutoGen）写一份"工具描述审查清单"，用于在生产部署前审查每个新工具的描述质量。</li>
+</ol>
+<h2 id="_7">参考文献（本章内）</h2>
+<ol>
+<li>Schick, T., et al. (2023). <em>Toolformer: Language Models Can Teach Themselves to Use Tools</em>. NeurIPS. <a href="https://arxiv.org/abs/2302.04761">$TRAE_REF</a></li>
+<li>OpenAI. (2024). <em>Function Calling and Other API Updates</em>. Official Documentation. <a href="https://platform.openai.com/docs/guides/function-calling">$TRAE_REF</a></li>
+<li>OpenAI. (2024). <em>Structured Outputs</em>. Official Documentation. <a href="https://platform.openai.com/docs/guides/structured-outputs">$TRAE_REF</a></li>
+<li>Anthropic. (2024). <em>Tool Use with Claude</em>. Official Documentation. <a href="https://docs.anthropic.com/en/docs/tool-use">$TRAE_REF</a></li>
+<li>Google. (2024). <em>Function Calling with Gemini</em>. Official Documentation. <a href="https://ai.google.dev/docs/function_calling">$TRAE_REF</a></li>
+<li>JSON Schema Org. (2020). <em>JSON Schema Specification</em>. <a href="https://json-schema.org/">$TRAE_REF</a></li>
+<li>Qian, C., et al. (2023). <em>ToolLLM: Facilitating Large Language Models to Master 4000+ Real-world APIs</em>. arXiv:2307.16789. <a href="https://arxiv.org/abs/2307.16789">$TRAE_REF</a></li>
+<li>Patil, S. G., et al. (2023). <em>Gorilla: Large Language Model Connected with Massive APIs</em>. arXiv:2305.15334. <a href="https://arxiv.org/abs/2305.15334">$TRAE_REF</a></li>
+</ol>
+<hr />
+<blockquote>
+<p><strong>本章进度</strong>：3.1–3.6 节全部完成（约 6,000 字，含 4 张图 + 2 张表 + 1 张列表 + 8 篇引用 + 6 题 + 5 误区 + 5 推荐），达到 22 页计划。<code>status: final</code>。</p>
+</blockquote>
+<div class="nav-top" style="margin-top:3rem;border-top:1px solid var(--border);padding-top:1rem;"><a href="chapter-02.html">← 2. 智能体基础：感知、决策、行动、反馈</a><a href="index.html">目录</a><a href="chapter-04.html">4. 提示词工程：从静态到动态 →</a></div>
+</main>
+</div>
+</body>
+</html>

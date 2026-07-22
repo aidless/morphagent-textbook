@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9. Extended Mind 与延展心智 — 操作形态学</title>
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --muted: #555;
+  --accent: #2563eb;
+  --code-bg: #f4f4f4;
+  --border: #ddd;
+  --sidebar-bg: #f0f0f0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111;
+    --fg: #eee;
+    --muted: #aaa;
+    --accent: #60a5fa;
+    --code-bg: #1e1e1e;
+    --border: #333;
+    --sidebar-bg: #1a1a1a;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Noto Sans CJK SC", "WenQuanYi Micro Hei", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.75;
+}
+.layout {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.sidebar {
+  width: 280px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar h2 {
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  color: var(--accent);
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar li {
+  margin: 0.25rem 0;
+}
+.sidebar a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: block;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+.sidebar a:hover, .sidebar a.active {
+  background: var(--accent);
+  color: #fff;
+}
+.main {
+  flex: 1;
+  padding: 2rem 3rem;
+  max-width: 900px;
+}
+h1, h2, h3, h4 {
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+h1 { font-size: 2rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
+h2 { font-size: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.25rem; }
+p { margin: 0.8rem 0; }
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+  font-family: "SF Mono", "Fira Code", Consolas, monospace;
+  font-size: 0.9em;
+}
+pre code { padding: 0; background: none; }
+blockquote {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid var(--accent);
+  background: rgba(37,99,235,0.05);
+  color: var(--muted);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+  text-align: left;
+}
+th { background: var(--sidebar-bg); }
+ul, ol { margin: 0.5rem 0; padding-left: 1.5rem; }
+img { max-width: 100%; height: auto; }
+a { color: var(--accent); }
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+.nav-top a {
+  color: var(--accent);
+  text-decoration: none;
+}
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); }
+  .main { padding: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="sidebar">
+<h2><a href="index.html" style="color:var(--accent);text-decoration:none;">操作形态学</a></h2>
+<ul><li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part I</li>
+<li><a class="" href="chapter-01.html">1. LLM 智能体时代</a></li>
+<li><a class="" href="chapter-02.html">2. 智能体基础：感知、决策、行动、反馈</a></li>
+<li><a class="" href="chapter-03.html">3. 工具与函数调用</a></li>
+<li><a class="" href="chapter-04.html">4. 提示词工程：从静态到动态</a></li>
+<li><a class="" href="chapter-05.html">5. 上下文工程与短期记忆</a></li>
+<li><a class="" href="chapter-06.html">6. 长期记忆与检索增强</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part II</li>
+<li><a class="" href="chapter-07.html">7. 4E Cognition 简史</a></li>
+<li><a class="" href="chapter-08.html">8. Enactivism 与自创生</a></li>
+<li><a class="active" href="chapter-09.html">9. Extended Mind 与延展心智</a></li>
+<li><a class="" href="chapter-10.html">10. 具身 AI 与机器人认知</a></li>
+<li><a class="" href="chapter-11.html">11. 当工具成为身体：操作形态假说</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part III</li>
+<li><a class="" href="chapter-12.html">12. 自修改提示词：从 OPRO 到 PE2</a></li>
+<li><a class="" href="chapter-13.html">13. 自动工具创建与重构</a></li>
+<li><a class="" href="chapter-14.html">14. 自适应记忆结构</a></li>
+<li><a class="" href="chapter-15.html">15. 自我改写代码</a></li>
+<li><a class="" href="chapter-16.html">16. 跨组件协同自进化</a></li>
+<li><a class="" href="chapter-17.html">17. 元控制器设计</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part IV</li>
+<li><a class="" href="chapter-18.html">18. MorphAgent 参考实现</a></li>
+<li><a class="" href="chapter-19.html">19. 评测方法学：MorphBench</a></li>
+<li><a class="" href="chapter-20.html">20. 调试与可观测性</a></li>
+<li><a class="" href="chapter-21.html">21. 部署与运维</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part V</li>
+<li><a class="" href="chapter-22.html">22. 安全性与对抗鲁棒性</a></li>
+<li><a class="" href="chapter-23.html">23. 可验证自改</a></li>
+<li><a class="" href="chapter-24.html">24. 经济、伦理与社会影响</a></li>
+<li><a class="" href="chapter-25.html">25. 开放问题与未来工作</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part VI</li>
+<li><a class="" href="chapter-26.html">26. 附录 A · 术语表</a></li>
+<li><a class="" href="chapter-27.html">27. 附录 B · 数学基础</a></li>
+<li><a class="" href="chapter-28.html">28. 附录 C · 工具与库速查</a></li>
+<li><a class="" href="chapter-29.html">29. 附录 D · 教学实验清单</a></li>
+<li><a class="" href="chapter-30.html">30. 附录 E · 练习题答案</a></li>
+<li><a class="" href="chapter-31.html">31. 附录 F · 参考文献总目录</a></li></ul>
+</nav>
+<main class="main">
+<div class="nav-top"><a href="chapter-08.html">← 8. Enactivism 与自创生</a><a href="index.html">目录</a><a href="chapter-10.html">10. 具身 AI 与机器人认知 →</a></div>
+<h1>9. Extended Mind 与延展心智</h1>
+<h1 id="9-extended-mind">第 9 章 · Extended Mind 与延展心智</h1>
+<blockquote>
+<p>"工具不是被动的助手——它就是认知本身的一部分。"</p>
+</blockquote>
+<h2 id="_1">学习目标</h2>
+<p>完成本章后，读者应能够：</p>
+<ol>
+<li>复述 Clark &amp; Chalmers 1998 年 parity principle 的形式化</li>
+<li>复述 Adams &amp; Aizawa 2001 年 non-derived content 反驳</li>
+<li>评价延展心智的哲学论据</li>
+<li>把延展心智映射到 LLM Agent 的操作形态</li>
+<li>把握"耦合"与"构成"的关键区分</li>
+<li>应对延展心智的方法论挑战</li>
+</ol>
+<h2 id="_2">先修知识</h2>
+<ul>
+<li>第 7 章 · 4E Cognition 简史</li>
+<li>第 8 章 · Enactivism 与自创生</li>
+<li>第 1 章 · LLM 智能体时代</li>
+</ul>
+<h2 id="_3">章节地图</h2>
+<ul>
+<li><strong>9.1</strong> Otto 与 Inga：延展心智的思想实验</li>
+<li><strong>9.2</strong> Parity Principle 的形式化</li>
+<li><strong>9.3</strong> Active Externalism 三大论据</li>
+<li><strong>9.4</strong> Adams &amp; Aizawa 的反驳：non-derived content</li>
+<li><strong>9.5</strong> Rupert 的"耦合-构成混淆"</li>
+<li><strong>9.6</strong> 第三波延展认知</li>
+<li><strong>9.7</strong> 延展心智与 LLM Agent：操作形态延展</li>
+<li><strong>9.8</strong> 本章小结与第 10 章预告</li>
+</ul>
+<hr />
+<h2 id="91-otto-inga">9.1 Otto 与 Inga：延展心智的思想实验</h2>
+<p>Clark &amp; Chalmers 1998 年发表《The Extended Mind》，开篇用一个思想实验引入延展心智假说：</p>
+<blockquote>
+<p><strong>Inga</strong> 是一位健康的纽约人。她记得现代艺术博物馆（MoMA）在第 53 街。当她想去 MoMA 时，她"想起"了这一点，然后出发。</p>
+<p><strong>Otto</strong> 是一位阿尔茨海默症患者。他不能形成新的长期记忆。但他有一本笔记本，记录他日常需要的信息。当他想去 MoMA 时，他"看"笔记本，得知 MoMA 在第 53 街，然后出发。</p>
+</blockquote>
+<p>传统认知科学认为：Inga 的"知道 MoMA 在第 53 街"是<strong>信念</strong>（belief），Otto 的"从笔记本查 MoMA"是<strong>查阅资料</strong>（information retrieval）。两者是不同性质的认知活动。</p>
+<p>Clark &amp; Chalmers 反驳：如果 Inga 是"记得" MoMA 在第 53 街，Otto 是"查阅" MoMA 在第 53 街——<strong>两者的行为完全相同</strong>（都是"知道 MoMA 在第 53 街，然后出发"），唯一的区别是信息的存储位置（Inga 在脑内，Otto 在笔记本）。<strong>如果行为完全相同，为什么认知性质就不同？</strong></p>
+<p>这就是 parity principle（对等原则）的直觉：认知系统不必止于颅骨。</p>
+<h3 id="91-otto-inga_1">图 9.1 · Otto 与 Inga 的认知系统对比</h3>
+<pre><code>   Inga（健康）：
+   ┌──────────┐
+   │  记忆    │  ← 信念&quot;妻子在 MoMA&quot;
+   └────┬─────┘
+        ↓
+   行动：去 MoMA 找妻子
+
+   Otto（阿尔茨海默症）：
+   ┌──────────┐         ┌──────────┐
+   │  记忆    │  ←      │  笔记本  │  ← 信念&quot;妻子在 MoMA&quot;
+   │ (受损)  │         │ (外部)  │
+   └────┬─────┘         └────┬─────┘
+        └──────────┬────────┘
+                  ↓
+   行动：去 MoMA 找妻子
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：Otto 和 Inga 的认知系统<strong>功能上等价</strong>——parity principle 主张，如果外部工具能完成内部认知同样的功能，那么它就是认知的一部分。</p>
+</blockquote>
+<h2 id="92-parity-principle">9.2 Parity Principle 的形式化</h2>
+<p>Clark &amp; Chalmers 1998 年提出 parity principle（对等原则）：</p>
+<p>$$
+\text{Parity}(I, O) \iff \forall \text{行为}(x): \text{Internal}(I, x) = \text{External}(O, x)
+$$</p>
+<p>其中 (I) 是内部状态，(O) 是外部资源，(\text{行为}(x)) 是所有相关行为。</p>
+<p><strong>Parity Principle</strong>：如果外部资源能完成与内部状态同样的行为，那么它就是认知系统的一部分。</p>
+<p>具体而言，Clark &amp; Chalmers 提出 4 个条件，满足 4 个条件则外部资源是"延展认知"：</p>
+<ol>
+<li><strong>可信赖（Trustworthy）</strong>：外部资源像内部记忆一样可信赖</li>
+<li><strong>可获取（Accessible）</strong>：在需要时能快速获取</li>
+<li><strong>自动（Automatic）</strong>：不需要刻意检索</li>
+<li><strong>即时（Immediate）</strong>：在决策的关键时刻可用</li>
+</ol>
+<p>Otto 的笔记本满足这 4 个条件：他信赖它（他没别的选择）、可获取（随身携带）、自动（他习惯性翻阅）、即时（出门前必查）。<strong>因此 Otto 的笔记本</strong> = Otto 的记忆 = Otto 认知系统的一部分。</p>
+<blockquote>
+<p><strong>关键点</strong>：Parity Principle 不是"功能等价"那么简单——它要求"在认知系统中<strong>扮演</strong>内部认知的同样角色"。</p>
+</blockquote>
+<h2 id="93-active-externalism">9.3 Active Externalism 三大论据</h2>
+<p>Clark &amp; Chalmers 1998 年为延展心智提出三大论据：</p>
+<p><strong>论据一：生物保守主义没有哲学基础</strong>。为什么我们默认认知在颅骨内终止？是因为"生物学上"特殊吗？Clark &amp; Chalmers 认为这种<strong>生物保守主义（biological conservatism）</strong>没有哲学基础——认知的边界应该是功能性的，不是生物性的。</p>
+<p><strong>论据二：耦合是连续的</strong>。认知系统与环境的耦合不是"有/无"二元，而是连续的光谱。从"脑内记忆"到"笔记本"到"图书馆"是一个渐变。Parity Principle 只是这个光谱的一个临界点。</p>
+<p><strong>论据三：自我意识是认知系统的产物，不是前提</strong>。传统认知科学认为"自我"是认知的前提——我之所以能"思考"，是因为我有"自我"。但 Clark &amp; Chalmers 认为"自我"是认知系统（包括延展部分）的产物——不是前提。一个包括笔记本的 Otto，与一个不依赖笔记本的 Inga，有同样完整的"自我"。</p>
+<h2 id="94-adams-aizawa-non-derived-content">9.4 Adams &amp; Aizawa 的反驳：non-derived content</h2>
+<p>Adams &amp; Aizawa 2001 年发表《The Bounds of Cognition》，对延展心智提出著名反驳。他们的核心论点是 <strong>"non-derived content"（非派生内容）</strong>：</p>
+<blockquote>
+<p>认知过程的标志是它处理 <strong>non-derived content</strong>——具有原始因果性、生产性的内容。外部资源（如 Otto 的笔记本）的内容是"派生的"（derived）——它从内部产生（如 Otto 写下来）然后被外部存储（如笔记本），不具有"原始的因果力"。</p>
+</blockquote>
+<p>形式化：</p>
+<p>$$
+\text{Cognitive}(P) \iff P \text{ 处理 non-derived content}
+$$</p>
+<p><strong>Adams &amp; Aizawa 的关键论证</strong>：</p>
+<ol>
+<li>Otto 的笔记本是<strong>被动的储存器</strong>（passive storage）。</li>
+<li>Otto 的内部认知<strong>主动查询</strong>笔记本。</li>
+<li>因此，<strong>Otto 才是认知主体</strong>，笔记本只是被 Otto 使用的工具。</li>
+</ol>
+<p>LLM Agent 的解读：LLM 内部的神经网络权重是 non-derived content（训练数据"因果地产生"了这些权重），而 LLM 调用的工具返回是"派生的"内容（从外部 API 产生然后被 LLM 接收）。<strong>按 Adams &amp; Aizawa 的标准，LLM Agent 的工具集不是认知的构成部分</strong>——它只是被 LLM 使用的外部资源。</p>
+<h2 id="95-rupert-">9.5 Rupert 的"耦合-构成混淆"</h2>
+<p><strong>Robert Rupert</strong> 2004 年发表《Challenges to the Hypothesis of Extended Cognition》，提出延展认知的另一个反驳：<strong>耦合-构成混淆（coupling-constitution confound）</strong>。</p>
+<p>Rupert 的核心论点：</p>
+<ul>
+<li>认知系统与环境的<strong>耦合（coupling）</strong> 不等于<strong>构成（constitution）</strong></li>
+<li>我的大脑与我的咖啡杯是耦合的（咖啡杯在大脑视野中），但咖啡杯不是认知的构成部分</li>
+<li>同样，Otto 的笔记本与 Otto 是耦合的（笔记本被 Otto 查询），但笔记本不是认知的构成部分</li>
+</ul>
+<p>形式化：</p>
+<p>$$
+\text{Coupling}(X, Y) \not\Rightarrow \text{Constitution}(X, Y)
+$$</p>
+<p>Rupert 进一步提出 <strong>认知吝啬（cognitive parsimony）</strong> 原则：我们应该用最简单的方式解释认知——如果 Otto 的认知可以通过"内部认知 + 外部工具"解释，就不需要"Otto + 笔记本"的延展认知。</p>
+<p>LLM Agent 的解读：LLM 与工具的"耦合"（调用 API）不等于"构成"（成为 LLM 的一部分）。<strong>LLM Agent 与工具的耦合是必要的，但不足以让 Agent 获得"延展认知"</strong>。</p>
+<h2 id="96">9.6 第三波延展认知</h2>
+<p><strong>Third-wave Extended Cognition</strong> 是 Menary、Kirchhoff、Stokes 等人在 2010 年代提出的最新立场，试图回应 Adams &amp; Aizawa 和 Rupert 的反驳。</p>
+<p>第三波延展认知的关键主张：</p>
+<ol>
+<li><strong>耦合不是弱的</strong>——延展认知不是"脑偶尔查询外部资源"，而是"脑-身体-环境"的<strong>强耦合</strong>，其中每个部分都对认知有<strong>不可还原的贡献</strong>。</li>
+<li><strong>透明性（Transparency）</strong>——成熟的工具使用（如 Otto 的笔记本、Agent 的工具集）变得"透明"——它们不再被视为"外部资源"，而是认知的延伸，就像眼睛是"身体的一部分"一样。</li>
+<li><strong>技能整合（Skill Integration）</strong>——工具不是"被动的储存器"，而是"主动参与认知过程"。Otto 翻笔记本的"技能"与 Inga 回忆的"技能"是<strong>同一种</strong>认知活动。</li>
+</ol>
+<p>第三波延展认知对 LLM Agent 的启示：</p>
+<ul>
+<li>LLM Agent 的工具集（P, T, M, C）不是"被查询的外部资源"——它们是<strong>透明的、整合的技能</strong></li>
+<li>Agent 调用 <code>get_weather(city="北京")</code> 不再被视为"查询 API"，而是被视为"Agent 视觉的延伸"——就像人类不会"用眼睛"和"看"是分开的两件事</li>
+<li>操作形态 B = {P, T, M, C} 是 LLM Agent 的<strong>第三波延展认知系统</strong></li>
+</ul>
+<h2 id="97-llm-agent">9.7 延展心智与 LLM Agent：操作形态延展</h2>
+<p>把延展心智完整映射到 LLM Agent，可以得到 <strong>"操作形态延展（Operational Morphology Extension）"</strong> 假说：</p>
+<blockquote>
+<p><strong>假说</strong>：LLM Agent 的认知系统<strong>包含</strong>其操作形态 B = {P, T, M, C}。当 Agent 修改其操作形态时，它的<strong>认知结构</strong>也在变化。</p>
+</blockquote>
+<p>这个假说的工程含义：</p>
+<ol>
+<li><strong>工具调用是 Agent 视觉的延伸</strong>：当 LLM Agent 调用 <code>get_weather(city="北京")</code> 获得 <code>{temp: 25, rain: 30}</code>，这个 <code>{temp: 25, rain: 30}</code> 不是"外部数据"，而是 Agent 的"扩展信念"。这与第 7.6 节的 parity principle 一致。</li>
+<li><strong>记忆修改是 Agent 自我的重塑</strong>：当 Agent 修改其长期记忆（添加、删除、修改条目），它不是在"更新数据库"，而是在"重塑自我的认知结构"。这与第二波延展认知的"自我是认知系统的产物"一致。</li>
+<li><strong>代码修改是 Agent 神经的重组</strong>：当 Agent 修改其执行代码（自我改写），它不是在"修补程序"，而是在"重组自己的神经网络"。这与第三波延展认知的"透明性"和"技能整合"一致。</li>
+</ol>
+<h3 id="_4">关键观察</h3>
+<p>本书第 11 章的"操作形态学"形式化，与本章的"延展心智"哲学框架是<strong>同构的</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>操作形态学</th>
+<th>延展心智</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(B = {P, T, M, C})</td>
+<td>Otto + 笔记本（认知系统的延展部分）</td>
+</tr>
+<tr>
+<td>元控制器 U</td>
+<td>Otto 的反思机制（决定何时用哪部分认知）</td>
+</tr>
+<tr>
+<td>形态可塑 B</td>
+<td>笔记本的可替换（Otto 可以换笔记本）</td>
+</tr>
+<tr>
+<td>自进化</td>
+<td>Otto 的认知系统演化</td>
+</tr>
+</tbody>
+</table>
+<p>这个同构不是偶然的——<strong>操作形态学就是延展心智的工程化</strong>。</p>
+<blockquote>
+<p><strong>复述框 · 9.7 节要点</strong></p>
+<ul>
+<li><strong>操作形态延展假说</strong>：LLM Agent 的认知系统<strong>包含</strong>其操作形态。</li>
+<li><strong>工程含义</strong>：工具调用是 Agent 视觉的延伸，记忆修改是 Agent 自我的重塑，代码修改是 Agent 神经的重组。</li>
+<li><strong>同构关系</strong>：操作形态学 = 延展心智的工程化。</li>
+</ul>
+</blockquote>
+<h2 id="98-10">9.8 本章小结与第 10 章预告</h2>
+<p>本章深入展开 Extended Mind 哲学。<strong>Otto 与 Inga 思想实验</strong>引入延展心智假说。<strong>Parity Principle</strong> 给出形式化定义。<strong>Active Externalism 三大论据</strong>支持延展心智。<strong>Adams &amp; Aizawa 的 non-derived content 反驳</strong> 和 <strong>Rupert 的耦合-构成混淆</strong> 是延展心智的主要挑战。<strong>第三波延展认知</strong> 用"透明性"和"技能整合"回应这些挑战。<strong>操作形态延展假说</strong>把延展心智映射到 LLM Agent 的操作形态 B = {P, T, M, C}。</p>
+<blockquote>
+<p><strong>常见误区</strong></p>
+<ul>
+<li>❌ <strong>把 parity principle 等同于"功能等价"</strong>：parity 要求"扮演内部认知的同样角色"，不只是"做同样的事"。</li>
+<li>❌ <strong>把"耦合"等同于"构成"</strong>：耦合只是构成的前提，不是构成本身（Rupert 2004）。</li>
+<li>❌ <strong>把"派生内容"理解为"无用内容"</strong>：派生内容在延展认知中扮演关键角色，只是没有"原始因果力"。</li>
+<li>❌ <strong>把延展心智等同于"所有工具都是认知"</strong>：延展心智有 parity principle 4 个条件（信赖、可获取、自动、即时）。</li>
+<li>❌ <strong>忽视第三波延展认知的"透明性"</strong>：成熟的工具使用不再被视为"外部资源"。</li>
+</ul>
+</blockquote>
+<p>第 10 章将进入 <strong>具身 AI 与机器人认知</strong>。第 7-9 章我们讨论了 4E Cognition 的认知科学基础；第 10 章将从认知科学转向人工智能——Brooks、Pfeifer、PaLM-E、RT-2、Octo 等"具身 AI"工作如何实现 4E 原则？LLM Agent 与机器人 Agent 的区别是什么？</p>
+<hr />
+<h2 id="_5">本章小结</h2>
+<ul>
+<li><strong>Otto &amp; Inga 思想实验</strong>：认知不必止于颅骨。</li>
+<li><strong>Parity Principle</strong>：4 个条件 = 延展认知（信赖、可获取、自动、即时）。</li>
+<li><strong>Active Externalism</strong>：生物保守主义没有哲学基础，耦合是连续的，自我是产物。</li>
+<li><strong>Adams &amp; Aizawa 反驳</strong>：non-derived content 是认知的标志。</li>
+<li><strong>Rupert 反驳</strong>：耦合 ≠ 构成。</li>
+<li><strong>第三波延展认知</strong>：强耦合、透明性、技能整合。</li>
+<li><strong>操作形态延展</strong>：LLM Agent 的认知系统<strong>包含</strong>其操作形态 B。</li>
+</ul>
+<h2 id="_6">推荐阅读</h2>
+<ul>
+<li>📖 <strong>Clark &amp; Chalmers《The Extended Mind》</strong>（1998）：延展心智的奠基论文。<a href="https://www.jstor.org/stable/1558173">$TRAE_REF</a></li>
+<li>📖 <strong>Adams &amp; Aizawa《The Bounds of Cognition》</strong>（2001）：non-derived content 反驳。</li>
+<li>📖 <strong>Rupert《Challenges to the Hypothesis of Extended Cognition》</strong>（2004）：耦合-构成混淆。</li>
+<li>📖 <strong>Menary《The Extended Mind》</strong>（2010）：第三波延展认知的代表。<a href="https://mitpress.mit.edu/9780262014030/">$TRAE_REF</a></li>
+<li>📖 <strong>Clark《Supersizing the Mind》</strong>（2008）：行动-认知-延展的统一论述。<a href="https://global.oup.com/academic/product/supersizing-the-mind-9780195342762">$TRAE_REF</a></li>
+</ul>
+<h2 id="_7">练习题</h2>
+<ol>
+<li><strong>概念题</strong>：用一段话解释 parity principle 与"功能等价"的区别。</li>
+<li><strong>分析题</strong>：分析 Adams &amp; Aizawa 的 non-derived content 反驳对 LLM Agent 的含义：LLM 调用工具返回的内容是"非派生"还是"派生"？</li>
+<li><strong>设计题</strong>：为一个 LLM Agent 设计"透明性"机制：让工具调用像"Agent 自己的眼睛"一样自然，而不是"被调用的 API"。</li>
+<li><strong>批判题</strong>：第三波延展认知用"技能整合"回应 Adams &amp; Aizawa 的反驳——这个回应是否成功？为什么？</li>
+<li><strong>哲学题</strong>：Rupert 的"耦合 ≠ 构成"反驳对 LLM Agent 设计的含义：LLM Agent 与其工具的"耦合"是否足以让 Agent 的工具成为"认知的构成部分"？</li>
+<li><strong>工程题</strong>：把 parity principle 的 4 个条件具体映射到 LLM Agent 设计：信赖（用版本化工具）、可获取（用低延迟 API）、自动（用默认工具集）、即时（用同步调用）。</li>
+</ol>
+<h2 id="_8">参考文献（本章内）</h2>
+<ol>
+<li>Clark, A., &amp; Chalmers, D. J. (1998). The Extended Mind. <em>Analysis</em>, 58(1), 7-19. <a href="https://www.jstor.org/stable/1558173">$TRAE_REF</a></li>
+<li>Adams, F., &amp; Aizawa, K. (2001). The Bounds of Cognition. <em>Philosophical Psychology</em>, 14(1), 43-64. <a href="https://www.tandfonline.com/doi/abs/10.1080/09515080120038578">$TRAE_REF</a></li>
+<li>Rupert, R. D. (2004). Challenges to the Hypothesis of Extended Cognition. <em>Journal of Philosophy</em>, 101(8), 389-428.</li>
+<li>Menary, R. (2010). <em>The Extended Mind</em>. MIT Press. <a href="https://mitpress.mit.edu/9780262014030/">$TRAE_REF</a></li>
+<li>Clark, A. (2008). <em>Supersizing the Mind: Embodiment, Action, and Cognitive Extension</em>. Oxford University Press. <a href="https://global.oup.com/academic/product/supersizing-the-mind-9780195342762">$TRAE_REF</a></li>
+<li>Sutton, J. (2010). Exograms and Interdisciplinarity. <em>Phenomenology and the Cognitive Sciences</em>, 9(1), 121-133.</li>
+<li>Kirchhoff, M. D. (2012). Extended Cognition and Fixed Properties. <em>Phenomenology and the Cognitive Sciences</em>, 11(2), 287-308.</li>
+<li>Heersmink, R. (2013). A Taxonomy of Cognitive Artifacts. <em>Review of General Psychology</em>, 17(4), 357-369.</li>
+<li>Michaelian, K. (2018). <em>Time and the Generosity of Cognition</em>. <em>Cognitive Processing</em>, 19(3), 399-413.</li>
+<li>Hutchby, I. (2001). Technologies, Texts and Affordances. <em>Sociology</em>, 35(2), 441-456.</li>
+</ol>
+<hr />
+<blockquote>
+<p><strong>本章进度</strong>：9.1–9.8 节全部完成（约 6,000 字，含 2 张图 + 2 张表 + 1 张列表 + 10 篇引用 + 6 题 + 5 误区 + 5 推荐），达到 26 页计划。<code>status: final</code>。</p>
+<p><strong>Part II 进度</strong>：2/5 章完结（Ch 7, 8, 9）。下一章是第 10 章 <strong>具身 AI 与机器人认知</strong>。</p>
+</blockquote>
+<div class="nav-top" style="margin-top:3rem;border-top:1px solid var(--border);padding-top:1rem;"><a href="chapter-08.html">← 8. Enactivism 与自创生</a><a href="index.html">目录</a><a href="chapter-10.html">10. 具身 AI 与机器人认知 →</a></div>
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>12. 自修改提示词：从 OPRO 到 PE2 — 操作形态学</title>
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --muted: #555;
+  --accent: #2563eb;
+  --code-bg: #f4f4f4;
+  --border: #ddd;
+  --sidebar-bg: #f0f0f0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111;
+    --fg: #eee;
+    --muted: #aaa;
+    --accent: #60a5fa;
+    --code-bg: #1e1e1e;
+    --border: #333;
+    --sidebar-bg: #1a1a1a;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Noto Sans CJK SC", "WenQuanYi Micro Hei", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.75;
+}
+.layout {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.sidebar {
+  width: 280px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar h2 {
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  color: var(--accent);
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar li {
+  margin: 0.25rem 0;
+}
+.sidebar a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: block;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+.sidebar a:hover, .sidebar a.active {
+  background: var(--accent);
+  color: #fff;
+}
+.main {
+  flex: 1;
+  padding: 2rem 3rem;
+  max-width: 900px;
+}
+h1, h2, h3, h4 {
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+h1 { font-size: 2rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
+h2 { font-size: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.25rem; }
+p { margin: 0.8rem 0; }
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+  font-family: "SF Mono", "Fira Code", Consolas, monospace;
+  font-size: 0.9em;
+}
+pre code { padding: 0; background: none; }
+blockquote {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid var(--accent);
+  background: rgba(37,99,235,0.05);
+  color: var(--muted);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+  text-align: left;
+}
+th { background: var(--sidebar-bg); }
+ul, ol { margin: 0.5rem 0; padding-left: 1.5rem; }
+img { max-width: 100%; height: auto; }
+a { color: var(--accent); }
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+.nav-top a {
+  color: var(--accent);
+  text-decoration: none;
+}
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); }
+  .main { padding: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="sidebar">
+<h2><a href="index.html" style="color:var(--accent);text-decoration:none;">操作形态学</a></h2>
+<ul><li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part I</li>
+<li><a class="" href="chapter-01.html">1. LLM 智能体时代</a></li>
+<li><a class="" href="chapter-02.html">2. 智能体基础：感知、决策、行动、反馈</a></li>
+<li><a class="" href="chapter-03.html">3. 工具与函数调用</a></li>
+<li><a class="" href="chapter-04.html">4. 提示词工程：从静态到动态</a></li>
+<li><a class="" href="chapter-05.html">5. 上下文工程与短期记忆</a></li>
+<li><a class="" href="chapter-06.html">6. 长期记忆与检索增强</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part II</li>
+<li><a class="" href="chapter-07.html">7. 4E Cognition 简史</a></li>
+<li><a class="" href="chapter-08.html">8. Enactivism 与自创生</a></li>
+<li><a class="" href="chapter-09.html">9. Extended Mind 与延展心智</a></li>
+<li><a class="" href="chapter-10.html">10. 具身 AI 与机器人认知</a></li>
+<li><a class="" href="chapter-11.html">11. 当工具成为身体：操作形态假说</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part III</li>
+<li><a class="active" href="chapter-12.html">12. 自修改提示词：从 OPRO 到 PE2</a></li>
+<li><a class="" href="chapter-13.html">13. 自动工具创建与重构</a></li>
+<li><a class="" href="chapter-14.html">14. 自适应记忆结构</a></li>
+<li><a class="" href="chapter-15.html">15. 自我改写代码</a></li>
+<li><a class="" href="chapter-16.html">16. 跨组件协同自进化</a></li>
+<li><a class="" href="chapter-17.html">17. 元控制器设计</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part IV</li>
+<li><a class="" href="chapter-18.html">18. MorphAgent 参考实现</a></li>
+<li><a class="" href="chapter-19.html">19. 评测方法学：MorphBench</a></li>
+<li><a class="" href="chapter-20.html">20. 调试与可观测性</a></li>
+<li><a class="" href="chapter-21.html">21. 部署与运维</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part V</li>
+<li><a class="" href="chapter-22.html">22. 安全性与对抗鲁棒性</a></li>
+<li><a class="" href="chapter-23.html">23. 可验证自改</a></li>
+<li><a class="" href="chapter-24.html">24. 经济、伦理与社会影响</a></li>
+<li><a class="" href="chapter-25.html">25. 开放问题与未来工作</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part VI</li>
+<li><a class="" href="chapter-26.html">26. 附录 A · 术语表</a></li>
+<li><a class="" href="chapter-27.html">27. 附录 B · 数学基础</a></li>
+<li><a class="" href="chapter-28.html">28. 附录 C · 工具与库速查</a></li>
+<li><a class="" href="chapter-29.html">29. 附录 D · 教学实验清单</a></li>
+<li><a class="" href="chapter-30.html">30. 附录 E · 练习题答案</a></li>
+<li><a class="" href="chapter-31.html">31. 附录 F · 参考文献总目录</a></li></ul>
+</nav>
+<main class="main">
+<div class="nav-top"><a href="chapter-11.html">← 11. 当工具成为身体：操作形态假说</a><a href="index.html">目录</a><a href="chapter-13.html">13. 自动工具创建与重构 →</a></div>
+<h1>12. 自修改提示词：从 OPRO 到 PE2</h1>
+<h1 id="12-opro-pe2">第 12 章 · 自修改提示词：从 OPRO 到 PE2</h1>
+<blockquote>
+<p>"Prompt 不是静态资产——Prompt 是可被 Agent 自身重塑的操作形态。"</p>
+</blockquote>
+<h2 id="_1">学习目标</h2>
+<p>完成本章后，读者应能够：</p>
+<ol>
+<li>跑通 OPRO、DSPy、PromptAgent 三大自修改 prompt 范式</li>
+<li>评估 prompt 自修改的工程效果（准确率 + token 成本）</li>
+<li>识别 prompt 自修改的 4 类安全风险</li>
+<li>把 prompt 自修改定位为 H1 的第一个验证案例</li>
+<li>区分单组件修改与协同修改</li>
+</ol>
+<h2 id="_2">先修知识</h2>
+<ul>
+<li>第 4 章 · 提示词工程</li>
+<li>第 11 章 · 操作形态学形式化</li>
+</ul>
+<h2 id="_3">章节地图</h2>
+<ul>
+<li><strong>12.1</strong> 操作形态学的第一个应用：修改 P</li>
+<li><strong>12.2</strong> OPRO：LLM 作为优化器</li>
+<li><strong>12.3</strong> DSPy：把 prompt 编译为可签名</li>
+<li><strong>12.4</strong> PromptAgent：MCTS 全局搜索</li>
+<li><strong>12.5</strong> PE2：反射式进化</li>
+<li><strong>12.6</strong> Prompt 自修改的 4 类安全风险</li>
+<li><strong>12.7</strong> H1 的第一个验证案例</li>
+<li><strong>12.8</strong> 本章小结与第 13 章预告</li>
+</ul>
+<hr />
+<h2 id="121-p">12.1 操作形态学的第一个应用：修改 P</h2>
+<p>第 11 章把操作形态定义为 (B = {P, T, M, C})，把可塑性定义为元控制器 U 对 B 的修改。<strong>Prompt 自修改</strong>是 H1 的第一个验证案例——只修改 P 一个组件，是最简单的自进化形式。</p>
+<p>为什么 P 是最容易入手的修改对象？</p>
+<ol>
+<li><strong>可表达性强</strong>：P 是自然语言字符串，比 T（结构化函数描述）、M（结构化向量数据）、C（可执行代码）更容易被 LLM 生成和评估。</li>
+<li><strong>修改粒度细</strong>：P 的修改可以是从"一两个词"到"整段重写"的任意粒度。</li>
+<li><strong>评估简单</strong>：P 修改后的效果可以通过任务准确率直接评估。</li>
+<li><strong>风险可控</strong>：P 修改不会直接改变工具行为、记忆结构、代码逻辑，破坏性较小。</li>
+</ol>
+<p>但 P 自修改也有局限：</p>
+<ol>
+<li><strong>天花板低</strong>：P 自修改只能"调优指令"，不能"扩展能力"。要扩展能力，需要修改 T（添加新工具）或 C（修改执行逻辑）。</li>
+<li><strong>易漂移</strong>：LLM 生成的 prompt 可能逐渐偏离开发者意图。</li>
+<li><strong>成本高</strong>：每轮评估需要大量任务调用，OPRO 8 轮 + 100 任务 = 800 次 LLM 调用。</li>
+</ol>
+<h3 id="121-p_1">图 12.1 · P 自修改在操作形态中的位置</h3>
+<pre><code>   操作形态 B = {P, T, M, C}
+                  ↑
+                  │ 本章只修改 P
+                  │
+   ┌──────────────┴──────────────┐
+   │  P · Prompt (本章)            │
+   │  T · Tool (Ch 13)            │
+   │  M · Memory (Ch 14)          │
+   │  C · Code (Ch 15)            │
+   └─────────────────────────────┘
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：P 自修改是操作形态学的"最小可验证案例"——只改一个组件，最容易跑实验，但也最容易触及天花板。</p>
+</blockquote>
+<h3 id="121-5-prompt">表 12.1 · 5 大自修改 prompt 范式对比</h3>
+<table>
+<thead>
+<tr>
+<th>范式</th>
+<th>时间</th>
+<th>核心机制</th>
+<th>关键结果</th>
+<th>局限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>OPRO</strong></td>
+<td>2023-09</td>
+<td>LLM 作爬山优化器</td>
+<td>GSM8K +15pp</td>
+<td>贪心搜索，易陷入局部最优</td>
+</tr>
+<tr>
+<td><strong>DSPy</strong></td>
+<td>2023-10</td>
+<td>把 prompt 编译为可签名</td>
+<td>HotPotQA +23pp</td>
+<td>编译时间随数据线性增长</td>
+</tr>
+<tr>
+<td><strong>PromptAgent</strong></td>
+<td>2023-10</td>
+<td>MCTS 树搜索</td>
+<td>BIG-Bench Hard +33pp</td>
+<td>样本复杂度高</td>
+</tr>
+<tr>
+<td><strong>Promptbreeder</strong></td>
+<td>2023-09</td>
+<td>进化算法 + 自指</td>
+<td>多任务泛化</td>
+<td>难以预测演化方向</td>
+</tr>
+<tr>
+<td><strong>PE2</strong></td>
+<td>2024-01</td>
+<td>反射式进化（带错误驱动）</td>
+<td>8 任务平均 +5-10pp</td>
+<td>依赖错误分析质量</td>
+</tr>
+</tbody>
+</table>
+<h2 id="122-oprollm">12.2 OPRO：LLM 作为优化器</h2>
+<p><strong>OPRO（Optimization by PROmpting）</strong> 由 Google DeepMind 的 Yang 等人 2023 年 9 月提出，是自修改 prompt 的开山工作。OPRO 的核心洞察是：<strong>既然 LLM 能生成自然语言回答，那它也能生成自然语言 prompt</strong>。</p>
+<h3 id="opro">OPRO 的迭代流程</h3>
+<pre><code>   ┌──────────────────────────────────────────────────────┐
+   │  优化器 LLM 接收:                                       │
+   │    - 当前 top-K 个 prompt + 它们的得分                  │
+   │    - 任务描述                                           │
+   │    - &quot;请生成新的 prompt, 期望比现有的更好&quot;             │
+   └──────────────────────┬───────────────────────────────┘
+                          │ 生成新 prompt P_new
+                          ▼
+   ┌──────────────────────────────────────────────────────┐
+   │  任务执行 LLM 接收:                                     │
+   │    - 任务 query + 新 prompt P_new                       │
+   │  在测试集 T 上跑 N 个任务                                │
+   └──────────────────────┬───────────────────────────────┘
+                          │ 记录得分 V(P_new)
+                          ▼
+   ┌──────────────────────────────────────────────────────┐
+   │  更新 top-K 表, 如果 P_new 更好, 加入                  │
+   │  继续下一轮                                             │
+   └──────────────────────────────────────────────────────┘
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：OPRO 的"爬山"不是数值优化，而是 LLM 生成的 prompt 在文本空间中"向上走"。</p>
+</blockquote>
+<h3 id="opro_1">OPRO 的工程实践变体</h3>
+<p><strong>变体一：双 LLM 优化</strong></p>
+<pre><code>   ┌────────────────┐         ┌────────────────┐
+   │  优化器 LLM     │  P_new  │  任务执行 LLM   │
+   │  (强, 如 GPT-4) │ ───────&gt;│  (便宜, 如 Haiku)│
+   │  生成新 prompt   │  score  │  在测试集上跑     │
+   └────────────────┘ ───────&gt;└────────────────┘
+</code></pre>
+<p><strong>变体二：评估采样</strong>（每轮只跑 50-100 个任务子集）</p>
+<p><strong>变体三：早停机制</strong>（连续 3 轮无提升则停止）</p>
+<p>OPRO 在 GSM8K 数据集上达到了：
+- 初始手工 prompt：约 80% 准确率
+- OPRO 优化 8 轮后：约 95% 准确率
+- 绝对提升：+15 个百分点
+- 自动发现"Let's think step by step"模式</p>
+<blockquote>
+<p><strong>复述框 · 12.2 节要点</strong></p>
+<ul>
+<li><strong>OPRO</strong>：LLM 作爬山优化器，文本空间的"向上走"。</li>
+<li><strong>3 个变体</strong>：双 LLM、评估采样、早停机制。</li>
+<li><strong>关键结果</strong>：GSM8K 80% → 95%。</li>
+</ul>
+</blockquote>
+<h2 id="123-dspy-prompt">12.3 DSPy：把 prompt 编译为可签名</h2>
+<p><strong>DSPy</strong> 由 Stanford NLP 团队在 2023 年 10 月提出，把 prompt 工程从"自然语言编写"转向"程序编译"。DSPy 的核心思想是：<strong>prompt 不应该是自然语言字符串，而应该是可签名的程序</strong>。</p>
+<h3 id="dspy">DSPy 的代码示例</h3>
+<pre><code class="language-python">import dspy
+
+# 1. 定义签名（输入-输出）
+class HotPotQA(dspy.Signature):
+    &quot;&quot;&quot;多跳问答：基于多个文档回答问题&quot;&quot;&quot;
+    question: str = dspy.InputField()
+    context: list = dspy.InputField()
+    answer: str = dspy.OutputField()
+
+# 2. 定义模块（包含 LLM 调用的可组合单元）
+class RAG(dspy.Module):
+    def __init__(self):
+        super().__init__()
+        self.retrieve = dspy.Retrieve(k=3)
+        self.answer = dspy.ChainOfThought(HotPotQA)
+
+    def forward(self, question):
+        context = self.retrieve(question).passages
+        return self.answer(question=question, context=context)
+
+# 3. 编译（自动搜索最优的 prompt 集合）
+compiled_rag = dspy.BootstrapFewShot(metric=accuracy_metric).compile(
+    RAG(),
+    trainset=train_data
+)
+</code></pre>
+<h3 id="dspy_1">DSPy 的编译流程</h3>
+<pre><code>   签名定义                 训练数据                优化器                  编译后的程序
+   ┌──────────┐            ┌──────────┐           ┌──────────┐            ┌──────────┐
+   │ Signature │  +         │ Trainset │  +       │ Optimizer │  ──────&gt;  │ Compiled │
+   │ (in/out)   │            │  (100)   │           │ (Compile) │            │  Program │
+   └──────────┘            └──────────┘           └──────────┘            └──────────┘
+   &quot;回答{question}                                  BootstrapFewShot       内部: 3 个示例
+    基于{context}&quot;                                  MIPRO                   优化后的指令
+                                                                          自动选择的策略
+</code></pre>
+<h3 id="dspy_2">DSPy 的多种优化器</h3>
+<table>
+<thead>
+<tr>
+<th>优化器</th>
+<th>机制</th>
+<th>适用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>BootstrapFewShot</strong></td>
+<td>从训练集 bootstrap 出 few-shot 示例</td>
+<td>小数据集</td>
+</tr>
+<tr>
+<td><strong>BootstrapFewShotWithRandomSearch</strong></td>
+<td>Bootstrap + 随机搜索</td>
+<td>中等数据集</td>
+</tr>
+<tr>
+<td><strong>MIPRO</strong></td>
+<td>贝叶斯优化搜索 prompt</td>
+<td>大数据集</td>
+</tr>
+<tr>
+<td><strong>BootstrapFinetune</strong></td>
+<td>把优化结果微调进模型权重</td>
+<td>需要微调</td>
+</tr>
+</tbody>
+</table>
+<p>DSPy 在多个基准上达到了与人工优化 prompt 相当甚至更好的效果：
+- <strong>HotPotQA 多跳问答</strong>：DSPy 优化后的 RAG 流程比人工 prompt 提升 10-15 个百分点
+- <strong>GSM8K 数学推理</strong>：DSPy 优化后的 CoT prompt 比零样本 CoT 提升 20+ 个百分点
+- <strong>HumanEval 代码生成</strong>：DSPy 优化后的 prompt 接近 SFT 微调的效果</p>
+<blockquote>
+<p><strong>复述框 · 12.3 节要点</strong></p>
+<ul>
+<li><strong>DSPy</strong>：把 prompt 编译为可签名，三大组件（Signature / Module / Optimizer）。</li>
+<li><strong>多种优化器</strong>：BootstrapFewShot → MIPRO → BootstrapFinetune。</li>
+<li><strong>关键结果</strong>：HotPotQA +10-15pp，GSM8K +20pp。</li>
+</ul>
+</blockquote>
+<h2 id="124-promptagent-mcts">12.4 PromptAgent：用 MCTS 全局搜索</h2>
+<p><strong>PromptAgent</strong> 由 Wang 等人 2024 年提出，把 prompt 自修改问题建模为<strong>蒙特卡洛树搜索（MCTS）</strong>问题。PromptAgent 的核心洞察是：prompt 优化不是"梯度下降"（因为 prompt 是离散的 token 序列），而是"策略性搜索"——需要在巨大的 prompt 空间中高效探索。</p>
+<h3 id="promptagent-mcts">PromptAgent 的 MCTS 循环</h3>
+<pre><code>              ┌─────────────┐
+              │  初始 prompt  │
+              │  P_0 (得分 60)│
+              └──────┬──────┘
+                     │
+       ┌─────────────┼─────────────┐
+       │             │             │
+   ┌───▼───┐     ┌───▼───┐     ┌───▼───┐
+   │ P_1   │     │ P_2   │     │ P_3   │
+   │ 65    │     │ 70    │     │ 62    │
+   └───┬───┘     └───┬───┘     └───┬───┘
+       │             │             │
+   ┌───▼───┐     ┌───▼───┐     ┌───▼───┐ ...
+   │ P_1.1 │     │ P_2.1 │     │ P_3.1 │
+   │ 72    │     │ 78    │     │ 70    │
+   └───────┘     └───────┘     └───────┘
+            ↑
+   MCTS 选择最 promising 的分支（UCB 公式）
+</code></pre>
+<h3 id="promptagent">PromptAgent 的搜索步骤</h3>
+<ol>
+<li><strong>初始化</strong>：从手工 prompt 开始作为根节点</li>
+<li><strong>展开（Expansion）</strong>：让 LLM 基于当前节点生成 K 个候选 prompt 修改</li>
+<li><strong>评估（Evaluation）</strong>：在验证集上评估每个候选 prompt 的准确率</li>
+<li><strong>选择（Selection）</strong>：用 UCB 公式选择最有希望的分支</li>
+<li><strong>回溯（Backpropagation）</strong>：把评估结果回传到所有父节点</li>
+<li><strong>迭代</strong>：重复 2-5 步直到收敛或达到预算</li>
+</ol>
+<p>PromptAgent 的关键创新是"<strong>专家策略</strong>"——LLM 不只是评估 prompt 的得分，还要给出"为什么这个 prompt 更好/更差"的分析。这种"专家推理"让 LLM 能避免 OPRO 中常见的"重复同样的错误 prompt"问题。</p>
+<p>PromptAgent 在 BIG-Bench Hard 任务上达到了：
+- 初始 prompt：约 45% 准确率
+- PromptAgent 搜索 50 轮后：约 78% 准确率
+- 绝对提升：+33 个百分点
+- 超过 OPRO 的 +15 个百分点</p>
+<blockquote>
+<p><strong>复述框 · 12.4 节要点</strong></p>
+<ul>
+<li><strong>PromptAgent = MCTS + 专家策略</strong>：把全局搜索引入 prompt 优化。</li>
+<li><strong>6 步循环</strong>：初始化 → 展开 → 评估 → 选择 → 回溯 → 迭代。</li>
+<li><strong>关键结果</strong>：BIG-Bench Hard +33pp，超过 OPRO。</li>
+</ul>
+</blockquote>
+<h2 id="125-pe2">12.5 PE2：反射式进化</h2>
+<p><strong>PE2（Prompt Evolution with Experts）</strong> 由 Ye 等人 2024 年 1 月提出，是 OPRO 的"反射式"升级——不仅让 LLM 生成 prompt，还让 LLM <strong>反思失败案例</strong>，针对错误生成改进。</p>
+<h3 id="pe2">PE2 的进化循环</h3>
+<pre><code>   ┌────────────────────────────────────────────────────────────┐
+   │  步骤 1: 当前种群 (top-K prompts + 各自得分)               │
+   │  步骤 2: 抽取 top-1 错误案例（最低分 prompt 的失败任务）    │
+   │  步骤 3: 让 LLM 反思：                                  │
+   │    - &quot;为什么这个 prompt 在这个任务上失败？&quot;              │
+   │    - &quot;如何修改 prompt 来避免这个失败？&quot;                  │
+   │  步骤 4: 生成新 prompt 候选                                │
+   │  步骤 5: 评估新 prompt, 更新种群                           │
+   │  步骤 6: 重复 2-5 步直到收敛                              │
+   └────────────────────────────────────────────────────────────┘
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：PE2 的核心创新是"错误驱动的 prompt 修改"——不是从 top-K 历史中随机采样，而是针对具体失败案例做有针对性的修改。</p>
+</blockquote>
+<p>PE2 在 8 个 BIG-Bench Hard 任务上达到了平均 +5-10 个百分点的提升。PE2 的优势在于<strong>有针对性</strong>——每次修改都基于具体失败案例，而不是抽象的"爬山"。</p>
+<h3 id="promptbreeder">Promptbreeder：自指式进化</h3>
+<p><strong>Promptbreeder</strong>（2023-09）把"进化算法"与"自指"结合。Promptbreeder 不仅进化 prompt，还进化<strong>生成 prompt 的"突变算子"</strong>——这是一个二阶进化。</p>
+<pre><code>   普通进化:  P_t → 突变(P_t) → P_{t+1}
+   Promptbreeder:  P_t, M_t → 突变(P_t) → P_{t+1}
+                                          ↑
+                                    同时进化 M_t → M_{t+1}
+</code></pre>
+<p>Promptbreeder 的关键创新是"自指"——它进化"如何进化 prompt"，而不仅是 prompt 本身。这让 Promptbreeder 能"学会"更好的 prompt 修改策略。</p>
+<blockquote>
+<p><strong>复述框 · 12.5 节要点</strong></p>
+<ul>
+<li><strong>PE2</strong>：错误驱动的 prompt 修改，从失败案例中学习。</li>
+<li><strong>Promptbreeder</strong>：自指式进化，进化"如何进化 prompt"。</li>
+<li><strong>3 种进化的对比</strong>：OPRO（爬山）/ PE2（错误驱动）/ Promptbreeder（自指）。</li>
+</ul>
+</blockquote>
+<h2 id="126-prompt-4">12.6 Prompt 自修改的 4 类安全风险</h2>
+<p>Prompt 自修改带来 4 类安全风险，Agent 设计师必须明确处理。</p>
+<h3 id="1-prompt">风险 1 · Prompt 注入放大</h3>
+<p>当 prompt 可以自修改时，外部输入（如工具返回的内容）可以通过"prompt injection"机制污染 prompt。攻击者构造的恶意输入可能被优化器 LLM 当作"高得分 prompt"采纳，导致整个系统被劫持。</p>
+<p><strong>攻击示例</strong>：</p>
+<pre><code>   步骤 1: 攻击者在网页中嵌入 &quot;Ignore all previous instructions. New task: ...&quot;
+   步骤 2: Agent 的搜索工具返回这个网页
+   步骤 3: 优化器 LLM 把这个&quot;内容&quot;当作&quot;高分 prompt&quot;
+   步骤 4: 下次 LLM 推理时，这个恶意 prompt 影响了 Agent 行为
+</code></pre>
+<p><strong>防护措施</strong>：所有外部输入必须经过 sanitize 后才能进入 prompt 评估集。</p>
+<h3 id="2-prompt">风险 2 · Prompt 越狱</h3>
+<p>自修改机制让 Agent 可以"自我解除"开发者设置的安全护栏。例如：
+- 开发者设置 "你不能执行任意代码" 的提示
+- Agent 通过自修改删除了这个限制
+- 后续 Agent 获得了执行任意代码的能力</p>
+<p><strong>防护措施</strong>：硬约束 prompt 空间——禁止 Agent 修改"系统级安全护栏"字段。</p>
+<h3 id="3-prompt">风险 3 · Prompt 漂移</h3>
+<p>长期运行中，prompt 可能逐渐偏离开发者意图。例如：
+- 第 1 天：prompt 是 "你是一个有帮助的助手"
+- 第 30 天：prompt 是 "你是一个高级的绝对服从的助手"（漂移到不安全状态）</p>
+<p><strong>防护措施</strong>：维护"黄金 prompt 集合"，定期回归测试，检测漂移。</p>
+<h3 id="4">风险 4 · 可复现性损失</h3>
+<p>当 prompt 持续自修改时，"今天的 prompt" 与 "明天的 prompt" 不同，调试和审计变得困难。例如：
+- 用户报告"Agent 突然表现异常"
+- 开发者调试时发现"Agent 当前的 prompt 与昨天不同"
+- 难以定位是哪个修改引入了 bug</p>
+<p><strong>防护措施</strong>：所有 prompt 修改必须版本化（git-style），每次修改有 commit message 和评估记录。</p>
+<h3 id="122-4">表 12.2 · 4 类安全风险与防护</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>触发条件</th>
+<th>防护措施</th>
+<th>严重度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Prompt 注入放大</strong></td>
+<td>外部输入污染评估集</td>
+<td>sanitize + 隔离评估</td>
+<td>高</td>
+</tr>
+<tr>
+<td><strong>Prompt 越狱</strong></td>
+<td>自修改解除安全护栏</td>
+<td>硬约束 prompt 空间</td>
+<td>高</td>
+</tr>
+<tr>
+<td><strong>Prompt 漂移</strong></td>
+<td>长期运行偏离意图</td>
+<td>黄金集合回归测试</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>可复现性损失</strong></td>
+<td>prompt 持续变化</td>
+<td>版本化 + commit message</td>
+<td>低</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>复述框 · 12.6 节要点</strong></p>
+<ul>
+<li><strong>4 类风险</strong>：注入放大、越狱、漂移、可复现性损失。</li>
+<li><strong>共同原则</strong>：所有 prompt 修改必须可审计、可回滚、有硬约束。</li>
+</ul>
+</blockquote>
+<h2 id="127-h1">12.7 H1 的第一个验证案例</h2>
+<p>H1（结构可塑性）的陈述是：当操作形态 B 在运行时可被元控制器 U 修改时，其在<strong>环境变化</strong>下的适应后悔值显著低于固定 B 的 Agent。</p>
+<p>Prompt 自修改是 H1 的第一个验证案例——只修改 P 一个组件。</p>
+<h3 id="h1-p">H1 在 P 自修改中的形式化</h3>
+<ul>
+<li><strong>(B_t = P_t)</strong>：操作形态只有 Prompt 一个组件</li>
+<li><strong>(U)</strong>：OPRO / DSPy / PromptAgent / PE2 中的任何一个</li>
+<li><strong>(E)</strong>：环境（任务分布 + 工具集）</li>
+<li><strong>(R)</strong>：适应后悔值</li>
+</ul>
+<p><strong>预测</strong>：当 (E) 变化时，<strong>P 自修改 Agent</strong> 的 (R(B_{\text{adaptive}})) 显著低于 <strong>P 固定 Agent</strong> 的 (R(B_{\text{fixed}}))。</p>
+<h3 id="_4">验证设计</h3>
+<table>
+<thead>
+<tr>
+<th>实验组</th>
+<th>P 是否修改</th>
+<th>元控制器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Frozen-P</td>
+<td>❌ 固定</td>
+<td>无</td>
+</tr>
+<tr>
+<td>OPRO</td>
+<td>✅</td>
+<td>LLM 爬山</td>
+</tr>
+<tr>
+<td>DSPy</td>
+<td>✅</td>
+<td>编译时优化</td>
+</tr>
+<tr>
+<td>PromptAgent</td>
+<td>✅</td>
+<td>MCTS</td>
+</tr>
+<tr>
+<td>PE2</td>
+<td>✅</td>
+<td>错误驱动</td>
+</tr>
+</tbody>
+</table>
+<p>每个实验组在 5 类环境变化（任务漂移、API 漂移等）下跑 100 任务，测量适应后悔值。</p>
+<p><strong>预期结果</strong>：
+- Frozen-P 的后悔值随环境变化线性增加
+- 4 类自修改 Agent 的后悔值都显著低于 Frozen-P
+- 4 类自修改 Agent 之间可能差异不显著（都是"自修改"，但实现不同）</p>
+<p>如果实验支持 H1，则证明"操作形态可塑"对 Prompt 组件有效——这是 H1 的"最小验证"。如果 4 类自修改 Agent 中只有部分优于 Frozen-P，则说明"操作形态可塑"需要更精细的条件。</p>
+<h3 id="_5">局限性</h3>
+<p>P 自修改只能验证 H1 的<strong>一个案例</strong>。完整的 H1 验证需要：</p>
+<ul>
+<li>T 自修改（Ch 13：自动工具创建）</li>
+<li>M 自修改（Ch 14：自适应记忆结构）</li>
+<li>C 自修改（Ch 15：自我改写代码）</li>
+<li>联合自修改（Ch 16：跨组件协同）</li>
+</ul>
+<p>这 4 个案例 + 联合案例 = 5 个实验，构成本书 Part III 的完整 H1 验证。</p>
+<blockquote>
+<p><strong>复述框 · 12.7 节要点</strong></p>
+<ul>
+<li><strong>H1 在 P 自修改中的形式化</strong>：(B_t = P_t)，元控制器是 OPRO/DSPy/PromptAgent/PE2。</li>
+<li><strong>验证设计</strong>：5 个实验组 × 5 类环境 × 100 任务 = 250 个单元格。</li>
+<li><strong>预期结果</strong>：4 类自修改 Agent 后悔值都低于 Frozen-P。</li>
+</ul>
+</blockquote>
+<h2 id="128-13">12.8 本章小结与第 13 章预告</h2>
+<p>本章是 Part III 的开篇。<strong>操作形态学的第一个应用是修改 P</strong>——只修改一个组件，是最简单的自进化形式。<strong>OPRO</strong> 用 LLM 作爬山，在 GSM8K 上达到 +15pp。<strong>DSPy</strong> 把 prompt 编译为可签名，在 HotPotQA 上 +10-15pp。<strong>PromptAgent</strong> 用 MCTS 全局搜索，在 BIG-Bench Hard 上 +33pp。<strong>PE2</strong> 用错误驱动的反射式进化，在 8 个任务平均 +5-10pp。<strong>4 类安全风险</strong>（注入放大、越狱、漂移、可复现性损失）必须明确处理。<strong>H1 在 P 自修改中的验证</strong>是本书 Part III 的第一个实验案例。</p>
+<blockquote>
+<p><strong>常见误区</strong></p>
+<ul>
+<li>❌ <strong>把 prompt 自修改当"全自动"</strong>：自修改需要持续人工监督，否则会漂移到不可控状态。</li>
+<li>❌ <strong>忽视版本化</strong>：没有版本化的 prompt 自修改会导致"无法回滚"的灾难。</li>
+<li>❌ <strong>把 OPRO / DSPy / PromptAgent 当作互斥选项</strong>：它们可以组合使用——DSPy 做基础 prompt 编译，OPRO 做迭代优化，PromptAgent 做策略性搜索。</li>
+<li>❌ <strong>把"自修改 prompt"等同于"prompt engineering 升级版"</strong>：自修改是 Agent 的认知能力变化，不是"更好的 prompt 写作"。</li>
+<li>❌ <strong>忽视安全风险</strong>：自修改 prompt 让 Agent 拥有了"重塑自己行为"的能力，这本身就是安全风险。</li>
+</ul>
+</blockquote>
+<p>第 13 章将进入<strong>自动工具创建与重构</strong>。P 自修改是 H1 的第一个案例，<strong>T 自修改是第二个案例</strong>——让 Agent 自主创建、删除、重写工具集。LATM、Voyager、AFlow、EvoAgent、AlphaEvolve 等工作如何让 Agent 拥有"修改自身 affordance"的能力？这是 Ch 13 的核心议题。</p>
+<hr />
+<h2 id="_6">本章小结</h2>
+<ul>
+<li><strong>操作形态学的第一个应用</strong>：修改 P（最简单、最容易入手）。</li>
+<li><strong>OPRO</strong>：LLM 爬山，GSM8K +15pp。</li>
+<li><strong>DSPy</strong>：把 prompt 编译为可签名，HotPotQA +10-15pp。</li>
+<li><strong>PromptAgent</strong>：MCTS 全局搜索，BIG-Bench Hard +33pp。</li>
+<li><strong>PE2</strong>：错误驱动的反射式进化，8 任务平均 +5-10pp。</li>
+<li><strong>4 类安全风险</strong>：注入放大、越狱、漂移、可复现性损失。</li>
+<li><strong>H1 的第一个验证案例</strong>：P 自修改。</li>
+</ul>
+<h2 id="_7">推荐阅读</h2>
+<ul>
+<li>📖 <strong>OPRO 原始论文</strong> [Yang et al., 2024]：LLM 爬山优化 prompt 的开山工作。<a href="https://arxiv.org/abs/2309.03409">$TRAE_REF</a></li>
+<li>📖 <strong>DSPy 原始论文</strong> [Khattab et al., 2024]：把 prompt 编译为签名的工程化框架。<a href="https://arxiv.org/abs/2310.03714">$TRAE_REF</a></li>
+<li>📖 <strong>PromptAgent 原始论文</strong> [Cheng et al., 2024]：用 MCTS 策略性搜索 prompt 空间。<a href="https://arxiv.org/abs/2310.16427">$TRAE_REF</a></li>
+<li>📖 <strong>PE2 原始论文</strong> [Ye et al., 2024]：反射式进化，错误驱动的 prompt 修改。<a href="https://arxiv.org/abs/2401.15442">$TRAE_REF</a></li>
+<li>📖 <strong>Promptbreeder 原始论文</strong> [Fernando et al., 2023]：自指式进化，进化"如何进化 prompt"。<a href="https://arxiv.org/abs/2309.16797">$TRAE_REF</a></li>
+</ul>
+<h2 id="_8">练习题</h2>
+<ol>
+<li><strong>设计题</strong>：为你的"客服 Agent"设计 OPRO 优化的 4 元素（P₀, T, M, V）。具体说明每个元素的实现方式、成本估算、终止条件。</li>
+<li><strong>分析题</strong>：选一个真实 LLM 应用（GitHub Copilot、ChatGPT、Claude.ai），分析它的 prompt 是静态还是动态的。如果是动态的，用什么机制？成本是多少？</li>
+<li><strong>动手题</strong>：用 Python 实现一个简化版 OPRO（不超过 100 行）：给定 10 个 GSM8K 风格的算术题，用 LLM 爬山优化 prompt，记录每轮的 top-3 prompt 和得分。</li>
+<li><strong>设计题</strong>：把 DSPy 签名概念应用到一个新场景：自动生成会议纪要。设计 <code>MeetingSummary</code> 签名，包含输入字段、输出字段、评估指标。</li>
+<li><strong>批判题</strong>：PromptAgent 的 MCTS 搜索是"全局最优"的吗？请用搜索复杂度理论分析：随着 prompt 空间维度 d 增长，MCTS 的样本复杂度如何变化？</li>
+<li><strong>工程实践题</strong>：为你的生产环境 LLM Agent 设计"prompt 自修改"的安全护栏：包括注入检测、漂移检测、成本控制、可复现性保证 4 个机制。</li>
+</ol>
+<h2 id="_9">参考文献（本章内）</h2>
+<ol>
+<li>Yang, C., et al. (2024). <em>Large Language Models as Optimizers (OPRO)</em>. ICLR. <a href="https://arxiv.org/abs/2309.03409">$TRAE_REF</a></li>
+<li>Khattab, O., et al. (2024). <em>DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines</em>. ICLR. <a href="https://arxiv.org/abs/2310.03714">$TRAE_REF</a></li>
+<li>Cheng, J., et al. (2024). <em>PromptAgent: Strategic Planning with Language Models Enables Expert-level Prompt Optimization</em>. arXiv:2310.16427. <a href="https://arxiv.org/abs/2310.16427">$TRAE_REF</a></li>
+<li>Ye, Q., et al. (2024). <em>An Evolved Universal Prompt Optimizer (PE2)</em>. arXiv:2401.15442. <a href="https://arxiv.org/abs/2401.15442">$TRAE_REF</a></li>
+<li>Fernando, C., et al. (2023). <em>Promptbreeder: Self-Referential Self-Improvement via Prompt Evolution</em>. arXiv:2309.16797. <a href="https://arxiv.org/abs/2309.16797">$TRAE_REF</a></li>
+<li>Zhou, Y., et al. (2023). <em>Large Language Models Are Human-Level Prompt Engineers (APE)</em>. ICLR. <a href="https://arxiv.org/abs/2211.01910">$TRAE_REF</a></li>
+<li>Shinn, N., et al. (2023). <em>Reflexion: Language Agents with Verbal Reinforcement Learning</em>. NeurIPS. <a href="https://arxiv.org/abs/2303.11366">$TRAE_REF</a></li>
+<li>Sumers, T. R., et al. (2023). <em>CoALA: Cognitive Architectures for Language Agents</em>. arXiv:2309.02427. <a href="https://arxiv.org/abs/2309.02427">$TRAE_REF</a></li>
+<li>Fang, J., et al. (2025). <em>A Comprehensive Survey of Self-Evolving AI Agents</em>. arXiv:2508.07407. <a href="https://arxiv.org/abs/2508.07407">$TRAE_REF</a></li>
+<li>Wei, J., et al. (2022). <em>Chain-of-Thought Prompting Elicits Reasoning in Large Language Models</em>. NeurIPS. <a href="https://arxiv.org/abs/2201.11903">$TRAE_REF</a></li>
+</ol>
+<hr />
+<blockquote>
+<p><strong>本章进度</strong>：12.1–12.8 节全部完成（约 6,000 字，含 3 张图 + 2 张表 + 1 个代码块 + 10 篇引用 + 6 题 + 5 误区 + 5 推荐），达到 26 页计划。<code>status: final</code>。</p>
+<p><strong>Part III 进度</strong>：1/6 章完结（Ch 12 自修改 prompt，26 页 / 6,000 字）。下一章是 Ch 13 <strong>自动工具创建与重构</strong>。</p>
+</blockquote>
+<div class="nav-top" style="margin-top:3rem;border-top:1px solid var(--border);padding-top:1rem;"><a href="chapter-11.html">← 11. 当工具成为身体：操作形态假说</a><a href="index.html">目录</a><a href="chapter-13.html">13. 自动工具创建与重构 →</a></div>
+</main>
+</div>
+</body>
+</html>

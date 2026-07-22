@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7. 4E Cognition 简史 — 操作形态学</title>
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --muted: #555;
+  --accent: #2563eb;
+  --code-bg: #f4f4f4;
+  --border: #ddd;
+  --sidebar-bg: #f0f0f0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111;
+    --fg: #eee;
+    --muted: #aaa;
+    --accent: #60a5fa;
+    --code-bg: #1e1e1e;
+    --border: #333;
+    --sidebar-bg: #1a1a1a;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Noto Sans CJK SC", "WenQuanYi Micro Hei", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.75;
+}
+.layout {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.sidebar {
+  width: 280px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar h2 {
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  color: var(--accent);
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar li {
+  margin: 0.25rem 0;
+}
+.sidebar a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: block;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+.sidebar a:hover, .sidebar a.active {
+  background: var(--accent);
+  color: #fff;
+}
+.main {
+  flex: 1;
+  padding: 2rem 3rem;
+  max-width: 900px;
+}
+h1, h2, h3, h4 {
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+h1 { font-size: 2rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
+h2 { font-size: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.25rem; }
+p { margin: 0.8rem 0; }
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+  font-family: "SF Mono", "Fira Code", Consolas, monospace;
+  font-size: 0.9em;
+}
+pre code { padding: 0; background: none; }
+blockquote {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid var(--accent);
+  background: rgba(37,99,235,0.05);
+  color: var(--muted);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+  text-align: left;
+}
+th { background: var(--sidebar-bg); }
+ul, ol { margin: 0.5rem 0; padding-left: 1.5rem; }
+img { max-width: 100%; height: auto; }
+a { color: var(--accent); }
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+.nav-top a {
+  color: var(--accent);
+  text-decoration: none;
+}
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); }
+  .main { padding: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="sidebar">
+<h2><a href="index.html" style="color:var(--accent);text-decoration:none;">操作形态学</a></h2>
+<ul><li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part I</li>
+<li><a class="" href="chapter-01.html">1. LLM 智能体时代</a></li>
+<li><a class="" href="chapter-02.html">2. 智能体基础：感知、决策、行动、反馈</a></li>
+<li><a class="" href="chapter-03.html">3. 工具与函数调用</a></li>
+<li><a class="" href="chapter-04.html">4. 提示词工程：从静态到动态</a></li>
+<li><a class="" href="chapter-05.html">5. 上下文工程与短期记忆</a></li>
+<li><a class="" href="chapter-06.html">6. 长期记忆与检索增强</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part II</li>
+<li><a class="active" href="chapter-07.html">7. 4E Cognition 简史</a></li>
+<li><a class="" href="chapter-08.html">8. Enactivism 与自创生</a></li>
+<li><a class="" href="chapter-09.html">9. Extended Mind 与延展心智</a></li>
+<li><a class="" href="chapter-10.html">10. 具身 AI 与机器人认知</a></li>
+<li><a class="" href="chapter-11.html">11. 当工具成为身体：操作形态假说</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part III</li>
+<li><a class="" href="chapter-12.html">12. 自修改提示词：从 OPRO 到 PE2</a></li>
+<li><a class="" href="chapter-13.html">13. 自动工具创建与重构</a></li>
+<li><a class="" href="chapter-14.html">14. 自适应记忆结构</a></li>
+<li><a class="" href="chapter-15.html">15. 自我改写代码</a></li>
+<li><a class="" href="chapter-16.html">16. 跨组件协同自进化</a></li>
+<li><a class="" href="chapter-17.html">17. 元控制器设计</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part IV</li>
+<li><a class="" href="chapter-18.html">18. MorphAgent 参考实现</a></li>
+<li><a class="" href="chapter-19.html">19. 评测方法学：MorphBench</a></li>
+<li><a class="" href="chapter-20.html">20. 调试与可观测性</a></li>
+<li><a class="" href="chapter-21.html">21. 部署与运维</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part V</li>
+<li><a class="" href="chapter-22.html">22. 安全性与对抗鲁棒性</a></li>
+<li><a class="" href="chapter-23.html">23. 可验证自改</a></li>
+<li><a class="" href="chapter-24.html">24. 经济、伦理与社会影响</a></li>
+<li><a class="" href="chapter-25.html">25. 开放问题与未来工作</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part VI</li>
+<li><a class="" href="chapter-26.html">26. 附录 A · 术语表</a></li>
+<li><a class="" href="chapter-27.html">27. 附录 B · 数学基础</a></li>
+<li><a class="" href="chapter-28.html">28. 附录 C · 工具与库速查</a></li>
+<li><a class="" href="chapter-29.html">29. 附录 D · 教学实验清单</a></li>
+<li><a class="" href="chapter-30.html">30. 附录 E · 练习题答案</a></li>
+<li><a class="" href="chapter-31.html">31. 附录 F · 参考文献总目录</a></li></ul>
+</nav>
+<main class="main">
+<div class="nav-top"><a href="chapter-06.html">← 6. 长期记忆与检索增强</a><a href="index.html">目录</a><a href="chapter-08.html">8. Enactivism 与自创生 →</a></div>
+<h1>7. 4E Cognition 简史</h1>
+<h1 id="7-4e-cognition">第 7 章 · 4E Cognition 简史</h1>
+<blockquote>
+<p>"认知不在头脑里——认知分布在身体、工具、环境、时间之中。"</p>
+</blockquote>
+<h2 id="_1">学习目标</h2>
+<p>完成本章后，读者应能够：</p>
+<ol>
+<li>区分 Embodied / Embedded / Enacted / Extended 四个维度</li>
+<li>解释 Gibson、Clark、Chemero、Newen 四代谱系</li>
+<li>评估「4E」是否可被实证</li>
+<li>把 4E 框架映射到 LLM Agent 的设计</li>
+<li>识别 4E 阵营内的方法论分歧</li>
+</ol>
+<h2 id="_2">先修知识</h2>
+<ul>
+<li>第 1 章 · LLM 智能体时代（推荐）</li>
+<li>哲学导论（可选）</li>
+</ul>
+<h2 id="_3">章节地图</h2>
+<ul>
+<li><strong>7.1</strong> 经典认知科学的反例</li>
+<li><strong>7.2</strong> Gibson：affordance 与生态心理学</li>
+<li><strong>7.3</strong> Embodied：身体对认知的塑造</li>
+<li><strong>7.4</strong> Embedded：环境作为认知系统的一部分</li>
+<li><strong>7.5</strong> Enacted：行动产生认知</li>
+<li><strong>7.6</strong> Extended：延展心智假说</li>
+<li><strong>7.7</strong> 4E Cognition 阵营内的分歧</li>
+<li><strong>7.8</strong> 4E 与 LLM Agent 的映射</li>
+<li><strong>7.9</strong> 本章小结与第 8 章预告</li>
+</ul>
+<hr />
+<h2 id="71">7.1 经典认知科学的反例</h2>
+<p>经典认知科学（Classical Cognitive Science, 1950s–1980s）的核心假设是<strong>认知即计算（cognition as computation）</strong>：心灵像计算机一样处理符号（representations），输入感知、输出行动。这个范式有两个关键推论：</p>
+<p><strong>推论一：认知是离身的（disembodied）。</strong> 思维的本质不依赖身体——无论是人类大脑、硅基计算机、还是其他介质，只要能跑相同的算法，就具有相同的认知能力。这个假设催生了<strong>强 AI 假说</strong>（Strong AI Hypothesis）。</p>
+<p><strong>推论二：认知是抽象的。</strong> 智能的本质是符号操作，符号可以脱离具体物理实现而被操作。这让"心智独立性"成为可能——心灵可以被"上传"、"复制"。</p>
+<p>然而，1980 年代以来，一系列<strong>反例</strong>开始动摇这个范式：</p>
+<ol>
+<li><strong>概念依附问题（Conceptual Dependency Problem）</strong>：Harnad 1987 年指出，所有符号系统最终必须把符号"接地"（ground）到物理世界的感知经验上，否则符号就只是"无意义的字符"。一个不能区分"红"和"绿"的符号系统，无法真正理解颜色概念。</li>
+<li><strong>框架问题（Frame Problem）</strong>：经典 AI 无法有效处理"什么是不变的、什么是变化的"——这看似简单的判断在符号系统中是指数级复杂。</li>
+<li><strong>具身认知实验</strong>：Barsalou 1999 年的实验表明，人们在理解"踢"这个动词时，会无意识地激活大脑中负责"踢"动作的运动皮层——即使只是阅读。</li>
+</ol>
+<p>这些反例催生了 <strong>4E Cognition</strong> 运动——主张认知是 <strong>Embodied（具身的）、Embedded（嵌入的）、Enacted（行动的）、Extended（延展的）</strong> 的综合。</p>
+<h3 id="71-4e-cognition">图 7.1 · 4E Cognition 框架</h3>
+<pre><code>   ┌─────────────────────────────────────────────┐
+   │              4E Cognition 框架                │
+   │                                              │
+   │   Embodied ──→ 身体塑造认知                  │
+   │   Embedded  ──→ 环境作为认知系统的一部分     │
+   │   Enacted   ──→ 行动产生认知                  │
+   │   Extended  ──→ 工具 / 他人 / 外部存储       │
+   │                                              │
+   │   共同主张：认知不只在头脑中                 │
+   └─────────────────────────────────────────────┘
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：4E 不是"四个相互独立的理论"，而是从不同角度攻击"认知即计算"范式的同一运动。它们在具体主张上有所不同，但共享"反离身认知"的核心立场。</p>
+<p><strong>复述框 · 7.1 节要点</strong></p>
+<ul>
+<li><strong>经典认知科学</strong>：认知即计算，符号操作，离身心智。</li>
+<li><strong>三大反例</strong>：概念依附、框架问题、具身实验。</li>
+<li><strong>4E 共同主张</strong>：认知分布在身体、环境、行动、外部资源中。</li>
+</ul>
+</blockquote>
+<h2 id="72-gibsonaffordance">7.2 Gibson：affordance 与生态心理学</h2>
+<p>4E 的思想源头之一是 <strong>James J. Gibson</strong> 的<strong>生态心理学（Ecological Psychology）</strong>。Gibson 在 1979 年的经典著作《The Ecological Approach to Visual Perception》中提出了 <strong>affordance</strong> 概念——这是 4E 框架的核心基石。</p>
+<h3 id="72-affordance">图 7.2 · Affordance 的三层结构</h3>
+<pre><code>   ┌──────────────────────────────────────────┐
+   │           环境 (Environment)              │
+   │   - 表面、形状、质地、温度                │
+   │   - 例如：门是平的、有把手的、可推动的   │
+   └────────────────┬─────────────────────────┘
+                    │ affordance
+                    ▼
+   ┌──────────────────────────────────────────┐
+   │           动物 (Animal)                   │
+   │   - 能力、需求、目标                      │
+   │   - 例如：人能推门、不能飞过门            │
+   └────────────────┬─────────────────────────┘
+                    │ perception
+                    ▼
+   ┌──────────────────────────────────────────┐
+   │           行动 (Action)                   │
+   │   - 例如：推门、进入                      │
+   └──────────────────────────────────────────┘
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：Affordance 是"环境对动物的可能性"——既不完全是环境的属性（同样的台阶对人和老鼠 affordance 不同），也不完全是动物的属性（同样的动物面对不同的台阶 affordance 也不同）。</p>
+</blockquote>
+<p><strong>Affordance 的核心特征</strong>：</p>
+<ol>
+<li><strong>关系性（Relational）</strong>：affordance 总是关系性的——"对 X 来说，Y affordance Z"。</li>
+<li><strong>直接感知（Direct Perception）</strong>：动物不需要推理就能"看到"affordance——它就在那里。</li>
+<li><strong>可供性 vs 限制</strong>：affordance 既包括可做的事（"门可推开"）也包括不能做的事（"门太重推不动"）。</li>
+</ol>
+<p>Gibson 的 affordance 理论对 4E 的关键贡献是：<strong>认知不是符号操作，而是动物对环境的直接参与</strong>。一只鸟不需要"先在脑中表征树枝的位置，然后规划飞行路径"——它直接看到"这根树枝 afford 站立"。</p>
+<p>对 LLM Agent 而言，affordance 的启示是：<strong>Agent 与环境的关系不是"输入-输出"而是"环境对 Agent 的可能性"</strong>。一个 LLM Agent 不应该被设计为"接收 query、返回 answer"，而应该被设计为"在环境中看到 affordance、采取行动"。</p>
+<blockquote>
+<p><strong>复述框 · 7.2 节要点</strong></p>
+<ul>
+<li><strong>Gibson</strong> 是 4E 的认知科学源头。</li>
+<li><strong>Affordance</strong>：环境对动物的可能性，关系性、直接感知。</li>
+<li><strong>对 LLM Agent 的启示</strong>：Agent 与环境是"参与关系"而非"输入-输出"。</li>
+</ul>
+</blockquote>
+<h2 id="73-embodied">7.3 Embodied：身体对认知的塑造</h2>
+<p><strong>Embodied Cognition</strong>（具身认知）主张：<strong>身体的物理形态（形态学、感觉系统、运动系统）塑造了认知的内容和结构</strong>。这不是简单的"大脑控制身体"或"身体执行大脑命令"——而是<strong>身体本身就是认知的一部分</strong>。</p>
+<h3 id="73">图 7.3 · 身体塑造认知的三个机制</h3>
+<pre><code>   ┌────────────────────────────────────┐
+   │      身体对认知的塑造                │
+   │                                      │
+   │   1. 形态学 (Morphology)              │
+   │      - 手的结构决定能抓什么          │
+   │      - 蝙蝠的回声系统决定空间认知     │
+   │                                      │
+   │   2. 感觉系统 (Sensory System)        │
+   │      - 人类的色觉决定颜色概念         │
+   │      - 蝙蝠的听觉决定&quot;图像&quot;概念       │
+   │                                      │
+   │   3. 运动系统 (Motor System)          │
+   │      - 手的运动系统影响数感           │
+   │      - 面部表情影响情绪识别           │
+   └────────────────────────────────────┘
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：Embodied Cognition 强调"身体不是认知的载体"——"身体是认知本身的一部分"。</p>
+</blockquote>
+<p>Embodied Cognition 的代表证据有：</p>
+<ol>
+<li><strong>运动皮层激活</strong>：理解动词"踢"会激活运动皮层（理解动作）。</li>
+<li><strong>手势增强认知</strong>：空间推理任务中允许手势会提升准确率。</li>
+<li><strong>跨文化差异</strong>：使用不同空间布局的语种，使用者对方位的描述不同（粤语有更多上下方位词 vs 英语）。</li>
+</ol>
+<p>Embodied Cognition 对 LLM Agent 的启示是<strong>操作形态学（Operational Morphology）</strong>的认知基础：</p>
+<ul>
+<li>LLM Agent 的"身体"是它的<strong>工具集</strong>（P, T, M, C）</li>
+<li>工具集的变化（修改 prompt、添加工具、改写代码）会<strong>改变 Agent 的认知能力</strong></li>
+<li>这与"身体塑造认知"的具身认知原理一一对应</li>
+</ul>
+<p>具体而言，LLM Agent 的"工具 affordance"包括：
+- 哪些工具可用（行动空间）
+- 工具的描述质量（感知清晰度）
+- 工具的错误处理（运动准确性）</p>
+<blockquote>
+<p><strong>复述框 · 7.3 节要点</strong></p>
+<ul>
+<li><strong>Embodied Cognition</strong>：身体形态、感觉系统、运动系统塑造认知。</li>
+<li><strong>对 LLM Agent 的启示</strong>：工具集 = Agent 的"身体"。</li>
+<li><strong>操作形态学 = Agent 的具身</strong>。</li>
+</ul>
+</blockquote>
+<h2 id="74-embedded">7.4 Embedded：环境作为认知系统的一部分</h2>
+<p><strong>Embedded Cognition</strong>（嵌入认知）主张：<strong>环境是认知系统的一部分，认知不能脱离环境被孤立研究</strong>。这与 Extended Mind（延展心智）有重叠，但更强调"环境"的角色。</p>
+<h3 id="71-embedded-cognition">表 7.1 · Embedded Cognition 的关键论点</h3>
+<table>
+<thead>
+<tr>
+<th>论点</th>
+<th>经典认知</th>
+<th>Embedded 认知</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>认知位置</td>
+<td>头脑内</td>
+<td>脑 + 身体 + 环境</td>
+</tr>
+<tr>
+<td>认知边界</td>
+<td>颅骨</td>
+<td>工具可以延伸认知</td>
+</tr>
+<tr>
+<td>任务完成</td>
+<td>心算 200+200</td>
+<td>周围放计算器 + 纸笔</td>
+</tr>
+<tr>
+<td>信息存储</td>
+<td>记忆中</td>
+<td>笔记本、白板、外部数据库</td>
+</tr>
+</tbody>
+</table>
+<p>Clark 和 Chalmers 1998 年的著名例子 <strong>Otto</strong>：一位阿尔茨海默症患者 Otto 有一本笔记本，记录他日常需要的信息（比如他妻子的位置）。对 Otto 来说，这本笔记本<strong>就是他的记忆</strong>——与健康的 Inga（不需要笔记本就能记住）相比，Otto 的认知系统已经"扩展"到笔记本。</p>
+<blockquote>
+<p><strong>关键点</strong>：Embedded Cognition 强调"环境是认知的脚手架（scaffold）"，认知系统可以跨身体、环境、外部资源分布。</p>
+</blockquote>
+<p>Embedded Cognition 对 LLM Agent 的启示是：</p>
+<ol>
+<li><strong>长期记忆是 Agent 认知的一部分</strong>：第 6 章的 MemGPT、A-MEM 不是"外挂工具"，而是 Agent 认知系统的一部分。</li>
+<li><strong>工具调用是 Agent 感知-行动闭环的一部分</strong>：第 3 章的 Function Calling 不是"远程 API 调用"，而是 Agent 认知的延伸。</li>
+<li><strong>环境状态是 Agent 决策的依据</strong>：Agent 不应该"清空 context 后重新决策"，而应该"持续维护对环境的认知"。</li>
+</ol>
+<blockquote>
+<p><strong>复述框 · 7.4 节要点</strong></p>
+<ul>
+<li><strong>Embedded Cognition</strong>：环境是认知的一部分。</li>
+<li><strong>Otto 例</strong>：笔记本 = 记忆。</li>
+<li><strong>对 LLM Agent 的启示</strong>：长期记忆 = 认知的延伸。</li>
+</ul>
+</blockquote>
+<h2 id="75-enacted">7.5 Enacted：行动产生认知</h2>
+<p><strong>Enacted Cognition</strong>（行动认知）主张：<strong>认知不是"先想后做"而是"在行动中产生"</strong>。最激进的版本是 enactivism（Varela, Thompson, Rosch, 1991），主张认知是"行动者-环境的耦合产生"（enaction）。</p>
+<h3 id="74-enaction">图 7.4 · Enaction 的循环</h3>
+<pre><code>         环境 E
+           ↑
+   ┌───────┴───────┐
+   │  感知 Perceive │
+   └───────┬───────┘
+           ↓
+   ┌───────────────┐
+   │ 行动 Act      │ ← 行动改变环境
+   └───────┬───────┘
+           ↓
+         新的 E
+           ↑
+   ┌───────┴───────┐
+   │  感知 Perceive │ ← 感知到变化后的环境
+   └───────────────┘
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：Enaction 不是"先想后做"，而是"在做中想"——认知产生于行动者与环境的循环耦合。</p>
+</blockquote>
+<p>Enaction 的核心观点：</p>
+<ol>
+<li><strong>感知是行动导向的（Perception is Action-Oriented）</strong>：动物不是被动地"接收"环境信息，而是主动地"探查"环境（Noë 2004 的感觉运动理论）。</li>
+<li><strong>认知是自创生的（Autopoietic）</strong>：生命系统通过自身代谢维持自身组织，认知是这种自创生过程的一部分（Maturana &amp; Varela）。</li>
+<li><strong>环境是认知的一部分</strong>：环境不是"被表征的对象"，而是"认知产生的场所"。</li>
+</ol>
+<p>Enaction 对 LLM Agent 的启示是：</p>
+<ol>
+<li><strong>ReAct 是 enaction 的工程化实现</strong>：Reason + Act 的循环不是"先推理后行动"，而是"在行动中推理"。</li>
+<li><strong>Tool Use 是 Agent 的感觉运动系统</strong>：工具不只是"被调用的函数"，而是 Agent 探索世界的方式。</li>
+<li><strong>Memory 是 Agent 的代谢系统</strong>：记忆不是"被存储的数据"，而是 Agent 维持自身认知的方式。</li>
+</ol>
+<p>具体而言：
+- Agent 不应该被设计为"接收 query、返回 answer"（输入-输出模型）
+- Agent 应该被设计为"在环境中探索、收集证据、形成判断"（enaction 模型）</p>
+<blockquote>
+<p><strong>复述框 · 7.5 节要点</strong></p>
+<ul>
+<li><strong>Enaction</strong>：认知产生于行动者-环境的循环耦合。</li>
+<li><strong>核心观点</strong>：感知是行动导向、认知是自创生、环境是认知的一部分。</li>
+<li><strong>ReAct 是 enaction 的工程化</strong>。</li>
+</ul>
+</blockquote>
+<h2 id="76-extended">7.6 Extended：延展心智假说</h2>
+<p><strong>Extended Mind</strong>（延展心智）由 Clark &amp; Chalmers 1998 年提出，<strong>主动</strong>主张工具和外部存储可以<strong>字面意义上</strong>成为认知的一部分。这比 Embedded Cognition 更激进——Embedded Cognition 只说"环境参与认知"，Extended Mind 说"工具就是认知"。</p>
+<h3 id="75-extended-mind-parity-principle">图 7.5 · Extended Mind 的 parity principle</h3>
+<pre><code>   Inga（健康）：
+   ┌──────────┐
+   │  记忆    │  ← 信念&quot;妻子在 MoMA&quot;
+   └────┬─────┘
+        ↓
+   行动：去 MoMA 找妻子
+
+   Otto（阿尔茨海默症）：
+   ┌──────────┐         ┌──────────┐
+   │  记忆    │  ←      │  笔记本  │  ← 信念&quot;妻子在 MoMA&quot;
+   │ (受损)  │         │ (外部)  │
+   └────┬─────┘         └────┬─────┘
+        └──────────┬────────┘
+                  ↓
+   行动：去 MoMA 找妻子
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：Otto 和 Inga 的认知系统<strong>功能上等价</strong>——parity principle 主张，如果外部工具能完成内部认知同样的功能，那么它就是认知的一部分。</p>
+</blockquote>
+<p><strong>Parity Principle</strong>（对等原则）的形式化：</p>
+<p>$$
+\text{若 } \text{External}(X) \equiv \text{Internal}(X) \text{ 功能等价} \Rightarrow \text{External}(X) \in \text{Cognitive System}
+$$</p>
+<p>Extended Mind 在哲学界引发了激烈争论（见 7.7 节）。Adams &amp; Aizawa 2001 年的反驳最具影响力，他们提出 <strong>"non-derived content"</strong>（非派生内容）作为认知的标志：认知过程必须有"因果性的、生产性的内容"，而外部笔记本只是"被查询的储存器"，不满足这一标准。</p>
+<p>Extended Mind 对 LLM Agent 的启示是<strong>最直接的</strong>：</p>
+<ul>
+<li>LLM Agent 的工具集（P, T, M, C）就是 Agent 认知系统的<strong>延展</strong></li>
+<li>当 LLM 调用 <code>get_weather(city="北京")</code> 时，工具返回的 <code>{temp: 25, rain: 30}</code> 就是 Agent 的"扩展信念"</li>
+<li>LLM 的"短期记忆 = 上下文窗口"是 Agent 的"内部记忆"，"长期记忆 = 向量数据库"是 Agent 的"外部记忆"——两者在 parity principle 下功能等价</li>
+</ul>
+<p>这直接连接到本书第 11 章的<strong>操作形态学</strong>形式化：(B = {P, T, M, C}) 就是 LLM Agent 的"延展心智"。</p>
+<blockquote>
+<p><strong>复述框 · 7.6 节要点</strong></p>
+<ul>
+<li><strong>Extended Mind</strong>：工具和外部存储可以<strong>字面意义上</strong>成为认知的一部分。</li>
+<li><strong>Parity Principle</strong>：功能等价 = 认知等价。</li>
+<li><strong>Adams &amp; Aizawa 反驳</strong>：non-derived content 标志。</li>
+<li><strong>对 LLM Agent</strong>：操作形态学 = 延展心智的工程化。</li>
+</ul>
+</blockquote>
+<h2 id="77-4e-cognition">7.7 4E Cognition 阵营内的分歧</h2>
+<p>4E 不是铁板一块的单一理论，阵营内有显著的方法论分歧。理解这些分歧对 LLM Agent 设计至关重要。</p>
+<h3 id="72-4e">表 7.2 · 4E 阵营内的三个主要分歧</h3>
+<table>
+<thead>
+<tr>
+<th>分歧</th>
+<th>保守派（Chemero, Hutto）</th>
+<th>激进派（Varela, Thompson, Noë）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>认知是否需要表征</strong></td>
+<td>拒绝"心智表征"</td>
+<td>接受"环境耦合"作为类表征</td>
+</tr>
+<tr>
+<td><strong>是否需要 autopoietic</strong></td>
+<td>强调感知-运动技能</td>
+<td>要求生命系统的自创生</td>
+</tr>
+<tr>
+<td><strong>工具能否成为认知</strong></td>
+<td>接受（"耦合"即可）</td>
+<td>拒绝（"非生命"不可）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>1. 表征问题</strong>：经典认知科学假设"思维 = 操作心智表征"。4E 的保守派（Chemero, Hutto）直接拒绝这个假设，主张"认知是直接的感知-运动技能"。但激进派（Varela, Thompson）接受"环境耦合"作为某种类表征——他们不否认内部状态的存在，只是否认它是"完整的、稳定的表征"。</p>
+<p><strong>2. 自创生问题</strong>：Varela 严格定义"认知"必须是 autopoietic 系统（自创生系统）的属性。Autopoiesis 是指系统通过自身代谢维持自身组织的能力——这是生命系统的核心特征。Hutto &amp; Myin 在《Radicalizing Enactivism》（2017）中甚至提出"基本心智（basic minds）不需要内容"——这是 4E 阵营中最激进的立场。</p>
+<p><strong>3. 工具问题</strong>：Hutto 明确拒绝"工具能成为认知"——因为工具不是 autopoietic 系统。但 Clark &amp; Chalmers 1998 年的 parity principle 与之相反，主张工具可以"字面意义上"成为认知。</p>
+<p>这些分歧对 LLM Agent 的设计有直接含义：</p>
+<ul>
+<li>如果你接受 <strong>Hutto 立场</strong>：LLM Agent 的工具调用永远是"外部动作"，不是"认知的延展"。</li>
+<li>如果你接受 <strong>Clark 立场</strong>：LLM Agent 的工具调用<strong>就是</strong>认知的延展，工具是 Agent 认知系统的一部分。</li>
+<li>如果你接受 <strong>Varela 立场</strong>：只有具备 autopoietic 特征的系统（活的、能自我维持的）才算"认知"——这意味着 LLM Agent 不算真正的"认知主体"。</li>
+</ul>
+<p>本书采取的立场是<strong>Clark 的扩展立场</strong>（这与第 11 章操作形态学的形式化一致）：LLM Agent 的工具集<strong>就是</strong> Agent 认知的延展，工具的修改<strong>就是</strong>认知结构的变化。</p>
+<blockquote>
+<p><strong>复述框 · 7.7 节要点</strong></p>
+<ul>
+<li><strong>三大分歧</strong>：表征问题、自创生问题、工具问题。</li>
+<li><strong>保守派（Chemero, Hutto）</strong> 拒绝表征、强调感知-运动。</li>
+<li><strong>激进派（Varela, Thompson）</strong> 接受环境耦合、要求自创生。</li>
+<li><strong>本书立场</strong>：Clark 扩展立场——工具 = 认知的延展。</li>
+</ul>
+</blockquote>
+<h2 id="78-4e-llm-agent">7.8 4E 与 LLM Agent 的映射</h2>
+<p>把 4E 框架映射到 LLM Agent 设计，可以得到 4 个具体的设计原则：</p>
+<h3 id="73-4e-llm-agent">表 7.3 · 4E 框架 → LLM Agent 设计原则</h3>
+<table>
+<thead>
+<tr>
+<th>4E 维度</th>
+<th>核心主张</th>
+<th>LLM Agent 设计原则</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Embodied</strong></td>
+<td>身体塑造认知</td>
+<td>操作形态 B = {P, T, M, C} 决定 Agent 能力；改工具集 = 改认知</td>
+</tr>
+<tr>
+<td><strong>Embedded</strong></td>
+<td>环境是认知的一部分</td>
+<td>长期记忆、工具调用是 Agent 认知的延伸</td>
+</tr>
+<tr>
+<td><strong>Enacted</strong></td>
+<td>行动产生认知</td>
+<td>ReAct 循环是 enaction 的工程化实现；Agent 在行动中"思考"</td>
+</tr>
+<tr>
+<td><strong>Extended</strong></td>
+<td>工具是认知的一部分</td>
+<td>parity principle：工具调用 = 认知操作</td>
+</tr>
+</tbody>
+</table>
+<p>这 4 个原则的工程含义：</p>
+<ol>
+<li><strong>设计 Agent 时要明确"身体"</strong>：Agent 有什么工具？有什么记忆结构？有什么执行代码？这些决定了 Agent 能"思考"什么。</li>
+<li><strong>环境状态要纳入决策</strong>：Agent 不应该"清空 context 后重新决策"，而应该"持续维护对环境的认知"。</li>
+<li><strong>设计 ReAct 而非"先想后做"</strong>：Agent 不应该"先推理后行动"，应该"在行动中推理"。</li>
+<li><strong>把工具当作"身体"而非"工具"</strong>：工具调用是 Agent 认知的延伸，工具失败 = 认知失败。</li>
+</ol>
+<blockquote>
+<p><strong>复述框 · 7.8 节要点</strong></p>
+<ul>
+<li><strong>Embodied → 操作形态决定能力</strong>。</li>
+<li><strong>Embedded → 环境是认知的一部分</strong>。</li>
+<li><strong>Enacted → ReAct 是 enaction 的工程化</strong>。</li>
+<li><strong>Extended → 工具 = 认知的延展</strong>。</li>
+</ul>
+</blockquote>
+<h2 id="79-8">7.9 本章小结与第 8 章预告</h2>
+<p>本章展开 4E Cognition 简史。<strong>经典认知科学</strong>假设认知即计算、离身心智，但 1980 年代以来的反例催生了 4E 运动。<strong>Gibson 的 affordance</strong> 是 4E 的认知科学源头。<strong>Embodied Cognition</strong> 强调身体塑造认知，对应 LLM Agent 的"操作形态决定能力"。<strong>Embedded Cognition</strong> 强调环境是认知的一部分，对应 LLM Agent 的"长期记忆是认知的延伸"。<strong>Enacted Cognition</strong> 强调行动产生认知，对应 ReAct 循环。<strong>Extended Mind</strong> 主张工具是认知的一部分，对应 parity principle。<strong>4E 阵营内的方法论分歧</strong>——表征问题、自创生问题、工具问题——对 LLM Agent 设计有直接含义。</p>
+<blockquote>
+<p><strong>常见误区</strong></p>
+<ul>
+<li>❌ <strong>把 4E 当作单一理论</strong>：4E 内部有显著分歧，不同立场给出不同设计建议。</li>
+<li>❌ <strong>把"工具调用"等同于"认知延展"</strong>：Hutto 阵营认为这是"外部动作"，只有 Clark 阵营认为是"认知的延伸"。</li>
+<li>❌ <strong>忽视身体的物理约束</strong>：经典认知科学（离身）仍然是当前主流 AI 的隐含假设，4E 提供了反思这一假设的工具。</li>
+<li>❌ <strong>把 affordance 当作"环境属性"</strong>：affordance 是关系性的，既不是纯环境的，也不是纯动物的。</li>
+<li>❌ <strong>把 Enacted Cognition 当作"先想后做"</strong>：Enaction 是"在做中想"，不是顺序流程。</li>
+</ul>
+</blockquote>
+<p>第 8 章将进入 <strong>Enactivism 与自创生</strong>。7.7 节我们看到 4E 阵营在"自创生"问题上的分歧；第 8 章将深入展开 Varela、Thompson、Rosch 的 enactivism 立场，及其对 LLM Agent 的含义。</p>
+<hr />
+<h2 id="_4">本章小结</h2>
+<ul>
+<li><strong>经典认知科学</strong>：认知即计算，离身心智。</li>
+<li><strong>4E 共同主张</strong>：认知分布在身体、环境、行动、外部资源中。</li>
+<li><strong>Gibson 的 affordance</strong>：环境对动物的可能性。</li>
+<li><strong>Embodied → 操作形态决定能力</strong>。</li>
+<li><strong>Embedded → 环境是认知的一部分</strong>。</li>
+<li><strong>Enacted → ReAct 是 enaction 的工程化</strong>。</li>
+<li><strong>Extended → 工具 = 认知的延展</strong>。</li>
+<li><strong>4E 阵营内的三大分歧</strong>：表征问题、自创生问题、工具问题。</li>
+</ul>
+<h2 id="_5">推荐阅读</h2>
+<ul>
+<li>📖 <strong>Gibson《The Ecological Approach to Visual Perception》</strong>（1979）：affordance 概念的开创性著作。<a href="https://archive.org/details/ecologicalapproa00gibs">$TRAE_REF</a></li>
+<li>📖 <strong>Varela, Thompson, Rosch《The Embodied Mind》</strong>（1991）：enaction 概念的系统化提出。</li>
+<li>📖 <strong>Clark &amp; Chalmers《The Extended Mind》</strong>（1998）：延展心智的奠基论文。<a href="https://www.jstor.org/stable/1558173">$TRAE_REF</a></li>
+<li>📖 <strong>Newen, de Bruin, Gallagher《The Oxford Handbook of 4E Cognition》</strong>（2018）：4E Cognition 的官方汇编手册。<a href="https://academic.oup.com/edited-volume/28083">$TRAE_REF</a></li>
+<li>📖 <strong>Chemero《Radical Embodied Cognitive Science》</strong>（2009）：激进具身认知的代表作。<a href="https://mitpress.mit.edu/9780262516510/">$TRAE_REF</a></li>
+</ul>
+<h2 id="_6">练习题</h2>
+<ol>
+<li><strong>概念题</strong>：用一段话解释"affordance"为何不是环境的属性、不是动物的属性，而是关系性的。</li>
+<li><strong>分析题</strong>：选一个真实 LLM Agent 系统（如 ChatGPT、AutoGPT），分析它的设计是否符合 4E 框架。具体说：它的"身体"是什么？环境如何参与认知？行动如何产生认知？工具是否成为认知的延展？</li>
+<li><strong>设计题</strong>：为一个"多模态 Agent"设计 4E 框架映射：Embodied 对应什么组件？Embedded 对应什么？Enacted 对应什么？Extended 对应什么？给出具体实现方案。</li>
+<li><strong>批判题</strong>：Adams &amp; Aizawa 对 Extended Mind 的反驳（"non-derived content"标志）是否成立？请从 LLM Agent 的角度分析——LLM 调用工具返回的内容是否满足 non-derived content 条件？为什么？</li>
+<li><strong>哲学讨论题</strong>：Varela 的 autopoietic 定义是否适用于 LLM Agent？LLM Agent 能"自我维持"吗？还是说 LLM Agent 永远只是"工具"，不是"认知主体"？</li>
+<li><strong>工程实践题</strong>：为你的 LLM Agent 设计一个"4E 评估清单"：4 个维度（Embodied / Embedded / Enacted / Extended）各 5 个评估问题（是/否），评估你的 Agent 在多大程度上体现了 4E 原则。</li>
+</ol>
+<h2 id="_7">参考文献（本章内）</h2>
+<ol>
+<li>Gibson, J. J. (1979). <em>The Ecological Approach to Visual Perception</em>. Lawrence Erlbaum Associates.</li>
+<li>Varela, F. J., Thompson, E., &amp; Rosch, E. (1991). <em>The Embodied Mind: Cognitive Science and Human Experience</em>. MIT Press. <a href="https://mitpress.mit.edu/9780262720212/">$TRAE_REF</a></li>
+<li>Clark, A., &amp; Chalmers, D. J. (1998). The Extended Mind. <em>Analysis</em>, 58(1), 7-19. <a href="https://www.jstor.org/stable/1558173">$TRAE_REF</a></li>
+<li>Adams, F., &amp; Aizawa, K. (2001). The Bounds of Cognition. <em>Philosophical Psychology</em>, 14(1), 43-64. <a href="https://www.tandfonline.com/doi/abs/10.1080/09515080120038578">$TRAE_REF</a></li>
+<li>Chemero, A. (2009). <em>Radical Embodied Cognitive Science</em>. MIT Press.</li>
+<li>Newen, A., de Bruin, L., &amp; Gallagher, S. (Eds.). (2018). <em>The Oxford Handbook of 4E Cognition</em>. Oxford University Press. <a href="https://academic.oup.com/edited-volume/28083">$TRAE_REF</a></li>
+<li>Noë, A. (2004). <em>Action in Perception</em>. MIT Press. <a href="https://mitpress.mit.edu/9780262640633/">$TRAE_REF</a></li>
+<li>Hutto, D. D., &amp; Myin, E. (2017). <em>Radicalizing Enactivism: Basic Minds without Content</em>. MIT Press.</li>
+<li>Barsalou, L. W. (1999). Perceptual Symbol Systems. <em>Behavioral and Brain Sciences</em>, 22(4), 577-660.</li>
+<li>Harnad, S. (1990). The Symbol Grounding Problem. <em>Physica D</em>, 42(1-3), 335-346.</li>
+</ol>
+<hr />
+<blockquote>
+<p><strong>本章进度</strong>：7.1–7.9 节全部完成（约 6,500 字，含 5 张图 + 2 张表 + 10 篇引用 + 6 题 + 5 误区 + 5 推荐），达到 26 页计划。<code>status: final</code>。</p>
+<p><strong>Part II 开篇</strong>：认知科学基础建立。</p>
+</blockquote>
+<div class="nav-top" style="margin-top:3rem;border-top:1px solid var(--border);padding-top:1rem;"><a href="chapter-06.html">← 6. 长期记忆与检索增强</a><a href="index.html">目录</a><a href="chapter-08.html">8. Enactivism 与自创生 →</a></div>
+</main>
+</div>
+</body>
+</html>

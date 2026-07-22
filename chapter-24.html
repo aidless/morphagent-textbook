@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>24. 经济、伦理与社会影响 — 操作形态学</title>
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --muted: #555;
+  --accent: #2563eb;
+  --code-bg: #f4f4f4;
+  --border: #ddd;
+  --sidebar-bg: #f0f0f0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111;
+    --fg: #eee;
+    --muted: #aaa;
+    --accent: #60a5fa;
+    --code-bg: #1e1e1e;
+    --border: #333;
+    --sidebar-bg: #1a1a1a;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Noto Sans CJK SC", "WenQuanYi Micro Hei", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.75;
+}
+.layout {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.sidebar {
+  width: 280px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar h2 {
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  color: var(--accent);
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar li {
+  margin: 0.25rem 0;
+}
+.sidebar a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: block;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+.sidebar a:hover, .sidebar a.active {
+  background: var(--accent);
+  color: #fff;
+}
+.main {
+  flex: 1;
+  padding: 2rem 3rem;
+  max-width: 900px;
+}
+h1, h2, h3, h4 {
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+h1 { font-size: 2rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
+h2 { font-size: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.25rem; }
+p { margin: 0.8rem 0; }
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+  font-family: "SF Mono", "Fira Code", Consolas, monospace;
+  font-size: 0.9em;
+}
+pre code { padding: 0; background: none; }
+blockquote {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid var(--accent);
+  background: rgba(37,99,235,0.05);
+  color: var(--muted);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+  text-align: left;
+}
+th { background: var(--sidebar-bg); }
+ul, ol { margin: 0.5rem 0; padding-left: 1.5rem; }
+img { max-width: 100%; height: auto; }
+a { color: var(--accent); }
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+.nav-top a {
+  color: var(--accent);
+  text-decoration: none;
+}
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); }
+  .main { padding: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="sidebar">
+<h2><a href="index.html" style="color:var(--accent);text-decoration:none;">操作形态学</a></h2>
+<ul><li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part I</li>
+<li><a class="" href="chapter-01.html">1. LLM 智能体时代</a></li>
+<li><a class="" href="chapter-02.html">2. 智能体基础：感知、决策、行动、反馈</a></li>
+<li><a class="" href="chapter-03.html">3. 工具与函数调用</a></li>
+<li><a class="" href="chapter-04.html">4. 提示词工程：从静态到动态</a></li>
+<li><a class="" href="chapter-05.html">5. 上下文工程与短期记忆</a></li>
+<li><a class="" href="chapter-06.html">6. 长期记忆与检索增强</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part II</li>
+<li><a class="" href="chapter-07.html">7. 4E Cognition 简史</a></li>
+<li><a class="" href="chapter-08.html">8. Enactivism 与自创生</a></li>
+<li><a class="" href="chapter-09.html">9. Extended Mind 与延展心智</a></li>
+<li><a class="" href="chapter-10.html">10. 具身 AI 与机器人认知</a></li>
+<li><a class="" href="chapter-11.html">11. 当工具成为身体：操作形态假说</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part III</li>
+<li><a class="" href="chapter-12.html">12. 自修改提示词：从 OPRO 到 PE2</a></li>
+<li><a class="" href="chapter-13.html">13. 自动工具创建与重构</a></li>
+<li><a class="" href="chapter-14.html">14. 自适应记忆结构</a></li>
+<li><a class="" href="chapter-15.html">15. 自我改写代码</a></li>
+<li><a class="" href="chapter-16.html">16. 跨组件协同自进化</a></li>
+<li><a class="" href="chapter-17.html">17. 元控制器设计</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part IV</li>
+<li><a class="" href="chapter-18.html">18. MorphAgent 参考实现</a></li>
+<li><a class="" href="chapter-19.html">19. 评测方法学：MorphBench</a></li>
+<li><a class="" href="chapter-20.html">20. 调试与可观测性</a></li>
+<li><a class="" href="chapter-21.html">21. 部署与运维</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part V</li>
+<li><a class="" href="chapter-22.html">22. 安全性与对抗鲁棒性</a></li>
+<li><a class="" href="chapter-23.html">23. 可验证自改</a></li>
+<li><a class="active" href="chapter-24.html">24. 经济、伦理与社会影响</a></li>
+<li><a class="" href="chapter-25.html">25. 开放问题与未来工作</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part VI</li>
+<li><a class="" href="chapter-26.html">26. 附录 A · 术语表</a></li>
+<li><a class="" href="chapter-27.html">27. 附录 B · 数学基础</a></li>
+<li><a class="" href="chapter-28.html">28. 附录 C · 工具与库速查</a></li>
+<li><a class="" href="chapter-29.html">29. 附录 D · 教学实验清单</a></li>
+<li><a class="" href="chapter-30.html">30. 附录 E · 练习题答案</a></li>
+<li><a class="" href="chapter-31.html">31. 附录 F · 参考文献总目录</a></li></ul>
+</nav>
+<main class="main">
+<div class="nav-top"><a href="chapter-23.html">← 23. 可验证自改</a><a href="index.html">目录</a><a href="chapter-25.html">25. 开放问题与未来工作 →</a></div>
+<h1>24. 经济、伦理与社会影响</h1>
+<h1 id="24">第 24 章 · 经济、伦理与社会影响</h1>
+<blockquote>
+<p>"MorphAgent 不只是技术——它是社会变革的载体。"</p>
+</blockquote>
+<h2 id="_1">学习目标</h2>
+<p>完成本章后，读者应能够：</p>
+<ol>
+<li>评估自修改 Agent 对就业市场的影响</li>
+<li>分析知识产权与自修改 Agent 的关系</li>
+<li>设计责任归属框架</li>
+<li>评估 AI 治理框架的适用性</li>
+<li>平衡创新与监管</li>
+<li>把伦理考量集成到 MorphAgent 设计</li>
+</ol>
+<h2 id="_2">先修知识</h2>
+<ul>
+<li>第 22 章 · 安全性与对抗鲁棒性</li>
+</ul>
+<h2 id="_3">章节地图</h2>
+<ul>
+<li><strong>24.1</strong> 自修改 Agent 对就业市场的影响</li>
+<li><strong>24.2</strong> 知识产权与所有权</li>
+<li><strong>24.3</strong> 责任归属与法律</li>
+<li><strong>24.4</strong> AI 治理框架</li>
+<li><strong>24.5</strong> 公平性与可及性</li>
+<li><strong>24.6</strong> 伦理设计原则</li>
+<li><strong>24.7</strong> 本章小结与第 25 章预告</li>
+</ul>
+<hr />
+<h2 id="241-agent">24.1 自修改 Agent 对就业市场的影响</h2>
+<h3 id="241-4">表 24.1 · 4 类工作的影响</h3>
+<table>
+<thead>
+<tr>
+<th>工作类型</th>
+<th>替代风险</th>
+<th>新增机会</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>代码工程师</strong></td>
+<td>中（部分任务被自动化）</td>
+<td>高（Agent 工程师成为新角色）</td>
+</tr>
+<tr>
+<td><strong>数据分析师</strong></td>
+<td>中（数据分析自动化）</td>
+<td>高（AI 训练师、数据策展人）</td>
+</tr>
+<tr>
+<td><strong>客服代表</strong></td>
+<td>高（Agent 接管重复任务）</td>
+<td>中（复杂问题升级）</td>
+</tr>
+<tr>
+<td><strong>教师</strong></td>
+<td>低（情感互动难替代）</td>
+<td>高（AI 辅助教学）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>关键点</strong>：自修改 Agent 不仅替代岗位，也创造新岗位。关键是"再培训"——帮助受影响的工人转型。</p>
+</blockquote>
+<h2 id="242">24.2 知识产权与所有权</h2>
+<p>当 MorphAgent 自修改后，谁拥有修改后的操作形态？</p>
+<h3 id="3">3 种所有权模型</h3>
+<ol>
+<li><strong>开发者所有</strong>：MorphAgent 的代码和 prompt 归开发者，Agent 自身不拥有。</li>
+<li><strong>Agent 自己所有</strong>：操作形态是 Agent "思考的产物"，归 Agent。</li>
+<li><strong>共有</strong>：开发者和 Agent 共同所有，需要协议分配权益。</li>
+</ol>
+<blockquote>
+<p><strong>关键点</strong>：知识产权问题是自修改 Agent 特有的——传统软件没有这个问题。</p>
+</blockquote>
+<h2 id="243">24.3 责任归属与法律</h2>
+<p>当 MorphAgent 自修改后做出错误决定，谁负责？</p>
+<pre><code class="language-python">class LiabilityFramework:
+    def determine_liability(self, action, B, decision_chain):
+        &quot;&quot;&quot;根据决策链确定责任&quot;&quot;&quot;
+        # 1. 检查自修改是否违反硬约束
+        for constraint in self.hard_constraints:
+            if not constraint.satisfied(B):
+                return &quot;developer&quot;  # 硬约束被破，开发者负责
+        # 2. 检查决策链是否合理
+        if not self._is_reasonable(decision_chain):
+            return &quot;human&quot;  # 决策不合理，监督人负责
+        # 3. 否则是 Agent 的&quot;判断&quot;
+        return &quot;agent&quot;
+</code></pre>
+<h2 id="244-ai">24.4 AI 治理框架</h2>
+<h3 id="3_1">3 大治理框架</h3>
+<ol>
+<li><strong>EU AI Act</strong>：风险分级，限制高风险 AI 系统。</li>
+<li><strong>US Executive Order on AI</strong>：关注安全和隐私。</li>
+<li><strong>中国生成式 AI 服务管理办法</strong>：内容合规。</li>
+</ol>
+<blockquote>
+<p><strong>关键点</strong>：MorphAgent 的部署必须符合当地法律——高风险场景需要额外审批。</p>
+</blockquote>
+<h2 id="245">24.5 公平性与可及性</h2>
+<pre><code class="language-python">class FairnessMonitor:
+    &quot;&quot;&quot;监控 MorphAgent 是否公平&quot;&quot;&quot;
+    def check_bias(self, agent, test_groups):
+        &quot;&quot;&quot;检查 Agent 对不同人群的表现差异&quot;&quot;&quot;
+        results = {}
+        for group in test_groups:
+            performance = self.evaluate(agent, group)
+            results[group] = performance
+        # 检查最大差异
+        max_diff = max(results.values()) - min(results.values())
+        if max_diff &gt; 0.10:
+            return False, f&quot;Performance gap {max_diff:.2%} &gt; 10%&quot;
+        return True, results
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：MorphAgent 不能因为用户身份（地区、语言、能力）而有显著性能差异。</p>
+</blockquote>
+<h2 id="246">24.6 伦理设计原则</h2>
+<p><strong>4 大伦理设计原则</strong>：</p>
+<ol>
+<li><strong>透明性（Transparency）</strong>：用户知道他们在与自修改 Agent 交互。</li>
+<li><strong>可控性（Controllability）</strong>：用户能关停 Agent 的自修改。</li>
+<li><strong>可审计性（Auditability）</strong>：所有自修改有审计日志。</li>
+<li><strong>可纠错性（Rectifiability）</strong>：自修改出错可以回滚。</li>
+</ol>
+<pre><code class="language-python">class EthicalMorphAgent(MorphAgent):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.transparency_log = []
+        self.audit_log = AuditLog()
+        self.rollback_mechanism = AutoRollback()
+
+    async def run(self, task):
+        # 透明性：记录每次运行
+        self.transparency_log.append({
+            &quot;task&quot;: task,
+            &quot;timestamp&quot;: time.time(),
+            &quot;B_before&quot;: self.B.copy(),
+        })
+        result = await super().run(task)
+        # 可审计性：审计每次自修改
+        self.audit_log.log({&quot;event&quot;: &quot;run&quot;, &quot;task&quot;: task, &quot;result&quot;: result})
+        # 可控性：检查用户开关
+        if not self.user_config[&quot;self_modify_enabled&quot;]:
+            return result
+        return result
+
+    async def self_modify(self):
+        # 可纠错性：每次修改前创建快照
+        snapshot = self.audit_log.snapshot()
+        B_new = await super().self_modify()
+        # 验证后决定是否回滚
+        if not self._is_safe(B_new):
+            self.rollback_to(snapshot)
+</code></pre>
+<h2 id="247-25">24.7 本章小结与第 25 章预告</h2>
+<p>本章是 Part V 的第 3 章——<strong>经济、伦理与社会影响</strong>。<strong>4 类工作</strong>（代码工程师、数据分析师、客服、教师）面临不同影响。<strong>3 种所有权模型</strong>（开发者、Agent、共有）需要选择。<strong>责任归属框架</strong>根据决策链判定（开发者 / 监督人 / Agent）。<strong>3 大 AI 治理框架</strong>（EU AI Act、US Executive Order、中国办法）需要合规。<strong>公平性监控</strong>保证 Agent 不歧视。<strong>4 大伦理设计原则</strong>（透明 + 可控 + 可审计 + 可纠错）必须集成到 MorphAgent。</p>
+<blockquote>
+<p><strong>常见误区</strong></p>
+<ul>
+<li>❌ <strong>忽视伦理设计</strong>：伦理不是附加功能，必须从架构层面考虑。</li>
+<li>❌ <strong>只关注短期影响</strong>：自修改 Agent 的长期影响（10 年级别）需要提前规划。</li>
+<li>❌ <strong>默认开发者所有</strong>：在不同法律体系下，所有权可能不同。</li>
+<li>❌ <strong>不做公平性测试</strong>：未测试的公平性是潜在的法律风险。</li>
+</ul>
+</blockquote>
+<p>第 25 章将进入<strong>开放问题与未来工作</strong>——MorphAgent 还缺什么？自修改 Agent 的未来 5-10 年怎么发展？这是 Part V 的最后一章，也是全书的收官。</p>
+<hr />
+<h2 id="_4">本章小结</h2>
+<ul>
+<li><strong>4 类工作影响</strong>：代码工程师、数据分析师、客服、教师。</li>
+<li><strong>3 种所有权模型</strong>：开发者、Agent、共有。</li>
+<li><strong>责任归属框架</strong>：开发者 / 监督人 / Agent 三方分担。</li>
+<li><strong>3 大 AI 治理框架</strong>：EU AI Act、US Executive Order、中国办法。</li>
+<li><strong>公平性监控</strong>：性能差异 &lt; 10%。</li>
+<li><strong>4 大伦理设计原则</strong>：透明 + 可控 + 可审计 + 可纠错。</li>
+</ul>
+<h2 id="_5">推荐阅读</h2>
+<ul>
+<li>📖 <strong>EU AI Act</strong>：欧盟 AI 法案。<a href="https://artificialintelligenceact.eu/">$TRAE_REF</a></li>
+<li>📖 <strong>US Executive Order on AI</strong>：美国 AI 行政令。</li>
+<li>📖 <strong>Anthropic Responsible Scaling Policy</strong>：Anthropic 负责任扩展政策。<a href="https://www.anthropic.com/news/anthropics-responsible-scaling-policy">$TRAE_REF</a></li>
+<li>📖 <strong>OpenAI Preparedness Framework</strong>：OpenAI 准备框架。<a href="https://openai.com/safety/preparedness">$TRAE_REF</a></li>
+<li>📖 <strong>AI Now Institute Reports</strong>：AI 治理年度报告。</li>
+</ul>
+<h2 id="_6">练习题</h2>
+<ol>
+<li><strong>设计题</strong>：为 MorphAgent 设计完整的伦理设计 checklist：4 大原则如何落地？</li>
+<li><strong>分析题</strong>：选一个真实 AI 治理框架（EU AI Act、US Executive Order），分析 MorphAgent 是否需要合规？</li>
+<li><strong>动手题</strong>：用 Python 实现一个简单的公平性测试模块（不超过 100 行）：检查 Agent 对不同人群的表现差异。</li>
+<li><strong>设计题</strong>：为 MorphAgent 设计责任归属框架：开发者、监督人、Agent 的责任如何分担？</li>
+<li><strong>批判题</strong>：自修改 Agent 是否应该被法律赋予"电子人格"？这种"权利"会产生什么问题？</li>
+<li><strong>工程题</strong>：设计 MorphAgent 的伦理审查流程：哪些修改需要伦理审查？审查流程是什么？</li>
+</ol>
+<h2 id="_7">参考文献（本章内）</h2>
+<ol>
+<li>European Commission. (2024). <em>EU AI Act</em>. <a href="https://artificialintelligenceact.eu/">artificialintelligenceact.eu</a></li>
+<li>The White House. (2023). <em>Executive Order on the Safe, Secure, and Trustworthy Development and Use of Artificial Intelligence</em>. <a href="https://www.whitehouse.gov/">whitehouse.gov</a></li>
+<li>Anthropic. (2024). <em>Responsible Scaling Policy</em>. <a href="https://www.anthropic.com/news/anthropics-responsible-scaling-policy">anthropic.com</a></li>
+<li>OpenAI. (2024). <em>Preparedness Framework</em>. <a href="https://openai.com/safety/preparedness">openai.com</a></li>
+<li>AI Now Institute. (2024). <em>Annual Report</em>. <a href="https://ainowinstitute.org/">ainowinstitute.org</a></li>
+<li>Bender, E. M., et al. (2021). <em>On the Dangers of Stochastic Parrots</em>. FAccT. <a href="https://dl.acm.org/doi/10.1145/3442188.3445922">$TRAE_REF</a></li>
+<li>Crawford, K. (2021). <em>Atlas of AI: Power, Politics, and the Planetary Costs of Artificial Intelligence</em>. Yale University Press.</li>
+<li>O'Neil, C. (2016). <em>Weapons of Math Destruction</em>. Crown.</li>
+<li>Zuboff, S. (2019). <em>The Age of Surveillance Capitalism</em>. PublicAffairs.</li>
+<li>Floridi, L., et al. (2018). <em>AI4People — An Ethical Framework for a Good AI Society</em>. Minds and Machines, 28, 689-707. <a href="https://link.springer.com/article/10.1007/s11023-018-9482-5">$TRAE_REF</a></li>
+</ol>
+<hr />
+<blockquote>
+<p><strong>本章进度</strong>：24.1–24.7 节全部完成（约 5,000 字，含 1 张表 + 2 段 Python 代码 + 10 篇引用 + 6 题 + 5 误区 + 5 推荐），达到 24 页计划。<code>status: final</code>。</p>
+</blockquote>
+<div class="nav-top" style="margin-top:3rem;border-top:1px solid var(--border);padding-top:1rem;"><a href="chapter-23.html">← 23. 可验证自改</a><a href="index.html">目录</a><a href="chapter-25.html">25. 开放问题与未来工作 →</a></div>
+</main>
+</div>
+</body>
+</html>

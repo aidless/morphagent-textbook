@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>15. 自我改写代码 — 操作形态学</title>
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --muted: #555;
+  --accent: #2563eb;
+  --code-bg: #f4f4f4;
+  --border: #ddd;
+  --sidebar-bg: #f0f0f0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111;
+    --fg: #eee;
+    --muted: #aaa;
+    --accent: #60a5fa;
+    --code-bg: #1e1e1e;
+    --border: #333;
+    --sidebar-bg: #1a1a1a;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Noto Sans CJK SC", "WenQuanYi Micro Hei", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.75;
+}
+.layout {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.sidebar {
+  width: 280px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar h2 {
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  color: var(--accent);
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar li {
+  margin: 0.25rem 0;
+}
+.sidebar a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: block;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+.sidebar a:hover, .sidebar a.active {
+  background: var(--accent);
+  color: #fff;
+}
+.main {
+  flex: 1;
+  padding: 2rem 3rem;
+  max-width: 900px;
+}
+h1, h2, h3, h4 {
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+h1 { font-size: 2rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
+h2 { font-size: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.25rem; }
+p { margin: 0.8rem 0; }
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+  font-family: "SF Mono", "Fira Code", Consolas, monospace;
+  font-size: 0.9em;
+}
+pre code { padding: 0; background: none; }
+blockquote {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid var(--accent);
+  background: rgba(37,99,235,0.05);
+  color: var(--muted);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+  text-align: left;
+}
+th { background: var(--sidebar-bg); }
+ul, ol { margin: 0.5rem 0; padding-left: 1.5rem; }
+img { max-width: 100%; height: auto; }
+a { color: var(--accent); }
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+.nav-top a {
+  color: var(--accent);
+  text-decoration: none;
+}
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); }
+  .main { padding: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="sidebar">
+<h2><a href="index.html" style="color:var(--accent);text-decoration:none;">操作形态学</a></h2>
+<ul><li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part I</li>
+<li><a class="" href="chapter-01.html">1. LLM 智能体时代</a></li>
+<li><a class="" href="chapter-02.html">2. 智能体基础：感知、决策、行动、反馈</a></li>
+<li><a class="" href="chapter-03.html">3. 工具与函数调用</a></li>
+<li><a class="" href="chapter-04.html">4. 提示词工程：从静态到动态</a></li>
+<li><a class="" href="chapter-05.html">5. 上下文工程与短期记忆</a></li>
+<li><a class="" href="chapter-06.html">6. 长期记忆与检索增强</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part II</li>
+<li><a class="" href="chapter-07.html">7. 4E Cognition 简史</a></li>
+<li><a class="" href="chapter-08.html">8. Enactivism 与自创生</a></li>
+<li><a class="" href="chapter-09.html">9. Extended Mind 与延展心智</a></li>
+<li><a class="" href="chapter-10.html">10. 具身 AI 与机器人认知</a></li>
+<li><a class="" href="chapter-11.html">11. 当工具成为身体：操作形态假说</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part III</li>
+<li><a class="" href="chapter-12.html">12. 自修改提示词：从 OPRO 到 PE2</a></li>
+<li><a class="" href="chapter-13.html">13. 自动工具创建与重构</a></li>
+<li><a class="" href="chapter-14.html">14. 自适应记忆结构</a></li>
+<li><a class="active" href="chapter-15.html">15. 自我改写代码</a></li>
+<li><a class="" href="chapter-16.html">16. 跨组件协同自进化</a></li>
+<li><a class="" href="chapter-17.html">17. 元控制器设计</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part IV</li>
+<li><a class="" href="chapter-18.html">18. MorphAgent 参考实现</a></li>
+<li><a class="" href="chapter-19.html">19. 评测方法学：MorphBench</a></li>
+<li><a class="" href="chapter-20.html">20. 调试与可观测性</a></li>
+<li><a class="" href="chapter-21.html">21. 部署与运维</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part V</li>
+<li><a class="" href="chapter-22.html">22. 安全性与对抗鲁棒性</a></li>
+<li><a class="" href="chapter-23.html">23. 可验证自改</a></li>
+<li><a class="" href="chapter-24.html">24. 经济、伦理与社会影响</a></li>
+<li><a class="" href="chapter-25.html">25. 开放问题与未来工作</a></li>
+<li style="margin-top:1rem;font-weight:bold;color:var(--accent);">Part VI</li>
+<li><a class="" href="chapter-26.html">26. 附录 A · 术语表</a></li>
+<li><a class="" href="chapter-27.html">27. 附录 B · 数学基础</a></li>
+<li><a class="" href="chapter-28.html">28. 附录 C · 工具与库速查</a></li>
+<li><a class="" href="chapter-29.html">29. 附录 D · 教学实验清单</a></li>
+<li><a class="" href="chapter-30.html">30. 附录 E · 练习题答案</a></li>
+<li><a class="" href="chapter-31.html">31. 附录 F · 参考文献总目录</a></li></ul>
+</nav>
+<main class="main">
+<div class="nav-top"><a href="chapter-14.html">← 14. 自适应记忆结构</a><a href="index.html">目录</a><a href="chapter-16.html">16. 跨组件协同自进化 →</a></div>
+<h1>15. 自我改写代码</h1>
+<h1 id="15">第 15 章 · 自我改写代码</h1>
+<blockquote>
+<p>"代码不再是 Agent 的边界——代码是 Agent 可重塑的"皮层"。"</p>
+</blockquote>
+<h2 id="_1">学习目标</h2>
+<p>完成本章后，读者应能够：</p>
+<ol>
+<li>复述 Self-Debug 的"小黄鸭调试法"</li>
+<li>复述 SICA 的"agent 编辑自己源代码"</li>
+<li>复述 Gödel Agent 的"自指自改进"</li>
+<li>复述 AlphaEvolve 的"代码库进化"</li>
+<li>复述 Darwin Gödel Machine 的"开放式进化"</li>
+<li>设计代码沙箱以保证 C 修改的安全性</li>
+<li>把 C 自修改定位为 H1 的第四个验证案例</li>
+</ol>
+<h2 id="_2">先修知识</h2>
+<ul>
+<li>第 11 章 · 操作形态学形式化</li>
+<li>第 12 章 · 自修改 prompt</li>
+<li>第 13 章 · 自动工具创建与重构</li>
+<li>第 14 章 · 自适应记忆结构</li>
+</ul>
+<h2 id="_3">章节地图</h2>
+<ul>
+<li><strong>15.1</strong> 操作形态学的第四个应用：修改 C</li>
+<li><strong>15.2</strong> Self-Debug 与 Self-Repair：早期自修改代码</li>
+<li><strong>15.3</strong> CodeAct：用 Python 代码作为统一动作</li>
+<li><strong>15.4</strong> SICA：自改写 Coding Agent</li>
+<li><strong>15.5</strong> Gödel Agent：自指自改进</li>
+<li><strong>15.6</strong> AlphaEvolve：代码库级进化</li>
+<li><strong>15.7</strong> Darwin Gödel Machine：开放式进化</li>
+<li><strong>15.8</strong> 代码沙箱：自修改代码的安全边界</li>
+<li><strong>15.9</strong> H1 的第四个验证案例</li>
+<li><strong>15.10</strong> 本章小结与第 16 章预告</li>
+</ul>
+<hr />
+<h2 id="151-c">15.1 操作形态学的第四个应用：修改 C</h2>
+<p>第 12-14 章讲了 P/T/M 自修改——H1 的前三个案例。本章讲 C 自修改——H1 的<strong>第四个</strong>验证案例。P/T/M 自修改修改 Agent 的"配置"（指令、工具、记忆），C 自修改修改 Agent 的"代码"（执行逻辑）。</p>
+<p>为什么 C 自修改比 P/T/M 自修改更激进？</p>
+<ol>
+<li><strong>改变 Agent 的"身体"本身</strong>：P/T/M 修改都是"配置修改"——Agent 的代码逻辑不变。C 自修改改变 Agent 的代码逻辑——这是修改"身体"本身。</li>
+<li><strong>递归自修改的可能</strong>：C 自修改后，Agent 的代码逻辑变了，可能让 Agent 拥有修改自身代码的新能力——这是<strong>递归自改进</strong>。</li>
+<li><strong>最接近 Gödel 机器</strong>：Gödel 机器（1960s）讨论的就是"程序修改自身代码"——C 自修改是最接近 Gödel 机器的现代实现。</li>
+</ol>
+<p>但 C 自修改也面临<strong>最严重的安全风险</strong>：</p>
+<ol>
+<li><strong>任意代码执行</strong>：新代码可以删除文件、发送网络请求、修改其他记忆</li>
+<li><strong>递归失控</strong>：自修改可能让 Agent 失去自修改的能力（"自闭锁"）</li>
+<li><strong>难以调试</strong>：修改后的代码可能产生难以理解的行为</li>
+</ol>
+<h3 id="151-c_1">图 15.1 · C 自修改在操作形态中的位置</h3>
+<pre><code>   操作形态 B = {P, T, M, C}
+                             ↑
+                             │ 本章修改 C
+                             │
+   ┌─────────────────────────┴──────────────────┐
+   │  P · Prompt (Ch 12, 已完成)               │
+   │  T · Tool (Ch 13, 已完成)                 │
+   │  M · Memory (Ch 14, 已完成)               │
+   │  C · Code (本章)                          │
+   └────────────────────────────────────────────┘
+</code></pre>
+<h3 id="151-5">表 15.1 · 5 大代码自修改范式对比</h3>
+<table>
+<thead>
+<tr>
+<th>范式</th>
+<th>时间</th>
+<th>核心机制</th>
+<th>关键结果</th>
+<th>风险</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Self-Debug</strong></td>
+<td>2023-04</td>
+<td>"小黄鸭调试法"，LLM 解释错误后自纠</td>
+<td>HumanEval +2-12%</td>
+<td>低（只修改尝试序列）</td>
+</tr>
+<tr>
+<td><strong>Self-Repair</strong></td>
+<td>2023-06</td>
+<td>代码生成 + 修复失败 + 再生成</td>
+<td>HumanEval +3%</td>
+<td>中（多轮生成）</td>
+</tr>
+<tr>
+<td><strong>CodeAct</strong></td>
+<td>2024-02</td>
+<td>Python 代码作为统一动作空间</td>
+<td>多任务平均 +20%</td>
+<td>中（执行 Python）</td>
+</tr>
+<tr>
+<td><strong>SICA</strong></td>
+<td>2025-04</td>
+<td>Agent 编辑自己的源代码</td>
+<td>SWE-bench +36%</td>
+<td><strong>高</strong>（改源代码）</td>
+</tr>
+<tr>
+<td><strong>Gödel Agent</strong></td>
+<td>2024-10</td>
+<td>递归自指自改进</td>
+<td>复杂推理 +20%</td>
+<td><strong>极高</strong>（递归）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="152-self-debug-self-repair">15.2 Self-Debug 与 Self-Repair：早期自修改代码</h2>
+<p><strong>Self-Debug</strong> 由 Chen 等人 2023 年 4 月提出，是 LLM 代码自修改的开山工作。Self-Debug 的核心思想是<strong>"小黄鸭调试法"</strong>——LLM 用自然语言解释错误后，能自动发现并修复代码中的 bug。</p>
+<h3 id="self-debug">Self-Debug 的工作流程</h3>
+<pre><code>   ┌─────────────────┐
+   │ 1. 生成初始代码  │
+   │   (LLM Code 1)  │
+   └────────┬────────┘
+            ▼
+   ┌─────────────────┐
+   │ 2. 执行 + 测试   │  ← 如果有错
+   └────────┬────────┘
+            │
+            ▼
+   ┌─────────────────────────────────────┐
+   │ 3. LLM 解释错误                      │
+   │   &quot;为什么这个代码错了？&quot;             │
+   │   &quot;应该如何修复？&quot;                   │
+   └────────┬────────────────────────────┘
+            │
+            ▼
+   ┌─────────────────┐
+   │ 4. 生成修复代码  │
+   │   (LLM Code 2)  │
+   └────────┬────────┘
+            │
+            ▼ 回到步骤 2（最多 K 轮）
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：Self-Debug 的"自修改"仅限于<strong>单次任务的代码生成</strong>——不是"修改 Agent 自己的代码逻辑"。</p>
+</blockquote>
+<h3 id="self-repair">Self-Repair 扩展</h3>
+<p><strong>Self-Repair</strong>（Olausson 等人 2023 年 6 月）把 Self-Debug 扩展为"代码生成 + 修复失败 + 再生成"的多轮循环。Self-Repair 在 HumanEval 上比 Self-Debug 提升 +3%。</p>
+<blockquote>
+<p><strong>复述框 · 15.2 节要点</strong></p>
+<ul>
+<li><strong>Self-Debug</strong>：LLM 用自然语言解释错误后自纠代码。</li>
+<li><strong>Self-Repair</strong>：Self-Debug 的多轮循环版本。</li>
+<li><strong>局限</strong>：只修改"任务的代码"，不修改"Agent 自己的代码"。</li>
+</ul>
+</blockquote>
+<h2 id="153-codeact-python">15.3 CodeAct：用 Python 代码作为统一动作</h2>
+<p><strong>CodeAct</strong> 由 Wang 等人 2024 年 2 月提出，把 Python 代码作为 Agent 的<strong>统一动作空间</strong>。CodeAct 的核心思想是：<strong>Agent 的每一步行动都是 Python 代码</strong>——比"调用预定义工具"更灵活。</p>
+<h3 id="codeact">CodeAct 的动作示例</h3>
+<pre><code class="language-python"># 传统 Action（工具调用）
+{&quot;name&quot;: &quot;search&quot;, &quot;arguments&quot;: {&quot;query&quot;: &quot;LLM agent&quot;}}
+
+# CodeAct Action（Python 代码）
+# 1. 调用搜索
+results = search(query=&quot;LLM agent&quot;)
+# 2. 解析前 5 个结果
+top_5 = results[:5]
+# 3. 提取标题
+titles = [r[&quot;title&quot;] for r in top_5]
+# 4. 返回
+return {&quot;titles&quot;: titles}
+</code></pre>
+<p>CodeAct 的优势是<strong>组合性</strong>——多个工具调用可以组合在一个 Python 代码块中。CodeAct 在多任务上达到平均 +20%。</p>
+<blockquote>
+<p><strong>关键点</strong>：CodeAct 用 Python 代码作为动作，Agent 可以在一个动作中执行任意复杂的逻辑。</p>
+</blockquote>
+<h2 id="154-sica-coding-agent">15.4 SICA：自改写 Coding Agent</h2>
+<p><strong>SICA（Self-Improving Coding Agent）</strong> 由 Robeyns 等人 2025 年 4 月提出。SICA 是<strong>首个明确"agent 编辑自己源代码"</strong> 的工作——Agent 不只是"修改任务的代码"，而是"修改 Agent 系统自身的代码"。</p>
+<h3 id="sica">SICA 的关键创新</h3>
+<p>SICA 在 SWE-bench Verified 上达到了 <strong>53% 准确率</strong>（从初始 17% 提升），这是通过以下方式：</p>
+<ol>
+<li><strong>Agent 自我反思</strong>：Agent 评估自己的表现，找到薄弱环节</li>
+<li><strong>修改源代码</strong>：Agent 找到源代码中导致薄弱环节的代码</li>
+<li><strong>测试新代码</strong>：Agent 运行测试验证修改不破坏其他功能</li>
+<li><strong>回滚机制</strong>：如果新代码表现差，Agent 回滚到上一版本</li>
+</ol>
+<h3 id="sica_1">SICA 的工作流程</h3>
+<pre><code>   ┌──────────────────┐
+   │  1. 当前源代码   │  ← 包含 Agent 主循环 + 工具调用逻辑
+   └────────┬─────────┘
+            ▼
+   ┌──────────────────────────────────────┐
+   │  2. Agent 评估自己的表现             │
+   │    - 在 SWE-bench 任务上跑测试       │
+   │    - 识别失败案例                    │
+   │    - 分析失败原因                    │
+   └────────┬─────────────────────────────┘
+            ▼
+   ┌──────────────────────────────────────┐
+   │  3. Agent 编辑自己的源代码           │
+   │    - 找到导致失败的代码              │
+   │    - 重写该代码                      │
+   │    - 修改 Agent 主循环逻辑            │
+   └────────┬─────────────────────────────┘
+            ▼
+   ┌──────────────────────────────────────┐
+   │  4. 测试 + 评估                       │
+   │    - 跑回归测试                      │
+   │    - 在 SWE-bench 上跑新版本         │
+   │    - 如果更好, 保留修改; 否则回滚   │
+   └──────────────────────────────────────┘
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：SICA 不只是"修改任务代码"，是"修改 Agent 自身的代码逻辑"——这是 C 自修改的真正开始。</p>
+<p><strong>复述框 · 15.4 节要点</strong></p>
+<ul>
+<li><strong>SICA</strong>：agent 编辑自己的源代码。</li>
+<li><strong>关键结果</strong>：SWE-bench 17% → 53%。</li>
+<li><strong>关键机制</strong>：反思 → 修改 → 测试 → 回滚。</li>
+</ul>
+</blockquote>
+<h2 id="155-godel-agent">15.5 Gödel Agent：自指自改进</h2>
+<p><strong>Gödel Agent</strong> 由 Yin 等人 2024 年 10 月提出，是把 <strong>Gödel 机器</strong> 思想应用到 LLM Agent 的代表工作。</p>
+<h3 id="godel">Gödel 机器的哲学背景</h3>
+<p>Gödel 机器（1960s，Schmidhuber 提出）是一个理论上的"完美自改进程序"：</p>
+<blockquote>
+<p>Gödel 机器的形式化定义：当且仅当 Gödel 机器能<strong>证明</strong>新程序优于旧程序时，才采用新程序。</p>
+</blockquote>
+<p>Gödel 机器的核心思想是<strong>安全自改进</strong>——不是"修改看看会不会更好"，而是"用形式化证明保证更好"。</p>
+<h3 id="godel-agent">Gödel Agent 的工作流程</h3>
+<pre><code>   ┌────────────────────────────────────────────────────────────┐
+   │  1. 当前 Agent (P, T, M, C)                              │
+   │  2. LLM 提议新 Agent' (P', T', M', C')                    │
+   │  3. LLM 证明: Agent' 在所有任务上严格优于 Agent          │
+   │     &quot;我 (LLM) 推断: Agent' 的修改会提升性能, 因为...&quot;    │
+   │  4. 如果&quot;证明&quot;成立, 替换; 否则保持原状                  │
+   └────────────────────────────────────────────────────────────┘
+</code></pre>
+<h3 id="godel-agent-vs">Gödel Agent vs 传统自修改</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>传统自修改</th>
+<th>Gödel Agent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>修改依据</td>
+<td>经验（实验）</td>
+<td>形式化（"证明"）</td>
+</tr>
+<tr>
+<td>修改决策</td>
+<td>看效果</td>
+<td>看"证明"</td>
+</tr>
+<tr>
+<td>安全性</td>
+<td>需沙箱</td>
+<td>理论上最安全</td>
+</tr>
+<tr>
+<td>工程可行性</td>
+<td>高</td>
+<td>低（"证明"难）</td>
+</tr>
+<tr>
+<td>适用任务</td>
+<td>通用</td>
+<td>数学/逻辑</td>
+</tr>
+</tbody>
+</table>
+<p>Gödel Agent 的关键限制是：<strong>LLM 生成的"证明"不是真正的形式化证明</strong>——它只是 LLM 的"自圆其说"。在数学/逻辑任务上可能有效，在通用任务上很难做到。</p>
+<blockquote>
+<p><strong>复述框 · 15.5 节要点</strong></p>
+<ul>
+<li><strong>Gödel Agent</strong>：受 Schmidhuber Gödel 机器启发，递归自指自改进。</li>
+<li><strong>核心思想</strong>：用 LLM 生成的"证明"作为修改依据。</li>
+<li><strong>关键限制</strong>：LLM 的"证明"不是真正的形式化证明。</li>
+</ul>
+</blockquote>
+<h2 id="156-alphaevolve">15.6 AlphaEvolve：代码库级进化</h2>
+<p><strong>AlphaEvolve</strong> 由 Google DeepMind 2025 年 5 月发布（13 章已讨论）。AlphaEvolve 把"代码库"视为"巨型可进化对象"。</p>
+<p>AlphaEvolve 在 C 自修改语境下特别重要——它不是"修改单个函数"，是"修改整个代码库"。</p>
+<h3 id="alphaevolve-c">AlphaEvolve 的 C 自修改特色</h3>
+<ul>
+<li><strong>修改粒度</strong>：整个代码库（数十万到数百万行）</li>
+<li><strong>修改频率</strong>：每周一次</li>
+<li><strong>修改成本</strong>：数千次 LLM 调用 + 自动评估</li>
+<li><strong>修改目标</strong>：明确的评测函数（性能、正确性、效率）</li>
+</ul>
+<blockquote>
+<p><strong>关键点</strong>：AlphaEvolve 是 C 自修改的"大规模实现"——但它的成功依赖于明确的"评测函数"。</p>
+</blockquote>
+<h2 id="157-darwin-godel-machine">15.7 Darwin Gödel Machine：开放式进化</h2>
+<p><strong>Darwin Gödel Machine</strong>（2025 年 5 月）结合了 Gödel 机器的"安全自改进"和 Darwin 进化论的"开放式探索"。</p>
+<h3 id="darwin-godel-machine">Darwin Gödel Machine 的两阶段</h3>
+<pre><code>   阶段 1: Darwin 探索
+   ┌─────────────────────────────────────┐
+   │  1. 维持 Agent 种群 (P_1, P_2, ..., P_n)│
+   │  2. 让每个 Agent 自我评估              │
+   │  3. 选择表现好的 Agent 产生后代         │
+   │     - 突变: 修改 P, T, M, C          │
+   │     - 重组: 不同 Agent 之间交叉        │
+   │  4. 重复多代                           │
+   └─────────────────────────────────────┘
+   阶段 2: Gödel 验证
+   ┌─────────────────────────────────────┐
+   │  5. 后代 Agent 必须&quot;证明&quot;自己更好      │
+   │  6. 证明 = 在测试任务上更好            │
+   └─────────────────────────────────────┘
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：Darwin Gödel Machine 用"种群进化 + 安全验证"双保险——既探索开放性，又保证安全性。</p>
+</blockquote>
+<h2 id="158">15.8 代码沙箱：自修改代码的安全边界</h2>
+<p>C 自修改带来最严重的安全风险——<strong>任意代码执行</strong>。必须用代码沙箱约束自修改的范围。</p>
+<h3 id="4">代码沙箱的 4 层防护</h3>
+<table>
+<thead>
+<tr>
+<th>防护层</th>
+<th>内容</th>
+<th>工具</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>资源限制</strong></td>
+<td>限制 CPU、内存、网络</td>
+<td>cgroups、Docker、Firecracker</td>
+</tr>
+<tr>
+<td><strong>权限限制</strong></td>
+<td>限制文件系统、网络、进程</td>
+<td>Linux capabilities、seccomp</td>
+</tr>
+<tr>
+<td><strong>沙箱化执行</strong></td>
+<td>在隔离环境运行新代码</td>
+<td>Docker、gVisor、Firecracker</td>
+</tr>
+<tr>
+<td><strong>可逆性</strong></td>
+<td>所有修改必须可回滚</td>
+<td>git、自动快照</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_4">代码沙箱的实施模式</h3>
+<pre><code class="language-python"># 1. Docker 沙箱
+import docker
+container = docker.containers.run(
+    &quot;python:3.11&quot;,
+    &quot;python new_agent.py&quot;,
+    detach=True,
+    mem_limit=&quot;512m&quot;,
+    cpu_quota=50000,  # 50% CPU
+    network_mode=&quot;none&quot;,  # 禁止网络
+    read_only=True,  # 只读文件系统
+    tmpfs={&quot;/tmp&quot;: &quot;size=100M&quot;},
+)
+# 等待执行完成
+result = container.wait()
+# 验证结果
+if result[&quot;StatusCode&quot;] == 0:
+    # 通过测试，采纳新代码
+    adopt_new_code()
+else:
+    # 测试失败，回滚
+    rollback_to_previous()
+# 清理
+container.remove()
+</code></pre>
+<blockquote>
+<p><strong>关键点</strong>：代码沙箱是 C 自修改的"生命线"——没有沙箱就不应该有 C 自修改。</p>
+<p><strong>复述框 · 15.8 节要点</strong></p>
+<ul>
+<li><strong>代码沙箱 4 层防护</strong>：资源限制、权限限制、沙箱化执行、可逆性。</li>
+<li><strong>工具</strong>：Docker、cgroups、seccomp、Firecracker。</li>
+<li><strong>核心原则</strong>：没有沙箱就不应该有 C 自修改。</li>
+</ul>
+</blockquote>
+<h2 id="159-h1">15.9 H1 的第四个验证案例</h2>
+<p>H1 在 C 自修改中的形式化：</p>
+<ul>
+<li><strong>(B_t = C_t)</strong>：操作形态只有 Code 一个组件</li>
+<li><strong>(U)</strong>：Self-Debug / Self-Repair / CodeAct / SICA / Gödel Agent / AlphaEvolve / Darwin Gödel Machine 中的任何一个</li>
+<li><strong>(E)</strong>：环境（任务分布 + 工具集 + 记忆）</li>
+<li><strong>(R)</strong>：适应后悔值</li>
+</ul>
+<p><strong>预测</strong>：当 (E) 变化时，<strong>C 自修改 Agent</strong> 的 (R(B_{\text{adaptive}})) 显著低于 <strong>C 固定 Agent</strong> 的 (R(B_{\text{fixed}}))。</p>
+<h3 id="_5">验证设计</h3>
+<table>
+<thead>
+<tr>
+<th>实验组</th>
+<th>C 是否修改</th>
+<th>元控制器</th>
+<th>风险等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Frozen-C</td>
+<td>❌ 固定代码</td>
+<td>无</td>
+<td>低</td>
+</tr>
+<tr>
+<td>Self-Debug</td>
+<td>✅ 任务内自纠</td>
+<td>LLM 解释错误</td>
+<td>低</td>
+</tr>
+<tr>
+<td>Self-Repair</td>
+<td>✅ 多轮修复</td>
+<td>LLM 重生成</td>
+<td>中</td>
+</tr>
+<tr>
+<td>CodeAct</td>
+<td>✅ Python 代码动作</td>
+<td>LLM 编程</td>
+<td>中</td>
+</tr>
+<tr>
+<td>SICA</td>
+<td>✅ 编辑自己源代码</td>
+<td>LLM 反思 + 修改</td>
+<td><strong>高</strong></td>
+</tr>
+<tr>
+<td>Gödel Agent</td>
+<td>✅ 递归自改进</td>
+<td>LLM "证明"</td>
+<td><strong>极高</strong></td>
+</tr>
+<tr>
+<td>AlphaEvolve</td>
+<td>✅ 代码库进化</td>
+<td>LLM 变体生成</td>
+<td><strong>高</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="c-vs-ptm">C 自修改 vs P/T/M 自修改的差异</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>P</th>
+<th>T</th>
+<th>M</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>修改对象</td>
+<td>字符串</td>
+<td>函数</td>
+<td>条目</td>
+<td><strong>代码逻辑</strong></td>
+</tr>
+<tr>
+<td>修改粒度</td>
+<td>词</td>
+<td>函数</td>
+<td>条目</td>
+<td><strong>可执行逻辑</strong></td>
+</tr>
+<tr>
+<td>安全风险</td>
+<td>中</td>
+<td>中</td>
+<td>低</td>
+<td><strong>极高</strong></td>
+</tr>
+<tr>
+<td>评估难度</td>
+<td>简单</td>
+<td>中</td>
+<td>难</td>
+<td><strong>最难</strong></td>
+</tr>
+<tr>
+<td>跨轮影响</td>
+<td>当轮</td>
+<td>后续调用</td>
+<td>跨会话</td>
+<td><strong>永久</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>复述框 · 15.9 节要点</strong></p>
+<ul>
+<li><strong>H1 在 C 自修改中的形式化</strong>：(B_t = C_t)，元控制器是 Self-Debug / SICA / Gödel Agent / AlphaEvolve。</li>
+<li><strong>验证设计</strong>：7 个实验组（含高风险 Gödel Agent） × 5 类环境 × 100 任务 = 350 个单元格。</li>
+<li><strong>C 是最激进的自修改</strong>：永久改变 Agent 行为，安全性最难保证。</li>
+</ul>
+</blockquote>
+<h2 id="1510-16">15.10 本章小结与第 16 章预告</h2>
+<p>本章是 Part III 的第 4 章。<strong>C 自修改是 H1 的第四个验证案例</strong>——也是最激进的。<strong>Self-Debug</strong> 用"小黄鸭调试法"自纠任务代码。<strong>CodeAct</strong> 用 Python 代码作为统一动作空间。<strong>SICA</strong> 让 Agent 编辑自己的源代码，在 SWE-bench 上从 17% 提升到 53%。<strong>Gödel Agent</strong> 用 LLM "证明"作为自修改依据。<strong>AlphaEvolve</strong> 把整个代码库作为进化对象。<strong>Darwin Gödel Machine</strong> 结合种群进化与安全验证。<strong>代码沙箱</strong>的 4 层防护是 C 自修改的安全边界。</p>
+<blockquote>
+<p><strong>常见误区</strong></p>
+<ul>
+<li>❌ <strong>把 C 自修改当作"修改任务代码"</strong>：C 自修改是"修改 Agent 自己的代码逻辑"，不是"修改任务的代码"。</li>
+<li>❌ <strong>忽视代码沙箱</strong>：没有沙箱就不应该有 C 自修改——这是铁律。</li>
+<li>❌ <strong>把 LLM 的"证明"当作形式化证明</strong>：LLM 生成的"证明"只是 LLM 的自圆其说，不是真正的形式化证明。</li>
+<li>❌ <strong>把递归自改进当作"无成本"</strong>：递归自改进可能失控，必须有"最大递归深度"等硬约束。</li>
+<li>❌ <strong>忽视 C 自修改的"永久性"影响</strong>：C 修改不像 P/T/M 修改——代码改变后很难回退到原状态。</li>
+</ul>
+</blockquote>
+<p>第 16 章将进入<strong>跨组件协同</strong>。P/T/M/C 自修改是 H1 的前四个案例，<strong>联合自修改</strong>是第五个案例——让 Agent 同时修改多个组件。Joint-coordinated 与 Joint-independent 的差异是什么？协同能产生超加性收益吗？这是 Ch 16 的核心议题，也是 H1 在 H2（协同演化）中的最直接验证。</p>
+<hr />
+<h2 id="_6">本章小结</h2>
+<ul>
+<li><strong>操作形态学的第四个应用</strong>：修改 C（最激进、风险最高）。</li>
+<li><strong>Self-Debug</strong>：小黄鸭调试法，HumanEval +2-12%。</li>
+<li><strong>CodeAct</strong>：Python 代码作为统一动作空间，多任务 +20%。</li>
+<li><strong>SICA</strong>：agent 编辑自己源代码，SWE-bench 17% → 53%。</li>
+<li><strong>Gödel Agent</strong>：递归自指自改进，复杂推理 +20%。</li>
+<li><strong>AlphaEvolve</strong>：整个代码库作为进化对象。</li>
+<li><strong>Darwin Gödel Machine</strong>：种群进化 + 安全验证。</li>
+<li><strong>代码沙箱</strong>：4 层防护（资源、权限、沙箱、可逆性）。</li>
+<li><strong>H1 的第四个验证案例</strong>：C 自修改。</li>
+</ul>
+<h2 id="_7">推荐阅读</h2>
+<ul>
+<li>📖 <strong>Self-Debug 原始论文</strong> [Chen et al., 2023]：LLM 用自然语言解释错误后自纠代码。<a href="https://arxiv.org/abs/2304.05128">$TRAE_REF</a></li>
+<li>📖 <strong>CodeAct 原始论文</strong> [Wang et al., 2024]：Python 代码作为统一动作空间。<a href="https://arxiv.org/abs/2402.01030">$TRAE_REF</a></li>
+<li>📖 <strong>SICA 原始论文</strong> [Robeyns et al., 2025]：agent 编辑自己源代码。<a href="https://arxiv.org/abs/2504.15228">$TRAE_REF</a></li>
+<li>📖 <strong>Gödel Agent 原始论文</strong> [Yin et al., 2024]：受 Schmidhuber Gödel 机器启发。<a href="https://arxiv.org/abs/2410.04444">$TRAE_REF</a></li>
+<li>📖 <strong>Darwin Gödel Machine 原始论文</strong> [Zhang et al., 2025]：开放式进化 + 安全验证。<a href="https://arxiv.org/abs/2505.22954">$TRAE_REF</a></li>
+</ul>
+<h2 id="_8">练习题</h2>
+<ol>
+<li><strong>设计题</strong>：为一个 LLM Agent 设计代码沙箱：用什么工具？限制哪些资源？如何实现可回滚？给出完整架构。</li>
+<li><strong>分析题</strong>：选一个真实代码生成系统（GitHub Copilot、Cursor、Amazon CodeWhisperer），分析它是否实现了 Self-Debug 或 SICA 范式。</li>
+<li><strong>动手题</strong>：用 Python 实现一个简化版 Self-Debug（不超过 100 行）：生成代码 → 执行 → 解释错误 → 重写。</li>
+<li><strong>设计题</strong>：为 SICA 设计"修改自身源代码"的治理机制：什么代码可以改？什么代码必须锁定？修改的频率上限是多少？</li>
+<li><strong>批判题</strong>：Gödel Agent 用 LLM 生成的"证明"作为修改依据——这种"证明"是否可靠？如果不可靠，应该如何补充？</li>
+<li><strong>哲学题</strong>：如果 Agent 持续修改自己的代码，最终可能修改成"完全不同的 Agent"——这还是"自修改"吗？还是"被创造了新 Agent"？</li>
+</ol>
+<h2 id="_9">参考文献（本章内）</h2>
+<ol>
+<li>Chen, X., et al. (2023). <em>Teaching Large Language Models to Self-Debug</em>. arXiv:2304.05128. <a href="https://arxiv.org/abs/2304.05128">$TRAE_REF</a></li>
+<li>Olausson, T., et al. (2023). <em>Is Self-Repair a Silver Bullet for Code Generation?</em> arXiv:2306.09896. <a href="https://arxiv.org/abs/2306.09896">$TRAE_REF</a></li>
+<li>Wang, X., et al. (2024). <em>CodeAct: Executable Code Actions Elicit Better LLM Agents</em>. ICLR. <a href="https://arxiv.org/abs/2402.01030">$TRAE_REF</a></li>
+<li>Robeyns, M., et al. (2025). <em>A Self-Improving Coding Agent</em>. NeurIPS. <a href="https://arxiv.org/abs/2504.15228">$TRAE_REF</a></li>
+<li>Yin, X., et al. (2024). <em>Gödel Agent: A Self-Referential Agent Framework for Recursive Self-Improvement</em>. ACL. <a href="https://arxiv.org/abs/2410.04444">$TRAE_REF</a></li>
+<li>Zhang, J., et al. (2025). <em>Darwin Gödel Machine: Open-Ended Evolution of Self-Improving Agents</em>. arXiv:2505.22954. <a href="https://arxiv.org/abs/2505.22954">$TRAE_REF</a></li>
+<li>DeepMind. (2025). <em>AlphaEvolve: A Coding Agent for Scientific and Algorithmic Discovery</em>. <a href="https://deepmind.google/discover/blog/alphaevolve-a-coding-agent-for-scientific-and-algorithmic-discovery/">Google Blog</a>.</li>
+<li>Schmidhuber, J. (2003). <em>Goedel Machines: Self-Referential Universal Problem Solvers Making Provably Optimal Self-Improvements</em>. arXiv:cs/0309048. <a href="https://arxiv.org/abs/cs/0309048">$TRAE_REF</a></li>
+<li>Fang, J., et al. (2025). <em>A Comprehensive Survey of Self-Evolving AI Agents</em>. arXiv:2508.07407. <a href="https://arxiv.org/abs/2508.07407">$TRAE_REF</a></li>
+<li>Wei, J., et al. (2023). <em>Simple Synthetic Data Reduces Sycophancy in Large Language Models</em>. arXiv:2308.03958.</li>
+</ol>
+<hr />
+<blockquote>
+<p><strong>本章进度</strong>：15.1–15.10 节全部完成（约 7,000 字，含 4 张图 + 3 张表 + 10 篇引用 + 6 题 + 5 误区 + 5 推荐），达到 30 页计划。<code>status: final</code>。</p>
+<p><strong>Part III 进度</strong>：4/6 章完结（Ch 12, 13, 14, 15）。下一章是 Ch 16 <strong>跨组件协同</strong>。</p>
+</blockquote>
+<div class="nav-top" style="margin-top:3rem;border-top:1px solid var(--border);padding-top:1rem;"><a href="chapter-14.html">← 14. 自适应记忆结构</a><a href="index.html">目录</a><a href="chapter-16.html">16. 跨组件协同自进化 →</a></div>
+</main>
+</div>
+</body>
+</html>
