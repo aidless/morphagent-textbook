@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="800" height="520" font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',Arial,sans-serif">
+<rect width="800" height="520" fill="#ffffff"/>
+<text x="400" y="30" text-anchor="middle" font-size="16" font-weight="bold" fill="#1e293b">MorphBench &#x8BC4;&#x4F30;&#x7F51;&#x683C; / Evaluation Grid</text>
+<rect x="50" y="50" width="700" height="400" rx="14" ry="14" fill="#fee2e2" stroke="#dc2626" stroke-width="2" opacity="0.3"/>
+<text x="65" y="72" font-size="12" font-weight="bold" fill="#dc2626">5 &#x7C7B;&#x73AF;&#x5883;&#x5E72;&#x9884; / Interventions</text>
+<rect x="80" y="85" width="650" height="350" rx="12" ry="12" fill="#dbeafe" stroke="#2563eb" stroke-width="2" opacity="0.3"/>
+<text x="95" y="107" font-size="12" font-weight="bold" fill="#2563eb">7 &#x4E2A;&#x5B9E;&#x9A8C;&#x7EC4; / Experiment Groups</text>
+<rect x="110" y="120" width="600" height="300" rx="10" ry="10" fill="#d1fae5" stroke="#059669" stroke-width="2" opacity="0.3"/>
+<text x="125" y="142" font-size="12" font-weight="bold" fill="#059669">5 &#x4E2A;&#x6307;&#x6807; x 10 &#x4E2A;&#x4EFB;&#x52A1; / 5 Metrics x 10 Tasks</text>
+<rect x="140" y="148" width="100" height="24" rx="4" ry="4" fill="white" stroke="#dc2626" stroke-width="1"/>
+<text x="190" y="164" text-anchor="middle" font-size="10" fill="#dc2626">API &#x6F02;&#x79FB;</text>
+<rect x="140" y="218" width="100" height="24" rx="4" ry="4" fill="white" stroke="#dc2626" stroke-width="1"/>
+<text x="190" y="234" text-anchor="middle" font-size="10" fill="#dc2626">&#x4EFB;&#x52A1;&#x6F02;&#x79FB;</text>
+<rect x="140" y="288" width="100" height="24" rx="4" ry="4" fill="white" stroke="#dc2626" stroke-width="1"/>
+<text x="190" y="304" text-anchor="middle" font-size="10" fill="#dc2626">&#x8D44;&#x6E90;&#x6F02;&#x79FB;</text>
+<rect x="140" y="358" width="100" height="24" rx="4" ry="4" fill="white" stroke="#dc2626" stroke-width="1"/>
+<text x="190" y="374" text-anchor="middle" font-size="10" fill="#dc2626">&#x8BB0;&#x5FC6;&#x51B2;&#x7A81;</text>
+<rect x="140" y="428" width="100" height="24" rx="4" ry="4" fill="white" stroke="#dc2626" stroke-width="1"/>
+<text x="190" y="444" text-anchor="middle" font-size="10" fill="#dc2626">&#x5B89;&#x5168;&#x5E72;&#x9884;</text>
+<rect x="278" y="148" width="44" height="24" rx="4" ry="4" fill="white" stroke="#2563eb" stroke-width="1"/>
+<text x="300" y="164" text-anchor="middle" font-size="9" font-weight="bold" fill="#2563eb">Frozen</text>
+<rect x="333" y="148" width="44" height="24" rx="4" ry="4" fill="white" stroke="#2563eb" stroke-width="1"/>
+<text x="355" y="164" text-anchor="middle" font-size="9" font-weight="bold" fill="#2563eb">P-only</text>
+<rect x="388" y="148" width="44" height="24" rx="4" ry="4" fill="white" stroke="#2563eb" stroke-width="1"/>
+<text x="410" y="164" text-anchor="middle" font-size="9" font-weight="bold" fill="#2563eb">T/C-only</text>
+<rect x="443" y="148" width="44" height="24" rx="4" ry="4" fill="white" stroke="#2563eb" stroke-width="1"/>
+<text x="465" y="164" text-anchor="middle" font-size="9" font-weight="bold" fill="#2563eb">M-only</text>
+<rect x="498" y="148" width="44" height="24" rx="4" ry="4" fill="white" stroke="#2563eb" stroke-width="1"/>
+<text x="520" y="164" text-anchor="middle" font-size="9" font-weight="bold" fill="#2563eb">Indep.</text>
+<rect x="553" y="148" width="44" height="24" rx="4" ry="4" fill="white" stroke="#2563eb" stroke-width="1"/>
+<text x="575" y="164" text-anchor="middle" font-size="9" font-weight="bold" fill="#2563eb">Coord.</text>
+<rect x="608" y="148" width="44" height="24" rx="4" ry="4" fill="white" stroke="#2563eb" stroke-width="1"/>
+<text x="630" y="164" text-anchor="middle" font-size="9" font-weight="bold" fill="#2563eb">Human</text>
+<rect x="200" y="270" width="400" height="100" rx="10" ry="10" fill="white" stroke="#1e293b" stroke-width="1.5"/>
+<text x="400" y="305" text-anchor="middle" font-size="22" font-weight="bold" fill="#1e293b">175 = 5 x 7 x 5</text>
+<text x="400" y="330" text-anchor="middle" font-size="12" fill="#6b7280">&#x5E72;&#x9884; x &#x5B9E;&#x9A8C;&#x7EC4; x &#x6307;&#x6807;</text>
+<text x="400" y="355" text-anchor="middle" font-size="10" fill="#6b7280">(&#x6BCF;&#x4E2A;&#x5355;&#x5143;&#x683C;&#x5728; 10 &#x4E2A;&#x4EFB;&#x52A1;&#x4E0A;&#x91CD;&#x590D;)</text>
+<text x="680" y="290" font-size="14" font-weight="bold" fill="#ea580c">H1</text>
+<text x="680" y="310" font-size="10" fill="#ea580c">&#x7ED3;&#x6784;&#x53EF;&#x5851;&#x6027;</text>
+<text x="680" y="340" font-size="14" font-weight="bold" fill="#ea580c">H2</text>
+<text x="680" y="360" font-size="10" fill="#ea580c">&#x534F;&#x540C;&#x6F14;&#x5316;</text>
+
+<text x="400" y="490" text-anchor="middle" font-size="12" fill="#6b7280" font-style="italic">Figure 4: MorphBench &#x8BC4;&#x4F30;&#x7F51;&#x683C; -- MorphBench Evaluation Grid (5x7x5x10)</text>
+</svg>

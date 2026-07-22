@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="800" height="520" font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',Arial,sans-serif">
+<rect width="800" height="520" fill="#ffffff"/>
+<text x="400" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e293b">5 &#x7EA7;&#x667A;&#x80FD;&#x4F53;&#x5C42;&#x6B21;&#x7ED3;&#x6784; / Agent Capability Hierarchy (L0 - L5)</text>
+<rect x="60" y="60" width="680" height="55" rx="8" ry="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2"/>
+<text x="100" y="85" text-anchor="middle" font-size="18" font-weight="bold" fill="#94a3b8">L0</text>
+<text x="160" y="85" font-size="14" font-weight="bold" fill="#1e293b">Fixed Agent / &#x56FA;&#x5B9A;&#x667A;&#x80FD;&#x4F53;</text>
+<text x="160" y="102" font-size="11" fill="#6b7280">P, T, M, C &#x5747;&#x4E0D;&#x53EF;&#x4FEE;&#x6539;</text>
+<circle cx="620" cy="85" r="10" fill="none" stroke="#6b7280" stroke-width="1.5"/>
+<text x="620" y="89" text-anchor="middle" font-size="10" fill="#6b7280">P</text>
+<circle cx="650" cy="85" r="10" fill="none" stroke="#6b7280" stroke-width="1.5"/>
+<text x="650" y="89" text-anchor="middle" font-size="10" fill="#6b7280">T</text>
+<circle cx="680" cy="85" r="10" fill="none" stroke="#6b7280" stroke-width="1.5"/>
+<text x="680" y="89" text-anchor="middle" font-size="10" fill="#6b7280">M</text>
+<circle cx="710" cy="85" r="10" fill="none" stroke="#6b7280" stroke-width="1.5"/>
+<text x="710" y="89" text-anchor="middle" font-size="10" fill="#6b7280">C</text>
+<rect x="75" y="120" width="660" height="55" rx="8" ry="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+<text x="115" y="145" text-anchor="middle" font-size="18" font-weight="bold" fill="#2563eb">L1</text>
+<text x="175" y="145" font-size="14" font-weight="bold" fill="#1e293b">Self-Prompt / &#x81EA;&#x4FEE;&#x6539;&#x63D0;&#x793A;&#x8BCD;</text>
+<text x="175" y="162" font-size="11" fill="#6b7280">P &#x53EF;&#x4FEE;&#x6539; (OPRO, DSPy)</text>
+<circle cx="620" cy="145" r="10" fill="#2563eb" opacity="0.8"/>
+<text x="620" y="149" text-anchor="middle" font-size="10" font-weight="bold" fill="white">P</text>
+<circle cx="650" cy="145" r="10" fill="none" stroke="#6b7280" stroke-width="1.5"/>
+<text x="650" y="149" text-anchor="middle" font-size="10" fill="#6b7280">T</text>
+<circle cx="680" cy="145" r="10" fill="none" stroke="#6b7280" stroke-width="1.5"/>
+<text x="680" y="149" text-anchor="middle" font-size="10" fill="#6b7280">M</text>
+<circle cx="710" cy="145" r="10" fill="none" stroke="#6b7280" stroke-width="1.5"/>
+<text x="710" y="149" text-anchor="middle" font-size="10" fill="#6b7280">C</text>
+<rect x="90" y="180" width="640" height="55" rx="8" ry="8" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+<text x="130" y="205" text-anchor="middle" font-size="18" font-weight="bold" fill="#059669">L2</text>
+<text x="190" y="205" font-size="14" font-weight="bold" fill="#1e293b">Tool Learner / &#x5DE5;&#x5177;&#x5B66;&#x4E60;</text>
+<text x="190" y="222" font-size="11" fill="#6b7280">P, T &#x53EF;&#x4FEE;&#x6539; (LATM)</text>
+<circle cx="620" cy="205" r="10" fill="#059669" opacity="0.8"/>
+<text x="620" y="209" text-anchor="middle" font-size="10" font-weight="bold" fill="white">P</text>
+<circle cx="650" cy="205" r="10" fill="#059669" opacity="0.8"/>
+<text x="650" y="209" text-anchor="middle" font-size="10" font-weight="bold" fill="white">T</text>
+<circle cx="680" cy="205" r="10" fill="none" stroke="#6b7280" stroke-width="1.5"/>
+<text x="680" y="209" text-anchor="middle" font-size="10" fill="#6b7280">M</text>
+<circle cx="710" cy="205" r="10" fill="none" stroke="#6b7280" stroke-width="1.5"/>
+<text x="710" y="209" text-anchor="middle" font-size="10" fill="#6b7280">C</text>
+<rect x="105" y="240" width="620" height="55" rx="8" ry="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+<text x="145" y="265" text-anchor="middle" font-size="18" font-weight="bold" fill="#7c3aed">L3</text>
+<text x="205" y="265" font-size="14" font-weight="bold" fill="#1e293b">Adaptive Memory / &#x81EA;&#x9002;&#x5E94;&#x8BB0;&#x5FC6;</text>
+<text x="205" y="282" font-size="11" fill="#6b7280">P, T, M &#x53EF;&#x4FEE;&#x6539; (A-MEM)</text>
+<circle cx="620" cy="265" r="10" fill="#7c3aed" opacity="0.8"/>
+<text x="620" y="269" text-anchor="middle" font-size="10" font-weight="bold" fill="white">P</text>
+<circle cx="650" cy="265" r="10" fill="#7c3aed" opacity="0.8"/>
+<text x="650" y="269" text-anchor="middle" font-size="10" font-weight="bold" fill="white">T</text>
+<circle cx="680" cy="265" r="10" fill="#7c3aed" opacity="0.8"/>
+<text x="680" y="269" text-anchor="middle" font-size="10" font-weight="bold" fill="white">M</text>
+<circle cx="710" cy="265" r="10" fill="none" stroke="#6b7280" stroke-width="1.5"/>
+<text x="710" y="269" text-anchor="middle" font-size="10" fill="#6b7280">C</text>
+<rect x="118" y="298" width="604" height="59" rx="10" ry="10" fill="black" opacity="0.06"/>
+<rect x="120" y="300" width="600" height="55" rx="8" ry="8" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+<text x="160" y="325" text-anchor="middle" font-size="18" font-weight="bold" fill="#ea580c">L4</text>
+<text x="220" y="325" font-size="14" font-weight="bold" fill="#1e293b">Self-Editor / &#x81EA;&#x7F16;&#x8F91;&#x4EE3;&#x7801;</text>
+<text x="220" y="342" font-size="11" fill="#6b7280">P, T, M, C &#x5404;&#x81EA;&#x72EC;&#x7ACB;&#x4FEE;&#x6539;</text>
+<circle cx="620" cy="325" r="10" fill="#ea580c" opacity="0.8"/>
+<text x="620" y="329" text-anchor="middle" font-size="10" font-weight="bold" fill="white">P</text>
+<circle cx="650" cy="325" r="10" fill="#ea580c" opacity="0.8"/>
+<text x="650" y="329" text-anchor="middle" font-size="10" font-weight="bold" fill="white">T</text>
+<circle cx="680" cy="325" r="10" fill="#ea580c" opacity="0.8"/>
+<text x="680" y="329" text-anchor="middle" font-size="10" font-weight="bold" fill="white">M</text>
+<circle cx="710" cy="325" r="10" fill="#ea580c" opacity="0.8"/>
+<text x="710" y="329" text-anchor="middle" font-size="10" font-weight="bold" fill="white">C</text>
+<rect x="133" y="358" width="584" height="59" rx="10" ry="10" fill="black" opacity="0.06"/>
+<rect x="135" y="360" width="580" height="55" rx="8" ry="8" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+<text x="175" y="385" text-anchor="middle" font-size="18" font-weight="bold" fill="#dc2626">L5</text>
+<text x="235" y="385" font-size="14" font-weight="bold" fill="#1e293b">MorphAgent / &#x5F62;&#x6001;&#x667A;&#x80FD;&#x4F53;</text>
+<text x="235" y="402" font-size="11" fill="#6b7280">P, T, M, C &#x534F;&#x540C;&#x81EA;&#x8FDB;&#x5316;</text>
+<circle cx="620" cy="385" r="10" fill="#dc2626" opacity="0.8"/>
+<text x="620" y="389" text-anchor="middle" font-size="10" font-weight="bold" fill="white">P</text>
+<circle cx="650" cy="385" r="10" fill="#dc2626" opacity="0.8"/>
+<text x="650" y="389" text-anchor="middle" font-size="10" font-weight="bold" fill="white">T</text>
+<circle cx="680" cy="385" r="10" fill="#dc2626" opacity="0.8"/>
+<text x="680" y="389" text-anchor="middle" font-size="10" font-weight="bold" fill="white">M</text>
+<circle cx="710" cy="385" r="10" fill="#dc2626" opacity="0.8"/>
+<text x="710" y="389" text-anchor="middle" font-size="10" font-weight="bold" fill="white">C</text>
+<path d="M 740 370 L 740 80" fill="none" stroke="#ea580c" stroke-width="2.5"/>
+<text x="755" y="230" font-size="12" fill="#ea580c" font-weight="bold" transform="rotate(-90,755,230)">&#x80FD;&#x529B;&#x9012;&#x589E; / Capability</text>
+<text x="400" y="410" text-anchor="middle" font-size="11" fill="#6b7280">&#x5706;&#x5708; = &#x8BE5;&#x7EC4;&#x4EF6;&#x53EF;&#x88AB; Agent &#x81EA;&#x8EAB;&#x4FEE;&#x6539; / Circle = Component is self-modifiable</text>
+
+<text x="400" y="490" text-anchor="middle" font-size="12" fill="#6b7280" font-style="italic">Figure 3: 5&#x7EA7;&#x667A;&#x80FD;&#x4F53;&#x5C42;&#x6B21;&#x7ED3;&#x6784; -- Agent Capability Hierarchy L0 to L5</text>
+</svg>

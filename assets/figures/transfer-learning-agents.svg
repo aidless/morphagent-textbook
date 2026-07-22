@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',Arial,sans-serif">
+<rect width="800" height="500" fill="#ffffff"/>
+<text x="400" y="32" text-anchor="middle" font-size="16" font-weight="bold" fill="#1e293b">&#x8FC1;&#x79FB;&#x5B66;&#x4E60;&#x793A;&#x610F;&#x56FE; (H4) / Transfer Learning</text>
+<circle cx="220" cy="200" r="100" fill="#dbeafe" stroke="#2563eb" stroke-width="2.5"/>
+<text x="220" y="180" text-anchor="middle" font-size="18" font-weight="bold" fill="#2563eb">&#x4EFB;&#x52A1; A</text>
+<text x="220" y="200" text-anchor="middle" font-size="11" fill="#1e293b">Task A</text>
+<text x="220" y="225" text-anchor="middle" font-size="10" fill="#6b7280">&#x7F16;&#x7A0B; / Coding</text>
+<text x="220" y="245" text-anchor="middle" font-size="10" fill="#6b7280">B_base &#x2192; B' (U &#x6F14;&#x5316;)</text>
+<circle cx="580" cy="200" r="100" fill="#d1fae5" stroke="#059669" stroke-width="2.5"/>
+<text x="580" y="180" text-anchor="middle" font-size="18" font-weight="bold" fill="#059669">&#x4EFB;&#x52A1; B</text>
+<text x="580" y="200" text-anchor="middle" font-size="11" fill="#1e293b">Task B</text>
+<text x="580" y="225" text-anchor="middle" font-size="10" fill="#6b7280">&#x6570;&#x636E;&#x5206;&#x6790; / Analysis</text>
+<text x="580" y="245" text-anchor="middle" font-size="10" fill="#6b7280">B' + U &#x2192; B''</text>
+<path d="M 320 180 C 380 120 420 120 480 180" fill="none" stroke="#ea580c" stroke-width="3"/>
+<rect x="340" y="105" width="120" height="35" rx="6" ry="6" fill="#ea580c" opacity="0.15" stroke="#ea580c" stroke-width="1"/>
+<text x="400" y="120" text-anchor="middle" font-size="11" font-weight="bold" fill="#ea580c">&#x5F62;&#x6001;&#x8FC1;&#x79FB;</text>
+<text x="400" y="133" text-anchor="middle" font-size="9" fill="#ea580c">Morphological Transfer</text>
+<path d="M 320 220 C 380 280 420 280 480 220" fill="none" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="5,3"/>
+<text x="400" y="290" text-anchor="middle" font-size="10" fill="#6b7280">&#x77E5;&#x8BC6;&#x8FC1;&#x79FB; (&#x5FAE;&#x5F31;) / Knowledge Transfer</text>
+<text x="400" y="340" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">&#x8FC1;&#x79FB;&#x6536;&#x76CA;&#x5BF9;&#x6BD4; / Transfer Gain Comparison</text>
+<rect x="130" y="360.0" width="100" height="85.0" rx="6" ry="6" fill="#ea580c" stroke="#ea580c" stroke-width="1.5"/>
+<text x="180" y="460" text-anchor="middle" font-size="9" fill="#1e293b">形态迁移 Morphological</text>
+<text x="180" y="355.0" text-anchor="middle" font-size="11" font-weight="bold" fill="#ea580c">0.85</text>
+<rect x="290" y="400.0" width="100" height="45.0" rx="6" ry="6" fill="#6b7280" stroke="#6b7280" stroke-width="1.5"/>
+<text x="340" y="460" text-anchor="middle" font-size="9" fill="#1e293b">知识迁移 Knowledge</text>
+<text x="340" y="395.0" text-anchor="middle" font-size="11" font-weight="bold" fill="#6b7280">0.45</text>
+<rect x="450" y="415.0" width="100" height="30.0" rx="6" ry="6" fill="#f3f4f6" stroke="#f3f4f6" stroke-width="1.5"/>
+<text x="500" y="460" text-anchor="middle" font-size="9" fill="#1e293b">无迁移 No Transfer</text>
+<text x="500" y="410.0" text-anchor="middle" font-size="11" font-weight="bold" fill="#f3f4f6">0.3</text>
+<rect x="130" y="370" width="540" height="28" rx="5" ry="5" fill="white" stroke="#ea580c" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="400" y="390" text-anchor="middle" font-size="11" fill="#ea580c">H4: perf(B', task_new) - perf(B_base, task_new) &gt; &#x03B1; &#xB7; memory(A) + &#x03B5;</text>
+
+<text x="400" y="470" text-anchor="middle" font-size="12" fill="#6b7280" font-style="italic">Figure 10: &#x8FC1;&#x79FB;&#x5B66;&#x4E60;&#x793A;&#x610F;&#x56FE; -- Transfer Learning in Self-Modifying Agents (from r-note-006)</text>
+</svg>
