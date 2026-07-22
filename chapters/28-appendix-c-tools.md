@@ -13,11 +13,24 @@ keywords:
   - DSPy
   - MemGPT
   - Quick Reference
+learning_objectives:
+  - "熟练使用主流LLM Agent框架与库进行开发"
+  - "理解各工具库的适用场景与技术选型原则"
+  - "能够集成记忆系统与可观测性工具到Agent中"
+prerequisites:
+  - "完成第1-25章主章节学习"
+  - "具备Python编程基础"
 ---
 
 # 附录 C · 工具与库速查
 
 > 本附录收集了全书 25 章中所有核心 LLM Agent 工具与库的速查表。
+
+## 学习目标
+
+- 熟练使用主流LLM Agent框架与库进行开发
+- 理解各工具库的适用场景与技术选型原则
+- 能够集成记忆系统与可观测性工具到Agent中
 
 ## 附录 C 导读
 
