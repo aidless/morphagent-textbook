@@ -28,20 +28,20 @@
 
 | ID | 标题 | 状态 | 字数 | bib-key |
 |---|---|---|---|---|
-| (待写) | ReAct 原始论文 | idea | 0 | yao2023react |
-| (待写) | Reflexion 原始论文 | idea | 0 | shinn2023reflexion |
-| (待写) | Toolformer 原始论文 | idea | 0 | schick2023toolformer |
-| (待写) | MemGPT 原始论文 | idea | 0 | packer2023memgpt |
-| (待写) | A-MEM 原始论文 | idea | 0 | xu2025amem |
-| (待写) | SICA 原始论文 | idea | 0 | robeyns2025sica |
-| (待写) | Gödel Agent 原始论文 | idea | 0 | yin2024godelagent |
-| (待写) | OPRO 原始论文 | idea | 0 | yang2023opro |
-| (待写) | Self-Evolving Agents 综述 | idea | 0 | fang2025selfevolving |
-| (待写) | The Embodied Mind（Varela） | idea | 0 | varela1991embodied |
-| (待写) | The Extended Mind（Clark & Chalmers） | idea | 0 | clark1998extended |
-| (待写) | Intelligence Without Representation（Brooks） | idea | 0 | brooks1991intelligence |
-| (待写) | SWE-bench 原始论文 | idea | 0 | jimenez2024swebench |
-| (待写) | MLE-bench 原始论文 | idea | 0 | chan2024mlebench |
+| **r-paper-001** | **ReAct：思考-行动-观察循环** | **final** | ~3,200 | yao2023react |
+| **r-paper-002** | **Reflexion：语言反思强化学习** | **final** | ~4,000 | shinn2023reflexion |
+| **r-paper-003** | **Toolformer：LLM 自学 API 调用** | **final** | ~4,700 | schick2023toolformer |
+| **r-paper-004** | **MemGPT：把 LLM 当作操作系统** | **final** | ~5,500 | packer2023memgpt |
+| **r-paper-005** | **A-MEM：Zettelkasten 风格动态记忆网络** | **final** | ~5,600 | xu2025amem |
+| **r-paper-006** | **SICA：自改写 Coding Agent** | **final** | ~5,800 | robeyns2025sica |
+| **r-paper-007** | **Gödel Agent：自指自改进框架** | **final** | ~3,100 | yin2024godelagent |
+| **r-paper-008** | **OPRO：让 LLM 自身作为优化器** | **final** | ~2,900 | yang2023opro |
+| **r-paper-009** | **Self-Evolving Agents 综述** | **final** | ~2,500 | fang2025selfevolving |
+| **r-paper-010** | **The Embodied Mind（Varela）** | **final** | ~1,900 | varela1991embodied |
+| **r-paper-011** | **The Extended Mind（Clark & Chalmers）** | **final** | ~2,000 | clark1998extended |
+| **r-paper-012** | **Intelligence Without Representation（Brooks）** | **final** | ~2,200 | brooks1991intelligence |
+| **r-paper-013** | **SWE-bench 评测基准** | **final** | ~2,700 | jimenez2024swebench |
+| **r-paper-014** | **MLE-bench 评测基准** | **final** | ~2,600 | chan2024mlebench |
 
 ### 实验笔记（Experiment Note）
 
@@ -74,9 +74,9 @@
 
 | 状态 | 笔记数 |
 |---|---|
-| idea | 18 |
+| idea | 4 |
 | draft | 13 |
-| **final** | **1** |
+| **final** | **15** |
 | abandoned | 0 |
 | **总计** | **32** |
 
@@ -84,6 +84,6 @@
 
 - **2026-07-22**：初始化 INDEX，创建 4 个实验目录，编写 4 个实验骨架
 - **2026-07-22**：完成 r-note-001（操作形态学形式化定义，~3,000 字，final）
-- **2026-07-22**：创建 r-note-002（H1 结构可塑性实证路径）、r-note-003（P/T/M/C 协同进化框架）、r-note-004（自修改安全性形式化分析）、r-note-005（生态效度），各 ~800 字，draft
-- **2026-07-22**：创建 r-note-006（形态迁移与迁移学习）、r-note-007（治理必要性最小框架）、r-note-008（操作形态景观拓扑分析）、r-note-009（L0-L5 等级形式化）、r-note-010（5 年路线图细化），各 ~800 字，draft
+- **2026-07-22**：创建 r-note-002~010（9 篇研究笔记），各 ~800 字，draft
+- **2026-07-23**：完成 14 篇论文笔记（r-paper-001~014），涵盖 ReAct / Reflexion / Toolformer / MemGPT / A-MEM / SICA / Gödel Agent / OPRO / Self-Evolving Survey / Varela / Clark / Brooks / SWE-bench / MLE-bench，全部 final
 - (待续)
