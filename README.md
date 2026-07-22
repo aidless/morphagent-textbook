@@ -62,6 +62,10 @@ morphagent-textbook/
 ├── CONTRIBUTING.md          # 贡献指南
 ├── CODE_OF_CONDUCT.md       # 行为准则
 ├── OUTLINE.md               # 全书大纲（31 章详细目录）
+├── Manuscript/              # Leanpub 手稿文件
+│   ├── Book.txt             # 主手稿（31 章合并）
+│   ├── Sample.txt           # Leanpub 样章
+│   └── Description.txt      # Leanpub 书籍描述
 ├── _config.yml              # Jupyter Book 配置
 ├── _toc.yml                 # Jupyter Book 目录（31 章）
 ├── references.bib           # BibTeX 文献库（144 条目）
@@ -113,6 +117,9 @@ morphagent-textbook/
 ├── docs/
 │   ├── ROADMAP.md           # 写作路线图
 │   └── CHAPTER_TEMPLATE.md  # 章节写作模板
+├── preview/                # 预览 HTML
+│   ├── chapter-01.html
+│   └── chapter-11.html
 └── .github/
     ├── workflows/
     │   └── build.yml        # GitHub Actions: 自动构建
