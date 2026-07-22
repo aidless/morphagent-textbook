@@ -5,6 +5,8 @@
 [![CI](https://github.com/aidless/morphagent-textbook/actions/workflows/build.yml/badge.svg)](https://github.com/aidless/morphagent-textbook/actions/workflows/build.yml)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 [![GitHub stars](https://img.shields.io/github/stars/aidless/morphagent-textbook?style=social)](https://github.com/aidless/morphagent-textbook/stargazers)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21494231.svg)](https://doi.org/10.5281/zenodo.21494231)
+[![GitHub release](https://img.shields.io/github/v/release/aidless/morphagent-textbook)](https://github.com/aidless/morphagent-textbook/releases/tag/v1.0)
 
 一本关于「自修改 LLM 智能体的操作形态学」的开源教科书。
 
@@ -12,6 +14,8 @@
 
 - 在线阅读: <https://aidless.github.io/morphagent-textbook/>
 - GitHub 仓库: <https://github.com/aidless/morphagent-textbook>
+- Zenodo DOI: <https://doi.org/10.5281/zenodo.21494231>
+- GitHub Release: <https://github.com/aidless/morphagent-textbook/releases/tag/v1.0>
 - ICLR 2027 论文: [research/iclr-2027-submission/paper.md](research/iclr-2027-submission/paper.md)
 
 ---
