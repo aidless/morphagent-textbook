@@ -189,6 +189,12 @@ a { color: var(--accent); }
 <blockquote>
 <p>本附录收集了全书 25 章用到的核心数学工具，从概率论到贝叶斯方法。</p>
 </blockquote>
+<h2 id="_1">学习目标</h2>
+<ul>
+<li>掌握概率论、贝叶斯推理与信息论的核心公式</li>
+<li>理解MCTS、贝叶斯优化与强化学习的数学原理</li>
+<li>能够将数学工具应用于LLM Agent的分析与优化</li>
+</ul>
 <h2 id="b_1">附录 B 导读</h2>
 <p>本附录分 5 大节：
 - <strong>B.1 概率论基础</strong>（条件概率、贝叶斯定理、信息熵）
@@ -198,25 +204,25 @@ a { color: var(--accent); }
 - <strong>B.5 贝叶斯推理</strong>（先验-似然-后验、变分推断）</p>
 <hr />
 <h2 id="b1">B.1 概率论基础</h2>
-<h3 id="_1">条件概率</h3>
+<h3 id="_2">条件概率</h3>
 <p>$$P(A|B) = \frac{P(A \cap B)}{P(B)} = \frac{P(B|A) \cdot P(A)}{P(B)}$$</p>
-<h3 id="_2">贝叶斯定理</h3>
+<h3 id="_3">贝叶斯定理</h3>
 <p>$$P(\theta|X) = \frac{P(X|\theta) \cdot P(\theta)}{P(X)} = \frac{P(X|\theta) \cdot P(\theta)}{\int P(X|\theta') P(\theta') d\theta'}$$</p>
 <p>其中：
 - $P(\theta)$：<strong>先验（Prior）</strong>——在看到数据前对参数的信念
 - $P(X|\theta)$：<strong>似然（Likelihood）</strong>——在参数 $\theta$ 下观测到数据 $X$ 的概率
 - $P(\theta|X)$：<strong>后验（Posterior）</strong>——看到数据 $X$ 后对参数的更新信念
 - $P(X)$：<strong>证据（Evidence）</strong>——数据的边际概率（归一化常数）</p>
-<h3 id="_3">信息熵</h3>
+<h3 id="_4">信息熵</h3>
 <p>$$H(X) = -\sum_{x \in X} P(x) \log_2 P(x) \text{ bits}$$</p>
 <p>直观解释：$H(X)$ 衡量"预测 $X$ 的难度"——分布越均匀，熵越大；分布越尖锐，熵越小。</p>
-<h3 id="_4">例：抛硬币</h3>
+<h3 id="_5">例：抛硬币</h3>
 <ul>
 <li>公平硬币：$H = -0.5 \log_2 0.5 - 0.5 \log_2 0.5 = 1$ bit</li>
 <li>总是正面：$H = -1 \cdot \log_2 1 = 0$ bit（无不确定性）</li>
 </ul>
 <h2 id="b2">B.2 优化基础</h2>
-<h3 id="_5">梯度下降</h3>
+<h3 id="_6">梯度下降</h3>
 <p>$$\theta_{t+1} = \theta_t - \eta \nabla L(\theta_t)$$</p>
 <p>其中：
 - $\theta_t$：当前参数
@@ -237,7 +243,7 @@ a { color: var(--accent); }
 - $n_s$：节点 $s$ 的访问次数
 - $N$：父节点访问次数
 - $c$：探索常数（通常 $\sqrt{2}$）</p>
-<h3 id="_6">贝叶斯优化</h3>
+<h3 id="_7">贝叶斯优化</h3>
 <p>$$\theta_{t+1} = \arg\max_{\theta} \alpha(\theta | D_t)$$</p>
 <p>其中采集函数 $\alpha$ 在"利用高均值区域"和"探索高方差区域"之间权衡。常见选择：</p>
 <p>$$\alpha_{\text{EI}}(\theta) = \mathbb{E}[\max(f(\theta) - f^*, 0)]$$</p>
@@ -249,7 +255,7 @@ a { color: var(--accent); }
 <h3 id="mutual-information">互信息（Mutual Information）</h3>
 <p>$$I(X; Y) = H(X) - H(X|Y) = D_{KL}(P(X,Y) | P(X)P(Y))$$</p>
 <p>直观解释：$I(X; Y)$ 衡量"知道 $Y$ 后，对 $X$ 的不确定性减少多少"。</p>
-<h3 id="_7">交叉熵损失</h3>
+<h3 id="_8">交叉熵损失</h3>
 <p>$$\mathcal{L}<em>{CE} = -\frac{1}{N} \sum</em>{i=1}^{N} \log P(y_i | x_i)$$</p>
 <p>LLM 训练最常用的损失函数。<strong>最小化交叉熵 = 最小化负对数似然 = 最大化似然</strong>。</p>
 <h2 id="b4">B.4 强化学习基础</h2>
@@ -271,7 +277,7 @@ a { color: var(--accent); }
 <p>$$Q(s, a) \leftarrow Q(s, a) + \alpha [r + \gamma \max_{a'} Q(s', a') - Q(s, a)]$$</p>
 <p>直观解释：Q 函数估计"在状态 $s$ 选动作 $a$ 后的期望累积奖励"。每次更新让 Q 接近"实际奖励 + 未来最优值"。</p>
 <h2 id="b5">B.5 贝叶斯推理</h2>
-<h3 id="_8">贝叶斯推理流程</h3>
+<h3 id="_9">贝叶斯推理流程</h3>
 <pre><code>   1. 定义先验 P(θ)              ← 你的初始信念
    2. 收集数据 X
    3. 定义似然 P(X|θ)             ← 假设
@@ -300,13 +306,13 @@ a { color: var(--accent); }
 </ul>
 <p><strong>5 大节 = 数学工具箱</strong>，覆盖全书所需的概率、优化、信息论、RL、贝叶斯方法。</p>
 <hr />
-<h2 id="_9">本附录小结</h2>
+<h2 id="_10">本附录小结</h2>
 <ul>
 <li><strong>5 大节</strong> 覆盖全书数学工具。</li>
 <li>公式 + 直观解释 + 例题（Beta-Binomial）。</li>
 <li>适合工程实践者作为参考。</li>
 </ul>
-<h2 id="_10">推荐阅读</h2>
+<h2 id="_11">推荐阅读</h2>
 <ul>
 <li>📖 <strong>Bishop《Pattern Recognition and Machine Learning》</strong>：经典 ML 教材。<a href="https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf">$TRAE_REF</a></li>
 <li>📖 <strong>Goodfellow《Deep Learning》</strong>：深度学习圣经。<a href="https://www.deeplearningbook.org/">$TRAE_REF</a></li>
@@ -314,7 +320,7 @@ a { color: var(--accent); }
 <li>📖 <strong>Information Theory, Inference, and Learning Algorithms</strong> [MacKay, 2003]：信息论经典。<a href="https://www.inference.org.uk/itila/book.html">$TRAE_REF</a></li>
 <li>📖 <strong>Convex Optimization</strong> [Boyd &amp; Vandenberghe]：优化经典。[$TRAE_REF](https://stanford.edu/~boyd/cvxbook/]</li>
 </ul>
-<h2 id="_11">练习题</h2>
+<h2 id="_12">练习题</h2>
 <ol>
 <li><strong>计算题</strong>：公平硬币抛 10 次，5 次正面，用 Beta-Binomial 计算后验。</li>
 <li><strong>推导题</strong>：证明 KL 散度非负 $D_{KL}(P | Q) \geq 0$。</li>
@@ -322,7 +328,7 @@ a { color: var(--accent); }
 <li><strong>应用题</strong>：把 LLM 训练 loss（交叉熵）解释为"信息量"——为什么训练是减少不确定性？</li>
 <li><strong>批判题</strong>：MCTS 的 UCB1 公式中 $c$ 太大或太小会怎样？</li>
 </ol>
-<h2 id="_12">参考文献（本章内）</h2>
+<h2 id="_13">参考文献（本章内）</h2>
 <ol>
 <li>Bishop, C. M. (2006). <em>Pattern Recognition and Machine Learning</em>. Springer. <a href="https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf">$TRAE_REF</a></li>
 <li>Goodfellow, I., et al. (2016). <em>Deep Learning</em>. MIT Press. <a href="https://www.deeplearningbook.org/">$TRAE_REF</a></li>

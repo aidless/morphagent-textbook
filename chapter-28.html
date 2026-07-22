@@ -189,6 +189,12 @@ a { color: var(--accent); }
 <blockquote>
 <p>本附录收集了全书 25 章中所有核心 LLM Agent 工具与库的速查表。</p>
 </blockquote>
+<h2 id="_1">学习目标</h2>
+<ul>
+<li>熟练使用主流LLM Agent框架与库进行开发</li>
+<li>理解各工具库的适用场景与技术选型原则</li>
+<li>能够集成记忆系统与可观测性工具到Agent中</li>
+</ul>
 <h2 id="c_1">附录 C 导读</h2>
 <p>本附录分 4 大类：
 - <strong>C.1 LLM Agent 框架</strong>（LangChain、AutoGen、LangGraph、CrewAI）
@@ -652,13 +658,13 @@ trace.score(name=&quot;quality&quot;, value=0.95)
 </ul>
 <p><strong>总计</strong>：12 个核心工具/库，全部含安装命令 + 最小代码示例 + 适用章节。</p>
 <hr />
-<h2 id="_1">本附录小结</h2>
+<h2 id="_2">本附录小结</h2>
 <ul>
 <li><strong>12 个核心工具/库</strong> 速查。</li>
 <li>4 大类（框架 / 提示词 / 记忆 / 可观测性）。</li>
 <li>每个含安装 + 代码 + 章节引用。</li>
 </ul>
-<h2 id="_2">推荐阅读</h2>
+<h2 id="_3">推荐阅读</h2>
 <ul>
 <li>📖 <strong>LangChain Documentation</strong>：LangChain 官方文档。<a href="https://python.langchain.com/">$TRAE_REF</a></li>
 <li>📖 <strong>DSPy Documentation</strong>：DSPy 官方文档。<a href="https://dspy-docs.vercel.app/">$TRAE_REF</a></li>
@@ -666,7 +672,7 @@ trace.score(name=&quot;quality&quot;, value=0.95)
 <li>📖 <strong>Langfuse Documentation</strong>：Langfuse 官方文档。<a href="https://langfuse.com/docs">$TRAE_REF</a></li>
 <li>📖 <strong>MemGPT GitHub</strong>：MemGPT 开源仓库。<a href="https://github.com/cpacker/MemGPT">$TRAE_REF</a></li>
 </ul>
-<h2 id="_3">练习题</h2>
+<h2 id="_4">练习题</h2>
 <ol>
 <li><strong>安装题</strong>：用 <code>pip install</code> 安装 C.1 的 4 个框架。</li>
 <li><strong>对比题</strong>：用 LangChain 和 LangGraph 各写一个简单 Agent，比较代码风格。</li>
@@ -674,7 +680,7 @@ trace.score(name=&quot;quality&quot;, value=0.95)
 <li><strong>部署题</strong>：用 Mem0 给 LLM Agent 添加长期记忆，验证 1 周后记忆是否还在。</li>
 <li><strong>可观测题</strong>：用 OpenTelemetry 追踪你的 Agent，记录 100 次运行后的平均延迟。</li>
 </ol>
-<h2 id="_4">参考文献（本章内）</h2>
+<h2 id="_5">参考文献（本章内）</h2>
 <ol>
 <li>LangChain Authors. (2024). <em>LangChain Documentation</em>. <a href="https://python.langchain.com/">python.langchain.com</a></li>
 <li>LangChain Authors. (2024). <em>LangGraph Documentation</em>. <a href="https://langchain-ai.github.io/langgraph/">langchain-ai.github.io/langgraph</a></li>
