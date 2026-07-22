@@ -234,6 +234,18 @@ def build_page(ch, prev_ch, next_ch):
 </html>"""
 
 # ------------------------------------------------------------------
+# Copy assets (figures) to build dir
+# ------------------------------------------------------------------
+import shutil
+ASSETS_SRC = ROOT / "assets" / "figures"
+ASSETS_DST = BUILD_DIR / "assets" / "figures"
+if ASSETS_SRC.exists():
+    if ASSETS_DST.exists():
+        shutil.rmtree(ASSETS_DST)
+    shutil.copytree(ASSETS_SRC, ASSETS_DST)
+    print(f"Copied {len(list(ASSETS_DST.glob('*.svg')))} SVG figures to build dir")
+
+# ------------------------------------------------------------------
 # Generate chapter pages
 # ------------------------------------------------------------------
 BUILD_DIR.mkdir(parents=True, exist_ok=True)
@@ -278,7 +290,7 @@ index_html = f"""<!DOCTYPE html>
 <h1>操作形态学：自修改 LLM 智能体的具身认知</h1>
 <p><strong>Operational Morphology: The Embodied Cognition of Self-Modifying LLM Agents</strong></p>
 <p>一本开源的研究生级教科书，覆盖 LLM 智能体从「工具」到「自进化体」的全部路程。</p>
-<p>全书共 <strong>31 章</strong>（25 章正文 + 6 个附录），约 <strong>800 页</strong>，<strong>150,000+ 字</strong>。</p>
+<p>全书共 <strong>31 章</strong>（25 章正文 + 6 个附录），约 <strong>178 页</strong>，<strong>96,742 字</strong>。</p>
 <hr>
 {toc_html}
 </main>
