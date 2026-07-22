@@ -14,11 +14,24 @@ keywords:
   - Bayesian Methods
   - Reinforcement Learning
   - Markov Decision Process
+learning_objectives:
+  - "掌握概率论、贝叶斯推理与信息论的核心公式"
+  - "理解MCTS、贝叶斯优化与强化学习的数学原理"
+  - "能够将数学工具应用于LLM Agent的分析与优化"
+prerequisites:
+  - "完成第1-25章主章节学习"
+  - "具备基础微积分与线性代数知识"
 ---
 
 # 附录 B · 数学基础
 
 > 本附录收集了全书 25 章用到的核心数学工具，从概率论到贝叶斯方法。
+
+## 学习目标
+
+- 掌握概率论、贝叶斯推理与信息论的核心公式
+- 理解MCTS、贝叶斯优化与强化学习的数学原理
+- 能够将数学工具应用于LLM Agent的分析与优化
 
 ## 附录 B 导读
 
