@@ -16,9 +16,9 @@ force_eager: false
 logo: ""
 
 # Information about the book
-site_url: "https://github.com/<待填>/morphagent-textbook"
+site_url: "https://aidless.github.io/morphagent-textbook"
 repository:
-  url: "https://github.com/<待填>/morphagent-textbook"
+  url: "https://github.com/aidless/morphagent-textbook"
   branch: "main"
   path_to_book: ""
 
@@ -37,7 +37,7 @@ launch_buttons:
 
 # Configure the table of contents
 parse:
-  text_encoding: "utf-8-spilt"
+  text_encoding: "utf-8-split"
   myst_enable_extensions:
     - colon_fence
     - dollarmath
