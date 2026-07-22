@@ -12,11 +12,24 @@ keywords:
   - Hands-On
   - Teaching Labs
   - 30 Experiments
+learning_objectives:
+  - "通过30个分章节实验掌握操作形态学的核心概念"
+  - "能够独立设计并实施LLM Agent实验"
+  - "学会使用实验评分标准评估Agent性能"
+prerequisites:
+  - "完成第1-25章主章节学习"
+  - "具备Python编程与基本实验设计能力"
 ---
 
 # 附录 D · 教学实验清单
 
 > 本附录提供 30 个分章节的教学实验清单，让读者通过动手实践掌握操作形态学。
+
+## 学习目标
+
+- 通过30个分章节实验掌握操作形态学的核心概念
+- 能够独立设计并实施LLM Agent实验
+- 学会使用实验评分标准评估Agent性能
 
 ## 附录 D 导读
 
