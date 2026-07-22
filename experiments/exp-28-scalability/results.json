@@ -1,0 +1,82 @@
+{
+  "experiment": "exp-28-scalability",
+  "results": [
+    {
+      "concurrent": 10,
+      "total_requests": 10,
+      "success_count": 10,
+      "success_rate": 1.0,
+      "timeout_count": 0,
+      "timeout_rate": 0.0,
+      "p50_latency": 69.12321549783461,
+      "p95_latency": 88.01617215147985,
+      "p99_latency": 88.01617215147985,
+      "avg_latency": 65.00937261792215,
+      "cpu_usage": 20.6,
+      "memory_usage": 30.4
+    },
+    {
+      "concurrent": 50,
+      "total_requests": 50,
+      "success_count": 48,
+      "success_rate": 0.96,
+      "timeout_count": 0,
+      "timeout_rate": 0.0,
+      "p50_latency": 85.38273718887096,
+      "p95_latency": 105.43514684206033,
+      "p99_latency": 119.09240946383095,
+      "avg_latency": 85.74920392148692,
+      "cpu_usage": 23.0,
+      "memory_usage": 32.0
+    },
+    {
+      "concurrent": 100,
+      "total_requests": 100,
+      "success_count": 98,
+      "success_rate": 0.98,
+      "timeout_count": 0,
+      "timeout_rate": 0.0,
+      "p50_latency": 109.48720302664027,
+      "p95_latency": 139.1958289922356,
+      "p99_latency": 149.36856187993894,
+      "avg_latency": 109.66390142880851,
+      "cpu_usage": 26.0,
+      "memory_usage": 34.0
+    },
+    {
+      "concurrent": 500,
+      "total_requests": 500,
+      "success_count": 353,
+      "success_rate": 0.706,
+      "timeout_count": 0,
+      "timeout_rate": 0.0,
+      "p50_latency": 1509.5700209457098,
+      "p95_latency": 1519.2007803917427,
+      "p99_latency": 1519.8122885815517,
+      "avg_latency": 1509.9633699065373,
+      "cpu_usage": 50.0,
+      "memory_usage": 50.0
+    },
+    {
+      "concurrent": 1000,
+      "total_requests": 1000,
+      "success_count": 703,
+      "success_rate": 0.703,
+      "timeout_count": 0,
+      "timeout_rate": 0.0,
+      "p50_latency": 3259.875606526113,
+      "p95_latency": 3268.80601166652,
+      "p99_latency": 3269.7610498554245,
+      "avg_latency": 3259.9260731622803,
+      "cpu_usage": 80.0,
+      "memory_usage": 70.0
+    }
+  ],
+  "system_capacity": {
+    "max_concurrent": 100,
+    "base_latency_ms": 50,
+    "queue_coefficient": 0.5,
+    "timeout_ms": 5000,
+    "degradation_threshold": 200
+  }
+}

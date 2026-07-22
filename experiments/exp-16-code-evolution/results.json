@@ -1,0 +1,686 @@
+{
+  "experiment": "exp-16-code-evolution",
+  "results": {
+    "bubble_sort": {
+      "random_fix": {
+        "history": [
+          {
+            "round": 1,
+            "correctness": 20.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 2,
+            "correctness": 0.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 3,
+            "correctness": 60.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 4,
+            "correctness": 0.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 5,
+            "correctness": 20.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 6,
+            "correctness": 20.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 7,
+            "correctness": 40.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 8,
+            "correctness": 80.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 9,
+            "correctness": 20.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 10,
+            "correctness": 60.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          }
+        ],
+        "final_correctness": 60.0
+      },
+      "directed_fix": {
+        "history": [
+          {
+            "round": 1,
+            "correctness": 40.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 2,
+            "correctness": 20.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 3,
+            "correctness": 60.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 4,
+            "correctness": 40.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 5,
+            "correctness": 80.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 6,
+            "correctness": 80.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 0
+          },
+          {
+            "round": 7,
+            "correctness": 100.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 0
+          },
+          {
+            "round": 8,
+            "correctness": 100.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 0
+          },
+          {
+            "round": 9,
+            "correctness": 100.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 0
+          },
+          {
+            "round": 10,
+            "correctness": 100.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          }
+        ],
+        "final_correctness": 100.0
+      },
+      "refactor": {
+        "history": [
+          {
+            "round": 1,
+            "correctness": 20.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 2,
+            "correctness": 20.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 3,
+            "correctness": 0.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 4,
+            "correctness": 40.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 5,
+            "correctness": 40.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 6,
+            "correctness": 40.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 7,
+            "correctness": 0.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 8,
+            "correctness": 40.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 9,
+            "correctness": 80.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 10,
+            "correctness": 80.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          }
+        ],
+        "final_correctness": 80.0
+      }
+    },
+    "binary_search": {
+      "random_fix": {
+        "history": [
+          {
+            "round": 1,
+            "correctness": 40.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 2,
+            "correctness": 0.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 3,
+            "correctness": 0.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 4,
+            "correctness": 20.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 5,
+            "correctness": 20.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 6,
+            "correctness": 20.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 7,
+            "correctness": 40.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 8,
+            "correctness": 80.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 9,
+            "correctness": 40.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 10,
+            "correctness": 80.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          }
+        ],
+        "final_correctness": 80.0
+      },
+      "directed_fix": {
+        "history": [
+          {
+            "round": 1,
+            "correctness": 40.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 2,
+            "correctness": 40.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 3,
+            "correctness": 80.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 4,
+            "correctness": 40.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 5,
+            "correctness": 60.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 6,
+            "correctness": 100.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 0
+          },
+          {
+            "round": 7,
+            "correctness": 100.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 0
+          },
+          {
+            "round": 8,
+            "correctness": 100.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 0
+          },
+          {
+            "round": 9,
+            "correctness": 100.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 0
+          },
+          {
+            "round": 10,
+            "correctness": 100.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          }
+        ],
+        "final_correctness": 100.0
+      },
+      "refactor": {
+        "history": [
+          {
+            "round": 1,
+            "correctness": 0.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 2,
+            "correctness": 60.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 3,
+            "correctness": 0.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 4,
+            "correctness": 20.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 5,
+            "correctness": 20.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 6,
+            "correctness": 20.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 7,
+            "correctness": 20.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 8,
+            "correctness": 60.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 9,
+            "correctness": 100.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 10,
+            "correctness": 100.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          }
+        ],
+        "final_correctness": 100.0
+      }
+    },
+    "count_vowels": {
+      "random_fix": {
+        "history": [
+          {
+            "round": 1,
+            "correctness": 40.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 2,
+            "correctness": 20.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 3,
+            "correctness": 40.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 4,
+            "correctness": 0.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 5,
+            "correctness": 40.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 6,
+            "correctness": 0.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 7,
+            "correctness": 20.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 8,
+            "correctness": 60.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 9,
+            "correctness": 60.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 10,
+            "correctness": 40.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          }
+        ],
+        "final_correctness": 40.0
+      },
+      "directed_fix": {
+        "history": [
+          {
+            "round": 1,
+            "correctness": 20.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 2,
+            "correctness": 0.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 3,
+            "correctness": 60.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 4,
+            "correctness": 60.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 5,
+            "correctness": 60.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 6,
+            "correctness": 100.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 0
+          },
+          {
+            "round": 7,
+            "correctness": 100.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 0
+          },
+          {
+            "round": 8,
+            "correctness": 100.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 0
+          },
+          {
+            "round": 9,
+            "correctness": 100.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 0
+          },
+          {
+            "round": 10,
+            "correctness": 100.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          }
+        ],
+        "final_correctness": 100.0
+      },
+      "refactor": {
+        "history": [
+          {
+            "round": 1,
+            "correctness": 20.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 2,
+            "correctness": 0.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 3,
+            "correctness": 0.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 4,
+            "correctness": 40.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 5,
+            "correctness": 40.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 6,
+            "correctness": 0.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          },
+          {
+            "round": 7,
+            "correctness": 40.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 8,
+            "correctness": 20.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 9,
+            "correctness": 60.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 1
+          },
+          {
+            "round": 10,
+            "correctness": 40.0,
+            "complexity": 1,
+            "lines": 1,
+            "bug_level": 2
+          }
+        ],
+        "final_correctness": 40.0
+      }
+    }
+  }
+}

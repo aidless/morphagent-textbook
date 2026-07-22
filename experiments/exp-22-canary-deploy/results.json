@@ -1,0 +1,209 @@
+{
+  "experiment": "exp-22-canary-deploy",
+  "results": {
+    "none": {
+      "canary": {
+        "fault_scenario": "无故障",
+        "stages_completed": 8,
+        "max_canary_pct": 1.0,
+        "total_affected_users": 1997,
+        "total_users": 10000,
+        "affected_pct": 0.1997,
+        "detected": false,
+        "stages": [
+          {
+            "canary_pct": 0.05,
+            "canary_users": 500,
+            "total_users": 10000,
+            "errors": 206,
+            "observed_error_rate": 0.0206,
+            "observed_latency": 49.71755464714466,
+            "fault_scenario": "none",
+            "alert": false
+          },
+          {
+            "canary_pct": 0.1,
+            "canary_users": 1000,
+            "total_users": 10000,
+            "errors": 210,
+            "observed_error_rate": 0.021,
+            "observed_latency": 49.515278086161686,
+            "fault_scenario": "none",
+            "alert": false
+          },
+          {
+            "canary_pct": 0.2,
+            "canary_users": 2000,
+            "total_users": 10000,
+            "errors": 224,
+            "observed_error_rate": 0.0224,
+            "observed_latency": 49.00177405958179,
+            "fault_scenario": "none",
+            "alert": false
+          },
+          {
+            "canary_pct": 0.3,
+            "canary_users": 3000,
+            "total_users": 10000,
+            "errors": 238,
+            "observed_error_rate": 0.0238,
+            "observed_latency": 48.52238913445109,
+            "fault_scenario": "none",
+            "alert": false
+          },
+          {
+            "canary_pct": 0.5,
+            "canary_users": 5000,
+            "total_users": 10000,
+            "errors": 252,
+            "observed_error_rate": 0.0252,
+            "observed_latency": 47.502485809568505,
+            "fault_scenario": "none",
+            "alert": false
+          },
+          {
+            "canary_pct": 0.7,
+            "canary_users": 7000,
+            "total_users": 10000,
+            "errors": 294,
+            "observed_error_rate": 0.0294,
+            "observed_latency": 46.491345765015645,
+            "fault_scenario": "none",
+            "alert": false
+          },
+          {
+            "canary_pct": 0.85,
+            "canary_users": 8500,
+            "total_users": 10000,
+            "errors": 300,
+            "observed_error_rate": 0.03,
+            "observed_latency": 45.729931587207794,
+            "fault_scenario": "none",
+            "alert": false
+          },
+          {
+            "canary_pct": 1.0,
+            "canary_users": 10000,
+            "total_users": 10000,
+            "errors": 273,
+            "observed_error_rate": 0.0273,
+            "observed_latency": 45.01662171438799,
+            "fault_scenario": "none",
+            "alert": false
+          }
+        ]
+      },
+      "full": {
+        "fault_scenario": "无故障",
+        "total_affected_users": 273,
+        "affected_pct": 0.0273
+      }
+    },
+    "latency": {
+      "canary": {
+        "fault_scenario": "延迟故障",
+        "stages_completed": 4,
+        "max_canary_pct": 0.3,
+        "total_affected_users": 973,
+        "total_users": 10000,
+        "affected_pct": 0.0973,
+        "detected": true,
+        "stages": [
+          {
+            "canary_pct": 0.05,
+            "canary_users": 500,
+            "total_users": 10000,
+            "errors": 228,
+            "observed_error_rate": 0.0228,
+            "observed_latency": 59.7543469896255,
+            "fault_scenario": "latency",
+            "alert": false
+          },
+          {
+            "canary_pct": 0.1,
+            "canary_users": 1000,
+            "total_users": 10000,
+            "errors": 239,
+            "observed_error_rate": 0.0239,
+            "observed_latency": 69.50942166830211,
+            "fault_scenario": "latency",
+            "alert": false
+          },
+          {
+            "canary_pct": 0.2,
+            "canary_users": 2000,
+            "total_users": 10000,
+            "errors": 243,
+            "observed_error_rate": 0.0243,
+            "observed_latency": 88.99244260408067,
+            "fault_scenario": "latency",
+            "alert": false
+          },
+          {
+            "canary_pct": 0.3,
+            "canary_users": 3000,
+            "total_users": 10000,
+            "errors": 263,
+            "observed_error_rate": 0.0263,
+            "observed_latency": 108.47432296240484,
+            "fault_scenario": "latency",
+            "alert": true
+          }
+        ]
+      },
+      "full": {
+        "fault_scenario": "延迟故障",
+        "total_affected_users": 376,
+        "affected_pct": 0.0376
+      }
+    },
+    "error": {
+      "canary": {
+        "fault_scenario": "错误率故障",
+        "stages_completed": 3,
+        "max_canary_pct": 0.2,
+        "total_affected_users": 1176,
+        "total_users": 10000,
+        "affected_pct": 0.1176,
+        "detected": true,
+        "stages": [
+          {
+            "canary_pct": 0.05,
+            "canary_users": 500,
+            "total_users": 10000,
+            "errors": 291,
+            "observed_error_rate": 0.0291,
+            "observed_latency": 52.21888530115243,
+            "fault_scenario": "error",
+            "alert": false
+          },
+          {
+            "canary_pct": 0.1,
+            "canary_users": 1000,
+            "total_users": 10000,
+            "errors": 352,
+            "observed_error_rate": 0.0352,
+            "observed_latency": 54.53206500572173,
+            "fault_scenario": "error",
+            "alert": false
+          },
+          {
+            "canary_pct": 0.2,
+            "canary_users": 2000,
+            "total_users": 10000,
+            "errors": 533,
+            "observed_error_rate": 0.0533,
+            "observed_latency": 58.99187285562642,
+            "fault_scenario": "error",
+            "alert": true
+          }
+        ]
+      },
+      "full": {
+        "fault_scenario": "错误率故障",
+        "total_affected_users": 1755,
+        "affected_pct": 0.1755
+      }
+    }
+  }
+}

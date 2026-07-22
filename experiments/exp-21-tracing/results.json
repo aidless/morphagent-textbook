@@ -1,0 +1,72 @@
+{
+  "experiment": "exp-21-tracing",
+  "analyses": {
+    "query": {
+      "total_spans": 6,
+      "total_duration_ms": 126.53719937639063,
+      "critical_path": [
+        "HTTP Request",
+        "Agent Process",
+        "Tool Execution"
+      ],
+      "critical_path_duration": 126.53719937639063,
+      "error_count": 1,
+      "errors": [
+        {
+          "name": "Tool Execution",
+          "msg": "Tool timeout"
+        }
+      ],
+      "slow_count": 1,
+      "slow_spans": [
+        {
+          "name": "Tool Execution",
+          "duration_ms": 105.19
+        }
+      ]
+    },
+    "chat": {
+      "total_spans": 5,
+      "total_duration_ms": 145.78085309376308,
+      "critical_path": [
+        "HTTP Request",
+        "Agent Process",
+        "Response Generation"
+      ],
+      "critical_path_duration": 145.78085309376308,
+      "error_count": 0,
+      "errors": [],
+      "slow_count": 1,
+      "slow_spans": [
+        {
+          "name": "Response Generation",
+          "duration_ms": 123.5
+        }
+      ]
+    },
+    "tool_call": {
+      "total_spans": 6,
+      "total_duration_ms": 124.18152700683554,
+      "critical_path": [
+        "HTTP Request",
+        "Agent Process",
+        "Plan Execution",
+        "Tool Call #1"
+      ],
+      "critical_path_duration": 124.18152700683552,
+      "error_count": 0,
+      "errors": [],
+      "slow_count": 2,
+      "slow_spans": [
+        {
+          "name": "Tool Call #1",
+          "duration_ms": 85.87
+        },
+        {
+          "name": "Tool Call #3",
+          "duration_ms": 76.13
+        }
+      ]
+    }
+  }
+}

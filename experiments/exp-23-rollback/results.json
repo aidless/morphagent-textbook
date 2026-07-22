@@ -1,0 +1,20 @@
+{
+  "experiment": "exp-23-rollback",
+  "stats": {
+    "固定阈值": {
+      "avg_detect_delay": 0,
+      "detection_rate": 1.0,
+      "false_positive_rate": 0.0
+    },
+    "移动平均": {
+      "avg_detect_delay": 1,
+      "detection_rate": 1.0,
+      "false_positive_rate": 0.0
+    },
+    "EWMA": {
+      "avg_detect_delay": 0,
+      "detection_rate": 1.0,
+      "false_positive_rate": 0.0
+    }
+  }
+}

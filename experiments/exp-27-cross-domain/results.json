@@ -1,0 +1,402 @@
+{
+  "experiment": "exp-27-cross-domain",
+  "results": {
+    "code_review": {
+      "data_analysis": {
+        "direct": {
+          "source": "code_review",
+          "target": "data_analysis",
+          "method": "direct",
+          "domain_distance": 0.37416573867739406,
+          "performance": 0.5091016618388151,
+          "training_cost": 0.1
+        },
+        "finetune": {
+          "source": "code_review",
+          "target": "data_analysis",
+          "method": "finetune",
+          "domain_distance": 0.37416573867739406,
+          "performance": 0.6869193382693817,
+          "training_cost": 0.4
+        },
+        "scratch": {
+          "source": "code_review",
+          "target": "data_analysis",
+          "method": "scratch",
+          "domain_distance": 0.37416573867739406,
+          "performance": 0.4889397237719149,
+          "training_cost": 1.0
+        }
+      },
+      "customer_service": {
+        "direct": {
+          "source": "code_review",
+          "target": "customer_service",
+          "method": "direct",
+          "domain_distance": 0.6,
+          "performance": 0.43523099316991337,
+          "training_cost": 0.1
+        },
+        "finetune": {
+          "source": "code_review",
+          "target": "customer_service",
+          "method": "finetune",
+          "domain_distance": 0.6,
+          "performance": 0.6607571270865018,
+          "training_cost": 0.4
+        },
+        "scratch": {
+          "source": "code_review",
+          "target": "customer_service",
+          "method": "scratch",
+          "domain_distance": 0.6,
+          "performance": 0.4978726212421763,
+          "training_cost": 1.0
+        }
+      },
+      "legal": {
+        "direct": {
+          "source": "code_review",
+          "target": "legal",
+          "method": "direct",
+          "domain_distance": 0.2872281323269015,
+          "performance": 0.597019860961721,
+          "training_cost": 0.1
+        },
+        "finetune": {
+          "source": "code_review",
+          "target": "legal",
+          "method": "finetune",
+          "domain_distance": 0.2872281323269015,
+          "performance": 0.7571250954899421,
+          "training_cost": 0.4
+        },
+        "scratch": {
+          "source": "code_review",
+          "target": "legal",
+          "method": "scratch",
+          "domain_distance": 0.2872281323269015,
+          "performance": 0.48384691728981843,
+          "training_cost": 1.0
+        }
+      },
+      "medical": {
+        "direct": {
+          "source": "code_review",
+          "target": "medical",
+          "method": "direct",
+          "domain_distance": 0.24494897427831785,
+          "performance": 0.6293392956420102,
+          "training_cost": 0.1
+        },
+        "finetune": {
+          "source": "code_review",
+          "target": "medical",
+          "method": "finetune",
+          "domain_distance": 0.24494897427831785,
+          "performance": 0.782355442262246,
+          "training_cost": 0.4
+        },
+        "scratch": {
+          "source": "code_review",
+          "target": "medical",
+          "method": "scratch",
+          "domain_distance": 0.24494897427831785,
+          "performance": 0.4974248825243091,
+          "training_cost": 1.0
+        }
+      },
+      "education": {
+        "direct": {
+          "source": "code_review",
+          "target": "education",
+          "method": "direct",
+          "domain_distance": 0.6403124237432849,
+          "performance": 0.472063998658927,
+          "training_cost": 0.1
+        },
+        "finetune": {
+          "source": "code_review",
+          "target": "education",
+          "method": "finetune",
+          "domain_distance": 0.6403124237432849,
+          "performance": 0.6799618318009095,
+          "training_cost": 0.4
+        },
+        "scratch": {
+          "source": "code_review",
+          "target": "education",
+          "method": "scratch",
+          "domain_distance": 0.6403124237432849,
+          "performance": 0.4671583831047353,
+          "training_cost": 1.0
+        }
+      }
+    },
+    "math": {
+      "data_analysis": {
+        "direct": {
+          "source": "math",
+          "target": "data_analysis",
+          "method": "direct",
+          "domain_distance": 0.37749172176353746,
+          "performance": 0.5407955998204265,
+          "training_cost": 0.1
+        },
+        "finetune": {
+          "source": "math",
+          "target": "data_analysis",
+          "method": "finetune",
+          "domain_distance": 0.37749172176353746,
+          "performance": 0.7335477435504745,
+          "training_cost": 0.4
+        },
+        "scratch": {
+          "source": "math",
+          "target": "data_analysis",
+          "method": "scratch",
+          "domain_distance": 0.37749172176353746,
+          "performance": 0.45423590834761085,
+          "training_cost": 1.0
+        }
+      },
+      "customer_service": {
+        "direct": {
+          "source": "math",
+          "target": "customer_service",
+          "method": "direct",
+          "domain_distance": 0.85,
+          "performance": 0.3586079709958997,
+          "training_cost": 0.1
+        },
+        "finetune": {
+          "source": "math",
+          "target": "customer_service",
+          "method": "finetune",
+          "domain_distance": 0.85,
+          "performance": 0.6661686371577555,
+          "training_cost": 0.4
+        },
+        "scratch": {
+          "source": "math",
+          "target": "customer_service",
+          "method": "scratch",
+          "domain_distance": 0.85,
+          "performance": 0.470906808558142,
+          "training_cost": 1.0
+        }
+      },
+      "legal": {
+        "direct": {
+          "source": "math",
+          "target": "legal",
+          "method": "direct",
+          "domain_distance": 0.8573214099741124,
+          "performance": 0.38831593908563034,
+          "training_cost": 0.1
+        },
+        "finetune": {
+          "source": "math",
+          "target": "legal",
+          "method": "finetune",
+          "domain_distance": 0.8573214099741124,
+          "performance": 0.6568071287037072,
+          "training_cost": 0.4
+        },
+        "scratch": {
+          "source": "math",
+          "target": "legal",
+          "method": "scratch",
+          "domain_distance": 0.8573214099741124,
+          "performance": 0.5406171098934331,
+          "training_cost": 1.0
+        }
+      },
+      "medical": {
+        "direct": {
+          "source": "math",
+          "target": "medical",
+          "method": "direct",
+          "domain_distance": 0.8015609770940699,
+          "performance": 0.3390324469184644,
+          "training_cost": 0.1
+        },
+        "finetune": {
+          "source": "math",
+          "target": "medical",
+          "method": "finetune",
+          "domain_distance": 0.8015609770940699,
+          "performance": 0.7406272187525068,
+          "training_cost": 0.4
+        },
+        "scratch": {
+          "source": "math",
+          "target": "medical",
+          "method": "scratch",
+          "domain_distance": 0.8015609770940699,
+          "performance": 0.5221297591618509,
+          "training_cost": 1.0
+        }
+      },
+      "education": {
+        "direct": {
+          "source": "math",
+          "target": "education",
+          "method": "direct",
+          "domain_distance": 0.5766281297335397,
+          "performance": 0.4944102296192732,
+          "training_cost": 0.1
+        },
+        "finetune": {
+          "source": "math",
+          "target": "education",
+          "method": "finetune",
+          "domain_distance": 0.5766281297335397,
+          "performance": 0.6545570103457441,
+          "training_cost": 0.4
+        },
+        "scratch": {
+          "source": "math",
+          "target": "education",
+          "method": "scratch",
+          "domain_distance": 0.5766281297335397,
+          "performance": 0.5006531732620707,
+          "training_cost": 1.0
+        }
+      }
+    },
+    "creative": {
+      "data_analysis": {
+        "direct": {
+          "source": "creative",
+          "target": "data_analysis",
+          "method": "direct",
+          "domain_distance": 1.0062305898749053,
+          "performance": 0.3502078468640873,
+          "training_cost": 0.1
+        },
+        "finetune": {
+          "source": "creative",
+          "target": "data_analysis",
+          "method": "finetune",
+          "domain_distance": 1.0062305898749053,
+          "performance": 0.602800593509327,
+          "training_cost": 0.4
+        },
+        "scratch": {
+          "source": "creative",
+          "target": "data_analysis",
+          "method": "scratch",
+          "domain_distance": 1.0062305898749053,
+          "performance": 0.5137186098690393,
+          "training_cost": 1.0
+        }
+      },
+      "customer_service": {
+        "direct": {
+          "source": "creative",
+          "target": "customer_service",
+          "method": "direct",
+          "domain_distance": 0.6184658438426491,
+          "performance": 0.4643888673348531,
+          "training_cost": 0.1
+        },
+        "finetune": {
+          "source": "creative",
+          "target": "customer_service",
+          "method": "finetune",
+          "domain_distance": 0.6184658438426491,
+          "performance": 0.7197441429158686,
+          "training_cost": 0.4
+        },
+        "scratch": {
+          "source": "creative",
+          "target": "customer_service",
+          "method": "scratch",
+          "domain_distance": 0.6184658438426491,
+          "performance": 0.4586390066784976,
+          "training_cost": 1.0
+        }
+      },
+      "legal": {
+        "direct": {
+          "source": "creative",
+          "target": "legal",
+          "method": "direct",
+          "domain_distance": 0.9721111047611789,
+          "performance": 0.3414642825800321,
+          "training_cost": 0.1
+        },
+        "finetune": {
+          "source": "creative",
+          "target": "legal",
+          "method": "finetune",
+          "domain_distance": 0.9721111047611789,
+          "performance": 0.7059060026286553,
+          "training_cost": 0.4
+        },
+        "scratch": {
+          "source": "creative",
+          "target": "legal",
+          "method": "scratch",
+          "domain_distance": 0.9721111047611789,
+          "performance": 0.47910520335241563,
+          "training_cost": 1.0
+        }
+      },
+      "medical": {
+        "direct": {
+          "source": "creative",
+          "target": "medical",
+          "method": "direct",
+          "domain_distance": 1.1800423721205946,
+          "performance": 0.2875760552930413,
+          "training_cost": 0.1
+        },
+        "finetune": {
+          "source": "creative",
+          "target": "medical",
+          "method": "finetune",
+          "domain_distance": 1.1800423721205946,
+          "performance": 0.6298377354832057,
+          "training_cost": 0.4
+        },
+        "scratch": {
+          "source": "creative",
+          "target": "medical",
+          "method": "scratch",
+          "domain_distance": 1.1800423721205946,
+          "performance": 0.5058093666370382,
+          "training_cost": 1.0
+        }
+      },
+      "education": {
+        "direct": {
+          "source": "creative",
+          "target": "education",
+          "method": "direct",
+          "domain_distance": 0.51234753829798,
+          "performance": 0.4716684764146632,
+          "training_cost": 0.1
+        },
+        "finetune": {
+          "source": "creative",
+          "target": "education",
+          "method": "finetune",
+          "domain_distance": 0.51234753829798,
+          "performance": 0.6818616255830889,
+          "training_cost": 0.4
+        },
+        "scratch": {
+          "source": "creative",
+          "target": "education",
+          "method": "scratch",
+          "domain_distance": 0.51234753829798,
+          "performance": 0.4819546454197056,
+          "training_cost": 1.0
+        }
+      }
+    }
+  },
+  "distance_performance_corr": -0.6919786943332085
+}

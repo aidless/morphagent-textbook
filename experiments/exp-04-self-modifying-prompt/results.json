@@ -1,270 +1,54 @@
 {
   "experiment": "exp-04-self-modifying-prompt",
-  "timestamp": 1784697262.4103377,
-  "strategies": [
+  "baseline_score": 30.0,
+  "final_score": 100.0,
+  "improvement": 70.0,
+  "history": [
     {
-      "strategy": "static",
-      "accuracy": 100.0,
-      "results": [
-        {
-          "question": "Janet has 3 apples. She gives 1 to her friend and buys 5 more. How many apples does she have now?",
-          "expected": 7,
-          "actual": "7",
-          "correct": true
-        },
-        {
-          "question": "A store sells 4 books for $2 each. How much money does the store make?",
-          "expected": 8,
-          "actual": "8",
-          "correct": true
-        },
-        {
-          "question": "There are 12 birds on a tree. 5 fly away. How many are left?",
-          "expected": 7,
-          "actual": "7",
-          "correct": true
-        },
-        {
-          "question": "Tom has 4 boxes. Each box has 3 oranges. How many oranges in total?",
-          "expected": 12,
-          "actual": "12",
-          "correct": true
-        },
-        {
-          "question": "A car travels 60 miles in 2 hours. What is its speed?",
-          "expected": 30,
-          "actual": "30",
-          "correct": true
-        },
-        {
-          "question": "Sara has 20 candies. She gives 8 to her brother. How many are left?",
-          "expected": 12,
-          "actual": "12",
-          "correct": true
-        },
-        {
-          "question": "A pack has 6 pencils. How many pencils in 5 packs?",
-          "expected": 30,
-          "actual": "30",
-          "correct": true
-        },
-        {
-          "question": "John is 15 years old. His sister is 3 years younger. How old is his sister?",
-          "expected": 12,
-          "actual": "12",
-          "correct": true
-        },
-        {
-          "question": "A book has 200 pages. Mary reads 50 pages per day. How many days to finish?",
-          "expected": 4,
-          "actual": "4",
-          "correct": true
-        },
-        {
-          "question": "A pizza is cut into 8 slices. 3 are eaten. How many are left?",
-          "expected": 5,
-          "actual": "5",
-          "correct": true
-        }
-      ]
+      "iter": 0,
+      "prompt": "You are a math tutor. Solve step by step. Question: {q}\nAnswer with a number.",
+      "score": 30.0,
+      "quality": 0.4
     },
     {
-      "strategy": "dspy_optimized",
-      "accuracy": 100.0,
-      "results": [
-        {
-          "question": "Janet has 3 apples. She gives 1 to her friend and buys 5 more. How many apples does she have now?",
-          "expected": 7,
-          "actual": "7",
-          "correct": true
-        },
-        {
-          "question": "A store sells 4 books for $2 each. How much money does the store make?",
-          "expected": 8,
-          "actual": "8",
-          "correct": true
-        },
-        {
-          "question": "There are 12 birds on a tree. 5 fly away. How many are left?",
-          "expected": 7,
-          "actual": "7",
-          "correct": true
-        },
-        {
-          "question": "Tom has 4 boxes. Each box has 3 oranges. How many oranges in total?",
-          "expected": 12,
-          "actual": "12",
-          "correct": true
-        },
-        {
-          "question": "A car travels 60 miles in 2 hours. What is its speed?",
-          "expected": 30,
-          "actual": "30",
-          "correct": true
-        },
-        {
-          "question": "Sara has 20 candies. She gives 8 to her brother. How many are left?",
-          "expected": 12,
-          "actual": "12",
-          "correct": true
-        },
-        {
-          "question": "A pack has 6 pencils. How many pencils in 5 packs?",
-          "expected": 30,
-          "actual": "30",
-          "correct": true
-        },
-        {
-          "question": "John is 15 years old. His sister is 3 years younger. How old is his sister?",
-          "expected": 12,
-          "actual": "12",
-          "correct": true
-        },
-        {
-          "question": "A book has 200 pages. Mary reads 50 pages per day. How many days to finish?",
-          "expected": 4,
-          "actual": "4",
-          "correct": true
-        },
-        {
-          "question": "A pizza is cut into 8 slices. 3 are eaten. How many are left?",
-          "expected": 5,
-          "actual": "5",
-          "correct": true
-        }
-      ]
+      "iter": 1,
+      "prompt": "You are an expert mathematician. Extract numbers, identify operations, compute precisely. Question: {q}\nAnswer:",
+      "score": 40.0,
+      "quality": 0.4525010755222667,
+      "candidate_score": 40.0,
+      "accepted": true
     },
     {
-      "strategy": "opro_iter1",
-      "accuracy": 100.0,
-      "results": [
-        {
-          "question": "Janet has 3 apples. She gives 1 to her friend and buys 5 more. How many apples does she have now?",
-          "expected": 7,
-          "actual": "7",
-          "correct": true
-        },
-        {
-          "question": "A store sells 4 books for $2 each. How much money does the store make?",
-          "expected": 8,
-          "actual": "8",
-          "correct": true
-        },
-        {
-          "question": "There are 12 birds on a tree. 5 fly away. How many are left?",
-          "expected": 7,
-          "actual": "7",
-          "correct": true
-        },
-        {
-          "question": "Tom has 4 boxes. Each box has 3 oranges. How many oranges in total?",
-          "expected": 12,
-          "actual": "12",
-          "correct": true
-        },
-        {
-          "question": "A car travels 60 miles in 2 hours. What is its speed?",
-          "expected": 30,
-          "actual": "30",
-          "correct": true
-        },
-        {
-          "question": "Sara has 20 candies. She gives 8 to her brother. How many are left?",
-          "expected": 12,
-          "actual": "12",
-          "correct": true
-        },
-        {
-          "question": "A pack has 6 pencils. How many pencils in 5 packs?",
-          "expected": 30,
-          "actual": "30",
-          "correct": true
-        },
-        {
-          "question": "John is 15 years old. His sister is 3 years younger. How old is his sister?",
-          "expected": 12,
-          "actual": "12",
-          "correct": true
-        },
-        {
-          "question": "A book has 200 pages. Mary reads 50 pages per day. How many days to finish?",
-          "expected": 4,
-          "actual": "4",
-          "correct": true
-        },
-        {
-          "question": "A pizza is cut into 8 slices. 3 are eaten. How many are left?",
-          "expected": 5,
-          "actual": "5",
-          "correct": true
-        }
-      ]
+      "iter": 2,
+      "prompt": "Read the problem. List all numbers. Determine +,-,*,/. Calculate. Q: {q}\nNumber:",
+      "score": 60.0,
+      "quality": 0.6269902609026143,
+      "candidate_score": 60.0,
+      "accepted": true
     },
     {
-      "strategy": "opro_iter3",
-      "accuracy": 100.0,
-      "results": [
-        {
-          "question": "Janet has 3 apples. She gives 1 to her friend and buys 5 more. How many apples does she have now?",
-          "expected": 7,
-          "actual": "7",
-          "correct": true
-        },
-        {
-          "question": "A store sells 4 books for $2 each. How much money does the store make?",
-          "expected": 8,
-          "actual": "8",
-          "correct": true
-        },
-        {
-          "question": "There are 12 birds on a tree. 5 fly away. How many are left?",
-          "expected": 7,
-          "actual": "7",
-          "correct": true
-        },
-        {
-          "question": "Tom has 4 boxes. Each box has 3 oranges. How many oranges in total?",
-          "expected": 12,
-          "actual": "12",
-          "correct": true
-        },
-        {
-          "question": "A car travels 60 miles in 2 hours. What is its speed?",
-          "expected": 30,
-          "actual": "30",
-          "correct": true
-        },
-        {
-          "question": "Sara has 20 candies. She gives 8 to her brother. How many are left?",
-          "expected": 12,
-          "actual": "12",
-          "correct": true
-        },
-        {
-          "question": "A pack has 6 pencils. How many pencils in 5 packs?",
-          "expected": 30,
-          "actual": "30",
-          "correct": true
-        },
-        {
-          "question": "John is 15 years old. His sister is 3 years younger. How old is his sister?",
-          "expected": 12,
-          "actual": "12",
-          "correct": true
-        },
-        {
-          "question": "A book has 200 pages. Mary reads 50 pages per day. How many days to finish?",
-          "expected": 4,
-          "actual": "4",
-          "correct": true
-        },
-        {
-          "question": "A pizza is cut into 8 slices. 3 are eaten. How many are left?",
-          "expected": 5,
-          "actual": "5",
-          "correct": true
-        }
-      ]
+      "iter": 3,
+      "prompt": "Solve carefully: (1) extract numbers (2) find operations (3) compute. Q: {q}\nFinal answer:",
+      "score": 100.0,
+      "quality": 0.9506373823190156,
+      "candidate_score": 100.0,
+      "accepted": true
+    },
+    {
+      "iter": 4,
+      "prompt": "Solve carefully: (1) extract numbers (2) find operations (3) compute. Q: {q}\nFinal answer:",
+      "score": 100.0,
+      "quality": 0.9506373823190156,
+      "candidate_score": 100.0,
+      "accepted": false
+    },
+    {
+      "iter": 5,
+      "prompt": "Solve carefully: (1) extract numbers (2) find operations (3) compute. Q: {q}\nFinal answer:",
+      "score": 100.0,
+      "quality": 0.9506373823190156,
+      "candidate_score": 100.0,
+      "accepted": false
     }
   ]
 }

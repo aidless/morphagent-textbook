@@ -1,0 +1,150 @@
+{
+  "experiment": "exp-05-context-window",
+  "results": [
+    {
+      "context_id": "ctx-1",
+      "levels": [
+        {
+          "ratio": 1.0,
+          "success_rate": 100.0,
+          "orig_tokens": 368,
+          "comp_tokens": 368
+        },
+        {
+          "ratio": 0.5,
+          "success_rate": 100.0,
+          "orig_tokens": 368,
+          "comp_tokens": 168
+        },
+        {
+          "ratio": 0.3,
+          "success_rate": 100.0,
+          "orig_tokens": 368,
+          "comp_tokens": 103
+        },
+        {
+          "ratio": 0.15,
+          "success_rate": 66.66666666666667,
+          "orig_tokens": 368,
+          "comp_tokens": 39
+        }
+      ]
+    },
+    {
+      "context_id": "ctx-2",
+      "levels": [
+        {
+          "ratio": 1.0,
+          "success_rate": 100.0,
+          "orig_tokens": 337,
+          "comp_tokens": 337
+        },
+        {
+          "ratio": 0.5,
+          "success_rate": 100.0,
+          "orig_tokens": 337,
+          "comp_tokens": 150
+        },
+        {
+          "ratio": 0.3,
+          "success_rate": 66.66666666666667,
+          "orig_tokens": 337,
+          "comp_tokens": 108
+        },
+        {
+          "ratio": 0.15,
+          "success_rate": 33.333333333333336,
+          "orig_tokens": 337,
+          "comp_tokens": 56
+        }
+      ]
+    },
+    {
+      "context_id": "ctx-3",
+      "levels": [
+        {
+          "ratio": 1.0,
+          "success_rate": 100.0,
+          "orig_tokens": 331,
+          "comp_tokens": 331
+        },
+        {
+          "ratio": 0.5,
+          "success_rate": 100.0,
+          "orig_tokens": 331,
+          "comp_tokens": 170
+        },
+        {
+          "ratio": 0.3,
+          "success_rate": 100.0,
+          "orig_tokens": 331,
+          "comp_tokens": 100
+        },
+        {
+          "ratio": 0.15,
+          "success_rate": 66.66666666666667,
+          "orig_tokens": 331,
+          "comp_tokens": 33
+        }
+      ]
+    },
+    {
+      "context_id": "ctx-4",
+      "levels": [
+        {
+          "ratio": 1.0,
+          "success_rate": 100.0,
+          "orig_tokens": 353,
+          "comp_tokens": 353
+        },
+        {
+          "ratio": 0.5,
+          "success_rate": 100.0,
+          "orig_tokens": 353,
+          "comp_tokens": 196
+        },
+        {
+          "ratio": 0.3,
+          "success_rate": 100.0,
+          "orig_tokens": 353,
+          "comp_tokens": 93
+        },
+        {
+          "ratio": 0.15,
+          "success_rate": 66.66666666666667,
+          "orig_tokens": 353,
+          "comp_tokens": 61
+        }
+      ]
+    },
+    {
+      "context_id": "ctx-5",
+      "levels": [
+        {
+          "ratio": 1.0,
+          "success_rate": 100.0,
+          "orig_tokens": 328,
+          "comp_tokens": 328
+        },
+        {
+          "ratio": 0.5,
+          "success_rate": 100.0,
+          "orig_tokens": 328,
+          "comp_tokens": 156
+        },
+        {
+          "ratio": 0.3,
+          "success_rate": 100.0,
+          "orig_tokens": 328,
+          "comp_tokens": 82
+        },
+        {
+          "ratio": 0.15,
+          "success_rate": 66.66666666666667,
+          "orig_tokens": 328,
+          "comp_tokens": 31
+        }
+      ]
+    }
+  ]
+}

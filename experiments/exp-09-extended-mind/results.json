@@ -1,0 +1,311 @@
+{
+  "experiment": "exp-09-extended-mind",
+  "summary": {
+    "无外部工具": {
+      "rate": 71.42857142857143,
+      "results": [
+        {
+          "success": true,
+          "task_type": "记忆",
+          "tools_used": [],
+          "has_notebook": false,
+          "has_calculator": false,
+          "has_search": false
+        },
+        {
+          "success": true,
+          "task_type": "记忆",
+          "tools_used": [],
+          "has_notebook": false,
+          "has_calculator": false,
+          "has_search": false
+        },
+        {
+          "success": true,
+          "task_type": "计算",
+          "tools_used": [],
+          "has_notebook": false,
+          "has_calculator": false,
+          "has_search": false
+        },
+        {
+          "success": false,
+          "task_type": "计算",
+          "tools_used": [],
+          "has_notebook": false,
+          "has_calculator": false,
+          "has_search": false
+        },
+        {
+          "success": true,
+          "task_type": "知识",
+          "tools_used": [],
+          "has_notebook": false,
+          "has_calculator": false,
+          "has_search": false
+        },
+        {
+          "success": true,
+          "task_type": "知识",
+          "tools_used": [],
+          "has_notebook": false,
+          "has_calculator": false,
+          "has_search": false
+        },
+        {
+          "success": false,
+          "task_type": "复合",
+          "tools_used": [],
+          "has_notebook": false,
+          "has_calculator": false,
+          "has_search": false
+        }
+      ]
+    },
+    "仅笔记本": {
+      "rate": 71.42857142857143,
+      "results": [
+        {
+          "success": true,
+          "task_type": "记忆",
+          "tools_used": [],
+          "has_notebook": true,
+          "has_calculator": false,
+          "has_search": false
+        },
+        {
+          "success": true,
+          "task_type": "记忆",
+          "tools_used": [],
+          "has_notebook": true,
+          "has_calculator": false,
+          "has_search": false
+        },
+        {
+          "success": true,
+          "task_type": "计算",
+          "tools_used": [],
+          "has_notebook": true,
+          "has_calculator": false,
+          "has_search": false
+        },
+        {
+          "success": false,
+          "task_type": "计算",
+          "tools_used": [],
+          "has_notebook": true,
+          "has_calculator": false,
+          "has_search": false
+        },
+        {
+          "success": true,
+          "task_type": "知识",
+          "tools_used": [],
+          "has_notebook": true,
+          "has_calculator": false,
+          "has_search": false
+        },
+        {
+          "success": true,
+          "task_type": "知识",
+          "tools_used": [],
+          "has_notebook": true,
+          "has_calculator": false,
+          "has_search": false
+        },
+        {
+          "success": false,
+          "task_type": "复合",
+          "tools_used": [],
+          "has_notebook": true,
+          "has_calculator": false,
+          "has_search": false
+        }
+      ]
+    },
+    "仅计算器": {
+      "rate": 85.71428571428571,
+      "results": [
+        {
+          "success": true,
+          "task_type": "记忆",
+          "tools_used": [],
+          "has_notebook": false,
+          "has_calculator": true,
+          "has_search": false
+        },
+        {
+          "success": true,
+          "task_type": "记忆",
+          "tools_used": [],
+          "has_notebook": false,
+          "has_calculator": true,
+          "has_search": false
+        },
+        {
+          "success": true,
+          "task_type": "计算",
+          "tools_used": [],
+          "has_notebook": false,
+          "has_calculator": true,
+          "has_search": false
+        },
+        {
+          "success": true,
+          "task_type": "计算",
+          "tools_used": [],
+          "has_notebook": false,
+          "has_calculator": true,
+          "has_search": false
+        },
+        {
+          "success": true,
+          "task_type": "知识",
+          "tools_used": [],
+          "has_notebook": false,
+          "has_calculator": true,
+          "has_search": false
+        },
+        {
+          "success": true,
+          "task_type": "知识",
+          "tools_used": [],
+          "has_notebook": false,
+          "has_calculator": true,
+          "has_search": false
+        },
+        {
+          "success": false,
+          "task_type": "复合",
+          "tools_used": [],
+          "has_notebook": false,
+          "has_calculator": true,
+          "has_search": false
+        }
+      ]
+    },
+    "仅搜索引擎": {
+      "rate": 71.42857142857143,
+      "results": [
+        {
+          "success": true,
+          "task_type": "记忆",
+          "tools_used": [],
+          "has_notebook": false,
+          "has_calculator": false,
+          "has_search": true
+        },
+        {
+          "success": true,
+          "task_type": "记忆",
+          "tools_used": [],
+          "has_notebook": false,
+          "has_calculator": false,
+          "has_search": true
+        },
+        {
+          "success": true,
+          "task_type": "计算",
+          "tools_used": [],
+          "has_notebook": false,
+          "has_calculator": false,
+          "has_search": true
+        },
+        {
+          "success": false,
+          "task_type": "计算",
+          "tools_used": [],
+          "has_notebook": false,
+          "has_calculator": false,
+          "has_search": true
+        },
+        {
+          "success": true,
+          "task_type": "知识",
+          "tools_used": [],
+          "has_notebook": false,
+          "has_calculator": false,
+          "has_search": true
+        },
+        {
+          "success": true,
+          "task_type": "知识",
+          "tools_used": [],
+          "has_notebook": false,
+          "has_calculator": false,
+          "has_search": true
+        },
+        {
+          "success": false,
+          "task_type": "复合",
+          "tools_used": [],
+          "has_notebook": false,
+          "has_calculator": false,
+          "has_search": true
+        }
+      ]
+    },
+    "全部工具": {
+      "rate": 100.0,
+      "results": [
+        {
+          "success": true,
+          "task_type": "记忆",
+          "tools_used": [],
+          "has_notebook": true,
+          "has_calculator": true,
+          "has_search": true
+        },
+        {
+          "success": true,
+          "task_type": "记忆",
+          "tools_used": [],
+          "has_notebook": true,
+          "has_calculator": true,
+          "has_search": true
+        },
+        {
+          "success": true,
+          "task_type": "计算",
+          "tools_used": [],
+          "has_notebook": true,
+          "has_calculator": true,
+          "has_search": true
+        },
+        {
+          "success": true,
+          "task_type": "计算",
+          "tools_used": [],
+          "has_notebook": true,
+          "has_calculator": true,
+          "has_search": true
+        },
+        {
+          "success": true,
+          "task_type": "知识",
+          "tools_used": [],
+          "has_notebook": true,
+          "has_calculator": true,
+          "has_search": true
+        },
+        {
+          "success": true,
+          "task_type": "知识",
+          "tools_used": [],
+          "has_notebook": true,
+          "has_calculator": true,
+          "has_search": true
+        },
+        {
+          "success": true,
+          "task_type": "复合",
+          "tools_used": [],
+          "has_notebook": true,
+          "has_calculator": true,
+          "has_search": true
+        }
+      ]
+    }
+  },
+  "improvement": 28.57142857142857
+}

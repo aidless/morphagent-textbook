@@ -1,0 +1,218 @@
+{
+  "experiment": "exp-15-memory-adaptation",
+  "summary": {
+    "none": {
+      "label": "无记忆管理",
+      "success_rate": 0.0,
+      "total_tokens": 28,
+      "results": [
+        {
+          "round": 1,
+          "query": "我叫什么名字？",
+          "expected": "张三",
+          "found": false,
+          "core_size": 0,
+          "ext_size": 0
+        },
+        {
+          "round": 2,
+          "query": "我在哪里工作？",
+          "expected": "AI",
+          "found": false,
+          "core_size": 0,
+          "ext_size": 0
+        },
+        {
+          "round": 5,
+          "query": "我的项目叫什么？",
+          "expected": "MorphAgent",
+          "found": false,
+          "core_size": 0,
+          "ext_size": 0
+        },
+        {
+          "round": 8,
+          "query": "我的手机号？",
+          "expected": "138",
+          "found": false,
+          "core_size": 0,
+          "ext_size": 0
+        },
+        {
+          "round": 10,
+          "query": "我女儿叫什么？",
+          "expected": "小花",
+          "found": false,
+          "core_size": 0,
+          "ext_size": 0
+        },
+        {
+          "round": 12,
+          "query": "我的邮箱？",
+          "expected": "zhang@ai.com",
+          "found": false,
+          "core_size": 0,
+          "ext_size": 0
+        },
+        {
+          "round": 15,
+          "query": "我上周去了哪里？",
+          "expected": "上海",
+          "found": false,
+          "core_size": 0,
+          "ext_size": 0
+        },
+        {
+          "round": 18,
+          "query": "我的生日？",
+          "expected": "3月15",
+          "found": false,
+          "core_size": 0,
+          "ext_size": 0
+        }
+      ]
+    },
+    "fixed": {
+      "label": "固定记忆(不替换)",
+      "success_rate": 0.0,
+      "total_tokens": 88,
+      "results": [
+        {
+          "round": 1,
+          "query": "我叫什么名字？",
+          "expected": "张三",
+          "found": false,
+          "core_size": 1,
+          "ext_size": 0
+        },
+        {
+          "round": 2,
+          "query": "我在哪里工作？",
+          "expected": "AI",
+          "found": false,
+          "core_size": 2,
+          "ext_size": 0
+        },
+        {
+          "round": 5,
+          "query": "我的项目叫什么？",
+          "expected": "MorphAgent",
+          "found": false,
+          "core_size": 3,
+          "ext_size": 0
+        },
+        {
+          "round": 8,
+          "query": "我的手机号？",
+          "expected": "138",
+          "found": false,
+          "core_size": 4,
+          "ext_size": 0
+        },
+        {
+          "round": 10,
+          "query": "我女儿叫什么？",
+          "expected": "小花",
+          "found": false,
+          "core_size": 5,
+          "ext_size": 0
+        },
+        {
+          "round": 12,
+          "query": "我的邮箱？",
+          "expected": "zhang@ai.com",
+          "found": false,
+          "core_size": 5,
+          "ext_size": 0
+        },
+        {
+          "round": 15,
+          "query": "我上周去了哪里？",
+          "expected": "上海",
+          "found": false,
+          "core_size": 5,
+          "ext_size": 0
+        },
+        {
+          "round": 18,
+          "query": "我的生日？",
+          "expected": "3月15",
+          "found": false,
+          "core_size": 5,
+          "ext_size": 0
+        }
+      ]
+    },
+    "adaptive": {
+      "label": "自适应记忆(LRU替换)",
+      "success_rate": 37.5,
+      "total_tokens": 88,
+      "results": [
+        {
+          "round": 1,
+          "query": "我叫什么名字？",
+          "expected": "张三",
+          "found": false,
+          "core_size": 1,
+          "ext_size": 0
+        },
+        {
+          "round": 2,
+          "query": "我在哪里工作？",
+          "expected": "AI",
+          "found": false,
+          "core_size": 2,
+          "ext_size": 0
+        },
+        {
+          "round": 5,
+          "query": "我的项目叫什么？",
+          "expected": "MorphAgent",
+          "found": false,
+          "core_size": 3,
+          "ext_size": 0
+        },
+        {
+          "round": 8,
+          "query": "我的手机号？",
+          "expected": "138",
+          "found": false,
+          "core_size": 4,
+          "ext_size": 0
+        },
+        {
+          "round": 10,
+          "query": "我女儿叫什么？",
+          "expected": "小花",
+          "found": false,
+          "core_size": 5,
+          "ext_size": 0
+        },
+        {
+          "round": 12,
+          "query": "我的邮箱？",
+          "expected": "zhang@ai.com",
+          "found": true,
+          "core_size": 5,
+          "ext_size": 1
+        },
+        {
+          "round": 15,
+          "query": "我上周去了哪里？",
+          "expected": "上海",
+          "found": true,
+          "core_size": 5,
+          "ext_size": 2
+        },
+        {
+          "round": 18,
+          "query": "我的生日？",
+          "expected": "3月15",
+          "found": true,
+          "core_size": 5,
+          "ext_size": 3
+        }
+      ]
+    }
+  }
+}

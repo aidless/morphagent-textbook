@@ -1,1184 +1,156 @@
 {
   "experiment": "exp-01-baseline",
-  "timestamp": 1784697377.0971496,
-  "results": {
-    "ReAct": [
-      {
-        "success": true,
-        "answer": "北京的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '北京', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "北京"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "北京的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '北京', 'unit': 'celsius'}"
-              }
+  "results": [
+    {
+      "success": true,
+      "answer": "Observation: {'temp': 28, 'rain': 20}",
+      "trajectory": [
+        {
+          "step": 0,
+          "thought": "用户问北京天气，需要调用 get_weather。",
+          "action": {
+            "name": "get_weather",
+            "arguments": {
+              "city": "北京"
             }
           }
-        ],
-        "steps": 2,
-        "total_tokens": 125,
-        "task_id": "weather-1",
-        "answer_correct": true
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
+        },
+        {
+          "step": 1,
+          "thought": "我已获得足够信息。",
+          "action": {
+            "name": "finish",
+            "arguments": {
+              "answer": "Observation: {'temp': 28, 'rain': 20}"
             }
           }
-        ],
-        "steps": 2,
-        "total_tokens": 131,
-        "task_id": "calc-1",
-        "answer_correct": false
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
+        }
+      ],
+      "steps": 2,
+      "total_tokens": 113,
+      "query": "北京今天天气如何？",
+      "passed": false
+    },
+    {
+      "success": true,
+      "answer": "Observation: [{'title': 'Embodied Agent Survey', 'year': 2024}]",
+      "trajectory": [
+        {
+          "step": 0,
+          "thought": "用户要搜索信息，使用 search 工具。",
+          "action": {
+            "name": "search",
+            "arguments": {
+              "query": "Embodied AI"
             }
           }
-        ],
-        "steps": 2,
-        "total_tokens": 135,
-        "task_id": "search-1",
-        "answer_correct": false
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
+        },
+        {
+          "step": 1,
+          "thought": "我已获得足够信息。",
+          "action": {
+            "name": "finish",
+            "arguments": {
+              "answer": "Observation: [{'title': 'Embodied Agent Survey', 'year': 2024}]"
             }
           }
-        ],
-        "steps": 2,
-        "total_tokens": 129,
-        "task_id": "file-1",
-        "answer_correct": null
-      },
-      {
-        "success": true,
-        "answer": "上海的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '上海', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "上海"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "上海的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '上海', 'unit': 'celsius'}"
-              }
+        }
+      ],
+      "steps": 2,
+      "total_tokens": 127,
+      "query": "123 加 456 等于多少？",
+      "passed": false
+    },
+    {
+      "success": true,
+      "answer": "Observation: [{'title': 'ReAct: Synergizing Reasoning and Acting', 'year': 2023}]",
+      "trajectory": [
+        {
+          "step": 0,
+          "thought": "用户要搜索信息，使用 search 工具。",
+          "action": {
+            "name": "search",
+            "arguments": {
+              "query": "LLM Agent"
             }
           }
-        ],
-        "steps": 2,
-        "total_tokens": 125,
-        "task_id": "weather-2",
-        "answer_correct": true
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
+        },
+        {
+          "step": 1,
+          "thought": "我已获得足够信息。",
+          "action": {
+            "name": "finish",
+            "arguments": {
+              "answer": "Observation: [{'title': 'ReAct: Synergizing Reasoning and Acting', 'year': 2023}]"
             }
           }
-        ],
-        "steps": 2,
-        "total_tokens": 131,
-        "task_id": "calc-2",
-        "answer_correct": false
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
+        }
+      ],
+      "steps": 2,
+      "total_tokens": 131,
+      "query": "搜索 LLM Agent 最新论文",
+      "passed": false
+    },
+    {
+      "success": true,
+      "answer": "Observation: {'temp': 31, 'rain': 60}",
+      "trajectory": [
+        {
+          "step": 0,
+          "thought": "用户问上海天气，需要调用 get_weather。",
+          "action": {
+            "name": "get_weather",
+            "arguments": {
+              "city": "上海"
             }
           }
-        ],
-        "steps": 2,
-        "total_tokens": 135,
-        "task_id": "search-2",
-        "answer_correct": false
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
+        },
+        {
+          "step": 1,
+          "thought": "我已获得足够信息。",
+          "action": {
+            "name": "finish",
+            "arguments": {
+              "answer": "Observation: {'temp': 31, 'rain': 60}"
             }
           }
-        ],
-        "steps": 2,
-        "total_tokens": 131,
-        "task_id": "translate-1",
-        "answer_correct": false
-      },
-      {
-        "success": true,
-        "answer": "广州的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '广州', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "广州"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "广州的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '广州', 'unit': 'celsius'}"
-              }
+        }
+      ],
+      "steps": 2,
+      "total_tokens": 113,
+      "query": "上海明天会下雨吗？",
+      "passed": false
+    },
+    {
+      "success": true,
+      "answer": "Observation: [{'title': 'Embodied Agent Survey', 'year': 2024}]",
+      "trajectory": [
+        {
+          "step": 0,
+          "thought": "用户要搜索信息，使用 search 工具。",
+          "action": {
+            "name": "search",
+            "arguments": {
+              "query": "Embodied AI"
             }
           }
-        ],
-        "steps": 2,
-        "total_tokens": 125,
-        "task_id": "weather-3",
-        "answer_correct": true
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
+        },
+        {
+          "step": 1,
+          "thought": "我已获得足够信息。",
+          "action": {
+            "name": "finish",
+            "arguments": {
+              "answer": "Observation: [{'title': 'Embodied Agent Survey', 'year': 2024}]"
             }
           }
-        ],
-        "steps": 2,
-        "total_tokens": 129,
-        "task_id": "calc-3",
-        "answer_correct": false
-      }
-    ],
-    "Reflexion": [
-      {
-        "success": true,
-        "answer": "北京的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '北京', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "北京"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "北京的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '北京', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 125,
-        "task_id": "weather-1"
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 131,
-        "task_id": "calc-1"
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 135,
-        "task_id": "search-1"
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 129,
-        "task_id": "file-1"
-      },
-      {
-        "success": true,
-        "answer": "上海的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '上海', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "上海"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "上海的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '上海', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 125,
-        "task_id": "weather-2"
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 131,
-        "task_id": "calc-2"
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 135,
-        "task_id": "search-2"
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 131,
-        "task_id": "translate-1"
-      },
-      {
-        "success": true,
-        "answer": "广州的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '广州', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "广州"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "广州的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '广州', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 125,
-        "task_id": "weather-3"
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 129,
-        "task_id": "calc-3"
-      }
-    ],
-    "AutoGPT": [
-      {
-        "success": true,
-        "answer": "北京的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '北京', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "北京"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "北京的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '北京', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 125,
-        "task_id": "weather-1"
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 131,
-        "task_id": "calc-1"
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 135,
-        "task_id": "search-1"
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 129,
-        "task_id": "file-1"
-      },
-      {
-        "success": true,
-        "answer": "上海的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '上海', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "上海"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "上海的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '上海', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 125,
-        "task_id": "weather-2"
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 131,
-        "task_id": "calc-2"
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 135,
-        "task_id": "search-2"
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 131,
-        "task_id": "translate-1"
-      },
-      {
-        "success": true,
-        "answer": "广州的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '广州', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "广州"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "广州的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '广州', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 125,
-        "task_id": "weather-3"
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 129,
-        "task_id": "calc-3"
-      }
-    ],
-    "BabyAGI": [
-      {
-        "success": true,
-        "answer": "北京的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '北京', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "北京"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "北京的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '北京', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 125,
-        "task_id": "weather-1"
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 131,
-        "task_id": "calc-1"
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 135,
-        "task_id": "search-1"
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 129,
-        "task_id": "file-1"
-      },
-      {
-        "success": true,
-        "answer": "上海的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '上海', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "上海"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "上海的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '上海', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 125,
-        "task_id": "weather-2"
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 131,
-        "task_id": "calc-2"
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 135,
-        "task_id": "search-2"
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 131,
-        "task_id": "translate-1"
-      },
-      {
-        "success": true,
-        "answer": "广州的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '广州', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "广州"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "广州的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '广州', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 125,
-        "task_id": "weather-3"
-      },
-      {
-        "success": true,
-        "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}",
-        "trajectory": [
-          {
-            "step": 0,
-            "thought": "查询天气.",
-            "action": {
-              "name": "get_weather",
-              "arguments": {
-                "city": "深圳"
-              }
-            }
-          },
-          {
-            "step": 1,
-            "thought": "有了.",
-            "action": {
-              "name": "finish",
-              "arguments": {
-                "answer": "深圳的天气数据:Observation: {'temp': 25, 'rain': 30, 'city': '深圳', 'unit': 'celsius'}"
-              }
-            }
-          }
-        ],
-        "steps": 2,
-        "total_tokens": 129,
-        "task_id": "calc-3"
-      }
-    ]
-  }
+        }
+      ],
+      "steps": 2,
+      "total_tokens": 127,
+      "query": "200 乘以 3 等于多少？",
+      "passed": false
+    }
+  ],
+  "success_rate": 100.0
 }

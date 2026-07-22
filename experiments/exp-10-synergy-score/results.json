@@ -1,0 +1,381 @@
+{
+  "experiment": "exp-10-synergy-score",
+  "results": [
+    {
+      "config": "完美协同",
+      "synergy_score": 0.9996552425376787,
+      "pairs": [
+        {
+          "pair": [
+            "P (Prompt)",
+            "T (Tool)"
+          ],
+          "consistency": 0.9997659171940362
+        },
+        {
+          "pair": [
+            "P (Prompt)",
+            "M (Memory)"
+          ],
+          "consistency": 0.9994748580901714
+        },
+        {
+          "pair": [
+            "P (Prompt)",
+            "C (Cognition)"
+          ],
+          "consistency": 0.9998834199551021
+        },
+        {
+          "pair": [
+            "T (Tool)",
+            "M (Memory)"
+          ],
+          "consistency": 0.9997650958088875
+        },
+        {
+          "pair": [
+            "T (Tool)",
+            "C (Cognition)"
+          ],
+          "consistency": 0.9995373892094374
+        },
+        {
+          "pair": [
+            "M (Memory)",
+            "C (Cognition)"
+          ],
+          "consistency": 0.9995047749684378
+        }
+      ],
+      "task_performance": 0.92,
+      "subsystems": {
+        "P (Prompt)": {
+          "goal_alignment": 0.09244870262004955,
+          "task_fitness": 0.09830029933732543,
+          "info_completeness": 0.09129011895322413,
+          "perf_optimization": 0.0921942641496308
+        },
+        "T (Tool)": {
+          "goal_alignment": 0.34815911147207096,
+          "task_fitness": 0.35241484256858274,
+          "info_completeness": 0.33638577363501526,
+          "perf_optimization": 0.3487395845420385
+        },
+        "M (Memory)": {
+          "goal_alignment": 0.43631142480782265,
+          "task_fitness": 0.4317142777010128,
+          "info_completeness": 0.4355859485014943,
+          "perf_optimization": 0.429160694649423
+        },
+        "C (Cognition)": {
+          "goal_alignment": 0.21443172644178016,
+          "task_fitness": 0.23079918572474067,
+          "info_completeness": 0.220508162546352,
+          "perf_optimization": 0.21522530896302225
+        }
+      }
+    },
+    {
+      "config": "良好协同",
+      "synergy_score": 0.9741523039103613,
+      "pairs": [
+        {
+          "pair": [
+            "P (Prompt)",
+            "T (Tool)"
+          ],
+          "consistency": 0.9504491618873183
+        },
+        {
+          "pair": [
+            "P (Prompt)",
+            "M (Memory)"
+          ],
+          "consistency": 0.948227526967233
+        },
+        {
+          "pair": [
+            "P (Prompt)",
+            "C (Cognition)"
+          ],
+          "consistency": 0.9473357624243467
+        },
+        {
+          "pair": [
+            "T (Tool)",
+            "M (Memory)"
+          ],
+          "consistency": 0.9994246116454407
+        },
+        {
+          "pair": [
+            "T (Tool)",
+            "C (Cognition)"
+          ],
+          "consistency": 0.9998878743223943
+        },
+        {
+          "pair": [
+            "M (Memory)",
+            "C (Cognition)"
+          ],
+          "consistency": 0.9995888862154347
+        }
+      ],
+      "task_performance": 0.8,
+      "subsystems": {
+        "P (Prompt)": {
+          "goal_alignment": 0.08909548890635677,
+          "task_fitness": 0.09605343670898343,
+          "info_completeness": 0.03543246913887786,
+          "perf_optimization": 0.08238978798878983
+        },
+        "T (Tool)": {
+          "goal_alignment": 0.967512066848237,
+          "task_fitness": 0.9669119518812371,
+          "info_completeness": 1.0,
+          "perf_optimization": 1.0
+        },
+        "M (Memory)": {
+          "goal_alignment": 0.3495661060542049,
+          "task_fitness": 0.32774844612728904,
+          "info_completeness": 0.34990871967244275,
+          "perf_optimization": 0.3300535550528426
+        },
+        "C (Cognition)": {
+          "goal_alignment": 0.8360632491351934,
+          "task_fitness": 0.8062919128828501,
+          "info_completeness": 0.8668344821144693,
+          "perf_optimization": 0.8550712414618783
+        }
+      }
+    },
+    {
+      "config": "中等协同",
+      "synergy_score": 0.9917816854372566,
+      "pairs": [
+        {
+          "pair": [
+            "P (Prompt)",
+            "T (Tool)"
+          ],
+          "consistency": 0.9999796548504659
+        },
+        {
+          "pair": [
+            "P (Prompt)",
+            "M (Memory)"
+          ],
+          "consistency": 0.9917273444712914
+        },
+        {
+          "pair": [
+            "P (Prompt)",
+            "C (Cognition)"
+          ],
+          "consistency": 0.9844911530269144
+        },
+        {
+          "pair": [
+            "T (Tool)",
+            "M (Memory)"
+          ],
+          "consistency": 0.992369438425741
+        },
+        {
+          "pair": [
+            "T (Tool)",
+            "C (Cognition)"
+          ],
+          "consistency": 0.9852529286726692
+        },
+        {
+          "pair": [
+            "M (Memory)",
+            "C (Cognition)"
+          ],
+          "consistency": 0.9968695931764576
+        }
+      ],
+      "task_performance": 0.65,
+      "subsystems": {
+        "P (Prompt)": {
+          "goal_alignment": 0.09130855997620352,
+          "task_fitness": 0.12078845053423745,
+          "info_completeness": 0.1385647489344128,
+          "perf_optimization": 0.11992413482156361
+        },
+        "T (Tool)": {
+          "goal_alignment": 0.12679378230432184,
+          "task_fitness": 0.16642162027766905,
+          "info_completeness": 0.1892747529040149,
+          "perf_optimization": 0.16607809769752835
+        },
+        "M (Memory)": {
+          "goal_alignment": 0.9362092927066951,
+          "task_fitness": 0.896433225214166,
+          "info_completeness": 1.0,
+          "perf_optimization": 1.0
+        },
+        "C (Cognition)": {
+          "goal_alignment": 0.9688032857167798,
+          "task_fitness": 0.9031367238853472,
+          "info_completeness": 0.903051189292052,
+          "perf_optimization": 0.8520255815646326
+        }
+      }
+    },
+    {
+      "config": "低协同",
+      "synergy_score": 0.7048565476030788,
+      "pairs": [
+        {
+          "pair": [
+            "P (Prompt)",
+            "T (Tool)"
+          ],
+          "consistency": 0.46002290347457936
+        },
+        {
+          "pair": [
+            "P (Prompt)",
+            "M (Memory)"
+          ],
+          "consistency": 0.4338616691805294
+        },
+        {
+          "pair": [
+            "P (Prompt)",
+            "C (Cognition)"
+          ],
+          "consistency": 0.49639985143171234
+        },
+        {
+          "pair": [
+            "T (Tool)",
+            "M (Memory)"
+          ],
+          "consistency": 0.8956905387312413
+        },
+        {
+          "pair": [
+            "T (Tool)",
+            "C (Cognition)"
+          ],
+          "consistency": 0.9741337726553401
+        },
+        {
+          "pair": [
+            "M (Memory)",
+            "C (Cognition)"
+          ],
+          "consistency": 0.969030550145071
+        }
+      ],
+      "task_performance": 0.45,
+      "subsystems": {
+        "P (Prompt)": {
+          "goal_alignment": 0.0,
+          "task_fitness": 0.04942843949269646,
+          "info_completeness": 0.0,
+          "perf_optimization": 0.0
+        },
+        "T (Tool)": {
+          "goal_alignment": 0.07593178305749801,
+          "task_fitness": 0.12094798620810442,
+          "info_completeness": 0.14139230273669479,
+          "perf_optimization": 0.1695278140502873
+        },
+        "M (Memory)": {
+          "goal_alignment": 0.3882046316808448,
+          "task_fitness": 0.26938222227030834,
+          "info_completeness": 0.3440215651651627,
+          "perf_optimization": 0.20949757393772103
+        },
+        "C (Cognition)": {
+          "goal_alignment": 0.5676836863503802,
+          "task_fitness": 0.5961866896317572,
+          "info_completeness": 0.6136405821691092,
+          "perf_optimization": 0.6230518060380822
+        }
+      }
+    },
+    {
+      "config": "无协同",
+      "synergy_score": 0.9409631383714464,
+      "pairs": [
+        {
+          "pair": [
+            "P (Prompt)",
+            "T (Tool)"
+          ],
+          "consistency": 0.9518812276399448
+        },
+        {
+          "pair": [
+            "P (Prompt)",
+            "M (Memory)"
+          ],
+          "consistency": 0.9407414495387899
+        },
+        {
+          "pair": [
+            "P (Prompt)",
+            "C (Cognition)"
+          ],
+          "consistency": 0.8781847893474497
+        },
+        {
+          "pair": [
+            "T (Tool)",
+            "M (Memory)"
+          ],
+          "consistency": 0.9706460959403663
+        },
+        {
+          "pair": [
+            "T (Tool)",
+            "C (Cognition)"
+          ],
+          "consistency": 0.968308660679097
+        },
+        {
+          "pair": [
+            "M (Memory)",
+            "C (Cognition)"
+          ],
+          "consistency": 0.9360166070830317
+        }
+      ],
+      "task_performance": 0.3,
+      "subsystems": {
+        "P (Prompt)": {
+          "goal_alignment": 0.2622190517552226,
+          "task_fitness": 0.43197558022559135,
+          "info_completeness": 0.3126842477845648,
+          "perf_optimization": 0.18890736328387733
+        },
+        "T (Tool)": {
+          "goal_alignment": 1.0,
+          "task_fitness": 0.9949949873381484,
+          "info_completeness": 0.7965223147718039,
+          "perf_optimization": 1.0
+        },
+        "M (Memory)": {
+          "goal_alignment": 0.4775968705513879,
+          "task_fitness": 0.34253174200858283,
+          "info_completeness": 0.4865398459216002,
+          "perf_optimization": 0.3307793303847466
+        },
+        "C (Cognition)": {
+          "goal_alignment": 0.30929046398661536,
+          "task_fitness": 0.29741038566826633,
+          "info_completeness": 0.36294467428719257,
+          "perf_optimization": 0.5309166633699245
+        }
+      }
+    }
+  ],
+  "pearson_correlation": 2.63029312963224
+}

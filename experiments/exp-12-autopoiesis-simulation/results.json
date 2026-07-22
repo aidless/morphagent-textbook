@@ -1,0 +1,1289 @@
+{
+  "experiment": "exp-12-autopoiesis-simulation",
+  "results": [
+    {
+      "system": "System-无扰动",
+      "perturbation": 0.0,
+      "survived": true,
+      "steps": 50,
+      "final_health": 1.0,
+      "final_energy": 1.0,
+      "self_repairs": 0,
+      "self_productions": 50,
+      "history": [
+        {
+          "step": 1,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 2,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 3,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 4,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 5,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 6,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 7,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 8,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 9,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 10,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 11,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 12,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 13,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 14,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 15,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 16,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 17,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 18,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 19,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 20,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 21,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 22,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 23,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 24,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 25,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 26,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 27,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 28,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 29,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 30,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 31,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 32,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 33,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 34,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 35,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 36,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 37,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 38,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 39,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 40,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 41,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 42,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 43,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 44,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 45,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 46,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 47,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 48,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 49,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        },
+        {
+          "step": 50,
+          "alive": true,
+          "health": 1.0,
+          "energy": 1.0,
+          "component_count": 5
+        }
+      ],
+      "label": "无扰动"
+    },
+    {
+      "system": "System-弱扰动",
+      "perturbation": 0.05,
+      "survived": true,
+      "steps": 50,
+      "final_health": 1.0,
+      "final_energy": 0.0809999999999993,
+      "self_repairs": 0,
+      "self_productions": 50,
+      "history": [
+        {
+          "step": 1,
+          "alive": true,
+          "health": 1.0,
+          "energy": 0.8569999999999998,
+          "component_count": 5
+        },
+        {
+          "step": 2,
+          "alive": true,
+          "health": 1.0,
+          "energy": 0.7139999999999995,
+          "component_count": 5
+        },
+        {
+          "step": 3,
+          "alive": true,
+          "health": 1.0,
+          "energy": 0.5709999999999993,
+          "component_count": 5
+        },
+        {
+          "step": 4,
+          "alive": true,
+          "health": 1.0,
+          "energy": 0.4279999999999992,
+          "component_count": 5
+        },
+        {
+          "step": 5,
+          "alive": true,
+          "health": 1.0,
+          "energy": 0.28499999999999925,
+          "component_count": 5
+        },
+        {
+          "step": 6,
+          "alive": true,
+          "health": 1.0,
+          "energy": 0.1419999999999993,
+          "component_count": 5
+        },
+        {
+          "step": 7,
+          "alive": true,
+          "health": 0.9835550574464312,
+          "energy": 0.0829999999999993,
+          "component_count": 5
+        },
+        {
+          "step": 8,
+          "alive": true,
+          "health": 0.9587236817365025,
+          "energy": 0.07499999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 9,
+          "alive": true,
+          "health": 0.9452489373760237,
+          "energy": 0.08499999999999928,
+          "component_count": 5
+        },
+        {
+          "step": 10,
+          "alive": true,
+          "health": 0.9335723535138076,
+          "energy": 0.07699999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 11,
+          "alive": true,
+          "health": 0.9092587955848417,
+          "energy": 0.08699999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 12,
+          "alive": true,
+          "health": 0.8990111599815341,
+          "energy": 0.07899999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 13,
+          "alive": true,
+          "health": 0.8618717697270839,
+          "energy": 0.08899999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 14,
+          "alive": true,
+          "health": 0.8567742761742473,
+          "energy": 0.0809999999999993,
+          "component_count": 5
+        },
+        {
+          "step": 15,
+          "alive": true,
+          "health": 0.8333248955223219,
+          "energy": 0.07299999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 16,
+          "alive": true,
+          "health": 0.8105195053465156,
+          "energy": 0.08299999999999928,
+          "component_count": 5
+        },
+        {
+          "step": 17,
+          "alive": true,
+          "health": 0.7899205942583343,
+          "energy": 0.07499999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 18,
+          "alive": true,
+          "health": 0.7712764897890605,
+          "energy": 0.08499999999999928,
+          "component_count": 5
+        },
+        {
+          "step": 19,
+          "alive": true,
+          "health": 0.7522343085111438,
+          "energy": 0.07699999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 20,
+          "alive": true,
+          "health": 0.714847177594205,
+          "energy": 0.08699999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 21,
+          "alive": true,
+          "health": 0.7039461392091662,
+          "energy": 0.07899999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 22,
+          "alive": true,
+          "health": 0.6779979506422154,
+          "energy": 0.08899999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 23,
+          "alive": true,
+          "health": 0.669351310070329,
+          "energy": 0.0809999999999993,
+          "component_count": 5
+        },
+        {
+          "step": 24,
+          "alive": true,
+          "health": 0.6451824793944333,
+          "energy": 0.07299999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 25,
+          "alive": true,
+          "health": 0.6190680606229486,
+          "energy": 0.08299999999999928,
+          "component_count": 5
+        },
+        {
+          "step": 26,
+          "alive": true,
+          "health": 0.597559246649445,
+          "energy": 0.07499999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 27,
+          "alive": true,
+          "health": 0.5747987287647773,
+          "energy": 0.08499999999999928,
+          "component_count": 5
+        },
+        {
+          "step": 28,
+          "alive": true,
+          "health": 0.554838867521964,
+          "energy": 0.07699999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 29,
+          "alive": true,
+          "health": 0.5289817317037652,
+          "energy": 0.08699999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 30,
+          "alive": true,
+          "health": 0.516391346838762,
+          "energy": 0.07899999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 31,
+          "alive": true,
+          "health": 0.48917427148757475,
+          "energy": 0.08899999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 32,
+          "alive": true,
+          "health": 0.4765722499439292,
+          "energy": 0.0809999999999993,
+          "component_count": 5
+        },
+        {
+          "step": 33,
+          "alive": true,
+          "health": 0.45820767154296516,
+          "energy": 0.07299999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 34,
+          "alive": true,
+          "health": 0.44496378735647124,
+          "energy": 0.08299999999999928,
+          "component_count": 5
+        },
+        {
+          "step": 35,
+          "alive": true,
+          "health": 0.4186484279986365,
+          "energy": 0.07499999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 36,
+          "alive": true,
+          "health": 0.4025584759780997,
+          "energy": 0.08499999999999928,
+          "component_count": 5
+        },
+        {
+          "step": 37,
+          "alive": true,
+          "health": 0.3823784878657556,
+          "energy": 0.07699999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 38,
+          "alive": true,
+          "health": 0.3614939485463358,
+          "energy": 0.08699999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 39,
+          "alive": true,
+          "health": 0.34724509570807255,
+          "energy": 0.07899999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 40,
+          "alive": true,
+          "health": 0.3142693677057801,
+          "energy": 0.08899999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 41,
+          "alive": true,
+          "health": 0.2935259427034687,
+          "energy": 0.0809999999999993,
+          "component_count": 5
+        },
+        {
+          "step": 42,
+          "alive": true,
+          "health": 0.2830019815964914,
+          "energy": 0.07299999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 43,
+          "alive": true,
+          "health": 0.25415591005339444,
+          "energy": 0.08299999999999928,
+          "component_count": 5
+        },
+        {
+          "step": 44,
+          "alive": true,
+          "health": 0.2998020349165288,
+          "energy": 0.07499999999999929,
+          "component_count": 4
+        },
+        {
+          "step": 45,
+          "alive": true,
+          "health": 0.26432627969729433,
+          "energy": 0.08499999999999928,
+          "component_count": 4
+        },
+        {
+          "step": 46,
+          "alive": true,
+          "health": 0.3504488522267963,
+          "energy": 0.07699999999999929,
+          "component_count": 3
+        },
+        {
+          "step": 47,
+          "alive": true,
+          "health": 0.5093776094273185,
+          "energy": 0.08699999999999929,
+          "component_count": 2
+        },
+        {
+          "step": 48,
+          "alive": true,
+          "health": 0.506734772033815,
+          "energy": 0.07899999999999929,
+          "component_count": 2
+        },
+        {
+          "step": 49,
+          "alive": true,
+          "health": 0.9882398052499535,
+          "energy": 0.08899999999999929,
+          "component_count": 1
+        },
+        {
+          "step": 50,
+          "alive": true,
+          "health": 1.0,
+          "energy": 0.0809999999999993,
+          "component_count": 1
+        }
+      ],
+      "label": "弱扰动"
+    },
+    {
+      "system": "System-中等扰动",
+      "perturbation": 0.15,
+      "survived": true,
+      "steps": 50,
+      "final_health": 0.1214038515015727,
+      "final_energy": 0.0809999999999993,
+      "self_repairs": 0,
+      "self_productions": 50,
+      "history": [
+        {
+          "step": 1,
+          "alive": true,
+          "health": 0.9979058635750796,
+          "energy": 0.8569999999999998,
+          "component_count": 5
+        },
+        {
+          "step": 2,
+          "alive": true,
+          "health": 0.9929336283461673,
+          "energy": 0.7139999999999995,
+          "component_count": 5
+        },
+        {
+          "step": 3,
+          "alive": true,
+          "health": 0.9980739543257539,
+          "energy": 0.5709999999999993,
+          "component_count": 5
+        },
+        {
+          "step": 4,
+          "alive": true,
+          "health": 0.9957170862996652,
+          "energy": 0.4279999999999992,
+          "component_count": 5
+        },
+        {
+          "step": 5,
+          "alive": true,
+          "health": 0.9861648484291654,
+          "energy": 0.28499999999999925,
+          "component_count": 5
+        },
+        {
+          "step": 6,
+          "alive": true,
+          "health": 0.987746995902366,
+          "energy": 0.1419999999999993,
+          "component_count": 5
+        },
+        {
+          "step": 7,
+          "alive": true,
+          "health": 0.9250048471240474,
+          "energy": 0.0829999999999993,
+          "component_count": 5
+        },
+        {
+          "step": 8,
+          "alive": true,
+          "health": 0.841834124320307,
+          "energy": 0.07499999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 9,
+          "alive": true,
+          "health": 0.8014098912388711,
+          "energy": 0.08499999999999928,
+          "component_count": 5
+        },
+        {
+          "step": 10,
+          "alive": true,
+          "health": 0.773041414975411,
+          "energy": 0.07699999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 11,
+          "alive": true,
+          "health": 0.7001007411885138,
+          "energy": 0.08699999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 12,
+          "alive": true,
+          "health": 0.6585331095684634,
+          "energy": 0.07899999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 13,
+          "alive": true,
+          "health": 0.547114938805113,
+          "energy": 0.08899999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 14,
+          "alive": true,
+          "health": 0.5185046742616378,
+          "energy": 0.0809999999999993,
+          "component_count": 5
+        },
+        {
+          "step": 15,
+          "alive": true,
+          "health": 0.44849337234701564,
+          "energy": 0.07299999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 16,
+          "alive": true,
+          "health": 0.38007720181959637,
+          "energy": 0.08299999999999928,
+          "component_count": 5
+        },
+        {
+          "step": 17,
+          "alive": true,
+          "health": 0.31889962817002127,
+          "energy": 0.07499999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 18,
+          "alive": true,
+          "health": 0.2629673147621997,
+          "energy": 0.08499999999999928,
+          "component_count": 5
+        },
+        {
+          "step": 19,
+          "alive": true,
+          "health": 0.2794332481863133,
+          "energy": 0.07699999999999929,
+          "component_count": 4
+        },
+        {
+          "step": 20,
+          "alive": true,
+          "health": 0.4198003905497462,
+          "energy": 0.08699999999999929,
+          "component_count": 2
+        },
+        {
+          "step": 21,
+          "alive": true,
+          "health": 0.8758694653453033,
+          "energy": 0.07899999999999929,
+          "component_count": 1
+        },
+        {
+          "step": 22,
+          "alive": true,
+          "health": 0.7677611924412742,
+          "energy": 0.08899999999999929,
+          "component_count": 1
+        },
+        {
+          "step": 23,
+          "alive": true,
+          "health": 0.7655046370872879,
+          "energy": 0.0809999999999993,
+          "component_count": 1
+        },
+        {
+          "step": 24,
+          "alive": true,
+          "health": 0.7849590875259685,
+          "energy": 0.07299999999999929,
+          "component_count": 1
+        },
+        {
+          "step": 25,
+          "alive": true,
+          "health": 0.7449353090330871,
+          "energy": 0.08299999999999928,
+          "component_count": 1
+        },
+        {
+          "step": 26,
+          "alive": true,
+          "health": 0.7487910392461159,
+          "energy": 0.07499999999999929,
+          "component_count": 1
+        },
+        {
+          "step": 27,
+          "alive": true,
+          "health": 0.7320582132067345,
+          "energy": 0.08499999999999928,
+          "component_count": 1
+        },
+        {
+          "step": 28,
+          "alive": true,
+          "health": 0.7668434256063688,
+          "energy": 0.07699999999999929,
+          "component_count": 1
+        },
+        {
+          "step": 29,
+          "alive": true,
+          "health": 0.6987848696569878,
+          "energy": 0.08699999999999929,
+          "component_count": 1
+        },
+        {
+          "step": 30,
+          "alive": true,
+          "health": 0.6557124805288258,
+          "energy": 0.07899999999999929,
+          "component_count": 1
+        },
+        {
+          "step": 31,
+          "alive": true,
+          "health": 0.5243345394720967,
+          "energy": 0.08899999999999929,
+          "component_count": 1
+        },
+        {
+          "step": 32,
+          "alive": true,
+          "health": 0.5848261818594331,
+          "energy": 0.0809999999999993,
+          "component_count": 1
+        },
+        {
+          "step": 33,
+          "alive": true,
+          "health": 0.6097382649018884,
+          "energy": 0.07299999999999929,
+          "component_count": 1
+        },
+        {
+          "step": 34,
+          "alive": true,
+          "health": 0.5829404828223688,
+          "energy": 0.08299999999999928,
+          "component_count": 1
+        },
+        {
+          "step": 35,
+          "alive": true,
+          "health": 0.5460463069206457,
+          "energy": 0.07499999999999929,
+          "component_count": 1
+        },
+        {
+          "step": 36,
+          "alive": true,
+          "health": 0.4154685214451307,
+          "energy": 0.08499999999999928,
+          "component_count": 1
+        },
+        {
+          "step": 37,
+          "alive": true,
+          "health": 0.4707018027278358,
+          "energy": 0.07699999999999929,
+          "component_count": 1
+        },
+        {
+          "step": 38,
+          "alive": true,
+          "health": 0.37485937849793505,
+          "energy": 0.08699999999999929,
+          "component_count": 1
+        },
+        {
+          "step": 39,
+          "alive": true,
+          "health": 0.38351384678220923,
+          "energy": 0.07899999999999929,
+          "component_count": 1
+        },
+        {
+          "step": 40,
+          "alive": true,
+          "health": 0.360587956499764,
+          "energy": 0.08899999999999929,
+          "component_count": 1
+        },
+        {
+          "step": 41,
+          "alive": true,
+          "health": 0.34621133648849134,
+          "energy": 0.0809999999999993,
+          "component_count": 1
+        },
+        {
+          "step": 42,
+          "alive": true,
+          "health": 0.36530448197054743,
+          "energy": 0.07299999999999929,
+          "component_count": 1
+        },
+        {
+          "step": 43,
+          "alive": true,
+          "health": 0.2485105101759637,
+          "energy": 0.08299999999999928,
+          "component_count": 1
+        },
+        {
+          "step": 44,
+          "alive": true,
+          "health": 0.26895745934668713,
+          "energy": 0.07499999999999929,
+          "component_count": 1
+        },
+        {
+          "step": 45,
+          "alive": true,
+          "health": 0.2688716749274956,
+          "energy": 0.08499999999999928,
+          "component_count": 1
+        },
+        {
+          "step": 46,
+          "alive": true,
+          "health": 0.3202482663767946,
+          "energy": 0.07699999999999929,
+          "component_count": 1
+        },
+        {
+          "step": 47,
+          "alive": true,
+          "health": 0.31732675501891977,
+          "energy": 0.08699999999999929,
+          "component_count": 1
+        },
+        {
+          "step": 48,
+          "alive": true,
+          "health": 0.27796196257922723,
+          "energy": 0.07899999999999929,
+          "component_count": 1
+        },
+        {
+          "step": 49,
+          "alive": true,
+          "health": 0.1461536809057496,
+          "energy": 0.08899999999999929,
+          "component_count": 1
+        },
+        {
+          "step": 50,
+          "alive": true,
+          "health": 0.1214038515015727,
+          "energy": 0.0809999999999993,
+          "component_count": 1
+        }
+      ],
+      "label": "中等扰动"
+    },
+    {
+      "system": "System-强扰动",
+      "perturbation": 0.3,
+      "survived": false,
+      "steps": 15,
+      "final_health": 0.0,
+      "final_energy": 0.10899999999999928,
+      "self_repairs": 0,
+      "self_productions": 15,
+      "history": [
+        {
+          "step": 1,
+          "alive": true,
+          "health": 0.9574461192426863,
+          "energy": 0.8569999999999998,
+          "component_count": 5
+        },
+        {
+          "step": 2,
+          "alive": true,
+          "health": 0.9162102335876204,
+          "energy": 0.7139999999999995,
+          "component_count": 5
+        },
+        {
+          "step": 3,
+          "alive": true,
+          "health": 0.8990928807275471,
+          "energy": 0.5709999999999993,
+          "component_count": 5
+        },
+        {
+          "step": 4,
+          "alive": true,
+          "health": 0.8688582605550046,
+          "energy": 0.4279999999999992,
+          "component_count": 5
+        },
+        {
+          "step": 5,
+          "alive": true,
+          "health": 0.7914441564335493,
+          "energy": 0.28499999999999925,
+          "component_count": 5
+        },
+        {
+          "step": 6,
+          "alive": true,
+          "health": 0.7728075266511139,
+          "energy": 0.1419999999999993,
+          "component_count": 5
+        },
+        {
+          "step": 7,
+          "alive": true,
+          "health": 0.6073232290944764,
+          "energy": 0.0829999999999993,
+          "component_count": 5
+        },
+        {
+          "step": 8,
+          "alive": true,
+          "health": 0.4209817834869961,
+          "energy": 0.07499999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 9,
+          "alive": true,
+          "health": 0.340133317324124,
+          "energy": 0.08499999999999928,
+          "component_count": 5
+        },
+        {
+          "step": 10,
+          "alive": true,
+          "health": 0.26339636479720385,
+          "energy": 0.07699999999999929,
+          "component_count": 5
+        },
+        {
+          "step": 11,
+          "alive": true,
+          "health": 0.30230364022365375,
+          "energy": 0.08699999999999929,
+          "component_count": 3
+        },
+        {
+          "step": 12,
+          "alive": true,
+          "health": 0.18469732837544361,
+          "energy": 0.07899999999999929,
+          "component_count": 3
+        },
+        {
+          "step": 13,
+          "alive": true,
+          "health": 0.24867273645615745,
+          "energy": 0.08899999999999929,
+          "component_count": 1
+        },
+        {
+          "step": 14,
+          "alive": true,
+          "health": 0.05667280849992959,
+          "energy": 0.09899999999999928,
+          "component_count": 1
+        },
+        {
+          "step": 15,
+          "alive": false,
+          "health": 0.0,
+          "energy": 0.10899999999999928,
+          "component_count": 0
+        }
+      ],
+      "label": "强扰动"
+    },
+    {
+      "system": "System-极强扰动",
+      "perturbation": 0.5,
+      "survived": false,
+      "steps": 9,
+      "final_health": 0.0,
+      "final_energy": 0.09999999999999942,
+      "self_repairs": 4,
+      "self_productions": 9,
+      "history": [
+        {
+          "step": 1,
+          "alive": true,
+          "health": 0.8925861930860162,
+          "energy": 0.8569999999999998,
+          "component_count": 5
+        },
+        {
+          "step": 2,
+          "alive": true,
+          "health": 0.8180293154978184,
+          "energy": 0.6089999999999995,
+          "component_count": 5
+        },
+        {
+          "step": 3,
+          "alive": true,
+          "health": 0.8207577803605046,
+          "energy": 0.3399999999999994,
+          "component_count": 5
+        },
+        {
+          "step": 4,
+          "alive": true,
+          "health": 0.7437000800729338,
+          "energy": 0.09199999999999943,
+          "component_count": 5
+        },
+        {
+          "step": 5,
+          "alive": true,
+          "health": 0.4680099065371747,
+          "energy": 0.07799999999999943,
+          "component_count": 5
+        },
+        {
+          "step": 6,
+          "alive": true,
+          "health": 0.2702821902331157,
+          "energy": 0.08799999999999943,
+          "component_count": 5
+        },
+        {
+          "step": 7,
+          "alive": true,
+          "health": 0.1688535548690605,
+          "energy": 0.07999999999999943,
+          "component_count": 2
+        },
+        {
+          "step": 8,
+          "alive": true,
+          "health": 0.042749350022353805,
+          "energy": 0.08999999999999943,
+          "component_count": 1
+        },
+        {
+          "step": 9,
+          "alive": false,
+          "health": 0.0,
+          "energy": 0.09999999999999942,
+          "component_count": 0
+        }
+      ],
+      "label": "极强扰动"
+    }
+  ],
+  "max_survived_perturbation": 0.15
+}

@@ -1,0 +1,224 @@
+{
+  "experiment": "exp-07-embodied-vs-disembodied",
+  "type_summary": {
+    "导航": {
+      "embodied": 100.0,
+      "disembodied": 100.0,
+      "diff": 0.0
+    },
+    "工具使用": {
+      "embodied": 100.0,
+      "disembodied": 50.0,
+      "diff": 50.0
+    },
+    "物理推理": {
+      "embodied": 100.0,
+      "disembodied": 0.0,
+      "diff": 100.0
+    },
+    "空间理解": {
+      "embodied": 100.0,
+      "disembodied": 50.0,
+      "diff": 50.0
+    },
+    "纯文本": {
+      "embodied": 50.0,
+      "disembodied": 100.0,
+      "diff": -50.0
+    }
+  },
+  "overall": {
+    "embodied": 90.0,
+    "disembodied": 60.0
+  },
+  "physical": {
+    "embodied": 100.0,
+    "disembodied": 50.0
+  },
+  "text_only": {
+    "embodied": 50.0,
+    "disembodied": 100.0
+  },
+  "results": [
+    {
+      "task_type": "导航",
+      "question": "前方有障碍物，如何绕过？",
+      "embodied": {
+        "success": true,
+        "steps": 2,
+        "agent": "embodied",
+        "has_perception": true,
+        "has_action": true
+      },
+      "disembodied": {
+        "success": true,
+        "steps": 6,
+        "agent": "disembodied",
+        "has_perception": false,
+        "has_action": false
+      }
+    },
+    {
+      "task_type": "导航",
+      "question": "找到从A点到B点的最短路径",
+      "embodied": {
+        "success": true,
+        "steps": 3,
+        "agent": "embodied",
+        "has_perception": true,
+        "has_action": true
+      },
+      "disembodied": {
+        "success": true,
+        "steps": 6,
+        "agent": "disembodied",
+        "has_perception": false,
+        "has_action": false
+      }
+    },
+    {
+      "task_type": "物理推理",
+      "question": "如果把杯子推到桌子边缘会怎样？",
+      "embodied": {
+        "success": true,
+        "steps": 4,
+        "agent": "embodied",
+        "has_perception": true,
+        "has_action": true
+      },
+      "disembodied": {
+        "success": false,
+        "steps": 7,
+        "agent": "disembodied",
+        "has_perception": false,
+        "has_action": false
+      }
+    },
+    {
+      "task_type": "物理推理",
+      "question": "这个箱子太重搬不动，怎么办？",
+      "embodied": {
+        "success": true,
+        "steps": 3,
+        "agent": "embodied",
+        "has_perception": true,
+        "has_action": true
+      },
+      "disembodied": {
+        "success": false,
+        "steps": 7,
+        "agent": "disembodied",
+        "has_perception": false,
+        "has_action": false
+      }
+    },
+    {
+      "task_type": "空间理解",
+      "question": "房间里有3个物体，描述它们的位置关系",
+      "embodied": {
+        "success": true,
+        "steps": 4,
+        "agent": "embodied",
+        "has_perception": true,
+        "has_action": true
+      },
+      "disembodied": {
+        "success": false,
+        "steps": 10,
+        "agent": "disembodied",
+        "has_perception": false,
+        "has_action": false
+      }
+    },
+    {
+      "task_type": "空间理解",
+      "question": "判断两个物体之间的距离",
+      "embodied": {
+        "success": true,
+        "steps": 4,
+        "agent": "embodied",
+        "has_perception": true,
+        "has_action": true
+      },
+      "disembodied": {
+        "success": true,
+        "steps": 7,
+        "agent": "disembodied",
+        "has_perception": false,
+        "has_action": false
+      }
+    },
+    {
+      "task_type": "工具使用",
+      "question": "用锤子钉钉子需要几步？",
+      "embodied": {
+        "success": true,
+        "steps": 5,
+        "agent": "embodied",
+        "has_perception": true,
+        "has_action": true
+      },
+      "disembodied": {
+        "success": false,
+        "steps": 8,
+        "agent": "disembodied",
+        "has_perception": false,
+        "has_action": false
+      }
+    },
+    {
+      "task_type": "工具使用",
+      "question": "如何安全地切开一个纸箱？",
+      "embodied": {
+        "success": true,
+        "steps": 2,
+        "agent": "embodied",
+        "has_perception": true,
+        "has_action": true
+      },
+      "disembodied": {
+        "success": true,
+        "steps": 7,
+        "agent": "disembodied",
+        "has_perception": false,
+        "has_action": false
+      }
+    },
+    {
+      "task_type": "纯文本",
+      "question": "总结这篇论文的主要贡献",
+      "embodied": {
+        "success": true,
+        "steps": 5,
+        "agent": "embodied",
+        "has_perception": true,
+        "has_action": true
+      },
+      "disembodied": {
+        "success": true,
+        "steps": 7,
+        "agent": "disembodied",
+        "has_perception": false,
+        "has_action": false
+      }
+    },
+    {
+      "task_type": "纯文本",
+      "question": "翻译以下英文段落",
+      "embodied": {
+        "success": false,
+        "steps": 6,
+        "agent": "embodied",
+        "has_perception": true,
+        "has_action": true
+      },
+      "disembodied": {
+        "success": true,
+        "steps": 5,
+        "agent": "disembodied",
+        "has_perception": false,
+        "has_action": false
+      }
+    }
+  ]
+}

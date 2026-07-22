@@ -1,0 +1,134 @@
+{
+  "experiment": "exp-19-morphagent-assemble",
+  "results": {
+    "star": {
+      "results": [
+        {
+          "task": "用户意图解析",
+          "messages": 3,
+          "latency_ms": 45.0,
+          "success_rate": 0.7192929656620394
+        },
+        {
+          "task": "多步任务规划",
+          "messages": 3,
+          "latency_ms": 52.5,
+          "success_rate": 0.7453891361317894
+        },
+        {
+          "task": "工具调用链",
+          "messages": 4,
+          "latency_ms": 80.0,
+          "success_rate": 0.774786191324662
+        },
+        {
+          "task": "上下文保持对话",
+          "messages": 3,
+          "latency_ms": 47.5,
+          "success_rate": 0.8085678037586751
+        },
+        {
+          "task": "策略自适应",
+          "messages": 6,
+          "latency_ms": 80.0,
+          "success_rate": 0.6993082539492834
+        },
+        {
+          "task": "端到端问答",
+          "messages": 4,
+          "latency_ms": 70.0,
+          "success_rate": 0.7423720575555102
+        }
+      ],
+      "avg_success": 0.7482860680636599,
+      "avg_latency": 62.5,
+      "avg_messages": 3.8333333333333335
+    },
+    "ring": {
+      "results": [
+        {
+          "task": "用户意图解析",
+          "messages": 3,
+          "latency_ms": 48.0,
+          "success_rate": 0.723593385526739
+        },
+        {
+          "task": "多步任务规划",
+          "messages": 4,
+          "latency_ms": 61.5,
+          "success_rate": 0.720970611082258
+        },
+        {
+          "task": "工具调用链",
+          "messages": 2,
+          "latency_ms": 72.0,
+          "success_rate": 0.8347423964283356
+        },
+        {
+          "task": "上下文保持对话",
+          "messages": 4,
+          "latency_ms": 56.5,
+          "success_rate": 0.687359842355774
+        },
+        {
+          "task": "策略自适应",
+          "messages": 7,
+          "latency_ms": 92.0,
+          "success_rate": 0.6601511296729966
+        },
+        {
+          "task": "端到端问答",
+          "messages": 6,
+          "latency_ms": 86.0,
+          "success_rate": 0.7117863672715307
+        }
+      ],
+      "avg_success": 0.7231006220562723,
+      "avg_latency": 69.33333333333333,
+      "avg_messages": 4.333333333333333
+    },
+    "full": {
+      "results": [
+        {
+          "task": "用户意图解析",
+          "messages": 2,
+          "latency_ms": 48.0,
+          "success_rate": 0.7410323463193038
+        },
+        {
+          "task": "多步任务规划",
+          "messages": 3,
+          "latency_ms": 64.5,
+          "success_rate": 0.7559978595712568
+        },
+        {
+          "task": "工具调用链",
+          "messages": 3,
+          "latency_ms": 87.0,
+          "success_rate": 0.7359051642988088
+        },
+        {
+          "task": "上下文保持对话",
+          "messages": 2,
+          "latency_ms": 50.5,
+          "success_rate": 0.7447827520340333
+        },
+        {
+          "task": "策略自适应",
+          "messages": 5,
+          "latency_ms": 95.0,
+          "success_rate": 0.7411550383939188
+        },
+        {
+          "task": "端到端问答",
+          "messages": 5,
+          "latency_ms": 95.0,
+          "success_rate": 0.6749388830661339
+        }
+      ],
+      "avg_success": 0.7323020072805759,
+      "avg_latency": 73.33333333333333,
+      "avg_messages": 3.3333333333333335
+    }
+  }
+}

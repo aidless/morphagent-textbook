@@ -1,0 +1,146 @@
+{
+  "experiment": "exp-26-level-progression",
+  "performances": {
+    "L0": {
+      "level": "L0",
+      "name": "L0 - 基础响应",
+      "description": "单轮问答，无工具调用",
+      "performance": {
+        "reasoning": 0.3193972691769115,
+        "tool_use": 0.05365161284206906,
+        "memory": 0.13265163489006798,
+        "self_modify": 0.08958553279932308,
+        "multi_step": 0.08283840690042474,
+        "autonomy": 0.13365735994817524
+      },
+      "overall": 0.13529696942616193
+    },
+    "L1": {
+      "level": "L1",
+      "name": "L1 - 工具辅助",
+      "description": "单轮工具调用，基本记忆",
+      "performance": {
+        "reasoning": 0.5081838110182898,
+        "tool_use": 0.2666262790509808,
+        "memory": 0.3243981691771104,
+        "self_modify": 0,
+        "multi_step": 0.1297979799738202,
+        "autonomy": 0.02829779358452415
+      },
+      "overall": 0.2095506721341209
+    },
+    "L2": {
+      "level": "L2",
+      "name": "L2 - 多步规划",
+      "description": "多步任务规划与执行",
+      "performance": {
+        "reasoning": 0.4146830643124895,
+        "tool_use": 0.44707294480719556,
+        "memory": 0.3015088724178797,
+        "self_modify": 0.20420265851291758,
+        "multi_step": 0.2973073845708312,
+        "autonomy": 0.16876440189441086
+      },
+      "overall": 0.30558988775262075
+    },
+    "L3": {
+      "level": "L3",
+      "name": "L3 - 自适应学习",
+      "description": "从反馈中学习并调整策略",
+      "performance": {
+        "reasoning": 0.5975105493254592,
+        "tool_use": 0.7745217674692194,
+        "memory": 0.7674857979611034,
+        "self_modify": 0.2853429656129362,
+        "multi_step": 0.5176799583159415,
+        "autonomy": 0.5286843574097304
+      },
+      "overall": 0.5785375660157317
+    },
+    "L4": {
+      "level": "L4",
+      "name": "L4 - 自我改进",
+      "description": "主动修改自身 prompt/工具/策略",
+      "performance": {
+        "reasoning": 0.8425329870389707,
+        "tool_use": 0.8299356589033408,
+        "memory": 0.5578008124368734,
+        "self_modify": 0.6470990056264428,
+        "multi_step": 0.7219892945425058,
+        "autonomy": 0.6458386472422383
+      },
+      "overall": 0.7075327342983952
+    },
+    "L5": {
+      "level": "L5",
+      "name": "L5 - 完全自主",
+      "description": "完全自主运行，持续自进化",
+      "performance": {
+        "reasoning": 0.8855201958242868,
+        "tool_use": 0.8662600128026744,
+        "memory": 0.7759668779799789,
+        "self_modify": 0.803969380560143,
+        "multi_step": 0.7580148135990841,
+        "autonomy": 0.7418798741015022
+      },
+      "overall": 0.8052685258112782
+    }
+  },
+  "progression": [
+    {
+      "from": "L0",
+      "to": "L1",
+      "direct": false,
+      "gaps": {
+        "reasoning": 0.0806027308230885,
+        "tool_use": 0.24634838715793092,
+        "memory": 0.06734836510993203
+      }
+    },
+    {
+      "from": "L1",
+      "to": "L2",
+      "direct": false,
+      "gaps": {
+        "tool_use": 0.2333737209490192,
+        "memory": 0.07560183082288963,
+        "multi_step": 0.1702020200261798,
+        "autonomy": 0.07170220641547585
+      }
+    },
+    {
+      "from": "L2",
+      "to": "L3",
+      "direct": false,
+      "gaps": {
+        "reasoning": 0.18531693568751045,
+        "tool_use": 0.15292705519280442,
+        "memory": 0.19849112758212029,
+        "multi_step": 0.20269261542916878,
+        "autonomy": 0.13123559810558913
+      }
+    },
+    {
+      "from": "L3",
+      "to": "L4",
+      "direct": false,
+      "gaps": {
+        "reasoning": 0.10248945067454074,
+        "self_modify": 0.2146570343870638,
+        "multi_step": 0.08232004168405849
+      }
+    },
+    {
+      "from": "L4",
+      "to": "L5",
+      "direct": false,
+      "gaps": {
+        "reasoning": 0.007467012961029251,
+        "memory": 0.14219918756312655,
+        "self_modify": 0.05290099437355711,
+        "multi_step": 0.07801070545749422,
+        "autonomy": 0.05416135275776168
+      }
+    }
+  ]
+}

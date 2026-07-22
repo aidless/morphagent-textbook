@@ -1,0 +1,335 @@
+{
+  "experiment": "exp-03-tool-description",
+  "results": [
+    {
+      "level": "L0_极简",
+      "accuracy": 10.0,
+      "details": [
+        {
+          "query": "北京天气",
+          "expected": "get_weather",
+          "actual": null,
+          "match": false
+        },
+        {
+          "query": "搜索LLM论文",
+          "expected": "search",
+          "actual": "get_weather",
+          "match": false
+        },
+        {
+          "query": "计算 3+5",
+          "expected": "calculate",
+          "actual": "get_weather",
+          "match": false
+        },
+        {
+          "query": "给 a@b.com 发邮件",
+          "expected": "send_email",
+          "actual": "get_weather",
+          "match": false
+        },
+        {
+          "query": "上海天气",
+          "expected": "get_weather",
+          "actual": null,
+          "match": false
+        },
+        {
+          "query": "搜索 embodied AI",
+          "expected": "search",
+          "actual": null,
+          "match": false
+        },
+        {
+          "query": "计算 100*7",
+          "expected": "calculate",
+          "actual": null,
+          "match": false
+        },
+        {
+          "query": "广州天气",
+          "expected": "get_weather",
+          "actual": "get_weather",
+          "match": true
+        },
+        {
+          "query": "搜索 robot",
+          "expected": "search",
+          "actual": null,
+          "match": false
+        },
+        {
+          "query": "计算 50-12",
+          "expected": "calculate",
+          "actual": "get_weather",
+          "match": false
+        }
+      ]
+    },
+    {
+      "level": "L1_有参数",
+      "accuracy": 10.0,
+      "details": [
+        {
+          "query": "北京天气",
+          "expected": "get_weather",
+          "actual": null,
+          "match": false
+        },
+        {
+          "query": "搜索LLM论文",
+          "expected": "search",
+          "actual": "get_weather",
+          "match": false
+        },
+        {
+          "query": "计算 3+5",
+          "expected": "calculate",
+          "actual": "get_weather",
+          "match": false
+        },
+        {
+          "query": "给 a@b.com 发邮件",
+          "expected": "send_email",
+          "actual": "get_weather",
+          "match": false
+        },
+        {
+          "query": "上海天气",
+          "expected": "get_weather",
+          "actual": null,
+          "match": false
+        },
+        {
+          "query": "搜索 embodied AI",
+          "expected": "search",
+          "actual": null,
+          "match": false
+        },
+        {
+          "query": "计算 100*7",
+          "expected": "calculate",
+          "actual": null,
+          "match": false
+        },
+        {
+          "query": "广州天气",
+          "expected": "get_weather",
+          "actual": "get_weather",
+          "match": true
+        },
+        {
+          "query": "搜索 robot",
+          "expected": "search",
+          "actual": "get_weather",
+          "match": false
+        },
+        {
+          "query": "计算 50-12",
+          "expected": "calculate",
+          "actual": "get_weather",
+          "match": false
+        }
+      ]
+    },
+    {
+      "level": "L2_有类型",
+      "accuracy": 30.0,
+      "details": [
+        {
+          "query": "北京天气",
+          "expected": "get_weather",
+          "actual": "get_weather",
+          "match": true
+        },
+        {
+          "query": "搜索LLM论文",
+          "expected": "search",
+          "actual": "get_weather",
+          "match": false
+        },
+        {
+          "query": "计算 3+5",
+          "expected": "calculate",
+          "actual": "get_weather",
+          "match": false
+        },
+        {
+          "query": "给 a@b.com 发邮件",
+          "expected": "send_email",
+          "actual": "get_weather",
+          "match": false
+        },
+        {
+          "query": "上海天气",
+          "expected": "get_weather",
+          "actual": "get_weather",
+          "match": true
+        },
+        {
+          "query": "搜索 embodied AI",
+          "expected": "search",
+          "actual": "get_weather",
+          "match": false
+        },
+        {
+          "query": "计算 100*7",
+          "expected": "calculate",
+          "actual": null,
+          "match": false
+        },
+        {
+          "query": "广州天气",
+          "expected": "get_weather",
+          "actual": "get_weather",
+          "match": true
+        },
+        {
+          "query": "搜索 robot",
+          "expected": "search",
+          "actual": "get_weather",
+          "match": false
+        },
+        {
+          "query": "计算 50-12",
+          "expected": "calculate",
+          "actual": "get_weather",
+          "match": false
+        }
+      ]
+    },
+    {
+      "level": "L3_有示例",
+      "accuracy": 30.0,
+      "details": [
+        {
+          "query": "北京天气",
+          "expected": "get_weather",
+          "actual": "get_weather",
+          "match": true
+        },
+        {
+          "query": "搜索LLM论文",
+          "expected": "search",
+          "actual": "get_weather",
+          "match": false
+        },
+        {
+          "query": "计算 3+5",
+          "expected": "calculate",
+          "actual": "get_weather",
+          "match": false
+        },
+        {
+          "query": "给 a@b.com 发邮件",
+          "expected": "send_email",
+          "actual": "get_weather",
+          "match": false
+        },
+        {
+          "query": "上海天气",
+          "expected": "get_weather",
+          "actual": "get_weather",
+          "match": true
+        },
+        {
+          "query": "搜索 embodied AI",
+          "expected": "search",
+          "actual": "get_weather",
+          "match": false
+        },
+        {
+          "query": "计算 100*7",
+          "expected": "calculate",
+          "actual": null,
+          "match": false
+        },
+        {
+          "query": "广州天气",
+          "expected": "get_weather",
+          "actual": "get_weather",
+          "match": true
+        },
+        {
+          "query": "搜索 robot",
+          "expected": "search",
+          "actual": "get_weather",
+          "match": false
+        },
+        {
+          "query": "计算 50-12",
+          "expected": "calculate",
+          "actual": "get_weather",
+          "match": false
+        }
+      ]
+    },
+    {
+      "level": "L4_完整",
+      "accuracy": 30.0,
+      "details": [
+        {
+          "query": "北京天气",
+          "expected": "get_weather",
+          "actual": "get_weather",
+          "match": true
+        },
+        {
+          "query": "搜索LLM论文",
+          "expected": "search",
+          "actual": "get_weather",
+          "match": false
+        },
+        {
+          "query": "计算 3+5",
+          "expected": "calculate",
+          "actual": "get_weather",
+          "match": false
+        },
+        {
+          "query": "给 a@b.com 发邮件",
+          "expected": "send_email",
+          "actual": "get_weather",
+          "match": false
+        },
+        {
+          "query": "上海天气",
+          "expected": "get_weather",
+          "actual": "get_weather",
+          "match": true
+        },
+        {
+          "query": "搜索 embodied AI",
+          "expected": "search",
+          "actual": "get_weather",
+          "match": false
+        },
+        {
+          "query": "计算 100*7",
+          "expected": "calculate",
+          "actual": "get_weather",
+          "match": false
+        },
+        {
+          "query": "广州天气",
+          "expected": "get_weather",
+          "actual": "get_weather",
+          "match": true
+        },
+        {
+          "query": "搜索 robot",
+          "expected": "search",
+          "actual": "get_weather",
+          "match": false
+        },
+        {
+          "query": "计算 50-12",
+          "expected": "calculate",
+          "actual": "get_weather",
+          "match": false
+        }
+      ]
+    }
+  ]
+}

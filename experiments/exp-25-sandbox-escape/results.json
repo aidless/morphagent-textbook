@@ -1,0 +1,32 @@
+{
+  "experiment": "exp-25-sandbox-escape",
+  "results": [
+    {
+      "name": "基本限制",
+      "escape_blocked": 7,
+      "escape_total": 12,
+      "escape_block_rate": 0.5833333333333334,
+      "false_blocks": 0,
+      "false_block_rate": 0.0,
+      "performance_overhead": 0.02
+    },
+    {
+      "name": "白名单沙箱",
+      "escape_blocked": 12,
+      "escape_total": 12,
+      "escape_block_rate": 1.0,
+      "false_blocks": 0,
+      "false_block_rate": 0.0,
+      "performance_overhead": 0.05
+    },
+    {
+      "name": "完整隔离",
+      "escape_blocked": 12,
+      "escape_total": 12,
+      "escape_block_rate": 1.0,
+      "false_blocks": 1,
+      "false_block_rate": 0.125,
+      "performance_overhead": 0.1
+    }
+  ]
+}

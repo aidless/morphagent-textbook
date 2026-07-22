@@ -1,0 +1,120 @@
+{
+  "experiment": "exp-13-prompt-evolution",
+  "history": [
+    {
+      "round": 1,
+      "top3": [
+        {
+          "score": 70.0,
+          "drift": 0.9473684210526316,
+          "prompt_preview": "Focus on numbers and operators. Q: {q}\nCalculate and return "
+        },
+        {
+          "score": 40.0,
+          "drift": 0.9444444444444444,
+          "prompt_preview": "Compute: find all numbers, determine operation order. {q}\nOu"
+        },
+        {
+          "score": 40.0,
+          "drift": 0.0,
+          "prompt_preview": "You are a math assistant. Answer the question: {q}\nAnswer:"
+        }
+      ],
+      "best_prompt": "Focus on numbers and operators. Q: {q}\nCalculate and return number:",
+      "best_score": 70.0
+    },
+    {
+      "round": 2,
+      "top3": [
+        {
+          "score": 80.0,
+          "drift": 0.0,
+          "prompt_preview": "Focus on numbers and operators. Q: {q}\nCalculate and return "
+        },
+        {
+          "score": 70.0,
+          "drift": 0.9444444444444444,
+          "prompt_preview": "Compute: find all numbers, determine operation order. {q}\nOu"
+        },
+        {
+          "score": 50.0,
+          "drift": 0.8947368421052632,
+          "prompt_preview": "Methodical approach: (1) parse (2) plan (3) calculate. Q: {q"
+        }
+      ],
+      "best_prompt": "Focus on numbers and operators. Q: {q}\nCalculate and return number:",
+      "best_score": 80.0
+    },
+    {
+      "round": 3,
+      "top3": [
+        {
+          "score": 90.0,
+          "drift": 0.0,
+          "prompt_preview": "Focus on numbers and operators. Q: {q}\nCalculate and return "
+        },
+        {
+          "score": 70.0,
+          "drift": 0.9444444444444444,
+          "prompt_preview": "Compute: find all numbers, determine operation order. {q}\nOu"
+        },
+        {
+          "score": 50.0,
+          "drift": 0.9,
+          "prompt_preview": "Step 1: Read carefully. Step 2: Extract numbers. Step 3: Com"
+        }
+      ],
+      "best_prompt": "Focus on numbers and operators. Q: {q}\nCalculate and return number:",
+      "best_score": 90.0
+    },
+    {
+      "round": 4,
+      "top3": [
+        {
+          "score": 90.0,
+          "drift": 0.9444444444444444,
+          "prompt_preview": "Compute: find all numbers, determine operation order. {q}\nOu"
+        },
+        {
+          "score": 90.0,
+          "drift": 0.0,
+          "prompt_preview": "Focus on numbers and operators. Q: {q}\nCalculate and return "
+        },
+        {
+          "score": 80.0,
+          "drift": 0.9,
+          "prompt_preview": "Step 1: Read carefully. Step 2: Extract numbers. Step 3: Com"
+        }
+      ],
+      "best_prompt": "Focus on numbers and operators. Q: {q}\nCalculate and return number:",
+      "best_score": 90.0
+    },
+    {
+      "round": 5,
+      "top3": [
+        {
+          "score": 100.0,
+          "drift": 0.9,
+          "prompt_preview": "Step 1: Read carefully. Step 2: Extract numbers. Step 3: Com"
+        },
+        {
+          "score": 100.0,
+          "drift": 0.9444444444444444,
+          "prompt_preview": "Compute: find all numbers, determine operation order. {q}\nOu"
+        },
+        {
+          "score": 100.0,
+          "drift": 0.8888888888888888,
+          "prompt_preview": "Think carefully. Extract numbers, find operation, compute. Q"
+        }
+      ],
+      "best_prompt": "Focus on numbers and operators. Q: {q}\nCalculate and return number:",
+      "best_score": 100.0
+    }
+  ],
+  "final_prompt": "Focus on numbers and operators. Q: {q}\nCalculate and return number:",
+  "final_score": 100.0,
+  "initial_score": 70.0,
+  "total_improvement": 30.0,
+  "avg_drift": 0.0
+}

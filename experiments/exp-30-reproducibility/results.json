@@ -1,0 +1,169 @@
+{
+  "experiment": "exp-30-reproducibility",
+  "reproducibility": {
+    "baseline_eval": {
+      "n_runs": 10,
+      "performance": {
+        "mean": 0.6752778900075831,
+        "std": 0.07340308902834058,
+        "cv": 0.10870056626245574,
+        "min": 0.544517863798037,
+        "max": 0.8004145933709768,
+        "ci_95": [
+          0.6297821840777353,
+          0.7207735959374308
+        ]
+      },
+      "latency_ms": {
+        "mean": 148.40588790878968,
+        "std": 4.968481050699176
+      },
+      "tokens_used": {
+        "mean": 998.3,
+        "std": 32.674301828807295
+      }
+    },
+    "prompt_evolution": {
+      "n_runs": 10,
+      "performance": {
+        "mean": 0.745277890007583,
+        "std": 0.07340308902834061,
+        "cv": 0.09849089851249143,
+        "min": 0.614517863798037,
+        "max": 0.8704145933709767,
+        "ci_95": [
+          0.6997821840777353,
+          0.7907735959374308
+        ]
+      },
+      "latency_ms": {
+        "mean": 148.40588790878968,
+        "std": 4.968481050699176
+      },
+      "tokens_used": {
+        "mean": 998.3,
+        "std": 32.674301828807295
+      }
+    },
+    "tool_selection": {
+      "n_runs": 10,
+      "performance": {
+        "mean": 0.7052778900075831,
+        "std": 0.07340308902834058,
+        "cv": 0.10407683278934401,
+        "min": 0.574517863798037,
+        "max": 0.8304145933709768,
+        "ci_95": [
+          0.6597821840777354,
+          0.7507735959374309
+        ]
+      },
+      "latency_ms": {
+        "mean": 148.40588790878968,
+        "std": 4.968481050699176
+      },
+      "tokens_used": {
+        "mean": 998.3,
+        "std": 32.674301828807295
+      }
+    }
+  },
+  "sensitivity": {
+    "temperature": [
+      {
+        "param_name": "temperature",
+        "param_value": 0.0,
+        "mean_performance": 0.6528691909945649,
+        "std_performance": 0.026314419322634126
+      },
+      {
+        "param_name": "temperature",
+        "param_value": 0.3,
+        "mean_performance": 0.6624729191430012,
+        "std_performance": 0.03921002570656032
+      },
+      {
+        "param_name": "temperature",
+        "param_value": 0.7,
+        "mean_performance": 0.6752778900075831,
+        "std_performance": 0.07340308902834058
+      },
+      {
+        "param_name": "temperature",
+        "param_value": 1.0,
+        "mean_performance": 0.6848816181560196,
+        "std_performance": 0.1015820706215957
+      },
+      {
+        "param_name": "temperature",
+        "param_value": 1.5,
+        "mean_performance": 0.700141038510242,
+        "std_performance": 0.148342290334103
+      }
+    ],
+    "top_p": [
+      {
+        "param_name": "top_p",
+        "param_value": 0.5,
+        "mean_performance": 0.6864822395140923,
+        "std_performance": 0.10635309708607858
+      },
+      {
+        "param_name": "top_p",
+        "param_value": 0.7,
+        "mean_performance": 0.6864822395140923,
+        "std_performance": 0.10635309708607858
+      },
+      {
+        "param_name": "top_p",
+        "param_value": 0.9,
+        "mean_performance": 0.6752778900075831,
+        "std_performance": 0.07340308902834058
+      },
+      {
+        "param_name": "top_p",
+        "param_value": 0.95,
+        "mean_performance": 0.6752778900075831,
+        "std_performance": 0.07340308902834058
+      },
+      {
+        "param_name": "top_p",
+        "param_value": 1.0,
+        "mean_performance": 0.6752778900075831,
+        "std_performance": 0.07340308902834058
+      }
+    ],
+    "max_steps": [
+      {
+        "param_name": "max_steps",
+        "param_value": 3,
+        "mean_performance": 0.5702778900075831,
+        "std_performance": 0.0734030890283406
+      },
+      {
+        "param_name": "max_steps",
+        "param_value": 5,
+        "mean_performance": 0.6002778900075831,
+        "std_performance": 0.0734030890283406
+      },
+      {
+        "param_name": "max_steps",
+        "param_value": 8,
+        "mean_performance": 0.6452778900075831,
+        "std_performance": 0.07340308902834058
+      },
+      {
+        "param_name": "max_steps",
+        "param_value": 10,
+        "mean_performance": 0.6752778900075831,
+        "std_performance": 0.07340308902834058
+      },
+      {
+        "param_name": "max_steps",
+        "param_value": 15,
+        "mean_performance": 0.6752778900075831,
+        "std_performance": 0.07340308902834058
+      }
+    ]
+  }
+}

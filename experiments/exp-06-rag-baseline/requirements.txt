@@ -1,0 +1,2 @@
+# 实验 6 无额外依赖
+# 真实模式可选: sentence-transformers>=2.0

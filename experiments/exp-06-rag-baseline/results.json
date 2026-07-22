@@ -1,0 +1,17 @@
+{
+  "experiment": "exp-06-rag-baseline",
+  "summary": {
+    "naive": {
+      "accuracy": 86.66666666666667,
+      "hit_rate": 86.66666666666667,
+      "total_q": 15,
+      "correct": 13
+    },
+    "semantic": {
+      "accuracy": 100.0,
+      "hit_rate": 100.0,
+      "total_q": 15,
+      "correct": 15
+    }
+  }
+}

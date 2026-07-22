@@ -1,0 +1,332 @@
+{
+  "experiment": "exp-17-meta-controller",
+  "results": {
+    "固定顺序": {
+      "results": [
+        {
+          "task": "数据分析报告",
+          "success_rate": 0.23788535969157673,
+          "calls": {
+            "Prompt": 1,
+            "Tool": 1,
+            "Memory": 1,
+            "Cognition": 1
+          },
+          "total_calls": 4,
+          "scheduler": "固定顺序"
+        },
+        {
+          "task": "多轮对话客服",
+          "success_rate": 0.1125021510445334,
+          "calls": {
+            "Prompt": 1,
+            "Tool": 1,
+            "Memory": 1,
+            "Cognition": 1
+          },
+          "total_calls": 4,
+          "scheduler": "固定顺序"
+        },
+        {
+          "task": "代码生成调试",
+          "success_rate": 0.16458919700715716,
+          "calls": {
+            "Prompt": 1,
+            "Tool": 1,
+            "Memory": 1,
+            "Cognition": 1
+          },
+          "total_calls": 4,
+          "scheduler": "固定顺序"
+        },
+        {
+          "task": "知识问答检索",
+          "success_rate": 0.15214214762976458,
+          "calls": {
+            "Prompt": 1,
+            "Tool": 1,
+            "Memory": 1,
+            "Cognition": 1
+          },
+          "total_calls": 4,
+          "scheduler": "固定顺序"
+        },
+        {
+          "task": "创意写作辅助",
+          "success_rate": 0.2543775761661358,
+          "calls": {
+            "Prompt": 1,
+            "Tool": 1,
+            "Memory": 1,
+            "Cognition": 1
+          },
+          "total_calls": 4,
+          "scheduler": "固定顺序"
+        },
+        {
+          "task": "自动化工作流",
+          "success_rate": 0.24450656415124897,
+          "calls": {
+            "Prompt": 1,
+            "Tool": 1,
+            "Memory": 1,
+            "Cognition": 1
+          },
+          "total_calls": 4,
+          "scheduler": "固定顺序"
+        },
+        {
+          "task": "多步推理任务",
+          "success_rate": 0.2871859135409691,
+          "calls": {
+            "Prompt": 1,
+            "Tool": 1,
+            "Memory": 1,
+            "Cognition": 1
+          },
+          "total_calls": 4,
+          "scheduler": "固定顺序"
+        },
+        {
+          "task": "实时监控决策",
+          "success_rate": 0.1265544331925499,
+          "calls": {
+            "Prompt": 1,
+            "Tool": 1,
+            "Memory": 1,
+            "Cognition": 1
+          },
+          "total_calls": 4,
+          "scheduler": "固定顺序"
+        }
+      ],
+      "avg_success": 0.19746791780299194,
+      "avg_calls": 4,
+      "variance": 0,
+      "balance": {
+        "Prompt": 1,
+        "Tool": 1,
+        "Memory": 1,
+        "Cognition": 1
+      }
+    },
+    "元控制器": {
+      "results": [
+        {
+          "task": "数据分析报告",
+          "success_rate": 0.2812186930249101,
+          "calls": {
+            "Prompt": 1,
+            "Tool": 4,
+            "Memory": 2,
+            "Cognition": 3
+          },
+          "total_calls": 10,
+          "scheduler": "元控制器"
+        },
+        {
+          "task": "多轮对话客服",
+          "success_rate": 0.12000215104453338,
+          "calls": {
+            "Prompt": 3,
+            "Tool": 2,
+            "Memory": 3,
+            "Cognition": 2
+          },
+          "total_calls": 10,
+          "scheduler": "元控制器"
+        },
+        {
+          "task": "代码生成调试",
+          "success_rate": 0.19950586367382384,
+          "calls": {
+            "Prompt": 2,
+            "Tool": 3,
+            "Memory": 1,
+            "Cognition": 4
+          },
+          "total_calls": 10,
+          "scheduler": "元控制器"
+        },
+        {
+          "task": "知识问答检索",
+          "success_rate": 0.1759754809630979,
+          "calls": {
+            "Prompt": 2,
+            "Tool": 2,
+            "Memory": 4,
+            "Cognition": 2
+          },
+          "total_calls": 10,
+          "scheduler": "元控制器"
+        },
+        {
+          "task": "创意写作辅助",
+          "success_rate": 0.3035905391290988,
+          "calls": {
+            "Prompt": 4,
+            "Tool": 1,
+            "Memory": 2,
+            "Cognition": 2
+          },
+          "total_calls": 9,
+          "scheduler": "元控制器"
+        },
+        {
+          "task": "自动化工作流",
+          "success_rate": 0.2621732308179156,
+          "calls": {
+            "Prompt": 2,
+            "Tool": 4,
+            "Memory": 2,
+            "Cognition": 2
+          },
+          "total_calls": 10,
+          "scheduler": "元控制器"
+        },
+        {
+          "task": "多步推理任务",
+          "success_rate": 0.31434500445006003,
+          "calls": {
+            "Prompt": 2,
+            "Tool": 2,
+            "Memory": 3,
+            "Cognition": 4
+          },
+          "total_calls": 11,
+          "scheduler": "元控制器"
+        },
+        {
+          "task": "实时监控决策",
+          "success_rate": 0.13572109985921654,
+          "calls": {
+            "Prompt": 2,
+            "Tool": 3,
+            "Memory": 2,
+            "Cognition": 3
+          },
+          "total_calls": 10,
+          "scheduler": "元控制器"
+        }
+      ],
+      "avg_success": 0.22406650787033203,
+      "avg_calls": 10,
+      "variance": 0.052083333333333336,
+      "balance": {
+        "Prompt": 2.25,
+        "Tool": 2.625,
+        "Memory": 2.375,
+        "Cognition": 2.75
+      }
+    },
+    "RL 控制器": {
+      "results": [
+        {
+          "task": "数据分析报告",
+          "success_rate": 0.29121869302491005,
+          "calls": {
+            "Prompt": 1,
+            "Tool": 4,
+            "Memory": 1,
+            "Cognition": 3
+          },
+          "total_calls": 9,
+          "scheduler": "RL 控制器"
+        },
+        {
+          "task": "多轮对话客服",
+          "success_rate": 0.11785929390167624,
+          "calls": {
+            "Prompt": 2,
+            "Tool": 2,
+            "Memory": 2,
+            "Cognition": 1
+          },
+          "total_calls": 7,
+          "scheduler": "RL 控制器"
+        },
+        {
+          "task": "代码生成调试",
+          "success_rate": 0.19156836367382385,
+          "calls": {
+            "Prompt": 2,
+            "Tool": 2,
+            "Memory": 1,
+            "Cognition": 3
+          },
+          "total_calls": 8,
+          "scheduler": "RL 控制器"
+        },
+        {
+          "task": "知识问答检索",
+          "success_rate": 0.17059452858214547,
+          "calls": {
+            "Prompt": 1,
+            "Tool": 3,
+            "Memory": 2,
+            "Cognition": 1
+          },
+          "total_calls": 7,
+          "scheduler": "RL 控制器"
+        },
+        {
+          "task": "创意写作辅助",
+          "success_rate": 0.2863683169068766,
+          "calls": {
+            "Prompt": 3,
+            "Tool": 1,
+            "Memory": 2,
+            "Cognition": 3
+          },
+          "total_calls": 9,
+          "scheduler": "RL 控制器"
+        },
+        {
+          "task": "自动化工作流",
+          "success_rate": 0.25978434192902666,
+          "calls": {
+            "Prompt": 1,
+            "Tool": 2,
+            "Memory": 1,
+            "Cognition": 2
+          },
+          "total_calls": 6,
+          "scheduler": "RL 控制器"
+        },
+        {
+          "task": "多步推理任务",
+          "success_rate": 0.30249841354096907,
+          "calls": {
+            "Prompt": 1,
+            "Tool": 2,
+            "Memory": 3,
+            "Cognition": 2
+          },
+          "total_calls": 8,
+          "scheduler": "RL 控制器"
+        },
+        {
+          "task": "实时监控决策",
+          "success_rate": 0.1463692480073647,
+          "calls": {
+            "Prompt": 1,
+            "Tool": 3,
+            "Memory": 2,
+            "Cognition": 3
+          },
+          "total_calls": 9,
+          "scheduler": "RL 控制器"
+        }
+      ],
+      "avg_success": 0.22078264994584906,
+      "avg_calls": 7.875,
+      "variance": 0.17057291666666666,
+      "balance": {
+        "Prompt": 1.5,
+        "Tool": 2.375,
+        "Memory": 1.75,
+        "Cognition": 2.25
+      }
+    }
+  }
+}
