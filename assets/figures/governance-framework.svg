@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="800" height="520" font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',Arial,sans-serif">
+<rect width="800" height="520" fill="#ffffff"/>
+<text x="400" y="32" text-anchor="middle" font-size="16" font-weight="bold" fill="#1e293b">&#x6CBB;&#x7406;&#x6846;&#x67B6;&#x56FE; (H5) / Governance Framework</text>
+<line x1="100" y1="420" x2="700" y2="420" stroke="#1e293b" stroke-width="2"/>
+<text x="400" y="450" text-anchor="middle" font-size="12" fill="#1e293b">&#x4FEE;&#x6539;&#x5F71;&#x54CD; Impact(B) &#x2192; &#x5343;&#x9884;&#x8D8A;&#x5927;&#xFF0C;&#x6CBB;&#x7406;&#x8D8A;&#x4E25;</text>
+<line x1="260.0" y1="60" x2="260.0" y2="420" stroke="#059669" stroke-width="1.5" stroke-dasharray="6,3"/>
+<text x="260.0" y="55" text-anchor="middle" font-size="13" font-weight="bold" fill="#059669">L1</text>
+<text x="260.0" y="430" text-anchor="middle" font-size="10" fill="#059669">&#x03C4;=0.2</text>
+<line x1="425.0" y1="60" x2="425.0" y2="420" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="6,3"/>
+<text x="425.0" y="55" text-anchor="middle" font-size="13" font-weight="bold" fill="#2563eb">L2</text>
+<text x="425.0" y="430" text-anchor="middle" font-size="10" fill="#2563eb">&#x03C4;=0.5</text>
+<line x1="590.0" y1="60" x2="590.0" y2="420" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="6,3"/>
+<text x="590.0" y="55" text-anchor="middle" font-size="13" font-weight="bold" fill="#dc2626">L3</text>
+<text x="590.0" y="430" text-anchor="middle" font-size="10" fill="#dc2626">&#x03C4;=0.8</text>
+<rect x="150" y="65" width="110" height="350" rx="6" ry="6" fill="#d1fae5" opacity="0.3"/>
+<rect x="260" y="65" width="165" height="350" rx="6" ry="6" fill="#dbeafe" opacity="0.3"/>
+<rect x="425" y="65" width="275" height="350" rx="6" ry="6" fill="#fee2e2" opacity="0.3"/>
+<rect x="160" y="80" width="90" height="50" rx="6" ry="6" fill="white" stroke="#059669" stroke-width="1.5"/>
+<text x="205" y="100" text-anchor="middle" font-size="10" font-weight="bold" fill="#059669">&#x4F4E;&#x98CE;&#x9669;</text>
+<text x="205" y="118" text-anchor="middle" font-size="9" fill="#6b7280">&#x4FEE;&#x6539; prompt &#x63AA;&#x8BCD;</text>
+<rect x="285" y="80" width="115" height="50" rx="6" ry="6" fill="white" stroke="#2563eb" stroke-width="1.5"/>
+<text x="342" y="100" text-anchor="middle" font-size="10" font-weight="bold" fill="#2563eb">&#x4E2D;&#x98CE;&#x9669;</text>
+<text x="342" y="118" text-anchor="middle" font-size="9" fill="#6b7280">&#x6DFB;&#x52A0;&#x5DE5;&#x5177;&#x3001;&#x4FEE;&#x6539;&#x4EE3;&#x7801;</text>
+<rect x="480" y="80" width="160" height="50" rx="6" ry="6" fill="white" stroke="#dc2626" stroke-width="1.5"/>
+<text x="560" y="100" text-anchor="middle" font-size="10" font-weight="bold" fill="#dc2626">&#x9AD8;&#x98CE;&#x9669;</text>
+<text x="560" y="118" text-anchor="middle" font-size="9" fill="#6b7280">&#x4FEE;&#x6539;&#x5B89;&#x5168;&#x7EA6;&#x675F;</text>
+<rect x="165" y="180" width="80" height="100" rx="8" ry="8" fill="white" stroke="#059669" stroke-width="1.5"/>
+<text x="205" y="200" text-anchor="middle" font-size="10" font-weight="bold" fill="#059669">L1</text>
+<text x="205" y="220" text-anchor="middle" font-size="9" fill="#1e293b">&#x4E0D;&#x53D8;&#x91CF;&#x68C0;&#x67E5;</text>
+<text x="205" y="240" text-anchor="middle" font-size="9" fill="#6b7280">&lt; 1s &#x81EA;&#x52A8;</text>
+<rect x="310" y="180" width="100" height="100" rx="8" ry="8" fill="white" stroke="#2563eb" stroke-width="1.5"/>
+<text x="360" y="200" text-anchor="middle" font-size="10" font-weight="bold" fill="#2563eb">L2</text>
+<text x="360" y="220" text-anchor="middle" font-size="9" fill="#1e293b">&#x6027;&#x80FD;&#x76D1;&#x63A7;+&#x56DE;&#x6EDA;</text>
+<text x="360" y="240" text-anchor="middle" font-size="9" fill="#6b7280">&lt; 10s &#x81EA;&#x52A8;</text>
+<rect x="500" y="180" width="120" height="100" rx="8" ry="8" fill="white" stroke="#dc2626" stroke-width="1.5"/>
+<text x="560" y="200" text-anchor="middle" font-size="10" font-weight="bold" fill="#dc2626">L3</text>
+<text x="560" y="220" text-anchor="middle" font-size="9" fill="#1e293b">&#x4EBA;&#x5DE5;&#x5BA1;&#x6838;+&#x6279;&#x51C6;</text>
+<text x="560" y="240" text-anchor="middle" font-size="9" fill="#6b7280">min-hr &#x4EBA;&#x5DE5;</text>
+<rect x="150" y="330" width="550" height="50" rx="8" ry="8" fill="#ea580c" opacity="0.1" stroke="#ea580c" stroke-width="1.5"/>
+<text x="425" y="352" text-anchor="middle" font-size="12" font-weight="bold" fill="#ea580c">H5: V_ver(B) &lt; V_unver(B)</text>
+<text x="425" y="370" text-anchor="middle" font-size="10" fill="#ea580c">&#x6CBB;&#x7406;&#x662F;&#x5FC5;&#x8981;&#x7684; &#x2014;&#x2014; &#x6CA1;&#x6709;&#x9A8C;&#x8BC1;&#x3001;&#x7248;&#x672C;&#x63A7;&#x5236;&#x3001;&#x56DE;&#x6EDA;&#x4F1A;&#x4EA7;&#x751F;&#x66F4;&#x9AD8;&#x9000;&#x5316;&#x7387;</text>
+<text x="425" y="498" text-anchor="middle" font-size="10" fill="#6b7280">&#x6CBB;&#x7406;&#x6210;&#x672C; Governance Cost &#x2192;</text>
+
+<text x="400" y="490" text-anchor="middle" font-size="12" fill="#6b7280" font-style="italic">Figure 9: &#x6CBB;&#x7406;&#x6846;&#x67B6;&#x56FE; -- Governance Framework (from r-note-007, H5)</text>
+</svg>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',Arial,sans-serif">
+<rect width="800" height="500" fill="#ffffff"/>
+<text x="400" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e293b">B = {P, T, M, C} &#x64CD;&#x4F5C;&#x5F62;&#x6001;&#x56DB;&#x5143;&#x7EC4;&#x6982;&#x89C8; / Operational Morphology 4-Tuple</text>
+<rect x="100" y="60" width="600" height="340" rx="16" ry="16" fill="#f3f4f6" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="6,3"/>
+<text x="400" y="85" text-anchor="middle" font-size="13" fill="#6b7280" font-weight="bold">LLM Agent &#x64CD;&#x4F5C;&#x5F62;&#x6001; B (Operational Morphology)</text>
+<rect x="120" y="100" width="130" height="140" rx="10" ry="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+<text x="185" y="130" text-anchor="middle" font-size="22" font-weight="bold" fill="#2563eb">P</text>
+<text x="185" y="155" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">Prompt &#x63D0;&#x793A;&#x8BCD;</text>
+<line x1="135" y1="165" x2="235" y2="165" stroke="#2563eb" stroke-width="0.5"/>
+<text x="185" y="185" text-anchor="middle" font-size="11" fill="#6b7280">&#xB7; &#x7CFB;&#x7EDF;&#x63D0;&#x793A; System</text>
+<text x="185" y="205" text-anchor="middle" font-size="11" fill="#6b7280">&#xB7; &#x89D2;&#x8272;&#x5B9A;&#x4E49; Role</text>
+<text x="185" y="225" text-anchor="middle" font-size="11" fill="#6b7280">&#xB7; Few-shot &#x793A;&#x4F8B;</text>
+<rect x="270" y="100" width="130" height="140" rx="10" ry="10" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+<text x="335" y="130" text-anchor="middle" font-size="22" font-weight="bold" fill="#059669">T</text>
+<text x="335" y="155" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">Tool &#x5DE5;&#x5177;</text>
+<line x1="285" y1="165" x2="385" y2="165" stroke="#059669" stroke-width="0.5"/>
+<text x="335" y="185" text-anchor="middle" font-size="11" fill="#6b7280">&#xB7; Search</text>
+<text x="335" y="205" text-anchor="middle" font-size="11" fill="#6b7280">&#xB7; Code Exec</text>
+<text x="335" y="225" text-anchor="middle" font-size="11" fill="#6b7280">&#xB7; Shell</text>
+<rect x="420" y="100" width="130" height="140" rx="10" ry="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+<text x="485" y="130" text-anchor="middle" font-size="22" font-weight="bold" fill="#7c3aed">M</text>
+<text x="485" y="155" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">Memory &#x8BB0;&#x5FC6;</text>
+<line x1="435" y1="165" x2="535" y2="165" stroke="#7c3aed" stroke-width="0.5"/>
+<text x="485" y="185" text-anchor="middle" font-size="11" fill="#6b7280">&#xB7; &#x77ED;&#x671F; Short-term</text>
+<text x="485" y="205" text-anchor="middle" font-size="11" fill="#6b7280">&#xB7; &#x957F;&#x671F; Long-term</text>
+<text x="485" y="225" text-anchor="middle" font-size="11" fill="#6b7280">&#xB7; &#x53CD;&#x601D; Reflection</text>
+<rect x="170" y="260" width="460" height="120" rx="10" ry="10" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+<text x="400" y="295" text-anchor="middle" font-size="22" font-weight="bold" fill="#dc2626">C</text>
+<text x="400" y="325" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">Code &#x4EE3;&#x7801; / Code Execution Logic</text>
+<line x1="200" y1="338" x2="600" y2="338" stroke="#dc2626" stroke-width="0.5"/>
+<text x="260" y="362" text-anchor="middle" font-size="11" fill="#6b7280">Agent &#x4E3B;&#x5FAA;&#x73AF;</text>
+<text x="400" y="362" text-anchor="middle" font-size="11" fill="#6b7280">&#x5DE5;&#x5177;&#x8C03;&#x7528;&#x903B;&#x8F91;</text>
+<text x="540" y="362" text-anchor="middle" font-size="11" fill="#6b7280">&#x9519;&#x8BEF;&#x5904;&#x7406;</text>
+<rect x="580" y="140" width="100" height="50" rx="8" ry="8" fill="#ea580c" opacity="0.15" stroke="#ea580c" stroke-width="1.5"/>
+<text x="630" y="162" text-anchor="middle" font-size="11" font-weight="bold" fill="#ea580c">U</text>
+<text x="630" y="178" text-anchor="middle" font-size="10" fill="#ea580c">&#x5143;&#x63A7;&#x5236;&#x5668;</text>
+<line x1="550" y1="160" x2="580" y2="160" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="120" y="430" font-size="11" fill="#6b7280">&#x53EF;&#x4FEE;&#x6539; / Self-Modifiable | &#x8F6F;&#x4EF6;&#x8EAB;&#x4F53; / Software Body</text>
+
+<text x="400" y="470" text-anchor="middle" font-size="12" fill="#6b7280" font-style="italic">Figure 1: &#x64CD;&#x4F5C;&#x5F62;&#x6001;&#x56DB;&#x5143;&#x7EC4;&#x6982;&#x89C8; -- B = {P, T, M, C} 4-Tuple Overview</text>
+</svg>
