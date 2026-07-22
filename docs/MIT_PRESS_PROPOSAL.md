@@ -184,6 +184,8 @@
 - **代码与实验**：MIT License，鼓励工业界复用
 - **GitHub 仓库**：`aidless/morphagent-textbook`，持续公开更新
 
+> **注意**：MIT Press 的 D2O 开放获取模式使用 CC BY 许可，与本书目前的 CC-BY-NC-SA 4.0 存在差异。如需通过 MIT Press 出版，需与出版社协商许可协议。
+
 ---
 
 ## 11. 联系方式
@@ -199,4 +201,36 @@
 
 ---
 
-> **附注**：本提案模板供投稿 MIT Press 使用。请将所有方括号 `[...]` 占位符替换为实际信息后提交。MIT Press 的投稿渠道参见 https://mitpress.mit.edu/submissions/ 。
+> **附注**：本提案模板供投稿 MIT Press 使用。请将所有方括号 `[...]` 占位符替换为实际信息后提交。MIT Press 的投稿渠道参见 https://mitpress.mit.edu/submitting-book-proposal/ 。
+
+---
+
+## 12. 提交指南
+
+### 提交渠道
+- **在线提交**：https://mitpress.mit.edu/submitting-book-proposal/
+- **作者指南**：https://mitpress.mit.edu/for-authors/
+- **潜在作者**：https://mitpress.mit.edu/prospective-authors/
+
+### 所需材料清单
+- [ ] 提案文档（本书第 1-10 节内容）
+- [ ] 详细章节目录（本书第 5 节）
+- [ ] 1-2 个样章（建议提交第 11 章"操作形态学（核心章）"和第 2 章"Agent 基础架构"）
+- [ ] 作者简历/CV
+- [ ] 投稿信（Cover Letter）
+
+### 收购编辑
+MIT Press 收购编辑团队：https://mitpress.mit.edu/about/acquisitions-staff/
+建议联系负责计算机科学/人工智能领域的编辑。
+
+### 开放获取说明
+- MIT Press 的 Direct to Open (D2O) 模式适用于学术专著，不适用于教科书
+- D2O 使用 CC BY 许可（与本书目前采用的 CC-BY-NC-SA 4.0 不同）
+- 如希望以开放获取方式出版，需与出版社讨论适用的模式和许可协议
+- 开放获取咨询：Nick Lindsay (nlindsay@mit.edu)
+
+### 审稿流程
+MIT Press 同行评审流程：https://mitpress.mit.edu/peer-review/
+- 初步回应：通常 4-8 周
+- 同行评审：3-6 个月
+- 最终决定：3-12 个月
