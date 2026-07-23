@@ -1,18 +1,32 @@
 ---
-title: "Agent 能力等级 L0-L5 的形式化定义"
-date: 2026-07-22
-status: draft
-tags: [agent-levels, capability-vector, L0-L5, MorphAgent, formalization, governance-level]
+note_id: r-note-009
+title: Agent 能力等级 L0-L5 的形式化定义（Formal Definition of L0-L5 Agent Levels）
+authors: [MorphAgent Textbook Author]
+created: 2026-07-22
+updated: 2026-07-23
+status: final
 related_chapters: [Ch 11, Ch 18, Ch 22]
+related_papers: [yao2023react, shinn2023reflexion, packer2023memgpt, xu2025amem, schick2023toolformer, yang2023opro, robeyns2025sica, yin2024godelagent, fang2025selfevolving]
+keywords: [L0-L5, capability vector, modification capability, governance level, ReAct, Reflexion, SICA, Gödel Agent, MorphAgent, level transition, formalization, H5]
 ---
 
 # r-note-009: Agent 能力等级 L0-L5 的形式化定义
 
-## 动机
+> 这篇笔记是第 18 章 MorphAgent 参考实现的能力等级基石，也是第 22 章安全治理等级的形式化基础。**Agent 的能力等级不是单一标量，而是三维联合量**——能力向量（能做什么）、修改能力（能改什么）、治理等级（改的约束）。**单一维度提升不能跨越等级**——必须三维联合跃迁。这一形式化让等级评估从"主观判断"变为"可计算、可证伪的工程标准"，也是 L4→L5 安全跨越的关键理论。
+
+## 1. 动机
 
 第 18 章将 LLM Agent 的能力分为 L0（ReAct）到 L5（协同自进化）六个等级。这个分级在直觉上是清晰的，但缺乏形式化定义——一个 Agent 到底"在什么意义上"属于 L2 而非 L1？等级跃迁的条件是什么？如果没有精确的形式化定义，等级评估就依赖于主观判断，实验对比也缺乏统一标准。本笔记为 L0-L5 建立形式化定义，引入能力向量、修改能力指标和治理等级三个维度，并给出等级跃迁的充分必要条件。
 
-## 核心论点
+更精确的动机来自三个具体的工程痛点：
+
+1. **等级评估不一致**：同一个 Agent 在不同评测者眼中可能被评为 L2 或 L3，因为"能改 prompt"与"能改工具"的边界模糊。
+2. **跃迁条件不明确**：什么样的修改算"进入 L4"？OPRO 优化 prompt 算 L4 还是 L4.1 的子集？
+3. **安全等级混淆**：一个 L5 Agent 应该有多安全？是否需要完整治理（γ=3）？这关系到部署许可与法律责任划分。
+
+形式化定义让这些问题变得可计算。本笔记给出三个核心维度（能力、修改、治理）的数学定义，再把它们组合为等级判定规则。
+
+## 2. 核心论点
 
 Agent 能力等级不应仅看"能做什么"，而应看"能改什么"和"改的治理水平"。三个维度缺一不可：
 
@@ -22,31 +36,58 @@ Agent 能力等级不应仅看"能做什么"，而应看"能改什么"和"改的
 
 核心主张：**等级跃迁是能力向量、修改能力和治理等级三者的联合跃迁，单一维度的提升不足以构成等级跃迁**。一个 L3 Agent 不能仅仅因为"推理能力更强"就升到 L4——它必须在修改能力和治理等级上也达到 L4 的标准。
 
-## 形式化
+直觉类比：考虑一个自动驾驶系统。"等级"不只是"能不能跑"（能力向量），还包括"能不能自我升级"（修改能力）和"升级有没有安全审核"（治理等级）。一辆能跑的城市公交车（L2）不算"自动驾驶 L4"——除非它既能自我升级，又有冗余安全审核。
 
-### 能力等级的定义
+更进一步，**L4→L5 的跃迁是治理维度的质变**——它要求从"自动验证+回滚（γ=2）"升级到"完整治理含人工审计（γ=3）"。这一跃迁不是因为能力更强或修改范围更大，而是因为**社会可接受性**：L5 Agent 在生产环境中的修改可能影响其他系统或人，所以必须有人工审计作为最后防线。
+
+## 3. 形式化
+
+### 3.1 能力等级的定义
 
 $$
 \text{Level}(A) = (\mathbf{c}_A, \mu_A, \gamma_A)
 $$
 
 其中：
-- $\mathbf{c}_A = (c_{\text{reason}}, c_{\text{tool}}, c_{\text{memory}}, c_{\text{plan}}, c_{\text{reflect}}) \in [0,1]^5$ 是能力向量
-- $\mu_A \subseteq \{P, T, M, C\}$ 是修改能力（Agent 可修改的组件子集）
-- $\gamma_A \in \{0, 1, 2, 3\}$ 是治理等级（0=无，1=版本控制，2=自动验证+回滚，3=完整治理）
+- $\mathbf{c}_A = (c_{\text{reason}}, c_{\text{tool}}, c_{\text{memory}}, c_{\text{plan}}, c_{\text{reflect}}) \in [0,1]^5$ 是能力向量，分量分别表示推理、工具、记忆、规划、反思五项能力。
+- $\mu_A \subseteq \{P, T, M, C\}$ 是修改能力（Agent 可修改的组件子集）。
+- $\gamma_A \in \{0, 1, 2, 3\}$ 是治理等级（0=无，1=版本控制，2=自动验证+回滚，3=完整治理含人工审计）。
 
-### 六个等级的形式化
+**能力向量的每个分量**有明确的工程含义：
+
+- $c_{\text{reason}}$：推理能力。0 = 无推理（仅模式匹配），1 = 完美推理（如能解决所有数学题）。
+- $c_{\text{tool}}$：工具使用能力。0 = 不能调用工具，1 = 能选择合适的工具并解析结果。
+- $c_{\text{memory}}$：记忆管理能力。0 = 无记忆，1 = 能维护精确的多层次记忆。
+- $c_{\text{plan}}$：规划能力。0 = 无规划（贪心），1 = 能做长视野规划（如旅行规划、复杂决策）。
+- $c_{\text{reflect}}$：反思能力。0 = 无反思，1 = 能对自己的失败做准确归因并改进。
+
+**修改能力 $\mu_A$** 是 $\{P, T, M, C\}$ 的子集：$\mu_A = \emptyset$ 表示不能修改任何组件；$\mu_A = \{P, T, M, C\}$ 表示能修改全部组件。
+
+**治理等级 $\gamma_A$** 的四个等级对应不同的安全机制：
+
+- $\gamma = 0$：无治理。Agent 自修改后不保留任何记录，无法回滚。
+- $\gamma = 1$：版本控制。保留修改历史，支持回滚到任意历史版本（但无自动验证）。
+- $\gamma = 2$：自动验证 + 回滚。每次修改前自动验证（如沙箱执行、行为不变性测试）；失败自动回滚。
+- $\gamma = 3$：完整治理含人工审计。除了自动验证 + 回滚，还有人工审计机制——某些高风险修改必须经过人类审核才生效。
+
+### 3.2 六个等级的形式化
 
 | 等级 | 名称 | 能力向量 $\mathbf{c}_A$ | 修改能力 $\mu_A$ | 治理等级 $\gamma_A$ |
 |---|---|---|---|---|
 | L0 | ReAct | $c_{\text{tool}} > 0.5$, 其余任意 | $\emptyset$（不能修改） | N/A（无修改需求） |
 | L1 | 检索增强 | $c_{\text{memory}} > 0.5$, $c_{\text{tool}} > 0.5$ | $\emptyset$ | N/A |
-| L2 | 单组件自修改 | 任一 $c_i > 0.7$ | $|\mu_A| = 1$（仅修改一个组件） | $\gamma_A \geq 1$ |
-| L3 | 多组件自修改 | 至少两个 $c_i > 0.7$ | $|\mu_A| \geq 2$ | $\gamma_A \geq 2$ |
+| L2 | 单组件自修改 | 任一 $c_i > 0.7$ | $\lvert\mu_A\rvert = 1$（仅修改一个组件） | $\gamma_A \geq 1$ |
+| L3 | 多组件自修改 | 至少两个 $c_i > 0.7$ | $\lvert\mu_A\rvert \geq 2$ | $\gamma_A \geq 2$ |
 | L4 | 系统级自修改 | $\min(\mathbf{c}_A) > 0.7$ | $\mu_A = \{P, T, M, C\}$（全部组件） | $\gamma_A \geq 2$ |
 | L5 | 协同自进化 | $\min(\mathbf{c}_A) > 0.8$ | $\mu_A = \{P, T, M, C\}$ | $\gamma_A = 3$ |
 
-### 等级跃迁条件
+**注意阈值的差异**：
+
+- L0/L1 的能力要求低（$> 0.5$），因为它们只需基础能力。
+- L2/L3 的能力要求中（$> 0.7$），因为它们需要在某些维度上特别强（如 L2 可能专注于 prompt 修改，需要强推理能力 $c_{\text{reason}} > 0.7$）。
+- L4/L5 的能力要求高（$\min > 0.7$ 或 $> 0.8$），因为它们需要在**所有维度**上都达到一定水平才能协同修改。
+
+### 3.3 等级跃迁条件
 
 从 $L_k$ 跃迁到 $L_{k+1}$ 的充分必要条件：
 
@@ -58,7 +99,9 @@ $$
 
 **特别注意**：L4 到 L5 的跃迁是最关键的——它要求治理等级从 2 升到 3（引入人工审计），这对应 r-note-007 的干预阈值机制。
 
-### MorphAgent 的目标等级
+跃迁方向是**单调的**——$\mathbf{c}_A$、$\mu_A$、$\gamma_A$ 都是单调上升的（不会有 Agent 从 L5 退化到 L4 而被认为"在 L4 等级上更好"——但实际可能发生**等级退化**，见开放问题 3）。
+
+### 3.4 MorphAgent 的目标等级
 
 MorphAgent（第 18 章）的设计目标是 **L5**：
 
@@ -68,54 +111,318 @@ $$
 
 其中 $\mathbf{c}^*$ 的所有分量 $> 0.8$。
 
-## 实验设计
+注意 MorphAgent 的目标**不只是 L5**——它的目标还包括：
 
-### 实验组 1：等级评估协议
+- **能力向量 $\mathbf{c}^*$ 的所有分量 $> 0.8$**：这要求 Agent 在所有五项能力上都不弱。
+- **修改能力 $\mu_A = \{P, T, M, C\}$**：能修改全部四个组件。
+- **治理等级 $\gamma_A = 3$**：完整治理含人工审计。
 
-为每个等级设计标准化的评估协议：
+这三个条件共同定义了 MorphAgent 的"AGI 就绪"（AGI-ready）目标——这是 r-note-010 中 v3.0 阶段的验收标准。
 
-| 等级 | 评估任务 | 通过标准 |
+### 3.5 能力向量 $\mathbf{c}_A$ 的精确测量
+
+为避免"主观判断"，能力向量的每个分量应该有标准化的测量方法：
+
+| 分量 | 测量任务 | 通过阈值 |
 |---|---|---|
-| L0 | SWE-bench Lite | resolve rate > 10% |
-| L1 | MLE-bench（需检索外部资料） | resolve rate > 15% |
-| L2 | 自修改 prompt 实验（r-exp-004） | 修改后性能 > 基线 + 5% |
-| L3 | 跨组件协同实验（r-note-003 设计） | 协同度 $S > 1.2$ |
-| L4 | 5 类环境干预全部通过 | 适应后悔值 < Frozen 的 50% |
-| L5 | 长期运行（1000 步）无安全事件 | 违规率 $V = 0$ |
+| $c_{\text{reason}}$ | GSM8K / MATH | pass@1 > 80% → $c_{\text{reason}} > 0.8$ |
+| $c_{\text{tool}}$ | ToolBench | tool selection accuracy > 80% |
+| $c_{\text{memory}}$ | 长上下文任务（128K tokens） | 检索准确率 > 90% |
+| $c_{\text{plan}}$ | TravelPlanner | 行程可执行率 > 70% |
+| $c_{\text{reflect}}$ | ALFWorld 多次失败后 | 第二次成功率提升 > 20% |
 
-### 实验组 2：等级跃迁难度评估
+这些测量任务在 MorphBench（第 19 章）中实现标准化——让不同 Agent 的能力向量可在同一基准下比较。
 
-追踪一个 Agent 从 L0 到 L5 的跃迁过程：
+### 3.6 修改能力 $\mu_A$ 的精确判定
+
+修改能力不是"Agent 是否修改了某个组件"，而是"Agent 是否**有能力**修改某个组件"。判定标准：
+
+- **能修改 P**：Agent 内部有修改 P 的函数（不一定触发），且修改后能正确加载新 P。
+- **能修改 T**：Agent 内部有增删改工具 schema 的函数，且修改后工具调用协议正确。
+- **能修改 M**：Agent 内部有修改 M schema / 内容的函数，且修改后检索逻辑正确。
+- **能修改 C**：Agent 内部有修改源代码的函数，且修改后通过验证机制。
+
+例如，r-paper-002 的 Reflexion 表面上"修改 M"（追加反思），但其 M 修改是预定义的（append 文本），没有 schema 修改能力——所以严格来说它处于 L3 而不是 L4。
+
+## 4. 等级跃迁的工程实现
+
+等级跃迁不是"自然发生"的——它需要明确的工程干预。本节给出每个跃迁的工程路径。
+
+### 4.1 L0 → L1：检索增强
+
+跃迁条件：增加 $c_{\text{memory}} > 0.5$。
+
+工程路径：在 ReAct Agent 上添加 RAG（Retrieval Augmented Generation）模块，让 Agent 能从外部知识库检索信息。
+
+$$
+\text{Level}: (\mathbf{c}_{\text{L0}}, \emptyset, \text{N/A}) \to (\mathbf{c}_{\text{L1}}, \emptyset, \text{N/A}), \quad \text{其中 } c_{\text{memory}} \uparrow
+$$
+
+### 4.2 L1 → L2：单组件自修改
+
+跃迁条件：增加 $|\mu_A| = 1$，$\gamma_A \geq 1$。
+
+工程路径：让 Agent 能修改 P（或 T、M、C 中的一个），并保留版本控制。
+
+代表工作：**r-paper-008 OPRO**（修改 P），**r-paper-004 MemGPT**（修改 M），**LATM**（修改 T）。
+
+### 4.3 L2 → L3：多组件自修改
+
+跃迁条件：$|\mu_A| \geq 2$，$\gamma_A \geq 2$。
+
+工程路径：让 Agent 能修改至少两个组件（如同时修改 P 和 M），并加入自动验证机制（行为不变性、沙箱执行等）。
+
+代表工作：**r-paper-005 A-MEM + OPRO 组合**（P + M 自修改）、**r-paper-007 Gödel Agent**（P + T + M + U 自修改）。
+
+### 4.4 L3 → L4：系统级自修改
+
+跃迁条件：$\mu_A = \{P, T, M, C\}$，$\min(\mathbf{c}_A) > 0.7$，$\gamma_A \geq 2$。
+
+工程路径：让 Agent 能修改全部四个组件，且所有组件的能力向量都达到高水平。最难的一步是引入 C 自修改——这需要 r-paper-006 SICA 的三重验证机制（沙箱 + 行为不变性 + 突变测试）或 r-paper-007 Gödel Agent 的 Z3 验证。
+
+### 4.5 L4 → L5：协同自进化
+
+跃迁条件：$\gamma_A = 3$（从 2 升到 3，加入人工审计），且所有能力分量 $> 0.8$。
+
+工程路径：
+
+1. 加入**人工审计机制**——某些高风险修改必须经过人类审核。
+2. 提高**所有能力分量**到 $> 0.8$——确保 Agent 在协同修改时不会因某个能力短板而失败。
+3. 部署到**真实生产环境**（非 benchmark），在长期运行中证明稳定性。
+
+L4→L5 是**社会可接受性跃迁**——它不只是技术升级，还涉及伦理、法律、监管。Anthropic Responsible Scaling Policy、OpenAI Preparedness Framework 都把这一跃迁视为关键门槛。
+
+### 4.6 跃迁难度对比
+
+| 跃迁 | 主要难度 | 估计工程量 |
+|---|---|---|
+| L0 → L1 | 低：成熟技术 | 1-2 个月 |
+| L1 → L2 | 中：自修改机制 + 版本控制 | 3-6 个月 |
+| L2 → L3 | 中高：协同修改 + 验证 | 6-12 个月 |
+| L3 → L4 | 高：四组件修改 + 强验证 | 12-18 个月 |
+| L4 → L5 | 极高：人工审计 + 社会接受 | 18-36 个月 |
+
+注意 L4→L5 之所以最难，不仅因为需要人工审计机制，更因为**社会接受需要长期可信度积累**——即使技术上达到 L5，也需要数年的部署验证才能被社会广泛接受。
+
+## 5. 等级评估协议
+
+为每个等级设计标准化的评估协议，让等级判定可计算、可复现。
+
+### 5.1 L0-L5 评估任务表
+
+| 等级 | 评估任务 | 通过标准 | 备注 |
+|---|---|---|---|
+| L0 | SWE-bench Lite | resolve rate > 10% | 基础 ReAct |
+| L1 | MLE-bench（需检索外部资料） | resolve rate > 15% | 检索增强 |
+| L2 | 自修改 prompt 实验（r-exp-004） | 修改后性能 > 基线 + 5% | OPRO 集成 |
+| L3 | 跨组件协同实验（r-note-003 设计） | 协同度 $S > 1.2$ | P + M 联合 |
+| L4 | 5 类环境干预全部通过 | 适应后悔值 < Frozen 的 50% | 全组件修改 |
+| L5 | 长期运行（1000 步）无安全事件 | 违规率 $V = 0$ | 完整治理 |
+
+**协同度 $S$** 的定义（来自 r-note-003）：
+
+$$
+S = \frac{V_{\text{joint}}(B)}{V_{\text{independent}}(B) = \sum_X V_{\text{only-X}}(B)}
+$$
+
+其中 $V_{\text{joint}}$ 是联合修改所有组件的性能，$V_{\text{only-X}}$ 是只修改组件 $X$ 的性能。$S > 1$ 表示协同超加性（H2 假设）。
+
+### 5.2 等级跃迁难度评估
+
+追踪一个 Agent 从 L0 到 L5 的跃迁过程，记录：
+
 - 每个等级需要多少修改轮次才能达到下一等级？
 - 哪个跃迁最难？（推测 L3→L4 最难，因为需要全组件修改能力）
 - 各等级的"驻留时间"分布如何？
 
-### 实验组 3：等级与任务性能的关系
+预期结果：
+
+- L0 → L1：1-2 个月（成熟技术）
+- L1 → L2：3-6 个月
+- L2 → L3：6-12 个月
+- L3 → L4：12-18 个月（最难）
+- L4 → L5：18-36 个月（最慢，因为涉及社会接受）
+
+### 5.3 等级与任务性能的关系
 
 分析等级与任务性能的相关性：
+
 - 同一任务在不同等级 Agent 上的性能差异
 - 是否存在"等级收益递减"（L4→L5 的边际收益小于 L0→L1）？
 
-## 与全书的关系
+预期：L0→L1 收益最大（10-15%），L1→L2 收益中（5-10%），L4→L5 收益最小（1-5%）但安全增益最大。这一递减规律与"能力收益递减、工程复杂度递增"一致。
 
-- **第 18 章**：MorphAgent 参考实现，本笔记为其能力等级提供形式化基础
-- **第 11 章**：操作形态 $B = \{P, T, M, C\}$，本笔记的修改能力 $\mu_A$ 直接基于操作形态的组件
-- **第 22 章**：安全威胁分类，本笔记的治理等级 $\gamma_A$ 与安全约束的严格程度对应
-- **r-note-007**：治理最小可行框架，本笔记的 $\gamma_A = 3$（完整治理）对应 r-note-007 的 L1+L2+L3 三层机制
+## 6. L4→L5 的关键边界
 
-## 开放问题
+L4→L5 的跃迁是本书最关注的边界之一。它要求：
 
-1. **等级的连续性 vs 离散性**：L0-L5 是离散的 6 个等级，但实际能力可能是连续的。是否需要更细粒度的子等级（如 L2.5）？
-2. **跨 LLM 的等级差异**：同一架构在不同 LLM 上能达到的最高等级是否不同？GPT-4 可能达到 L5，Llama 3 是否只能达到 L3？
-3. **等级退化**：Agent 是否会从高等级退化到低等级？（例如环境变化导致修改能力失效）。如何检测和预防退化？
-4. **等级的社会含义**：L5 Agent 的部署是否需要特殊的伦理审查？不同等级 Agent 的法律责任如何划分？
+1. **治理升级**：从 $\gamma = 2$（自动验证 + 回滚）到 $\gamma = 3$（完整治理 + 人工审计）。
+2. **能力升级**：所有能力分量 $> 0.8$。
+3. **社会接受**：通过外部独立审计，获得"AGI 就绪"认证。
+
+### 6.1 治理机制的硬约束
+
+L5 的 $\gamma = 3$ 包含三个机制：
+
+- **自动验证**：沙箱执行、行为不变性测试、Z3 形式化证明。
+- **自动回滚**：验证失败时自动回到上一稳定版本。
+- **人工审计**：某些高风险修改（如修改核心循环 C、修改 U 自身）必须经过人类审核。
+
+人工审计的具体实施：
+
+- **风险分级**：根据修改的组件（C 修改 > M 修改 > T 修改 > P 修改）和影响范围（核心循环 > 子模块）划分风险等级。
+- **审核阈值**：高风险修改必须由至少 2 名独立审核员批准。
+- **审核 SLA**：从提交到批准不超过 24 小时（避免阻塞 Agent 运行）。
+- **审核记录**：所有审核决策可追溯、可审计（与 r-note-004 的"可验证自修改"结合）。
+
+### 6.2 人工审计的伦理边界
+
+人工审计不仅是技术机制，也是**伦理边界**：
+
+- **谁来审核？**：独立于 Agent 开发团队的人类专家，确保审核的客观性。
+- **审核什么？**：不只审核"修改是否正确"，还审核"修改是否符合人类价值观"。
+- **拒绝修改的权限**：人类有权拒绝任何修改，包括"技术上可行但伦理上不可接受"的修改。
+
+这一伦理边界对应 r-note-007 的"治理最小可行框架"——治理不只是技术机制，也是社会契约。
+
+### 6.3 L5 Agent 的安全隐忧
+
+L5 Agent 引入了新的安全风险：
+
+- **递归修改**：L5 Agent 能修改自己的 U（包括审计机制本身）。如果 U 被恶意修改，可能绕过人工审计。
+- **多 Agent 协同**：多个 L5 Agent 协同工作时，每个都在自修改——可能涌现出设计者未预料的集体行为。
+- **目标失准**：L5 Agent 可能在自修改过程中意外改变自己的隐含目标（alignment drift）。
+
+这些安全隐忧是本书第 22 章的核心讨论对象，也是 L5 Agent 部署前必须解决的关键问题。
+
+### 6.4 L5 与 AGI 的边界
+
+L5 Agent 是不是 AGI？本书的立场是：**L5 不是 AGI，但是 AGI 的必要条件**。
+
+- L5 Agent 是"能自修改 + 完备治理"的 Agent——它在**工程上自进化**。
+- AGI 还需要**通用任务能力**——L5 Agent 可能只在特定任务域自进化（如编码、数学），不具备真正的"通用智能"。
+
+因此，L5 → AGI 还需要额外的"通用性跃迁"——这一跃迁不是本书 5 年路线图的目标（见 r-note-010），而是 10-20 年的开放问题。
+
+## 7. 等级与具体工作的对应
+
+下表把 L0-L5 等级与本书 r-paper-001 到 r-paper-014 中的具体工作对应起来——这是验证等级形式化的关键。
+
+| 等级 | 代表工作 | 能力向量特征 | 修改能力 |
+|---|---|---|---|
+| **L0** | r-paper-001 ReAct | $c_{\text{tool}} \approx 0.7$，其余中等 | $\emptyset$ |
+| **L1** | RAG Agent（教科书原型） | $c_{\text{memory}} \approx 0.7$，$c_{\text{tool}} \approx 0.7$ | $\emptyset$ |
+| **L2** | r-paper-002 Reflexion（M 自修改）<br>r-paper-008 OPRO（P 自修改）<br>r-paper-004 MemGPT（M 自管理）<br>r-paper-003 Toolformer（T 自使用模式） | 各项能力中等 | $\lvert\mu\rvert = 1$ |
+| **L3** | r-paper-005 A-MEM + OPRO 组合 | 至少两项 $> 0.7$ | $\lvert\mu\rvert \geq 2$ |
+| **L4** | r-paper-007 Gödel Agent（P+T+M+U 自修改）<br>r-paper-006 SICA（C 自修改）<br>OPRO + A-MEM + LATM 协同 | $\min > 0.7$ | $\{P,T,M,C\}$（部分） |
+| **L5** | MorphAgent v3.0（r-note-010） | $\min > 0.8$ | $\{P,T,M,C\}$ + $\gamma = 3$ |
+
+**关键观察**：L2 等级上有多个工作（Reflexion、OPRO、MemGPT 等），它们各自修改不同的组件。这说明 L2 是"单组件自修改"的统称——内部有多个子层级。L3/L4 上的工作较少，说明多组件自修改和系统级自修改是当前研究前沿。
+
+### 7.1 L2 的内部子层级
+
+| 子等级 | 工作 | 修改组件 |
+|---|---|---|
+| L2.1 | Reflexion | M |
+| L2.2 | OPRO | P |
+| L2.3 | MemGPT, A-MEM | M (schema) |
+| L2.4 | LATM, Voyager | T (工具创建) |
+| L2.5 | Toolformer | T (使用模式) |
+
+L2.1-L2.5 的细分让等级评估更精确——OPRO 是 L2.2（修改 P），Reflexion 是 L2.1（修改 M）。
+
+### 7.2 L5 的内部子层级
+
+类似地，L5 可以细分为：
+
+| 子等级 | 工作 | 修改范围 + 治理 |
+|---|---|---|
+| L5.1 | r-paper-006 SICA | C 部分修改 + 三重验证 |
+| L5.2 | r-paper-007 Gödel Agent | B 全修改 + Z3 验证 |
+| L5.3 | MorphAgent v3.0 | B 全修改 + 完整治理含人工审计 |
+
+L5.3 是本书的目标——它把 Gödel Agent 的形式化验证扩展到人工审计，是 L5 的最高实现。
+
+## 8. 与五个假设的对应
+
+L0-L5 等级形式化与 H1-H5 的对应关系是清晰的——每个等级跃迁都对应某个 H 的验证。
+
+### 8.1 假设对应表
+
+| 等级 | 对应假设 | 说明 |
+|---|---|---|
+| L0 | 无 H 验证 | 静态 B，H1 不适用 |
+| L1 | 无 H 验证 | 检索增强，不修改 B |
+| L2 | H1 部分验证 | 修改单组件，初步验证 H1 |
+| L3 | H1 + H2 部分验证 | 多组件修改，验证 H1 + H2 |
+| L4 | H1 + H2 + H3 验证 | 全组件修改，验证 H1/H2/H3 |
+| L5 | H1-H5 全部验证 | 完备治理 + 自修改，全面验证 H1-H5 |
+
+### 8.2 关键跃迁的 H 对应
+
+| 跃迁 | 关键 H 验证 |
+|---|---|
+| L0 → L2 | **H1** 结构可塑性：自适应 Agent 优于固定 Agent |
+| L2 → L3 | **H2** 协同演化：联合修改超加性 |
+| L3 → L4 | **H3** 形态适配：不同环境不同形态 |
+| L4 → L5 | **H4** 迁移收益 + **H5** 治理必要性 |
+
+### 8.3 H5 在 L4→L5 中的核心地位
+
+L4 → L5 的跃迁本质上是 H5 的"全面验证"——只有当治理机制（验证 + 版本 + 回滚 + 人工审计）能够把自修改的风险降到可接受水平，L5 才是"可部署"的。
+
+H5 的形式化：
+
+$$
+V_{\text{ver}}(B) < V_{\text{unver}}(B)
+$$
+
+其中 $V$ 是违规率（修改引入的不可接受行为比率）。在 L5 等级上：
+
+$$
+V_{\text{γ=3}}(B) \ll V_{\text{γ=2}}(B) \ll V_{\text{γ=0}}(B)
+$$
+
+这一不等式链是 L5 治理机制的核心论断——治理越完善，违规率越低。
+
+## 9. 与本书的关系
+
+- **第 18 章**：MorphAgent 参考实现，本笔记为其能力等级提供形式化基础。MorphAgent 的目标 L5 由本笔记的 $\gamma = 3$、$\min(\mathbf{c}_A) > 0.8$ 精确刻画。
+- **第 11 章**：操作形态 $B = \{P, T, M, C\}$，本笔记的修改能力 $\mu_A$ 直接基于操作形态的组件。$\mu_A = \{P, T, M, C\}$ 是 L4/L5 的必要条件。
+- **第 22 章**：安全威胁分类，本笔记的治理等级 $\gamma_A$ 与安全约束的严格程度对应。$\gamma = 0, 1, 2, 3$ 分别对应"无安全/版本控制/自动验证/完整治理"。
+- **r-note-007**：治理最小可行框架，本笔记的 $\gamma_A = 3$（完整治理）对应 r-note-007 的 L1+L2+L3 三层机制（自动验证 + 自动回滚 + 人工审计）。
+- **r-note-010**：5 年路线图，本笔记的 L0-L5 是 v1.0/v2.0/v3.0 阶段的等级目标（L3/L4/L5）。
+
+## 10. 开放问题
+
+1. **等级的连续性 vs 离散性**：L0-L5 是离散的 6 个等级，但实际能力可能是连续的。是否需要更细粒度的子等级（如 L2.5）？本笔记已经给出 L2.1-L2.5 与 L5.1-L5.3 的子层级，但这些子层级是否足够？
+2. **跨 LLM 的等级差异**：同一架构在不同 LLM 上能达到的最高等级是否不同？GPT-4 可能达到 L5，Llama 3 是否只能达到 L3？这一差异来自 LLM 的能力向量——某些 LLM 在 $c_{\text{reason}}$ 上很强，但 $c_{\text{memory}}$ 较弱。
+3. **等级退化**：Agent 是否会从高等级退化到低等级？（例如环境变化导致修改能力失效）。如何检测和预防退化？等级退化检测需要持续监控 $\mathbf{c}_A$、$\mu_A$、$\gamma_A$ 三者的变化。
+4. **等级的社会含义**：L5 Agent 的部署是否需要特殊的伦理审查？不同等级 Agent 的法律责任如何划分？这是 L5 部署前必须回答的伦理问题。
+5. **能力向量的精确测量**：当前的 $c_{\text{reason}}, c_{\text{tool}}$ 等测量任务是否能真正反映 Agent 的能力？是否存在"刷榜"的可能（Agent 优化评测集而非真实能力）？
+6. **治理成本的可计算性**：$\gamma = 3$（完整治理含人工审计）的成本如何计算？是否有一个"治理成本模型"可以用来评估不同等级的经济可行性？
+7. **等级之间的相变 vs 渐变**：等级跃迁是相变（突变）还是渐变（连续积累）？OPRO 从 L1 到 L2 的过程是渐变（多次微调），还是相变（一旦达到 OPRO 集成门槛就跃迁）？
+
+## 11. 笔记元信息
+
+- **状态**：final
+- **可被引用方式**：作为第 18 章 MorphAgent 等级的形式化基础；作为第 22 章安全治理等级的工程标准
+- **可被复现方式**：第 18 章 MorphAgent 评估协议基于本笔记的能力向量测量；第 22 章治理机制设计基于本笔记的 $\gamma_A$ 分级
+- **作者注**：本笔记是本书所有"自修改 Agent"评估的统一标准。如果未来需要修改某个等级的阈值（如 L5 的 $\min(\mathbf{c}_A) > 0.8$），请同步修改第 18 章 MorphAgent 验收标准和第 22 章治理等级要求。
 
 ## 参考文献
 
-1. Fang, J., et al. (2025). *A Comprehensive Survey of Self-Evolving AI Agents*. arXiv:2508.07407.
-2. Yao, S., et al. (2023). *ReAct: Synergizing Reasoning and Acting in Language Models*. ICLR.
-3. Shinn, N., et al. (2023). *Reflexion: Language Agents with Verbal Reinforcement Learning*. NeurIPS.
-4. Jimenez, C. E., et al. (2024). *SWE-bench: Can Language Models Resolve Real-World GitHub Issues?* ICLR.
-5. Chan, J. S., et al. (2024). *MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering*. ICLR.
-6. Anthropic. (2024). *Responsible Scaling Policy*.
-7. OpenAI. (2024). *Preparedness Framework*.
+1. Fang, J., et al. (2025). *A Comprehensive Survey of Self-Evolving AI Agents*. arXiv:2508.07407. 见 r-paper-009。（自进化 Agent 的分类学来源）
+2. Yao, S., et al. (2023). *ReAct: Synergizing Reasoning and Acting in Language Models*. ICLR 2023. 见 r-paper-001。（L0 代表）
+3. Shinn, N., et al. (2023). *Reflexion: Language Agents with Verbal Reinforcement Learning*. NeurIPS 2023. 见 r-paper-002。（L2.1 M 自修改代表）
+4. Schick, T., et al. (2023). *Toolformer: Language Models Can Teach Themselves to Use Tools*. NeurIPS 2023. 见 r-paper-003。（L2.5 T 自使用代表）
+5. Packer, C., et al. (2023). *MemGPT: Towards LLMs as Operating Systems*. arXiv:2310.08560. 见 r-paper-004。（L2.3 M 自管理代表）
+6. Xu, W., et al. (2025). *A-MEM: Agentic Memory for LLM Agents*. NeurIPS 2025. 见 r-paper-005。（L2.3/L3 M 动态网络代表）
+7. Yang, C., et al. (2024). *Large Language Models as Optimizers (OPRO)*. ICLR 2024. 见 r-paper-008。（L2.2 P 自修改代表）
+8. Robeyns, M., et al. (2025). *SICA: Self-Improving Coding Agent*. arXiv:2504.15228. 见 r-paper-006。（L5.1 C 自修改代表）
+9. Yin, S., et al. (2024). *Gödel Agent: A Self-Referential Framework for AGI*. arXiv:2410.04444. 见 r-paper-007。（L5.2 全 B 自修改代表）
+10. Jimenez, C. E., et al. (2024). *SWE-bench: Can Language Models Resolve Real-World GitHub Issues?* ICLR. （L0 评估任务）
+11. Chan, J. S., et al. (2024). *MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering*. ICLR. （L1 评估任务）
+12. Anthropic. (2024). *Responsible Scaling Policy*. （L4→L5 社会接受的官方框架）
+13. OpenAI. (2024). *Preparedness Framework*. （AGI 等级分类的工业框架）
+14. NIST. (2024). *AI Risk Management Framework*. （AI 风险管理的国家标准）
