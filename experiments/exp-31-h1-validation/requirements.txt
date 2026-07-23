@@ -1,0 +1,2 @@
+openai>=1.0
+# All other imports are from the Python 3.10+ standard library.
