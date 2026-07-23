@@ -66,12 +66,12 @@ prerequisites:
 
 ## 14.1 操作形态学的第三个应用：修改 M
 
-第 12 章讲了 P 自修改（H1 案例 1），第 13 章讲了 T 自修改（H1 案例 2）。本章讲 M 自修改——H1 的**第三个**验证案例。P/T 自修改关注"修改什么"，M 自修改关注"怎么记住"。
+第 12 章讲了 P 自修改（H1 案例 1），第 13 章讲了 T 自修改（H1 案例 2）。本章讲 M 自修改——H1 的**第三个**验证案例 [r-note-002](../../research/r-note-002-h1-structural-plasticity.md)。P/T 自修改关注"修改什么"，M 自修改关注"怎么记住"。
 
 为什么 M 自修改比 P/T 自修改更深？
 
 1. **影响长期行为**：P 自修改影响"今天怎么说话"，T 自修改影响"今天能做什么"，M 自修改影响"Agent 明天还能记得今天"。
-2. **改变认知结构**：M 修改不是"改文本"，是"改 Agent 的认知结构"——它决定了 Agent 知识的拓扑。
+2. **改变认知结构**：M 修改不是"改文本"，是"改 Agent 的认知结构"——它决定了 Agent 知识的拓扑 [r-note-013](../../research/r-note-013-short-term-vs-long-term-memory.md)。
 3. **更难评估**：P/T 修改的效果可以在一轮任务中评估，M 修改的效果要跨多轮才能显现。
 
 但 M 自修改也面临独特挑战：
@@ -106,7 +106,7 @@ prerequisites:
 
 ## 14.2 MemGPT：把 LLM 当作操作系统
 
-**MemGPT（Memory-GPT）** 由 UC Berkeley 的 Packer 等人 2023 年 10 月提出。MemGPT 的核心洞察是：**LLM 的 context window ≈ OS 的"主存"（快但小），而外部存储 ≈ OS 的"硬盘"（慢但大）**。通过"分页"机制，LLM Agent 可以"虚拟化"出无限大的内存。
+**MemGPT（Memory-GPT）** 由 UC Berkeley 的 Packer 等人 2023 年 10 月提出 [r-paper-004](../../research/r-paper-004-packer2023memgpt.md)。MemGPT 的核心洞察是：**LLM 的 context window ≈ OS 的"主存"（快但小），而外部存储 ≈ OS 的"硬盘"（慢但大）**。通过"分页"机制，LLM Agent 可以"虚拟化"出无限大的内存。
 
 ### MemGPT 的核心架构
 
@@ -154,7 +154,7 @@ prerequisites:
 
 ## 14.3 A-MEM：Zettelkasten 风格的动态记忆网络
 
-**A-MEM（Agentic Memory）** 由 Xu 等人 2025 年 2 月提出，把 **Zettelkasten 笔记法** 应用到 LLM 长期记忆。Zettelkasten 是德国社会学家 Niklas Luhmann 使用的笔记方法，其核心是：**每条笔记都是独立的"卡片"，笔记之间通过"链接"形成网络**。
+**A-MEM（Agentic Memory）** 由 Xu 等人 2025 年 2 月提出，把 **Zettelkasten 笔记法** 应用到 LLM 长期记忆 [r-paper-005](../../research/r-paper-005-xu2025amem.md)。Zettelkasten 是德国社会学家 Niklas Luhmann 使用的笔记方法，其核心是：**每条笔记都是独立的"卡片"，笔记之间通过"链接"形成网络**。
 
 ### A-MEM 的 4 步流程
 
@@ -356,6 +356,18 @@ H1 在 M 自修改中的形式化：
 第 15 章将进入**自我改写代码**。P、T、M 自修改是 H1 的前三个案例，**C 自修改是第四个案例**——让 Agent 自主修改自己的执行代码。SICA、Gödel Agent、AlphaEvolve、Darwin Gödel Machine 等工作如何让 Agent 拥有"修改自身代码"的能力？这是 Ch 15 的核心议题。
 
 ---
+
+## 延伸阅读 / 推荐笔记
+
+本章相关的研究笔记（按相关性排序）：
+
+- [r-paper-004](../../research/r-paper-004-packer2023memgpt.md) — MemGPT：分层记忆与虚拟上下文管理
+- [r-paper-005](../../research/r-paper-005-xu2025amem.md) — A-MEM：可动态链接的智能体记忆网络
+- [r-paper-022](../../research/r-paper-022-sumers2023coala.md) — CoALA：认知架构中的多类型记忆
+- [r-note-013](../../research/r-note-013-short-term-vs-long-term-memory.md) — 短期记忆与长期记忆的结构差异
+- [r-note-011](../../research/r-note-011-pomdp-llm-agent.md) — 部分可观测环境中的状态与记忆
+- [r-note-002](../../research/r-note-002-h1-structural-plasticity.md) — M 自修改的结构可塑性验证
+- [r-note-014](../../research/r-note-014-self-modification-attack-surface.md) — 记忆投毒与长期攻击面
 
 ## 本章小结
 
