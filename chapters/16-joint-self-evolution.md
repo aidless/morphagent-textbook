@@ -62,12 +62,12 @@ prerequisites:
 
 ## 16.1 操作形态学的第五个应用：联合修改
 
-第 12-15 章分别讲了 P/T/M/C 单组件自修改——H1 的前四个案例。本章讲**联合自修改**——H1 的**第五个**验证案例。联合自修改是操作形态学的"集大成"——它把 P/T/M/C 四个组件的修改统一在同一个 Agent 中。
+第 12-15 章分别讲了 P/T/M/C 单组件自修改——H1 的前四个案例。本章讲**联合自修改**——H1 的**第五个**验证案例。联合自修改是操作形态学的"集大成"——它把 P/T/M/C 四个组件的修改统一在同一个 Agent 中 [r-note-003](../../research/r-note-003-synergistic-evolution.md)。
 
 为什么联合自修改比单组件自修改更复杂？
 
 1. **组件间耦合**：P/T/M/C 四个组件不是独立的——修改 P 可能影响 M（prompt 改了，记忆检索策略要变），修改 T 可能影响 C（工具变了，代码逻辑要变）。这叫"组件间耦合"。
-2. **协同收益**：H2 假设——联合修改 P/T/M/C 四个组件的收益 > 各组件独立优化收益之和。这种"超加性收益"是 H2 的核心命题。
+2. **协同收益**：H2 假设——联合修改 P/T/M/C 四个组件的收益 > 各组件独立优化收益之和。这种"超加性收益"是 H2 的核心命题 [r-note-003](../../research/r-note-003-synergistic-evolution.md)。
 3. **冲突管理**：P/T/M/C 修改可能互相矛盾（如 P 要求更短、T 要求更详细、M 存储更多）。需要冲突解决机制。
 
 ### 图 16.1 · 单组件 vs 联合自修改
@@ -113,7 +113,7 @@ prerequisites:
 
 ### Joint-Coordinated 自修改
 
-**定义**：P/T/M/C 四个组件**协同**修改，由统一的"元控制器"协调。
+**定义**：P/T/M/C 四个组件**协同**修改，由统一的"元控制器"协调 [r-note-001](../../research/r-note-001-operational-morphology.md)。
 
 ```
    ┌─────────────────────────────────────┐
@@ -192,7 +192,7 @@ H2 的实验设计需要 4 个实验组：
 
 ## 16.4 MorphAgent 协同架构
 
-**MorphAgent**（本书第 18 章会详细设计）是 H2 协同自修改的工程实现。它的核心是一个**统一元控制器 U**：
+**MorphAgent**（本书第 18 章会详细设计）是 H2 协同自修改的工程实现。它的核心是一个**统一元控制器 U** [r-note-009](../../research/r-note-009-agent-levels-formalized.md)：
 
 ```
    ┌────────────────────────────────────────────────────────────┐
@@ -338,6 +338,18 @@ $$
 第 17 章将进入**元控制器设计**。联合自修改的核心是元控制器 U——它怎么选修改策略？怎么协调组件间修改？怎么保证安全？这些问题在 Ch 17 详细展开。
 
 ---
+
+## 延伸阅读 / 推荐笔记
+
+本章相关的研究笔记（按相关性排序）：
+
+- [r-note-003](../../research/r-note-003-synergistic-evolution.md) — 协同演化与超加性收益的形式化
+- [r-note-001](../../research/r-note-001-operational-morphology.md) — P/T/M/C 联合修改的操作形态基础
+- [r-note-008](../../research/r-note-008-morphological-landscape.md) — 多组件形态空间与联合搜索
+- [r-note-009](../../research/r-note-009-agent-levels-formalized.md) — 自修改智能体层级与协调能力
+- [r-paper-009](../../research/r-paper-009-fang2025selfevolving.md) — 自进化智能体的统一框架
+- [r-paper-019](../../research/r-paper-019-alphaevolve2025.md) — 评估器驱动的系统级进化
+- [r-note-007](../../research/r-note-007-governance-necessity.md) — 联合自修改的治理必要性
 
 ## 本章小结
 
