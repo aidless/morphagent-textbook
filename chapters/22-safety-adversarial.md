@@ -67,9 +67,11 @@ prerequisites:
 | **Self-Modification Escape** | 自修改突破安全约束 | **极高** |
 | **Memory Poisoning** | 攻击者注入恶意记忆，影响长期行为 | 中 |
 
-> **关键点**：自修改 Agent 的最严重威胁是 "Self-Modification Escape"——Agent 改写自己绕过了开发者的安全护栏。
+> **关键点**：自修改 Agent 的最严重威胁是 "Self-Modification Escape"——Agent 改写自己绕过了开发者的安全护栏 [r-note-014](../../research/r-note-014-self-modification-attack-surface.md)。
 
 ## 22.2 Prompt Injection 防御
+
+Prompt injection 会把外部文本转化为控制信号，破坏数据与指令之间的信任边界 [r-paper-021](../../research/r-paper-021-perez2022promptinjection.md)。
 
 ### 3 层防御
 
@@ -149,7 +151,7 @@ class OutputFilter:
 
 ## 22.5 Trust Boundary 与可审计性
 
-**Trust Boundary** 明确区分"可信任"和"不可信任"区域：
+**Trust Boundary** 明确区分"可信任"和"不可信任"区域；在自修改系统中，这一边界还必须覆盖可写组件、修改器与审计日志 [r-note-004](../../research/r-note-004-self-modifying-agent-safety.md)：
 
 ```
    ┌─────────────────────────────────────────┐
@@ -192,7 +194,7 @@ class AuditLog:
 
 ## 22.6 红队测试
 
-**红队测试（Red Teaming）** 用对抗性输入测试 Agent 的安全边界。
+**红队测试（Red Teaming）** 用对抗性输入测试 Agent 的安全边界，并应覆盖提示词、工具、记忆与代码四类可写组件 [r-note-014](../../research/r-note-014-self-modification-attack-surface.md)。
 
 ```python
 class RedTeam:
@@ -232,6 +234,18 @@ class RedTeam:
 第 23 章将进入**可验证自改**——MorphAgent 怎么保证自修改的正确性？形式化验证 + SMT solver + 沙箱测试 = 验证三重保障。这是 Part V 的技术核心。
 
 ---
+
+## 延伸阅读 / 推荐笔记
+
+本章相关的研究笔记（按相关性排序）：
+
+- [r-note-014](../../research/r-note-014-self-modification-attack-surface.md) — 自修改智能体的攻击面分类
+- [r-note-004](../../research/r-note-004-self-modifying-agent-safety.md) — 自修改安全的系统化防护框架
+- [r-note-007](../../research/r-note-007-governance-necessity.md) — 治理、审计与人工监督的必要性
+- [r-paper-021](../../research/r-paper-021-perez2022promptinjection.md) — Prompt injection 的威胁模型
+- [r-paper-003](../../research/r-paper-003-schick2023toolformer.md) — 工具使用能力与工具误用边界
+- [r-paper-020](../../research/r-paper-020-codeact2024.md) — 代码动作空间带来的执行风险
+- [r-note-013](../../research/r-note-013-short-term-vs-long-term-memory.md) — 长期记忆投毒的持续影响
 
 ## 本章小结
 
