@@ -21,8 +21,10 @@
 | **r-note-008** | **操作形态景观：B 空间的拓扑分析** | **final** | **~8,300** | **Ch 11, 16, 17** |
 | **r-note-009** | **Agent 能力等级 L0-L5 的形式化定义** | **final** | **~5,700** | **Ch 11, 18, 22** |
 | **r-note-010** | **5 年路线图：从 MorphAgent v1.0 到 AGI 就绪** | **final** | **~5,000** | **Ch 18, 25** |
-| (待写) | POMDP 与 LLM Agent 的对应 | idea | 0 | Ch 2 |
-| (待写) | 工具调用的三层结构 | idea | 0 | Ch 3 |
+| **r-note-011** | **POMDP 与 LLM Agent 的对应** | **final** | **~2,900** | **Ch 2, 17** |
+| **r-note-012** | **工具调用的三层结构** | **final** | **~3,100** | **Ch 3, 13** |
+| **r-note-013** | **短期记忆 vs 长期记忆的形式化** | **final** | **~2,800** | **Ch 5, 6, 14** |
+| **r-note-014** | **自修改系统的攻击面分级** | **final** | **~3,100** | **Ch 22, 23** |
 
 ### 论文笔记（Paper Note）
 
@@ -42,6 +44,22 @@
 | **r-paper-012** | **Intelligence Without Representation（Brooks）** | **final** | ~2,200 | brooks1991intelligence |
 | **r-paper-013** | **SWE-bench 评测基准** | **final** | ~2,700 | jimenez2024swebench |
 | **r-paper-014** | **MLE-bench 评测基准** | **final** | ~2,600 | chan2024mlebench |
+| **r-paper-015** | **DSPy：编译式 Prompt 自优化** | **final** | ~3,000 | khattab2024dspy |
+| **r-paper-016** | **PromptAgent：MCTS 策略性 Prompt 搜索** | **final** | ~3,000 | cheng2024promptagent |
+| **r-paper-017** | **Voyager：Minecraft 无限技能库** | **final** | ~3,000 | wang2023voyager |
+| **r-paper-018** | **LATM：成本敏感的自动工具创建** | **final** | ~3,000 | cai2023latm |
+| **r-paper-019** | **AlphaEvolve：代码库级进化系统** | **final** | ~3,000 | alphaevolve2025 |
+| **r-paper-020** | **CodeAct：Python 代码作为统一动作空间** | **final** | ~3,000 | codeact2024 |
+| **r-paper-021** | **Prompt Injection：首次系统性威胁分类** | **final** | ~3,000 | perez2022promptinjection |
+| **r-paper-022** | **CoALA：语言智能体的认知架构** | **final** | ~3,000 | sumers2023coala |
+| **r-paper-023** | **GAIA：通用 AI 助手基准** | **final** | ~3,000 | gaia2023 |
+| **r-paper-024** | **Oxford Handbook of 4E Cognition** | **final** | ~3,000 | newen2018oxford |
+| **r-paper-025** | **Weapons of Math Destruction** | **final** | ~3,000 | oneill2016weapons |
+| **r-paper-026** | **Froese：Enactive 方法与机器人应用** | **final** | ~3,000 | froese2011enactive |
+| **r-paper-027** | **Pfeifer：身体如何塑造思维** | **final** | ~3,000 | pfeifer2007body |
+| **r-paper-028** | **Noë：知觉中的行动** | **final** | ~3,000 | noe2004action |
+| **r-paper-029** | **Maturana：自创生与认知** | **final** | ~3,000 | maturana1980autopoiesis |
+| **r-paper-030** | **Heersmink：认知人工物分类学** | **final** | ~3,000 | heersmink2013taxonomy |
 
 ### 实验笔记（Experiment Note）
 
@@ -74,11 +92,11 @@
 
 | 状态 | 笔记数 |
 |---|---|
-| idea | 4 |
+| idea | 10 |
 | draft | 4 |
-| **final** | **24** |
+| **final** | **44** |
 | abandoned | 0 |
-| **总计** | **32** |
+| **总计** | **58** |
 
 ## 月度更新记录
 
@@ -87,4 +105,6 @@
 - **2026-07-22**：创建 r-note-002~010（9 篇研究笔记），各 ~800 字，draft
 - **2026-07-23**：完成 14 篇论文笔记（r-paper-001~014），全部 final
 - **2026-07-23**：完成 r-note-002~010 全部扩展到 final（共 ~57,000 字深度扩展）
+- **2026-07-23**：扩展论文库到 30 篇（r-paper-001~030），覆盖 LLM Agent 工程 + 认知科学 + 安全治理三大方向
+- **2026-07-23**：完成 4 篇 idea 笔记（r-note-011~014）：POMDP/工具三层/记忆双层/攻击面分级
 - (待续)
