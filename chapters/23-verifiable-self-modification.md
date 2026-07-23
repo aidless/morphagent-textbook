@@ -73,7 +73,7 @@ prerequisites:
    └────────────────────┘
 ```
 
-> **关键点**：验证三重保障 = Sandbox（执行） + Property Tests（行为） + Formal Verification（数学证明）。
+> **关键点**：验证三重保障 = Sandbox（执行） + Property Tests（行为） + Formal Verification（数学证明）[r-note-004](../../research/r-note-004-self-modifying-agent-safety.md)。
 
 ## 23.2 Sandbox 测试
 
@@ -127,7 +127,7 @@ class AgentProperties:
 
 ## 23.4 形式化验证
 
-**形式化验证** 用数学方法证明 Agent 满足某些性质。
+**形式化验证** 用数学方法证明 Agent 满足某些性质；对于能改写自身代码的系统，这对应于把允许修改的范围表达为可机械检查的不变式 [r-paper-007](../../research/r-paper-007-yin2024godelagent.md)。
 
 ```python
 class FormalVerifier:
@@ -162,7 +162,7 @@ class FormalVerifier:
         return True, None
 ```
 
-> **关键点**：SMT solver 可以**机械地证明** Agent 操作形态满足安全不变式，但**不是所有性质都能用 SMT 表达**（如 LLM 输出质量）。
+> **关键点**：SMT solver 可以**机械地证明** Agent 操作形态满足安全不变式，但**不是所有性质都能用 SMT 表达**（如 LLM 输出质量）[r-note-007](../../research/r-note-007-governance-necessity.md)。
 
 ## 23.5 SMT Solver 应用
 
@@ -205,7 +205,7 @@ class VerificationPipeline:
         return True, "All checks passed"
 ```
 
-> **关键点**：3 步验证流水线 = Sandbox（执行）+ Property Tests（行为）+ Formal Verification（数学证明），缺一不可。
+> **关键点**：3 步验证流水线 = Sandbox（执行）+ Property Tests（行为）+ Formal Verification（数学证明），缺一不可 [r-note-004](../../research/r-note-004-self-modifying-agent-safety.md)。
 
 ## 23.7 本章小结与第 24 章预告
 
@@ -221,6 +221,18 @@ class VerificationPipeline:
 第 24 章将进入**经济、伦理与社会影响**——自修改 Agent 对就业、知识产权、责任归属的影响是什么？这是 Part V 的伦理核心。
 
 ---
+
+## 延伸阅读 / 推荐笔记
+
+本章相关的研究笔记（按相关性排序）：
+
+- [r-note-004](../../research/r-note-004-self-modifying-agent-safety.md) — 沙箱、测试与验证的组合保障
+- [r-note-007](../../research/r-note-007-governance-necessity.md) — 技术验证之外的治理约束
+- [r-note-014](../../research/r-note-014-self-modification-attack-surface.md) — 验证流水线需要覆盖的攻击面
+- [r-paper-007](../../research/r-paper-007-yin2024godelagent.md) — 自指自修改与改进判据
+- [r-paper-006](../../research/r-paper-006-robeyns2025sica.md) — 可评测的源代码自修改循环
+- [r-paper-019](../../research/r-paper-019-alphaevolve2025.md) — 评估器驱动的候选筛选
+- [r-paper-013](../../research/r-paper-013-jimenez2024swebench.md) — 真实软件工程任务中的行为验证
 
 ## 本章小结
 
