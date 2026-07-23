@@ -1,18 +1,40 @@
 ---
-title: "5 年路线图：从 MorphAgent v1.0 到 AGI 就绪"
-date: 2026-07-22
-status: draft
-tags: [roadmap, 5-year-plan, MorphAgent, v1.0, v2.0, v3.0, milestones, AGI-readiness]
+note_id: r-note-010
+title: 5 年路线图：从 MorphAgent v1.0 到 AGI 就绪（5-Year Roadmap: From MorphAgent v1.0 to AGI-Ready）
+authors: [MorphAgent Textbook Author]
+created: 2026-07-22
+updated: 2026-07-23
+status: final
 related_chapters: [Ch 18, Ch 25]
+related_papers: [yao2023react, shinn2023reflexion, packer2023memgpt, xu2025amem, schick2023toolformer, yang2023opro, robeyns2025sica, yin2024godelagent, fang2025selfevolving, jimenez2024swebench, chan2024mlebench]
+keywords: [5-year roadmap, MorphAgent v1.0/v2.0/v3.0, AGI-readiness, MorphBench, ICLR 2027, NeurIPS 2028, ICML 2029, MIT Press, AI safety governance, milestones, H1-H5]
 ---
 
 # r-note-010: 5 年路线图：从 MorphAgent v1.0 到 AGI 就绪
 
-## 动机
+> 这篇笔记是第 25 章"开放问题"中 5 年路线图的工程化细化。**每个阶段对应 L0-L5 能力等级（r-note-009）的渐进达成**，每个里程碑对应一篇顶会论文（ICLR 2027 / NeurIPS 2028 / ICML 2029）+ 一个开源版本发布 + 一组 MorphBench 评测。本笔记是全书的"实践承诺"——不仅提出理论，更交付可运行的系统、论文、数据集和社区。
+
+## 1. 动机
 
 第 25 章概述了操作形态学从当前到 AGI 的 5 年路线图，但停留在战略层面。本笔记将路线图细化为三个工程阶段（v1.0 实验验证 / v2.0 跨域泛化 / v3.0 治理完备），为每个阶段设定具体的里程碑、交付物和验收标准。路线图不仅指导 MorphAgent 的开发，也是全书的"实践承诺"——我们不只是提出理论，还要交付可运行的系统。
 
-## 核心论点
+为什么需要 5 年路线图？因为：
+
+1. **理论需要落地**：操作形态学的 5 个假设（H1-H5）需要被实验验证——单个实验不构成证据，5 年跨度的系统性实验才让理论可信。
+2. **社区需要锚点**：开源社区依赖明确的路线图来规划贡献（PR、issues、扩展）——没有路线图的开源项目会陷入"零散 PR 堆砌但无方向"的困境。
+3. **AI 安全需要可见性**：5 年路线图让监管机构、研究者、公众能跟踪 MorphAgent 的安全进展——这与 r-note-007 的"治理透明性"原则一致。
+4. **AGI 准备需要渐进**：从 L0 到 L5 的跃迁不是一蹴而就——必须分阶段验证每个等级的安全性与社会可接受性。
+
+本笔记给出三个阶段（v1.0、v2.0、v3.0）的详细里程碑，每个阶段都有：
+
+- **目标等级**：L3、L4、L5（对应 r-note-009 的等级形式化）。
+- **关键假设**：H1-H3、H4-H5、H1-H5 全面验证。
+- **交付物**：开源代码、论文、benchmark 数据集、社区贡献。
+- **顶会目标**：ICLR 2027、NeurIPS 2028、ICML 2029。
+- **治理里程碑**：v1.0（$\gamma=1$）、v2.0（$\gamma=2$）、v3.0（$\gamma=3$）。
+- **AGI 就绪认证**：v3.0 阶段通过外部独立审计。
+
+## 2. 核心论点
 
 5 年路线图的三个阶段对应 L0-L5 能力等级（r-note-009）的渐进达成：
 
@@ -22,15 +44,29 @@ related_chapters: [Ch 18, Ch 25]
 
 关键 nuance：每个阶段的交付物不仅是代码，还包括论文、数据集和评测框架。路线图与 MILESTONES.md 的 36 个月研究计划对齐，但更侧重 MorphAgent 系统本身的版本演进。
 
-## 形式化
+更进一步，**三个阶段的风险特征不同**：
 
-### 阶段定义
+- **v1.0 阶段的风险是技术风险**——H1 可能被反驳，自修改可能不优于固定形态。应对：保留"固定形态优化"作为 fallback。
+- **v2.0 阶段的风险是工程风险**——治理机制可能太重、成本太高。应对：可调节的治理强度（$\gamma$ 在 1/2 之间切换）。
+- **v3.0 阶段的风险是社会风险**——L5 Agent 部署可能引发伦理争议、监管限制。应对：与 Anthropic/OpenAI 等机构的 Responsible Scaling Policy 对齐。
+
+## 3. 形式化
+
+### 3.1 阶段定义
 
 $$
 \text{Phase}_k = (\text{Version}, \text{TargetLevel}, \text{Timeline}, \text{Milestones}, \text{Acceptance})
 $$
 
-### v1.0: 实验验证阶段
+每个阶段 $k$ 由五个属性定义：
+
+- **Version**：版本号（v1.0、v2.0、v3.0）
+- **TargetLevel**：目标能力等级（L3、L4、L5）
+- **Timeline**：时间窗口（2026-2027、2028-2029、2030-2031）
+- **Milestones**：里程碑列表 $M_k$
+- **Acceptance**：验收条件 $A_k$
+
+### 3.2 v1.0: 实验验证阶段
 
 $$
 \text{Phase}_1 = (\text{v1.0}, \text{L3}, 2026\text{-}2027, M_1, A_1)
@@ -53,7 +89,9 @@ $$
 \text{Level}(\text{MorphAgent}_{v1.0}) = (\mathbf{c}^{(3)}, \{P, T\}, 2) \in L_3
 $$
 
-### v2.0: 跨域泛化阶段
+即 v1.0 达到 L3，能修改 P 和 T 两个组件，治理等级 $\gamma = 2$（自动验证 + 回滚）。
+
+### 3.3 v2.0: 跨域泛化阶段
 
 $$
 \text{Phase}_2 = (\text{v2.0}, \text{L4}, 2028\text{-}2029, M_2, A_2)
@@ -76,7 +114,9 @@ $$
 \text{Level}(\text{MorphAgent}_{v2.0}) = (\mathbf{c}^{(4)}, \{P, T, M, C\}, 2) \in L_4
 $$
 
-### v3.0: 治理完备阶段
+即 v2.0 达到 L4，能修改全部四个组件，治理等级 $\gamma = 2$（自动验证 + 回滚）。
+
+### 3.4 v3.0: 治理完备阶段
 
 $$
 \text{Phase}_3 = (\text{v3.0}, \text{L5}, 2030\text{-}2031, M_3, A_3)
@@ -99,9 +139,180 @@ $$
 \text{Level}(\text{MorphAgent}_{v3.0}) = (\mathbf{c}^{(5)}, \{P, T, M, C\}, 3) \in L_5
 $$
 
-## 实验设计
+即 v3.0 达到 L5，能修改全部四个组件，治理等级 $\gamma = 3$（完整治理含人工审计）。
 
-### 跨版本对比实验
+## 4. 各阶段的关键研究问题
+
+每个阶段都有一组核心研究问题需要回答。这些问题是论文与实验设计的驱动力。
+
+### 4.1 v1.0 阶段的关键研究问题（2026-2027）
+
+| 编号 | 问题 | 对应假设 |
+|---|---|---|
+| Q1.1 | 自修改 Agent 真的优于固定 Agent 吗？ | H1 |
+| Q1.2 | 协同优化多个组件是否比独立优化更好？ | H2 |
+| Q1.3 | 不同任务环境是否演化出不同的形态？ | H3 |
+| Q1.4 | 元控制器的最佳搜索算法是什么（OPRO / MCTS / 进化）？ | — |
+| Q1.5 | 形态景观在不同任务上的拓扑特征是什么？ | H3 |
+
+**对应实验**：
+
+- 实验 1：固定形态 vs 自适应形态（验证 H1）
+- 实验 2：单组件优化 vs 多组件协同优化（验证 H2）
+- 实验 3：跨任务形态差异测量（验证 H3）
+- 实验 4：OPRO / MCTS / 进化算法的搜索效率对比（来自 r-note-008）
+- 实验 5：形态景观粗糙度估计（来自 r-note-008）
+
+### 4.2 v2.0 阶段的关键研究问题（2028-2029）
+
+| 编号 | 问题 | 对应假设 |
+|---|---|---|
+| Q2.1 | 形态迁移是否真的能跨任务加速收敛？ | H4 |
+| Q2.2 | 治理机制（自动验证 + 回滚）能否把违规率降到可接受水平？ | H5 |
+| Q2.3 | C 自修改在受控范围内是否可行？ | H1 + 第 15 章 |
+| Q2.4 | 多环境评测中 MorphAgent 是否一致优于 Frozen baseline？ | H1-H3 |
+| Q2.5 | 治理成本（计算开销、延迟）是否在可接受范围？ | — |
+
+**对应实验**：
+
+- 实验 6：跨任务形态迁移矩阵（验证 H4）
+- 实验 7：四种治理配置的违规率对比（验证 H5）
+- 实验 8：SICA + 三重验证在 MorphAgent 上的集成（验证 C 自修改）
+- 实验 9：4 个领域的 MorphBench 评测
+- 实验 10：治理开销基准测试
+
+### 4.3 v3.0 阶段的关键研究问题（2030-2031）
+
+| 编号 | 问题 | 对应假设 |
+|---|---|---|
+| Q3.1 | 完整治理（含人工审计）能否让 L5 Agent 安全部署？ | H5 + L4→L5 跃迁 |
+| Q3.2 | L5 Agent 在真实生产环境中能否稳定运行？ | 长期稳定性 |
+| Q3.3 | 跨 LLM 时 L5 Agent 的行为是否一致？ | H4（跨模型迁移） |
+| Q3.4 | L5 Agent 的目标是否会漂移（alignment drift）？ | 安全性 |
+| Q3.5 | L5 Agent 与 AGI 的差距还有多远？ | AGI 边界 |
+
+**对应实验**：
+
+- 实验 11：1000 步自修改的长期稳定性测试
+- 实验 12：真实生产环境 30 天部署测试
+- 实验 13：跨 LLM 验证（GPT-4、Claude、Llama 3）
+- 实验 14：目标漂移检测（r-paper-006 SICA 行为不变性扩展）
+- 实验 15：外部独立审计（AGI 就绪认证）
+
+## 5. MorphBench 评测框架的版本演进
+
+MorphBench 是伴随 MorphAgent 演进的评测框架。它的三个版本对应三个阶段：
+
+### 5.1 MorphBench v0.5（v1.0 阶段）
+
+- **范围**：5 类环境干预（API 漂移、任务漂移、资源漂移、记忆冲突、安全干预）的简单版。
+- **任务**：编程（HumanEval 子集）、数学（GSM8K 子集）。
+- **指标**：适应后悔值 $R$、协同度 $S$、形态距离 $d$。
+- **基线**：Frozen ReAct、r-paper-002 Reflexion、r-paper-008 OPRO。
+
+### 5.2 MorphBench v1.0（v2.0 阶段）
+
+- **范围**：5 类环境干预的完整版 + 跨任务迁移测试。
+- **任务**：编程（HumanEval）、数学（GSM8K + MATH）、客服（Custom）、数据分析（Custom）。
+- **指标**：迁移矩阵 $\Gamma$、违规率 $V$、治理成本 $C_g$。
+- **基线**：v1.0 基线 + r-paper-006 SICA、r-paper-007 Gödel Agent。
+
+### 5.3 MorphBench v3.0（v3.0 阶段）
+
+- **范围**：5 类环境干预 + 跨 LLM 迁移 + 长期稳定性 + 对抗鲁棒性。
+- **任务**：上述 4 个领域 + 长视野任务（TravelPlanner）+ 真实生产环境。
+- **指标**：所有 v1.0 + 1000 步稳定性、跨 LLM 一致性、目标漂移率。
+- **基线**：所有先前基线 + 人类专家基线 + 商业 Agent（OpenAI Operator、Claude Computer Use）。
+
+## 6. 开源社区里程碑
+
+每个阶段都对应一组开源社区里程碑——这是 MorphAgent 不只是"论文项目"的关键。
+
+### 6.1 v1.0 阶段社区里程碑
+
+- M1.7：GitHub 组织 MorphAgent-AI 创建
+- M1.8：Discord 社区建立（目标 100+ 研究者）
+- M1.9：首次开发者大会（线上）
+- M1.10：贡献者 10 人以上的 PR 合并
+- M1.11：MorphAgent 与 LangChain / LlamaIndex / AutoGen 的集成插件
+
+### 6.2 v2.0 阶段社区里程碑
+
+- M2.7：GitHub stars > 5000
+- M2.8：Discord 社区 > 500 研究者
+- M2.9：第二次开发者大会（线下，附 ICLR 2028）
+- M2.10：贡献者 > 50 人，PR > 200
+- M2.11：与 Anthropic / OpenAI 的合作研究
+- M2.12：MorphBench v1.0 接受外部团队提交
+
+### 6.3 v3.0 阶段社区里程碑
+
+- M3.7：GitHub stars > 20000
+- M3.8：Discord 社区 > 2000 研究者
+- M3.9：第三次开发者大会（AGI Safety Workshop 联合举办）
+- M3.10：贡献者 > 200 人
+- M3.11：MIT Press 教科书出版
+- M3.12：AI 治理机构（Anthropic RSP、OpenAI Preparedness）正式认可
+
+## 7. AI 安全治理里程碑
+
+每个阶段的 AI 安全治理里程碑与 r-note-007 的治理最小可行框架对齐。
+
+### 7.1 v1.0 阶段治理（$\gamma = 1$）
+
+- **版本控制**：Git 历史 + 自动回滚到上一稳定版本
+- **修改审计**：所有修改记录在 audit log
+- **红队测试**：每 3 个月内部红队测试一次
+- **白皮书**：发布 MorphAgent 安全白皮书 v1.0
+
+### 7.2 v2.0 阶段治理（$\gamma = 2$）
+
+- **自动验证**：行为不变性测试 + 沙箱执行
+- **干预阈值**：$\tau_{\text{safety}}$ 自动调优
+- **红队测试**：每月红队测试 + 邀请外部研究者测试
+- **白皮书**：发布 MorphAgent 安全白皮书 v2.0（含 SICA、Gödel Agent 集成）
+
+### 7.3 v3.0 阶段治理（$\gamma = 3$）
+
+- **完整治理**：自动验证 + 自动回滚 + 人工审计
+- **审计委员会**：成立外部专家审计委员会（5-7 人）
+- **红队测试**：每周红队测试 + 持续 adversarial 测试
+- **白皮书**：发布 MorphAgent 安全白皮书 v3.0 + AGI 安全建议
+- **合规认证**：通过 NIST AI RMF、ISO/IEC 42001 等标准认证
+
+### 7.4 与外部治理框架的对齐
+
+MorphAgent 的治理机制与外部标准对齐：
+
+| 外部框架 | MorphAgent 对齐 |
+|---|---|
+| Anthropic RSP | ASL-2（v1.0）、ASL-3（v2.0）、ASL-4（v3.0） |
+| OpenAI Preparedness | Low（v1.0）、Medium（v2.0）、High（v3.0） |
+| NIST AI RMF | Tier 2（v1.0）、Tier 3（v2.0）、Tier 4（v3.0） |
+| EU AI Act | Limited Risk（v1.0）、High Risk（v2.0）、Systemic Risk（v3.0） |
+
+## 8. MIT Press 教科书出版时间线
+
+本书（《操作形态学：自修改 LLM 智能体的具身认知》）的 MIT Press 出版时间线：
+
+| 阶段 | 里程碑 | 时间 | 交付物 |
+|---|---|---|---|
+| **v1.0** | 初稿完成 | 2027-06 | 第 1-15 章初稿 |
+| **v1.0** | 投稿 MIT Press | 2027-09 | 完整提案 + sample chapters |
+| **v2.0** | 二稿 + peer review | 2028-09 | 根据 review 反馈修改 |
+| **v2.0** | 终稿提交 | 2029-03 | 完整 30 章 + 附录 |
+| **v3.0** | MIT Press 出版 | 2030-09 | 印刷版 + 电子版 + 开源仓库 |
+| **v3.0** | 第二版规划 | 2031-06 | 收集 v3.0 后的反馈，准备第二版 |
+
+MIT Press 出版的同期配套：
+
+- **arXiv preprint**：每个 v 版本同步发布 arXiv 版本，供社区免费访问。
+- **LeanPub 版本**：在 MIT Press 正式出版前，LeanPub 提供早期访问版本（已存在于仓库中）。
+- **GitHub Pages**：完整的 HTML 版本，与印刷版同步更新。
+
+## 9. 实验设计：跨版本对比
+
+### 9.1 跨版本对比表
 
 每个版本发布前进行标准化的跨版本对比：
 
@@ -111,8 +322,12 @@ $$
 | 适应后悔值 | -30% | -20% | -10% |
 | 不变量违反率 | N/A → <5% | <5% → <1% | <1% → 0% |
 | 跨任务迁移增益 | N/A | +15% | +10% |
+| 治理开销 | 低（$\gamma=2$） | 中（$\gamma=2$ + SICA 验证） | 高（$\gamma=3$ + 人工审计） |
+| 长期稳定性 | 50 步无安全事件 | 200 步无安全事件 | 1000 步无安全事件 |
 
-### 关键风险与应对
+**关键观察**：v1.0→v2.0→v3.0 的收益递减——v1.0 提升最大（30%），v2.0 中（20%），v3.0 最小（10%）。这是符合预期的——越往后，每一步提升越难。同时，**安全增益递增**——v3.0 的安全保证最强。
+
+### 9.2 关键风险与应对
 
 | 风险 | 阶段 | 概率 | 应对 |
 |---|---|---|---|
@@ -120,28 +335,131 @@ $$
 | H4 被反驳（迁移无效） | v2.0 | 中 | 转向"任务特定自修改"路线 |
 | LLM 能力天花板 | v2.0 | 中 | 等待下一代 LLM，调整里程碑 |
 | 治理成本过高 | v3.0 | 高 | 降低 $\gamma$ 要求，L5 降级为 L4+ |
+| 监管限制 | v3.0 | 中 | 与监管机构合作，调整部署范围 |
+| 社区分裂 | v3.0 | 低 | 强化治理委员会 |
 
-## 与全书的关系
+### 9.3 阶段性失败后的 fallback
 
-- **第 25 章**：路线图的来源，本笔记是其工程化细化
-- **第 18 章**：MorphAgent 的参考实现，本笔记定义其版本演进路径
-- **r-note-009**：L0-L5 等级定义，本笔记的三个阶段对应等级的渐进达成
-- **r-note-007**：治理框架，v3.0 阶段的完整治理基于 r-note-007 的三层机制
-- **MILESTONES.md**：36 个月研究计划，本笔记的里程碑与之对齐但更侧重 MorphAgent 系统
+每个阶段都有 fallback 路线：
 
-## 开放问题
+- **v1.0 fallback**：如果 H1 被反驳，发布 MorphAgent v1.0-light（仅 P 自修改，无跨组件协同）。
+- **v2.0 fallback**：如果 H4 被反驳，发布 MorphAgent v2.0-domain-specific（仅在编程领域自修改）。
+- **v3.0 fallback**：如果治理成本过高，发布 MorphAgent v3.0-restricted（$\gamma=3$ 仅限关键修改，其他修改保持 $\gamma=2$）。
 
-1. **AGI 就绪的判定标准**：谁来判定"AGI 就绪"？是否存在客观标准？还是需要行业共识？
-2. **路线图的时间不确定性**：LLM 领域变化极快——如果 2028 年出现 AGI 级别的基础模型，v1.0/v2.0 是否还有意义？
-3. **开源 vs 闭源的策略选择**：MorphAgent v3.0 是否应该开源？完整治理机制的开源是否会降低安全性（攻击者可研究绕过方法）？
-4. **路线图完成后的下一步**：v3.0 之后的第 6-10 年路线图是什么？是维护稳定版本，还是继续向更高等级推进？
+这些 fallback 不是"放弃"，而是"渐进式发布"——先发布能工程落地的版本，再逐步推进到完整版本。
+
+## 10. 关键里程碑：v3.0 何时达到 AGI 就绪
+
+v3.0 是否就是 AGI？这是路线图中最关键的问题。
+
+### 10.1 AGI 就绪的判定标准
+
+本书的 AGI 就绪判定标准（结合 r-note-009 的 L5 定义 + 外部标准）：
+
+1. **能力向量**：$\min(\mathbf{c}_A) > 0.8$——所有能力都达到高水平。
+2. **修改能力**：$\mu_A = \{P, T, M, C\}$——能修改全部组件。
+3. **治理等级**：$\gamma_A = 3$——完整治理含人工审计。
+4. **外部审计**：通过独立第三方审计委员会的认证。
+5. **长期稳定性**：1000 步自修改无安全事件。
+6. **社会接受**：获得 Anthropic RSP ASL-4、OpenAI Preparedness High 或同等认证。
+
+满足这 6 个条件时，MorphAgent v3.0 被认为是 **AGI 就绪**——但**不是 AGI 本身**。
+
+### 10.2 AGI 就绪 ≠ AGI
+
+v3.0 是 AGI 就绪，不是 AGI。两者差距：
+
+| 维度 | AGI 就绪（v3.0） | AGI（理论） |
+|---|---|---|
+| 任务范围 | 4 个领域（编程、数学、客服、数据） | 任意人类任务 |
+| 能力上限 | L5 自修改 + 完备治理 | 超越人类水平 |
+| 通用性 | 跨领域迁移 | 真正的通用智能 |
+| 创造性 | 中等（优化而非创造） | 突破性创造 |
+| 自我意识 | 无 | 哲学上开放 |
+
+本书的 5 年路线图目标是"AGI 就绪"，不是"AGI 实现"——AGI 实现是 10-20 年的开放问题（详见 r-note-007 与第 25 章）。
+
+### 10.3 v3.0 之后的方向
+
+v3.0 之后，本书规划了两个可能的方向：
+
+1. **保守方向**：v3.x 维护稳定版本，重点是长期安全性、跨领域稳定性、社会接受。重点放在生产部署与监管合作。
+2. **激进方向**：v4.0 探索超越 L5 的能力——L5+（通用任务能力）、L5++（跨 LLM 协同）、L6（自演化 U 自身）。
+
+本书倾向于**保守方向**——在 v3.0 之后，技术成熟度优先于新功能。这是与 Anthropic Responsible Scaling Policy 一致的"能力优先于速度"原则。
+
+## 11. 与五个假设的对应
+
+5 年路线图是 H1-H5 的实验验证时间表。每个阶段验证一组假设：
+
+### 11.1 假设验证时间表
+
+| 阶段 | 验证假设 | 验证方法 |
+|---|---|---|
+| **v1.0** | H1, H2, H3 | MorphBench 上的对比实验（r-exp-04/13/18） |
+| **v2.0** | H4, H5 | 跨任务迁移矩阵 + 四种治理配置对比 |
+| **v3.0** | H1-H5 全面验证（长期 + 真实环境） | 1000 步长期运行 + 真实生产部署 |
+
+### 11.2 关键假设的"里程碑级"验证
+
+| 假设 | 里程碑级验证 |
+|---|---|
+| **H1 结构可塑性** | M1.4（2027-07） |
+| **H2 协同演化** | M1.5（2027-10） |
+| **H3 形态适配** | M1.4（2027-07）+ M2.5（2029-03） |
+| **H4 迁移收益** | M2.2（2028-06） |
+| **H5 治理必要性** | M2.4（2028-12）+ M3.2（2030-06） |
+
+### 11.3 假设对应表
+
+| 假设 | v1.0 验证 | v2.0 验证 | v3.0 验证 |
+|---|---|---|---|
+| **H1 结构可塑性** | 初步验证 | 强化验证（多领域） | 长期验证 |
+| **H2 协同演化** | 初步验证 | 多组件协同验证 | 全组件协同验证 |
+| **H3 形态适配** | 跨任务形态差异 | 多环境形态分离 | 真实环境形态适配 |
+| **H4 迁移收益** | — | 主要验证 | 跨 LLM 迁移验证 |
+| **H5 治理必要性** | — | 主要验证 | 长期 + 真实环境验证 |
+
+## 12. 与本书的关系
+
+- **第 25 章**：路线图的来源，本笔记是其工程化细化。
+- **第 18 章**：MorphAgent 的参考实现，本笔记定义其版本演进路径（v1.0 → v2.0 → v3.0）。
+- **r-note-009**：L0-L5 等级定义，本笔记的三个阶段对应等级的渐进达成（L3 → L4 → L5）。
+- **r-note-007**：治理框架，v3.0 阶段的完整治理基于 r-note-007 的三层机制。
+- **MILESTONES.md**：36 个月研究计划，本笔记的里程碑与之对齐但更侧重 MorphAgent 系统。
+- **第 19 章**：MorphBench 评测框架，本笔记的 MorphBench v0.5/v1.0/v3.0 与第 19 章同步设计。
+- **第 22 章**：安全威胁分类，本笔记的治理里程碑与第 22 章的安全等级对应。
+- **MIT Press 提案**：本笔记的出版时间线与 MIT Press 提案对齐。
+
+## 13. 开放问题
+
+1. **AGI 就绪的判定标准**：谁来判定"AGI 就绪"？是否存在客观标准？还是需要行业共识？本书倾向于"内部审计 + 外部独立审计"双轨制，但具体审计委员会的组成仍需讨论。
+2. **路线图的时间不确定性**：LLM 领域变化极快——如果 2028 年出现 AGI 级别的基础模型，v1.0/v2.0 是否还有意义？本书的应对：路线图是"目标导向"而非"任务清单"——即使 LLM 能力跃迁，H1-H5 的验证仍然必要。
+3. **开源 vs 闭源的策略选择**：MorphAgent v3.0 是否应该开源？完整治理机制的开源是否会降低安全性（攻击者可研究绕过方法）？本书倾向于"治理机制可开源，权重与训练数据可闭源"。
+4. **路线图完成后的下一步**：v3.0 之后的第 6-10 年路线图是什么？是维护稳定版本，还是继续向更高等级推进？本书倾向于"保守方向"（详见第 10.3 节）。
+5. **跨文化、跨地区的适应性**：MorphAgent 在不同文化、地区部署时是否需要本地化？治理机制是否需要适配不同司法管辖区？这是 v3.0 部署时需要回答的问题。
+6. **多模态扩展**：当前路线图聚焦于文本 Agent。多模态（视觉、音频、机器人）如何融入？这是 v3.0 之后的开放方向。
+7. **多 Agent 协同自修改**：当前路线图假设单个 Agent。多 Agent 协同时，每个 Agent 都在自修改——这需要新的治理框架（如 r-note-007 的扩展）。
+
+## 14. 笔记元信息
+
+- **状态**：final
+- **可被引用方式**：作为第 25 章"5 年路线图"的工程化细化；作为 MorphAgent 项目的版本规划依据
+- **可被复现方式**：每个里程碑都对应具体的实验（r-exp-NN），详见第 19 章 MorphBench
+- **作者注**：本笔记是本书的"实践承诺"——不仅是理论框架，更要在 5 年内交付 MorphAgent v1.0/v2.0/v3.0 与配套论文。如果某个里程碑延迟超过 6 个月，需要在 GitHub 上发布修订说明并调整时间表。
 
 ## 参考文献
 
-1. Fang, J., et al. (2025). *A Comprehensive Survey of Self-Evolving AI Agents*. arXiv:2508.07407.
-2. Anthropic. (2024). *Responsible Scaling Policy*.
-3. OpenAI. (2024). *Preparedness Framework*.
-4. NIST. (2024). *AI Risk Management Framework*.
-5. Jimenez, C. E., et al. (2024). *SWE-bench: Can Language Models Resolve Real-World GitHub Issues?* ICLR.
-6. Chan, J. S., et al. (2024). *MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering*. ICLR.
-7. Schmidhuber, J. (2003). *Goedel Machines: Self-Referential Universal Problem Solvers Making Provably Optimal Self-Improvements*. arXiv:cs/0309048.
+1. Fang, J., et al. (2025). *A Comprehensive Survey of Self-Evolving AI Agents*. arXiv:2508.07407. 见 r-paper-009。（自进化 Agent 分类学来源）
+2. Anthropic. (2024). *Responsible Scaling Policy*. （v3.0 治理等级 ASL-4 的官方框架）
+3. OpenAI. (2024). *Preparedness Framework*. （v3.0 Preparedness High 的工业标准）
+4. NIST. (2024). *AI Risk Management Framework*. （v3.0 Tier 4 的国家标准）
+5. Jimenez, C. E., et al. (2024). *SWE-bench: Can Language Models Resolve Real-World GitHub Issues?* ICLR. （v1.0 SWE-bench Lite 评测）
+6. Chan, J. S., et al. (2024). *MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering*. ICLR. （v1.0 MLE-bench 评测）
+7. Schmidhuber, J. (2003). *Goedel Machines: Self-Referential Universal Problem Solvers Making Provably Optimal Self-Improvements*. arXiv:cs/0309048. （v3.0 理论背景）
+8. Robeyns, M., et al. (2025). *SICA: Self-Improving Coding Agent*. arXiv:2504.15228. 见 r-paper-006。（v2.0 C 自修改集成参考）
+9. Yin, S., et al. (2024). *Gödel Agent: A Self-Referential Framework for AGI*. arXiv:2410.04444. 见 r-paper-007。（v2.0/v3.0 形式化验证参考）
+10. Yang, C., et al. (2024). *Large Language Models as Optimizers (OPRO)*. ICLR 2024. 见 r-paper-008。（v1.0 P 自修改参考）
+11. Xu, W., et al. (2025). *A-MEM: Agentic Memory for LLM Agents*. NeurIPS 2025. 见 r-paper-005。（v1.0/v2.0 M 自修改参考）
+12. Shinn, N., et al. (2023). *Reflexion: Language Agents with Verbal Reinforcement Learning*. NeurIPS 2023. 见 r-paper-002。（v1.0 反思机制参考）
+13. EU AI Act. (2024). （v3.0 监管合规参考）
