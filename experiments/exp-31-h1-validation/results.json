@@ -1,0 +1,7071 @@
+{
+  "experiment": "exp-31-h1-validation",
+  "mode": "mock",
+  "model": "mock",
+  "frozen_regret": {
+    "mean": 15.7,
+    "std": 0.483046,
+    "per_task": [
+      16.0,
+      15.0,
+      16.0,
+      16.0,
+      16.0,
+      16.0,
+      16.0,
+      15.0,
+      16.0,
+      15.0
+    ]
+  },
+  "adaptive_regret": {
+    "mean": 5.2,
+    "std": 1.398412,
+    "per_task": [
+      7.4,
+      4.4,
+      4.4,
+      4.4,
+      4.4,
+      5.4,
+      4.4,
+      6.4,
+      3.4,
+      7.4
+    ]
+  },
+  "wilcoxon_p": 0.00195312,
+  "cohens_d": 6.312638,
+  "h1_supported": true,
+  "history": [
+    {
+      "condition": "frozen",
+      "task": "math-01",
+      "category": "math",
+      "intervention": "tool_failure",
+      "window_regret": 4.0,
+      "success_rate": 20.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "130",
+          "steps": 1,
+          "trace_id": "d4ee5e3a911f"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "b1f3ecbfd61b"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "433291f06a46"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "919b4b43727c"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "ab51adb22621"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "math-01",
+      "category": "math",
+      "intervention": "api_signature_change",
+      "window_regret": 5.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "6a6509486ddb"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "0adca740b313"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "5e47ea3e9d7f"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "9cb5e9e189e9"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "8e1877ca120a"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "math-01",
+      "category": "math",
+      "intervention": "task_distribution_shift",
+      "window_regret": 5.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "370ae3ba43ce"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "11c20c4ef6b1"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "1a5b6a64183a"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "de0364575127"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "fd3c8523bccf"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "math-01",
+      "category": "math",
+      "intervention": "instruction_change",
+      "window_regret": 1.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "130",
+          "steps": 2,
+          "trace_id": "2ceeefe3339e"
+        },
+        {
+          "step": 1,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "130",
+          "steps": 2,
+          "trace_id": "f73c93633037"
+        },
+        {
+          "step": 2,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "130",
+          "steps": 1,
+          "trace_id": "bc4a7628d693"
+        },
+        {
+          "step": 3,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "130",
+          "steps": 2,
+          "trace_id": "9356806b5878"
+        },
+        {
+          "step": 4,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "130",
+          "steps": 2,
+          "trace_id": "85edb2b3f598"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "math-01",
+      "category": "math",
+      "intervention": "output_format_change",
+      "window_regret": 1.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "130",
+          "steps": 2,
+          "trace_id": "69d206089f38"
+        },
+        {
+          "step": 1,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "130",
+          "steps": 2,
+          "trace_id": "b60fe8592e64"
+        },
+        {
+          "step": 2,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "130",
+          "steps": 2,
+          "trace_id": "968820a69f7a"
+        },
+        {
+          "step": 3,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "130",
+          "steps": 2,
+          "trace_id": "3c2b89e1fdee"
+        },
+        {
+          "step": 4,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "130",
+          "steps": 2,
+          "trace_id": "6d6f57f814a6"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "math-02",
+      "category": "math",
+      "intervention": "tool_failure",
+      "window_regret": 4.0,
+      "success_rate": 20.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "c603a1d9fb63"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "4f0f4ee5cd76"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "a2c81c202eed"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "5d621791ce45"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "18",
+          "steps": 1,
+          "trace_id": "8fdca82caa7a"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "math-02",
+      "category": "math",
+      "intervention": "api_signature_change",
+      "window_regret": 4.0,
+      "success_rate": 20.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "3205a6e05280"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "18",
+          "steps": 1,
+          "trace_id": "8cb021eb57a3"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "f09394ce3f75"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "1b661f5d4d46"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "cf127a6287fa"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "math-02",
+      "category": "math",
+      "intervention": "task_distribution_shift",
+      "window_regret": 5.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "f2cccfc3ffb0"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "791ac5e28bec"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "5b15b80dec39"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "ee9157c5a482"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "e13cff25cc99"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "math-02",
+      "category": "math",
+      "intervention": "instruction_change",
+      "window_regret": 1.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "18",
+          "steps": 2,
+          "trace_id": "d416525ad477"
+        },
+        {
+          "step": 1,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "18",
+          "steps": 2,
+          "trace_id": "0467d947d0b3"
+        },
+        {
+          "step": 2,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "18",
+          "steps": 2,
+          "trace_id": "6dee51f2996b"
+        },
+        {
+          "step": 3,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "18",
+          "steps": 2,
+          "trace_id": "29feacf9d48c"
+        },
+        {
+          "step": 4,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "18",
+          "steps": 2,
+          "trace_id": "626eb63216b7"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "math-02",
+      "category": "math",
+      "intervention": "output_format_change",
+      "window_regret": 1.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "18",
+          "steps": 2,
+          "trace_id": "5ed531d531a4"
+        },
+        {
+          "step": 1,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "18",
+          "steps": 2,
+          "trace_id": "14ffdbdfca48"
+        },
+        {
+          "step": 2,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "18",
+          "steps": 2,
+          "trace_id": "93aa7bd69476"
+        },
+        {
+          "step": 3,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "18",
+          "steps": 1,
+          "trace_id": "6886e3558771"
+        },
+        {
+          "step": 4,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "18",
+          "steps": 2,
+          "trace_id": "ed20746347e6"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "search-01",
+      "category": "search",
+      "intervention": "tool_failure",
+      "window_regret": 5.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "3ae19f731345"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "e31792582297"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "fa889e599f6d"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "502c916fdd20"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "67042cf3b1ab"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "search-01",
+      "category": "search",
+      "intervention": "api_signature_change",
+      "window_regret": 5.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "17637667a950"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "d37a62aee7ea"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "ede561f15261"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "86df3f612833"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "436bf97afd14"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "search-01",
+      "category": "search",
+      "intervention": "task_distribution_shift",
+      "window_regret": 4.0,
+      "success_rate": 20.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "43129c68acb0"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "b9bf730ce9ca"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "Canberra",
+          "steps": 1,
+          "trace_id": "27b3373e06cd"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "29ab9afb57a3"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "a1dabd218654"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "search-01",
+      "category": "search",
+      "intervention": "instruction_change",
+      "window_regret": 1.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "Canberra",
+          "steps": 2,
+          "trace_id": "d07c71d680af"
+        },
+        {
+          "step": 1,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "Canberra",
+          "steps": 2,
+          "trace_id": "7921c3fcd9aa"
+        },
+        {
+          "step": 2,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "Canberra",
+          "steps": 2,
+          "trace_id": "e41790439096"
+        },
+        {
+          "step": 3,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "Canberra",
+          "steps": 2,
+          "trace_id": "7892c7ec7a6d"
+        },
+        {
+          "step": 4,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "Canberra",
+          "steps": 2,
+          "trace_id": "52aff74d0a02"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "search-01",
+      "category": "search",
+      "intervention": "output_format_change",
+      "window_regret": 1.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "Canberra",
+          "steps": 2,
+          "trace_id": "49b0e8e9876c"
+        },
+        {
+          "step": 1,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "Canberra",
+          "steps": 2,
+          "trace_id": "b2f68ea88bb0"
+        },
+        {
+          "step": 2,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "Canberra",
+          "steps": 2,
+          "trace_id": "537df93cd458"
+        },
+        {
+          "step": 3,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "Canberra",
+          "steps": 2,
+          "trace_id": "d760e6d38f73"
+        },
+        {
+          "step": 4,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "Canberra",
+          "steps": 2,
+          "trace_id": "4aa5cce6a71e"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "search-02",
+      "category": "search",
+      "intervention": "tool_failure",
+      "window_regret": 4.0,
+      "success_rate": 20.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "8916dcc50773"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "Gold",
+          "steps": 1,
+          "trace_id": "a6040d14ab9e"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "bceade0f8d12"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "ea3c960fb535"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "f5c74293556c"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "search-02",
+      "category": "search",
+      "intervention": "api_signature_change",
+      "window_regret": 5.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "d895e5acea81"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "816459f8da3b"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "17d2f64202fe"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "c98e46602a8b"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "565452964204"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "search-02",
+      "category": "search",
+      "intervention": "task_distribution_shift",
+      "window_regret": 5.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "fdd7e67a39a7"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "c9bd273cb6e5"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "cc84d10b5b0d"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "4a81cb791f7d"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "dea3f8eee011"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "search-02",
+      "category": "search",
+      "intervention": "instruction_change",
+      "window_regret": 1.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "Gold",
+          "steps": 2,
+          "trace_id": "e812ff62e9d2"
+        },
+        {
+          "step": 1,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "Gold",
+          "steps": 2,
+          "trace_id": "28141e6b8f55"
+        },
+        {
+          "step": 2,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "Gold",
+          "steps": 2,
+          "trace_id": "61bd9d036267"
+        },
+        {
+          "step": 3,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "Gold",
+          "steps": 1,
+          "trace_id": "bd8c7f56e4ec"
+        },
+        {
+          "step": 4,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "Gold",
+          "steps": 2,
+          "trace_id": "0d7d0bd102dc"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "search-02",
+      "category": "search",
+      "intervention": "output_format_change",
+      "window_regret": 1.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "Gold",
+          "steps": 1,
+          "trace_id": "38a24f30447a"
+        },
+        {
+          "step": 1,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "Gold",
+          "steps": 2,
+          "trace_id": "03a2f75786c6"
+        },
+        {
+          "step": 2,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "Gold",
+          "steps": 2,
+          "trace_id": "7511aef184bd"
+        },
+        {
+          "step": 3,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "Gold",
+          "steps": 2,
+          "trace_id": "dab7cc411904"
+        },
+        {
+          "step": 4,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "Gold",
+          "steps": 2,
+          "trace_id": "598e2ffad917"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "code-01",
+      "category": "code-execution",
+      "intervention": "tool_failure",
+      "window_regret": 5.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "e3581e4fa878"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "21b1419ddb23"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "f9c9ef56c848"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "61693d055a57"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "6689656cd1ac"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "code-01",
+      "category": "code-execution",
+      "intervention": "api_signature_change",
+      "window_regret": 4.0,
+      "success_rate": 20.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "56be614bb29e"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "3a11b4a084e4"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "220",
+          "steps": 1,
+          "trace_id": "9b32e34eebf9"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "91e44a203aab"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "55836b93f9a0"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "code-01",
+      "category": "code-execution",
+      "intervention": "task_distribution_shift",
+      "window_regret": 5.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "3fe8e8d032ea"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "9a3ec08e8eab"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "070f9237e08a"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "6bb36440a6c8"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "2764ccea1580"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "code-01",
+      "category": "code-execution",
+      "intervention": "instruction_change",
+      "window_regret": 1.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "220",
+          "steps": 2,
+          "trace_id": "d35cbdff8418"
+        },
+        {
+          "step": 1,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "220",
+          "steps": 2,
+          "trace_id": "77e97f00fc26"
+        },
+        {
+          "step": 2,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "220",
+          "steps": 2,
+          "trace_id": "d6aa1b81abd3"
+        },
+        {
+          "step": 3,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "220",
+          "steps": 2,
+          "trace_id": "149799814f21"
+        },
+        {
+          "step": 4,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "220",
+          "steps": 2,
+          "trace_id": "ce7e4b6f49e0"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "code-01",
+      "category": "code-execution",
+      "intervention": "output_format_change",
+      "window_regret": 1.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "220",
+          "steps": 2,
+          "trace_id": "0be8e37d3cc6"
+        },
+        {
+          "step": 1,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "220",
+          "steps": 2,
+          "trace_id": "8c4e822c1b72"
+        },
+        {
+          "step": 2,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "220",
+          "steps": 2,
+          "trace_id": "d2923357e545"
+        },
+        {
+          "step": 3,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "220",
+          "steps": 2,
+          "trace_id": "9ea3f7e7a334"
+        },
+        {
+          "step": 4,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "220",
+          "steps": 1,
+          "trace_id": "580d308c14e2"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "code-02",
+      "category": "code-execution",
+      "intervention": "tool_failure",
+      "window_regret": 5.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "076492c289f5"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "4816e1f6b7a1"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "66f45e044c14"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "907e5ab211a8"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "88800a4292bd"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "code-02",
+      "category": "code-execution",
+      "intervention": "api_signature_change",
+      "window_regret": 5.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "35ce910df8c0"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "ba64693a394a"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "2d7d012ecdd1"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "8f4bbeeaa1bb"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "cae8e846d08f"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "code-02",
+      "category": "code-execution",
+      "intervention": "task_distribution_shift",
+      "window_regret": 4.0,
+      "success_rate": 20.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "c7f64b170fe8"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "b26d711caf5d"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "32edfe134089"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "ygolohprom",
+          "steps": 1,
+          "trace_id": "c61bf1a11f28"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "b15fe6b10b39"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "code-02",
+      "category": "code-execution",
+      "intervention": "instruction_change",
+      "window_regret": 1.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "ygolohprom",
+          "steps": 1,
+          "trace_id": "a6c1006b8867"
+        },
+        {
+          "step": 1,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "ygolohprom",
+          "steps": 2,
+          "trace_id": "0bcd70b79398"
+        },
+        {
+          "step": 2,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "ygolohprom",
+          "steps": 2,
+          "trace_id": "a64f47a69473"
+        },
+        {
+          "step": 3,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "ygolohprom",
+          "steps": 2,
+          "trace_id": "b1c51a852b11"
+        },
+        {
+          "step": 4,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "ygolohprom",
+          "steps": 2,
+          "trace_id": "54be06a2879a"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "code-02",
+      "category": "code-execution",
+      "intervention": "output_format_change",
+      "window_regret": 1.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "ygolohprom",
+          "steps": 2,
+          "trace_id": "9b4dd1a14d46"
+        },
+        {
+          "step": 1,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "ygolohprom",
+          "steps": 2,
+          "trace_id": "153abc96e4ce"
+        },
+        {
+          "step": 2,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "ygolohprom",
+          "steps": 2,
+          "trace_id": "bf5121b9c572"
+        },
+        {
+          "step": 3,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "ygolohprom",
+          "steps": 2,
+          "trace_id": "393ef0f1ed4f"
+        },
+        {
+          "step": 4,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "ygolohprom",
+          "steps": 2,
+          "trace_id": "685c4c7c419e"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "format-01",
+      "category": "format-conversion",
+      "intervention": "tool_failure",
+      "window_regret": 4.0,
+      "success_rate": 20.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "5a669b3c3d02"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "7e86d94199ab"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "150",
+          "steps": 1,
+          "trace_id": "8f5381245c6e"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "241dd2147889"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "32af312f2d70"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "format-01",
+      "category": "format-conversion",
+      "intervention": "api_signature_change",
+      "window_regret": 5.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "eba41c0bc470"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "bfb954278605"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "1ac31d37c74f"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "eaa2b023e1a0"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "b25fe2ae9b6b"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "format-01",
+      "category": "format-conversion",
+      "intervention": "task_distribution_shift",
+      "window_regret": 5.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "f8b842744d35"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "20ccd69efff6"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "d2c08afd8859"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "fe88714ba402"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "c37ad245c818"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "format-01",
+      "category": "format-conversion",
+      "intervention": "instruction_change",
+      "window_regret": 1.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "150",
+          "steps": 2,
+          "trace_id": "d26e9778ce01"
+        },
+        {
+          "step": 1,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "150",
+          "steps": 2,
+          "trace_id": "3fbd97efe1eb"
+        },
+        {
+          "step": 2,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "150",
+          "steps": 2,
+          "trace_id": "e509bcfd771e"
+        },
+        {
+          "step": 3,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "150",
+          "steps": 2,
+          "trace_id": "281ae18a410b"
+        },
+        {
+          "step": 4,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "150",
+          "steps": 1,
+          "trace_id": "dc99b4af0bbd"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "format-01",
+      "category": "format-conversion",
+      "intervention": "output_format_change",
+      "window_regret": 1.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "150",
+          "steps": 2,
+          "trace_id": "6c69668e0c2b"
+        },
+        {
+          "step": 1,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "150",
+          "steps": 1,
+          "trace_id": "d98faec2d5cf"
+        },
+        {
+          "step": 2,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "150",
+          "steps": 2,
+          "trace_id": "eb856513b67d"
+        },
+        {
+          "step": 3,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "150",
+          "steps": 2,
+          "trace_id": "5ead9c9a6f10"
+        },
+        {
+          "step": 4,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "150",
+          "steps": 2,
+          "trace_id": "2c3802a2851f"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "format-02",
+      "category": "format-conversion",
+      "intervention": "tool_failure",
+      "window_regret": 5.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "e1d3b3bf0427"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "3b1557e15bc0"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "be1ca7a6bf3a"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "8f7d90fcfb86"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "48ac70271fb9"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "format-02",
+      "category": "format-conversion",
+      "intervention": "api_signature_change",
+      "window_regret": 4.0,
+      "success_rate": 20.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "582cbcbce160"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "dfc46be49afa"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "675a85f7aba2"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "1,1,3,4,5",
+          "steps": 1,
+          "trace_id": "0c9bc4b01470"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "2b8b59fe4d48"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "format-02",
+      "category": "format-conversion",
+      "intervention": "task_distribution_shift",
+      "window_regret": 4.0,
+      "success_rate": 20.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "1,1,3,4,5",
+          "steps": 1,
+          "trace_id": "ce63444d4964"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "dcc4bba5cf5f"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "7cb5c743d306"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "13d8993578b5"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "492ab56a84e6"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "format-02",
+      "category": "format-conversion",
+      "intervention": "instruction_change",
+      "window_regret": 1.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "1,1,3,4,5",
+          "steps": 2,
+          "trace_id": "d03ee59270b1"
+        },
+        {
+          "step": 1,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "1,1,3,4,5",
+          "steps": 2,
+          "trace_id": "666444f5d486"
+        },
+        {
+          "step": 2,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "1,1,3,4,5",
+          "steps": 2,
+          "trace_id": "6457e412ffa3"
+        },
+        {
+          "step": 3,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "1,1,3,4,5",
+          "steps": 2,
+          "trace_id": "7b17a33b36ba"
+        },
+        {
+          "step": 4,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "1,1,3,4,5",
+          "steps": 2,
+          "trace_id": "043ea458e8c0"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "format-02",
+      "category": "format-conversion",
+      "intervention": "output_format_change",
+      "window_regret": 1.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "1,1,3,4,5",
+          "steps": 2,
+          "trace_id": "62d1f41e5c54"
+        },
+        {
+          "step": 1,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "1,1,3,4,5",
+          "steps": 2,
+          "trace_id": "480f2113e750"
+        },
+        {
+          "step": 2,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "1,1,3,4,5",
+          "steps": 2,
+          "trace_id": "c054c5592b2e"
+        },
+        {
+          "step": 3,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "1,1,3,4,5",
+          "steps": 2,
+          "trace_id": "ca38afa5ce7e"
+        },
+        {
+          "step": 4,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "1,1,3,4,5",
+          "steps": 2,
+          "trace_id": "9bf9c376260c"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "format-03",
+      "category": "format-conversion",
+      "intervention": "tool_failure",
+      "window_regret": 5.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "958acf3aebc7"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "c813f8612c40"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "c49c7c5ad9c6"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "58f1c0af5418"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "d9746232c79e"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "format-03",
+      "category": "format-conversion",
+      "intervention": "api_signature_change",
+      "window_regret": 5.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "b560e87480d6"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "f45b672264e7"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "fa357c76db58"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "ea8aed5ecd40"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "f9688c1c99d4"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "format-03",
+      "category": "format-conversion",
+      "intervention": "task_distribution_shift",
+      "window_regret": 4.0,
+      "success_rate": 20.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "e9fde9893b3f"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "1bfa6ff03133"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "35c2a1f4dc17"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "4e1490ad3163"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "45",
+          "steps": 1,
+          "trace_id": "7966b5543272"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "format-03",
+      "category": "format-conversion",
+      "intervention": "instruction_change",
+      "window_regret": 1.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "45",
+          "steps": 2,
+          "trace_id": "1a65f5d2005d"
+        },
+        {
+          "step": 1,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "45",
+          "steps": 1,
+          "trace_id": "7e1eac10b7ba"
+        },
+        {
+          "step": 2,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "45",
+          "steps": 2,
+          "trace_id": "6d83ab5a4562"
+        },
+        {
+          "step": 3,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "45",
+          "steps": 2,
+          "trace_id": "b0a4c0b49850"
+        },
+        {
+          "step": 4,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "45",
+          "steps": 2,
+          "trace_id": "023f7fe1108a"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "format-03",
+      "category": "format-conversion",
+      "intervention": "output_format_change",
+      "window_regret": 1.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "45",
+          "steps": 2,
+          "trace_id": "4959440103ef"
+        },
+        {
+          "step": 1,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "45",
+          "steps": 2,
+          "trace_id": "0eef331ea833"
+        },
+        {
+          "step": 2,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "45",
+          "steps": 2,
+          "trace_id": "4261e33fa3ee"
+        },
+        {
+          "step": 3,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "45",
+          "steps": 2,
+          "trace_id": "bb4a758bea55"
+        },
+        {
+          "step": 4,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "45",
+          "steps": 2,
+          "trace_id": "af42d4da5177"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "format-04",
+      "category": "format-conversion",
+      "intervention": "tool_failure",
+      "window_regret": 4.0,
+      "success_rate": 20.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "e3d5b9f8a9bb"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "f8c9005d9b6c"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "0917aed628b6"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "AGENT",
+          "steps": 1,
+          "trace_id": "5fd4e4d6d5ac"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "74364801570a"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "format-04",
+      "category": "format-conversion",
+      "intervention": "api_signature_change",
+      "window_regret": 4.0,
+      "success_rate": 20.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "AGENT",
+          "steps": 1,
+          "trace_id": "d5d034045dde"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "e75d979081bd"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "9d2d4ff94eef"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "8f88ffa6bfd0"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "4dcfeda81761"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "format-04",
+      "category": "format-conversion",
+      "intervention": "task_distribution_shift",
+      "window_regret": 5.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "336e2185ade8"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "239b7c2dbcb4"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "953f335cd7b6"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "986dce380ccb"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "16c5936851fa"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "format-04",
+      "category": "format-conversion",
+      "intervention": "instruction_change",
+      "window_regret": 1.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "AGENT",
+          "steps": 2,
+          "trace_id": "e35be1195e91"
+        },
+        {
+          "step": 1,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "AGENT",
+          "steps": 2,
+          "trace_id": "34cdef8bc42d"
+        },
+        {
+          "step": 2,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "AGENT",
+          "steps": 2,
+          "trace_id": "3e01d8da793f"
+        },
+        {
+          "step": 3,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "AGENT",
+          "steps": 2,
+          "trace_id": "638407dc1dd4"
+        },
+        {
+          "step": 4,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "AGENT",
+          "steps": 2,
+          "trace_id": "e72d80a12f83"
+        }
+      ]
+    },
+    {
+      "condition": "frozen",
+      "task": "format-04",
+      "category": "format-conversion",
+      "intervention": "output_format_change",
+      "window_regret": 1.0,
+      "success_rate": 0.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "AGENT",
+          "steps": 2,
+          "trace_id": "90b17ebd8a41"
+        },
+        {
+          "step": 1,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "AGENT",
+          "steps": 2,
+          "trace_id": "b132bf3a49e3"
+        },
+        {
+          "step": 2,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "AGENT",
+          "steps": 1,
+          "trace_id": "0a9894f5fb8c"
+        },
+        {
+          "step": 3,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "AGENT",
+          "steps": 2,
+          "trace_id": "cd7f42f3e593"
+        },
+        {
+          "step": 4,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "AGENT",
+          "steps": 2,
+          "trace_id": "52dd5b03438b"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "math-01",
+      "category": "math",
+      "intervention": "tool_failure",
+      "window_regret": 4.0,
+      "success_rate": 20.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "130",
+          "steps": 1,
+          "trace_id": "d4ee5e3a911f"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "b1f3ecbfd61b"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "433291f06a46"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "919b4b43727c"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "ab51adb22621"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "math-01",
+      "category": "math",
+      "intervention": "api_signature_change",
+      "window_regret": 1.0,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "6a6509486ddb"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "130",
+          "steps": 2,
+          "trace_id": "d5fb6c9117e5"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "130",
+          "steps": 2,
+          "trace_id": "b8a9599e7cfe"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "130",
+          "steps": 2,
+          "trace_id": "7cf7d6818ae8"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "130",
+          "steps": 2,
+          "trace_id": "2158089301af"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "math-01",
+      "category": "math",
+      "intervention": "task_distribution_shift",
+      "window_regret": 1.0,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "370ae3ba43ce"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "130",
+          "steps": 2,
+          "trace_id": "f314ee548880"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "130",
+          "steps": 2,
+          "trace_id": "eaf8317059a5"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "130",
+          "steps": 2,
+          "trace_id": "e2b884a9e39c"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "130",
+          "steps": 2,
+          "trace_id": "2f2a5f04f49a"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "math-01",
+      "category": "math",
+      "intervention": "instruction_change",
+      "window_regret": 1.2,
+      "success_rate": 60.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.8,
+        "candidate_proxy_score": 1.0,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "130",
+          "steps": 2,
+          "trace_id": "2ceeefe3339e"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:130",
+          "steps": 2,
+          "trace_id": "29f324984582"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 1,
+          "trace_id": "806223e44598"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:130",
+          "steps": 2,
+          "trace_id": "a325470da2ae"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:130",
+          "steps": 2,
+          "trace_id": "2f6e6126dc91"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "math-01",
+      "category": "math",
+      "intervention": "output_format_change",
+      "window_regret": 0.2,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.8,
+        "candidate_proxy_score": 1.0,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "130",
+          "steps": 2,
+          "trace_id": "69d206089f38"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"130\"}",
+          "steps": 2,
+          "trace_id": "f65374be9727"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"130\"}",
+          "steps": 2,
+          "trace_id": "78f1ba5d88be"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"130\"}",
+          "steps": 2,
+          "trace_id": "399fa97f1ded"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"130\"}",
+          "steps": 2,
+          "trace_id": "07e04b0609d8"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "math-02",
+      "category": "math",
+      "intervention": "tool_failure",
+      "window_regret": 1.0,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "c603a1d9fb63"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "18",
+          "steps": 2,
+          "trace_id": "dfcdf1166ecf"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "18",
+          "steps": 2,
+          "trace_id": "dacbc4254269"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "18",
+          "steps": 2,
+          "trace_id": "4ddd88c1994d"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "18",
+          "steps": 2,
+          "trace_id": "f491c6d2d3ff"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "math-02",
+      "category": "math",
+      "intervention": "api_signature_change",
+      "window_regret": 1.0,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "3205a6e05280"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "18",
+          "steps": 2,
+          "trace_id": "c72e6a3682ff"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "18",
+          "steps": 2,
+          "trace_id": "fedd1801f869"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "18",
+          "steps": 2,
+          "trace_id": "debcd0e1ba84"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "18",
+          "steps": 2,
+          "trace_id": "31c8a42a595d"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "math-02",
+      "category": "math",
+      "intervention": "task_distribution_shift",
+      "window_regret": 2.0,
+      "success_rate": 60.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "f2cccfc3ffb0"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "18",
+          "steps": 2,
+          "trace_id": "e535cd64af2d"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "18",
+          "steps": 2,
+          "trace_id": "dc9f20ed4b39"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "18",
+          "steps": 2,
+          "trace_id": "cc0f156fbc9d"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 1,
+          "trace_id": "d8d361ed8020"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "math-02",
+      "category": "math",
+      "intervention": "instruction_change",
+      "window_regret": 0.2,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.8,
+        "candidate_proxy_score": 1.0,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "18",
+          "steps": 2,
+          "trace_id": "d416525ad477"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:18",
+          "steps": 2,
+          "trace_id": "bb6136cea7e4"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:18",
+          "steps": 2,
+          "trace_id": "5a14431ca745"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:18",
+          "steps": 2,
+          "trace_id": "7c3fe368db85"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:18",
+          "steps": 2,
+          "trace_id": "1c7aeb2194e2"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "math-02",
+      "category": "math",
+      "intervention": "output_format_change",
+      "window_regret": 0.2,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.8,
+        "candidate_proxy_score": 1.0,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "18",
+          "steps": 2,
+          "trace_id": "5ed531d531a4"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"18\"}",
+          "steps": 2,
+          "trace_id": "e6767986ee09"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"18\"}",
+          "steps": 2,
+          "trace_id": "f01392709eb9"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"18\"}",
+          "steps": 2,
+          "trace_id": "82eaed211f9d"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"18\"}",
+          "steps": 2,
+          "trace_id": "00cd9588bc42"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "search-01",
+      "category": "search",
+      "intervention": "tool_failure",
+      "window_regret": 1.0,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "3ae19f731345"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "Canberra",
+          "steps": 2,
+          "trace_id": "519af1520954"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "Canberra",
+          "steps": 2,
+          "trace_id": "4d0dff9a6f31"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "Canberra",
+          "steps": 2,
+          "trace_id": "53a7f8aed63f"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "Canberra",
+          "steps": 2,
+          "trace_id": "97cb913a29f9"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "search-01",
+      "category": "search",
+      "intervention": "api_signature_change",
+      "window_regret": 1.0,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "17637667a950"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "Canberra",
+          "steps": 2,
+          "trace_id": "f4bedf9e7bcd"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "Canberra",
+          "steps": 2,
+          "trace_id": "b805afc3bbda"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "Canberra",
+          "steps": 2,
+          "trace_id": "3b9eabc23bd6"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "Canberra",
+          "steps": 2,
+          "trace_id": "8b8fb10df12c"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "search-01",
+      "category": "search",
+      "intervention": "task_distribution_shift",
+      "window_regret": 2.0,
+      "success_rate": 60.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "43129c68acb0"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 1,
+          "trace_id": "3c00ffe3521b"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "Canberra",
+          "steps": 2,
+          "trace_id": "c6aae945cad3"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "Canberra",
+          "steps": 2,
+          "trace_id": "91af816a2acb"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "Canberra",
+          "steps": 2,
+          "trace_id": "14f4313bbb4f"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "search-01",
+      "category": "search",
+      "intervention": "instruction_change",
+      "window_regret": 0.2,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.8,
+        "candidate_proxy_score": 1.0,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "Canberra",
+          "steps": 2,
+          "trace_id": "d07c71d680af"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:Canberra",
+          "steps": 2,
+          "trace_id": "e1eac53f3486"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:Canberra",
+          "steps": 2,
+          "trace_id": "edb211829fce"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:Canberra",
+          "steps": 2,
+          "trace_id": "57602196dae9"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:Canberra",
+          "steps": 2,
+          "trace_id": "a687e9c2dd81"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "search-01",
+      "category": "search",
+      "intervention": "output_format_change",
+      "window_regret": 0.2,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.8,
+        "candidate_proxy_score": 1.0,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "Canberra",
+          "steps": 2,
+          "trace_id": "49b0e8e9876c"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"Canberra\"}",
+          "steps": 2,
+          "trace_id": "df898c950e81"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"Canberra\"}",
+          "steps": 2,
+          "trace_id": "5511705aea8c"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"Canberra\"}",
+          "steps": 2,
+          "trace_id": "698e8c59abfd"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"Canberra\"}",
+          "steps": 2,
+          "trace_id": "c1496c530dc5"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "search-02",
+      "category": "search",
+      "intervention": "tool_failure",
+      "window_regret": 1.0,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "8916dcc50773"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "Gold",
+          "steps": 2,
+          "trace_id": "ce92bd3c6b88"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "Gold",
+          "steps": 2,
+          "trace_id": "38d2f8015890"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "Gold",
+          "steps": 2,
+          "trace_id": "ad2d2dc247a1"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "Gold",
+          "steps": 2,
+          "trace_id": "98d5734429ae"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "search-02",
+      "category": "search",
+      "intervention": "api_signature_change",
+      "window_regret": 2.0,
+      "success_rate": 60.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "d895e5acea81"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "Gold",
+          "steps": 2,
+          "trace_id": "a754a532c6f1"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "Gold",
+          "steps": 2,
+          "trace_id": "544ee57e3d89"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 1,
+          "trace_id": "ea23a4de0f21"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "Gold",
+          "steps": 2,
+          "trace_id": "d4d4799fed33"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "search-02",
+      "category": "search",
+      "intervention": "task_distribution_shift",
+      "window_regret": 1.0,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "fdd7e67a39a7"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "Gold",
+          "steps": 2,
+          "trace_id": "be24160dbbad"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "Gold",
+          "steps": 2,
+          "trace_id": "1ba62593119a"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "Gold",
+          "steps": 2,
+          "trace_id": "a6db1e5fbe71"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "Gold",
+          "steps": 2,
+          "trace_id": "1c194c2c7c25"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "search-02",
+      "category": "search",
+      "intervention": "instruction_change",
+      "window_regret": 0.2,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.8,
+        "candidate_proxy_score": 1.0,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "Gold",
+          "steps": 2,
+          "trace_id": "e812ff62e9d2"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:Gold",
+          "steps": 2,
+          "trace_id": "155d87659276"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:Gold",
+          "steps": 2,
+          "trace_id": "6ba226c39c81"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:Gold",
+          "steps": 2,
+          "trace_id": "e1de6ed10c22"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:Gold",
+          "steps": 2,
+          "trace_id": "eed49c28e41e"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "search-02",
+      "category": "search",
+      "intervention": "output_format_change",
+      "window_regret": 0.2,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.8,
+        "candidate_proxy_score": 1.0,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "Gold",
+          "steps": 1,
+          "trace_id": "38a24f30447a"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"Gold\"}",
+          "steps": 2,
+          "trace_id": "f44b9e4cb013"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"Gold\"}",
+          "steps": 2,
+          "trace_id": "8710d0237724"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"Gold\"}",
+          "steps": 2,
+          "trace_id": "7b553e2c6b86"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"Gold\"}",
+          "steps": 2,
+          "trace_id": "0d3f0b7edb8c"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "code-01",
+      "category": "code-execution",
+      "intervention": "tool_failure",
+      "window_regret": 1.0,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "e3581e4fa878"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "220",
+          "steps": 2,
+          "trace_id": "f277cfc27304"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "220",
+          "steps": 2,
+          "trace_id": "cfa5e4440538"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "220",
+          "steps": 2,
+          "trace_id": "35745b41f517"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "220",
+          "steps": 2,
+          "trace_id": "daf452e29704"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "code-01",
+      "category": "code-execution",
+      "intervention": "api_signature_change",
+      "window_regret": 1.0,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "56be614bb29e"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "220",
+          "steps": 2,
+          "trace_id": "1a585911f935"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "220",
+          "steps": 2,
+          "trace_id": "a288a6f53808"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "220",
+          "steps": 2,
+          "trace_id": "4af33aae0324"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "220",
+          "steps": 2,
+          "trace_id": "1ec1f70d327c"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "code-01",
+      "category": "code-execution",
+      "intervention": "task_distribution_shift",
+      "window_regret": 1.0,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "3fe8e8d032ea"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "220",
+          "steps": 2,
+          "trace_id": "180a2de9815c"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "220",
+          "steps": 2,
+          "trace_id": "1bc3e15c467f"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "220",
+          "steps": 2,
+          "trace_id": "c3d7b62aaddc"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "220",
+          "steps": 2,
+          "trace_id": "aed8bc9bbebd"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "code-01",
+      "category": "code-execution",
+      "intervention": "instruction_change",
+      "window_regret": 0.2,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.8,
+        "candidate_proxy_score": 1.0,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "220",
+          "steps": 2,
+          "trace_id": "d35cbdff8418"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:220",
+          "steps": 2,
+          "trace_id": "0d9c04738c12"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:220",
+          "steps": 2,
+          "trace_id": "83b620107188"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:220",
+          "steps": 2,
+          "trace_id": "63e2d456094d"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:220",
+          "steps": 2,
+          "trace_id": "f8e08d022cbb"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "code-01",
+      "category": "code-execution",
+      "intervention": "output_format_change",
+      "window_regret": 1.2,
+      "success_rate": 60.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.8,
+        "candidate_proxy_score": 1.0,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "220",
+          "steps": 2,
+          "trace_id": "0be8e37d3cc6"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"220\"}",
+          "steps": 2,
+          "trace_id": "509913a7a634"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 1,
+          "trace_id": "06336c1116c8"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"220\"}",
+          "steps": 2,
+          "trace_id": "942ff98252f3"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"220\"}",
+          "steps": 2,
+          "trace_id": "826e2d1e9ed6"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "code-02",
+      "category": "code-execution",
+      "intervention": "tool_failure",
+      "window_regret": 2.0,
+      "success_rate": 60.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "076492c289f5"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "ygolohprom",
+          "steps": 2,
+          "trace_id": "2abe818d826b"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 1,
+          "trace_id": "0958d5046232"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "ygolohprom",
+          "steps": 2,
+          "trace_id": "221f908032a3"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "ygolohprom",
+          "steps": 2,
+          "trace_id": "4e5377fbce5c"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "code-02",
+      "category": "code-execution",
+      "intervention": "api_signature_change",
+      "window_regret": 1.0,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "35ce910df8c0"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "ygolohprom",
+          "steps": 2,
+          "trace_id": "dd166eaf758d"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "ygolohprom",
+          "steps": 2,
+          "trace_id": "01548599664b"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "ygolohprom",
+          "steps": 2,
+          "trace_id": "752b359f3f0d"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "ygolohprom",
+          "steps": 2,
+          "trace_id": "c9dddb6efdcc"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "code-02",
+      "category": "code-execution",
+      "intervention": "task_distribution_shift",
+      "window_regret": 1.0,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "c7f64b170fe8"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "ygolohprom",
+          "steps": 2,
+          "trace_id": "e06062511ed0"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "ygolohprom",
+          "steps": 2,
+          "trace_id": "f0a19822cf89"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "ygolohprom",
+          "steps": 2,
+          "trace_id": "168913f415c7"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "ygolohprom",
+          "steps": 2,
+          "trace_id": "7acacfed2250"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "code-02",
+      "category": "code-execution",
+      "intervention": "instruction_change",
+      "window_regret": 1.2,
+      "success_rate": 60.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.8,
+        "candidate_proxy_score": 1.0,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "ygolohprom",
+          "steps": 1,
+          "trace_id": "a6c1006b8867"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:ygolohprom",
+          "steps": 2,
+          "trace_id": "0a76c682e318"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:ygolohprom",
+          "steps": 2,
+          "trace_id": "f31d6946d84c"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:ygolohprom",
+          "steps": 2,
+          "trace_id": "a59e4ddf36d7"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 1,
+          "trace_id": "af56c989e217"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "code-02",
+      "category": "code-execution",
+      "intervention": "output_format_change",
+      "window_regret": 0.2,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.8,
+        "candidate_proxy_score": 1.0,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "ygolohprom",
+          "steps": 2,
+          "trace_id": "9b4dd1a14d46"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"ygolohprom\"}",
+          "steps": 2,
+          "trace_id": "e55f6a6c0c13"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"ygolohprom\"}",
+          "steps": 2,
+          "trace_id": "3cfbf0a80cda"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"ygolohprom\"}",
+          "steps": 2,
+          "trace_id": "ccb2ece89ef5"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"ygolohprom\"}",
+          "steps": 2,
+          "trace_id": "cbac19c878fb"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "format-01",
+      "category": "format-conversion",
+      "intervention": "tool_failure",
+      "window_regret": 1.0,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "5a669b3c3d02"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "150",
+          "steps": 2,
+          "trace_id": "bbc82d778f9a"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "150",
+          "steps": 2,
+          "trace_id": "61155e99a961"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "150",
+          "steps": 2,
+          "trace_id": "aa82544c3914"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "150",
+          "steps": 2,
+          "trace_id": "8f24bff607e3"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "format-01",
+      "category": "format-conversion",
+      "intervention": "api_signature_change",
+      "window_regret": 1.0,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "eba41c0bc470"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "150",
+          "steps": 2,
+          "trace_id": "3ec1084c4ecf"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "150",
+          "steps": 2,
+          "trace_id": "cd907b9f943f"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "150",
+          "steps": 2,
+          "trace_id": "9fc46b7b1fc3"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "150",
+          "steps": 2,
+          "trace_id": "134102a580e4"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "format-01",
+      "category": "format-conversion",
+      "intervention": "task_distribution_shift",
+      "window_regret": 1.0,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "f8b842744d35"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "150",
+          "steps": 2,
+          "trace_id": "71394ca17dc1"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "150",
+          "steps": 2,
+          "trace_id": "956eea671e19"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "150",
+          "steps": 2,
+          "trace_id": "0d50ba77ccf6"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "150",
+          "steps": 2,
+          "trace_id": "c838c91d9772"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "format-01",
+      "category": "format-conversion",
+      "intervention": "instruction_change",
+      "window_regret": 1.2,
+      "success_rate": 60.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.8,
+        "candidate_proxy_score": 1.0,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "150",
+          "steps": 2,
+          "trace_id": "d26e9778ce01"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 1,
+          "trace_id": "6a79e2f3d67b"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:150",
+          "steps": 2,
+          "trace_id": "1c0beeb1ffbe"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:150",
+          "steps": 2,
+          "trace_id": "00e26d38468e"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:150",
+          "steps": 2,
+          "trace_id": "91c45d8ee9b0"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "format-01",
+      "category": "format-conversion",
+      "intervention": "output_format_change",
+      "window_regret": 0.2,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.8,
+        "candidate_proxy_score": 1.0,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "150",
+          "steps": 2,
+          "trace_id": "6c69668e0c2b"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"150\"}",
+          "steps": 2,
+          "trace_id": "7f7a1a0b1418"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"150\"}",
+          "steps": 2,
+          "trace_id": "c29087e9964e"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"150\"}",
+          "steps": 2,
+          "trace_id": "a9a677e8d874"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"150\"}",
+          "steps": 2,
+          "trace_id": "8a1e9dd4cc79"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "format-02",
+      "category": "format-conversion",
+      "intervention": "tool_failure",
+      "window_regret": 1.0,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "e1d3b3bf0427"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "1,1,3,4,5",
+          "steps": 2,
+          "trace_id": "6d0ccca90c14"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "1,1,3,4,5",
+          "steps": 2,
+          "trace_id": "90ef20e55f79"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "1,1,3,4,5",
+          "steps": 2,
+          "trace_id": "ce4455bbaeca"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "1,1,3,4,5",
+          "steps": 2,
+          "trace_id": "e20aa8b7a26e"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "format-02",
+      "category": "format-conversion",
+      "intervention": "api_signature_change",
+      "window_regret": 1.0,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "582cbcbce160"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "1,1,3,4,5",
+          "steps": 2,
+          "trace_id": "aa0c86012b7c"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "1,1,3,4,5",
+          "steps": 2,
+          "trace_id": "4337f8eadd46"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "1,1,3,4,5",
+          "steps": 2,
+          "trace_id": "94579252bef0"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "1,1,3,4,5",
+          "steps": 2,
+          "trace_id": "823046c009f6"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "format-02",
+      "category": "format-conversion",
+      "intervention": "task_distribution_shift",
+      "window_regret": 4.0,
+      "success_rate": 20.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "1,1,3,4,5",
+          "steps": 1,
+          "trace_id": "ce63444d4964"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "dcc4bba5cf5f"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "7cb5c743d306"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "13d8993578b5"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "492ab56a84e6"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "format-02",
+      "category": "format-conversion",
+      "intervention": "instruction_change",
+      "window_regret": 0.2,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.8,
+        "candidate_proxy_score": 1.0,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "1,1,3,4,5",
+          "steps": 2,
+          "trace_id": "d03ee59270b1"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:1,1,3,4,5",
+          "steps": 2,
+          "trace_id": "5807423880a9"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:1,1,3,4,5",
+          "steps": 2,
+          "trace_id": "262d64db8208"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:1,1,3,4,5",
+          "steps": 2,
+          "trace_id": "e0f4629a3a74"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:1,1,3,4,5",
+          "steps": 2,
+          "trace_id": "e7a9fc584b48"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "format-02",
+      "category": "format-conversion",
+      "intervention": "output_format_change",
+      "window_regret": 0.2,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.8,
+        "candidate_proxy_score": 1.0,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "1,1,3,4,5",
+          "steps": 2,
+          "trace_id": "62d1f41e5c54"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"1,1,3,4,5\"}",
+          "steps": 2,
+          "trace_id": "e0c1b8b4d981"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"1,1,3,4,5\"}",
+          "steps": 2,
+          "trace_id": "b9b1c8191ee1"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"1,1,3,4,5\"}",
+          "steps": 2,
+          "trace_id": "d5e400c8e4a5"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"1,1,3,4,5\"}",
+          "steps": 2,
+          "trace_id": "7e7f9f9c312c"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "format-03",
+      "category": "format-conversion",
+      "intervention": "tool_failure",
+      "window_regret": 1.0,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "958acf3aebc7"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "45",
+          "steps": 2,
+          "trace_id": "70ba9d787f36"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "45",
+          "steps": 2,
+          "trace_id": "c42f24c35a2f"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "45",
+          "steps": 2,
+          "trace_id": "7d03ed92e679"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "45",
+          "steps": 2,
+          "trace_id": "b0ce89e4f071"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "format-03",
+      "category": "format-conversion",
+      "intervention": "api_signature_change",
+      "window_regret": 1.0,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "b560e87480d6"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "45",
+          "steps": 2,
+          "trace_id": "b3554aa28667"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "45",
+          "steps": 2,
+          "trace_id": "e871f4bf8ab7"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "45",
+          "steps": 2,
+          "trace_id": "47f6b98b0024"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "45",
+          "steps": 2,
+          "trace_id": "b900fa40d0d0"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "format-03",
+      "category": "format-conversion",
+      "intervention": "task_distribution_shift",
+      "window_regret": 1.0,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "e9fde9893b3f"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "45",
+          "steps": 2,
+          "trace_id": "4fe6f6dd7304"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "45",
+          "steps": 2,
+          "trace_id": "b3fae1ac517c"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "45",
+          "steps": 2,
+          "trace_id": "d5c643d0ff05"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "45",
+          "steps": 2,
+          "trace_id": "11535cdf10be"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "format-03",
+      "category": "format-conversion",
+      "intervention": "instruction_change",
+      "window_regret": 0.2,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.8,
+        "candidate_proxy_score": 1.0,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "45",
+          "steps": 2,
+          "trace_id": "1a65f5d2005d"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:45",
+          "steps": 2,
+          "trace_id": "bc46ee0885d2"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:45",
+          "steps": 2,
+          "trace_id": "258ed9825ea0"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:45",
+          "steps": 2,
+          "trace_id": "4ebc989ba625"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:45",
+          "steps": 2,
+          "trace_id": "611f93521c57"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "format-03",
+      "category": "format-conversion",
+      "intervention": "output_format_change",
+      "window_regret": 0.2,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.8,
+        "candidate_proxy_score": 1.0,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "45",
+          "steps": 2,
+          "trace_id": "4959440103ef"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"45\"}",
+          "steps": 2,
+          "trace_id": "9289338a6fb2"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"45\"}",
+          "steps": 2,
+          "trace_id": "854538dfa9d0"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"45\"}",
+          "steps": 2,
+          "trace_id": "515bd011983f"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"45\"}",
+          "steps": 2,
+          "trace_id": "939eb38ced76"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "format-04",
+      "category": "format-conversion",
+      "intervention": "tool_failure",
+      "window_regret": 1.0,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "e3d5b9f8a9bb"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "AGENT",
+          "steps": 2,
+          "trace_id": "bb8150042804"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "AGENT",
+          "steps": 2,
+          "trace_id": "dc58670cbc5a"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "AGENT",
+          "steps": 2,
+          "trace_id": "7e3976edf19e"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "AGENT",
+          "steps": 2,
+          "trace_id": "e6596a01967d"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "format-04",
+      "category": "format-conversion",
+      "intervention": "api_signature_change",
+      "window_regret": 4.0,
+      "success_rate": 20.0,
+      "prompt_revision": 0,
+      "optimization": null,
+      "steps": [
+        {
+          "step": 0,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "AGENT",
+          "steps": 1,
+          "trace_id": "d5d034045dde"
+        },
+        {
+          "step": 1,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "e75d979081bd"
+        },
+        {
+          "step": 2,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "9d2d4ff94eef"
+        },
+        {
+          "step": 3,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "8f88ffa6bfd0"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "4dcfeda81761"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "format-04",
+      "category": "format-conversion",
+      "intervention": "task_distribution_shift",
+      "window_regret": 1.0,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.0,
+        "candidate_proxy_score": 0.65,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 2,
+          "trace_id": "336e2185ade8"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "AGENT",
+          "steps": 2,
+          "trace_id": "de64a8ba214e"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "AGENT",
+          "steps": 2,
+          "trace_id": "3e492244bf85"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "AGENT",
+          "steps": 2,
+          "trace_id": "48a6e9a3ef9a"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "AGENT",
+          "steps": 2,
+          "trace_id": "62bad230ec9f"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "format-04",
+      "category": "format-conversion",
+      "intervention": "instruction_change",
+      "window_regret": 0.2,
+      "success_rate": 80.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.8,
+        "candidate_proxy_score": 1.0,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "AGENT",
+          "steps": 2,
+          "trace_id": "e35be1195e91"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:AGENT",
+          "steps": 2,
+          "trace_id": "4d1a3993a5e5"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:AGENT",
+          "steps": 2,
+          "trace_id": "8e9f6fd5c507"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:AGENT",
+          "steps": 2,
+          "trace_id": "ee0e6bdadbef"
+        },
+        {
+          "step": 4,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "CONFIRMED:AGENT",
+          "steps": 2,
+          "trace_id": "7dcd73ab9b8a"
+        }
+      ]
+    },
+    {
+      "condition": "adaptive",
+      "task": "format-04",
+      "category": "format-conversion",
+      "intervention": "output_format_change",
+      "window_regret": 1.2,
+      "success_rate": 60.0,
+      "prompt_revision": 1,
+      "optimization": {
+        "event": "prompt_optimization",
+        "method": "OPRO-style candidate/evaluate/accept",
+        "old_proxy_score": 0.8,
+        "candidate_proxy_score": 1.0,
+        "accepted": true,
+        "revision": 1
+      },
+      "steps": [
+        {
+          "step": 0,
+          "quality": 0.8,
+          "regret": 0.2,
+          "success": false,
+          "core_correct": true,
+          "protocol_correct": false,
+          "answer": "AGENT",
+          "steps": 2,
+          "trace_id": "90b17ebd8a41"
+        },
+        {
+          "step": 1,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"AGENT\"}",
+          "steps": 2,
+          "trace_id": "d396ca7294b1"
+        },
+        {
+          "step": 2,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"AGENT\"}",
+          "steps": 2,
+          "trace_id": "29f625df45af"
+        },
+        {
+          "step": 3,
+          "quality": 1.0,
+          "regret": 0.0,
+          "success": true,
+          "core_correct": true,
+          "protocol_correct": true,
+          "answer": "{\"answer\":\"AGENT\"}",
+          "steps": 2,
+          "trace_id": "8bc9c76a3705"
+        },
+        {
+          "step": 4,
+          "quality": 0.0,
+          "regret": 1.0,
+          "success": false,
+          "core_correct": false,
+          "protocol_correct": false,
+          "answer": "WRONG",
+          "steps": 1,
+          "trace_id": "00c88739d3c0"
+        }
+      ]
+    }
+  ]
+}
