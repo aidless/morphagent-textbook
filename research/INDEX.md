@@ -60,6 +60,11 @@
 | **r-paper-028** | **Noë：知觉中的行动** | **final** | ~3,000 | noe2004action |
 | **r-paper-029** | **Maturana：自创生与认知** | **final** | ~3,000 | maturana1980autopoiesis |
 | **r-paper-030** | **Heersmink：认知人工物分类学** | **final** | ~3,000 | heersmink2013taxonomy |
+| **r-paper-031** | **Menary：第三波延展认知** | **final** | ~3,000 | menary2010extended |
+| **r-paper-032** | **Gallagher：生成认知论干预** | **final** | ~3,000 | gallagher2017enactive |
+| **r-paper-033** | **Hutto & Myin：激进生成认知论** | **final** | ~3,000 | hunto2017radicalizing |
+| **r-paper-034** | **Clark：扩张心智** | **final** | ~3,000 | clark2008supersizing |
+| **r-paper-035** | **De Jaegher：参与式意义生成** | **final** | ~3,000 | deJaegher2009participatory |
 
 ### 实验笔记（Experiment Note）
 
@@ -94,9 +99,9 @@
 |---|---|
 | idea | 10 |
 | draft | 4 |
-| **final** | **44** |
+| **final** | **49** |
 | abandoned | 0 |
-| **总计** | **58** |
+| **总计** | **63** |
 
 ## 月度更新记录
 
@@ -107,4 +112,7 @@
 - **2026-07-23**：完成 r-note-002~010 全部扩展到 final（共 ~57,000 字深度扩展）
 - **2026-07-23**：扩展论文库到 30 篇（r-paper-001~030），覆盖 LLM Agent 工程 + 认知科学 + 安全治理三大方向
 - **2026-07-23**：完成 4 篇 idea 笔记（r-note-011~014）：POMDP/工具三层/记忆双层/攻击面分级
+- **2026-07-23**：新增 5 篇认知科学论文笔记（r-paper-031~035）：Menary/Gallagher/Hutto/Clark/De Jaegher
+- **2026-07-23**：完成 exp-31-h1-validation 实验管线（Mock 模式验证通过，H1 支持）
+- **2026-07-23**：9 个核心章节（Ch 11/12/13/14/15/16/17/22/23）整合研究笔记引用（36 处行内引用 + 64 条延伸阅读）
 - (待续)
