@@ -6,7 +6,7 @@ created: 2026-07-23
 updated: 2026-07-23
 status: final
 related_chapters: [Ch 9, Ch 11]
-related_papers: [clark2008supersizing, clark1998extended, adams2001bounds, menyary2010extended, varela1991embodied, brooks1991intelligence, packer2023memgpt, schick2023toolformer, fang2025selfevolving, robeyns2025sica]
+related_papers: [clark2008supersizing, clark1998extended, adams2001bounds, menary2010extended, varela1991embodied, brooks1991intelligence, packer2023memgpt, schick2023toolformer, fang2025selfevolving, robeyns2025sica]
 keywords: [Clark, supersizing the mind, scaffolded cognition, scaffolding, biological vs non-biological, parity principle, natural kinds, cognitive niche construction, agentive isomorphism, operational morphology, LLM tool use]
 ---
 
@@ -454,7 +454,7 @@ Clark 2008 的"认知生态位构造" 论断为 LLM Agent 的演化提供了演�
 - clark2008supersizing: Clark, A. (2008). *Supersizing the Mind: Embodiment, Action, and Cognitive Extension*. Oxford University Press. [$TRAE_REF](https://academic.oup.com/book/6764)
 - clark1998extended: Clark, A., & Chalmers, D. (1998). *The Extended Mind*. 见 r-paper-011。
 - adams2001bounds: Adams, F., & Aizawa, K. (2001). *The Bounds of Cognition*. Philosophical Perspectives 15: 119-169.（耦合-构成谬误的经典批评，Clark 2008 核心回应对象）
-- menyary2010extended: Menary, R. (Ed.) (2010). *The Extended Mind*. 见 r-paper-031。
+- menary2010extended: Menary, R. (Ed.) (2010). *The Extended Mind*. 见 r-paper-031。
 - varela1991embodied: Varela, F. J., Thompson, E., & Rosch, E. (1991/2016). *The Embodied Mind*. 见 r-paper-010。
 - brooks1991intelligence: Brooks, R. A. (1991). *Intelligence Without Representation*. 见 r-paper-012。
 - packer2023memgpt: Packer, C., et al. (2023). *MemGPT*. 见 r-paper-004。（M 自管理是支架调整的工程实现）
