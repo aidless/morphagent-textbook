@@ -1,0 +1,42 @@
+# aidless 高风险仓泄露防线 —— 与 gitleaks v8.x 默认规则叠加生效
+title = "aidless custom secret rules"
+
+[[rules]]
+id = "api2d-forward-key"
+description = "api2d forward key (fk...)"
+regex = '''fk[0-9a-f]{5,12}-[0-9A-Za-z]{10,}'''
+tags = ["key", "api2d"]
+
+[[rules]]
+id = "dashscope-bailian-key"
+description = "Alibaba DashScope / Bailian API key"
+regex = '''sk-[a-zA-Z0-9]{32}'''
+tags = ["key", "dashscope", "bailian"]
+
+[[rules]]
+id = "deepseek-key"
+description = "DeepSeek API key"
+regex = '''sk-[a-f0-9]{32}'''
+tags = ["key", "deepseek"]
+
+[[rules]]
+id = "openai-style-key"
+description = "OpenAI-style project key"
+regex = '''sk-[A-Za-z0-9_-]{40,}'''
+tags = ["key", "openai"]
+
+[[rules]]
+id = "github-pat"
+description = "GitHub personal access token"
+regex = '''gh[pousr]_[A-Za-z0-9]{36,255}'''
+tags = ["key", "github"]
+
+[allowlist]
+description = "占位符与示例值"
+regexes = [
+  '''sk-xxxx''',
+  '''CHANGE-ME''',
+  '''your[_-]?api[_-]?key''',
+  '''<YOUR_.*?>''',
+  '''\\$\\{[A-Z_]+\\}''',
+]
