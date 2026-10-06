@@ -91,7 +91,7 @@ jobs:
           path: _build/site/
 
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
   secret-scan:
     # Full history: a key leaked in an old commit is still a live key. The CLI is
