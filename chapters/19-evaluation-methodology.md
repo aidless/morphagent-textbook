@@ -271,7 +271,7 @@ if p_value < 0.0024:  # Bonferroni 校正
 
 ### 发布形式
 
-- **GitHub**：[github.com/morphagent/morphbench](https://github.com/morphagent/morphbench)
+- **参考设计**：见本章正文；本书未发布 MorphBench 的代码仓库或 leaderboard
 - **许可证**：Apache 2.0
 - **版本**：v1.0 跟随 MorphAgent v1.0
 
