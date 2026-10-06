@@ -1,0 +1,5 @@
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.21.2   # 可改为最新 v8.x
+    hooks:
+      - id: gitleaks
