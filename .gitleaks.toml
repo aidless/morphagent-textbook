@@ -39,4 +39,9 @@ regexes = [
   '''your[_-]?api[_-]?key''',
   '''<YOUR_.*?>''',
   '''\\$\\{[A-Z_]+\\}''',
+  # Placeholder PATs. PUSH_v0.3.0.md (deleted from HEAD, still in history)
+  # documents the push procedure with a literal ghp_xxxxxxyyyy... example, and the
+  # github-pat rule flags it on every full-history scan. Only the all-x form is
+  # excused; a token with real characters after the prefix is still reported.
+  '''gh[pousr]_x{6,}''',
 ]
