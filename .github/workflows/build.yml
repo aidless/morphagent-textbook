@@ -39,14 +39,28 @@ jobs:
           python-version: '3.11'
 
       - name: Run experiments (mock mode)
+        # `|| true` made this loop structurally unfailable: a crash, a bad import
+        # or a syntax error in any of the 31 teaching experiments still ended the
+        # step green. These are the mock-mode runs readers copy, so a broken one
+        # ships silently. Accumulate the failure and report it after the loop, so
+        # every experiment still runs and the step still has teeth.
         run: |
+          set -uo pipefail
           cd experiments
+          rc=0
+          failed=0
           for dir in exp-*/; do
             if [ -f "$dir/main.py" ]; then
               echo "Testing $dir..."
-              python "$dir/main.py" --mock || true
+              if ! python "$dir/main.py" --mock; then
+                echo "::error::$dir/main.py failed in mock mode"
+                failed=$((failed + 1))
+                rc=1
+              fi
             fi
           done
+          echo "experiments failed: $failed"
+          exit "$rc"
 
   deploy-pages:
     runs-on: ubuntu-latest

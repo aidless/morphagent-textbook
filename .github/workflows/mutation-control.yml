@@ -1,0 +1,173 @@
+name: mutation-control
+
+# 反向证明: 故意注入一个确定失败的变异, 断言 build.yml 的 validate job 真的返回非零。
+# 目的不是抓 bug, 而是抓"假绿门"——CI 里 `|| true` / `|| echo` 让门变安静。
+#
+# 真门 = build.yml:22-23 "Validate chapter frontmatter":
+#     python scripts/validate_chapters.py
+# 失败面确实存在且是硬失败: validate_chapters.py 的 check_valid_values /
+# check_filename_match 会把违规塞进 failed 列表, main() 在 all_ok=False 时
+# sys.exit(1) (validate_chapters.py:227, 231, 267)。
+#
+# 为什么不打 test-experiments: build.yml:41-49 是
+#     python "$dir/main.py" --mock || true
+# `|| true` 把退出码整个吃掉, 那个 job 结构上永远不可能失败——它本身就是一个假绿门。
+# 在一个恒绿的东西上注入变异, 断言它变红, 是自欺欺人。所以真门只取 validate。
+# (这本身是 build.yml 的一个待修问题, 但修它不属于本 job 的范围。)
+#
+# 变异选在真实章节上做同长度漂移 (status: final -> status: FINAL):
+# 证明 validate 真的在读被追踪的章节内容, 而不是空跑或只读目录名。
+# 完全可逆: 纯字节替换, 无时间/随机/网络依赖, 结束后 git checkout 还原。
+# 不碰 _build/: 该目录在本仓未被追踪 (git ls-files '_build/*' 为空) 且不存在于磁盘,
+# 本 job 的所有路径都不涉及它。
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mutation-control:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        # 与 build.yml:19-20 保持一致。pyyaml 是 validate_chapters.py:21 的硬依赖,
+        # 不是本 job 额外引入的新包。
+        run: |
+          set -euo pipefail
+          pip install pyyaml markdown
+
+      - name: Purge every bytecode cache in the tree
+        # 缓存陷阱不是 boilerplate: validate_chapters.py 自身会被字节编译进
+        # scripts/__pycache__。虽然本次变异打在 .md 上 (不会被 .pyc 缓存),
+        # 但缓存清理是 mutation 注入的通用前提——若日后把变异改打到 .py,
+        # .pyc 头里的 mtime(秒级)+size 组合可以让刚被破坏的文件被跳过。
+        run: |
+          set -euo pipefail
+          find . -type d -name __pycache__ -prune -exec rm -rf {} + 2>/dev/null || true
+          find . -type f -name '*.py[co]' -delete 2>/dev/null || true
+          find . -type d -name .pytest_cache -prune -exec rm -rf {} + 2>/dev/null || true
+
+      - name: Fail-closed baseline — assert the real gate is green before mutating
+        # 变异结果只有在干净树基线通过时才有意义。基线红了立刻退出。
+        run: |
+          set -euo pipefail
+          set +e
+          python scripts/validate_chapters.py
+          rc=$?
+          set -e
+          echo "baseline exit=$rc"
+          if [ "$rc" -ne 0 ]; then
+            echo "::error title=Baseline red, mutation meaningless::validate_chapters.py exited $rc on a clean tree. Fix build.yml's real gate first; a failing mutation proves nothing here."
+            exit 1
+          fi
+
+      - name: Inject deterministic mutation into a tracked chapter's frontmatter
+        # 变异: chapters/01-llm-agent-era.md 的 status: final -> status: FINAL。
+        # VALID_STATUSES = {"outline","draft","final"} 是大小写敏感的,
+        # 所以 check_valid_values 必然报错, main() 必然 exit 1。
+        # 字节长度完全相同, 这是故意的: .pyc 头里同时存 mtime 和 size,
+        # 只有 size 也变了才可能靠 size 察觉。详见上面的 purge。
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import pathlib
+          p = pathlib.Path("chapters/01-llm-agent-era.md")
+          orig = p.read_bytes()
+          anchor = b"\nstatus: final\n"
+          if orig.count(anchor) != 1:
+              raise SystemExit(
+                  f"::error::mutation anchor found {orig.count(anchor)} times (expected 1) -- "
+                  "chapters/01-llm-agent-era.md has drifted. Re-derive the mutation; "
+                  "do NOT silently skip."
+              )
+          mut = orig.replace(anchor, b"\nstatus: FINAL\n")
+          if len(mut) != len(orig):
+              raise SystemExit("::error::mutation is no longer byte-length-identical")
+          p.write_bytes(mut)
+          print(f"injected: {len(orig)} -> {len(mut)} bytes (identical length, status: final -> FINAL)")
+          PY
+
+      - name: Assert the real gate returns NON-ZERO on the mutated tree
+        run: |
+          set -euo pipefail
+          find . -type d -name __pycache__ -prune -exec rm -rf {} + 2>/dev/null || true
+          find . -type f -name '*.py[co]' -delete 2>/dev/null || true
+
+          set +e
+          python scripts/validate_chapters.py
+          rc=$?
+          set -e
+          echo "mutated exit=$rc"
+
+          if [ "$rc" -eq 0 ]; then
+            echo "::error title=Mutation not detected::validate_chapters.py exited 0 on a mutated tree. The gate is fake-green (a swallowed \`|| true\`, or a loosened VALID_STATUSES). This is exactly the failure mode this job exists to catch."
+            exit 1
+          fi
+          if [ "$rc" -gt 128 ]; then
+            echo "::error title=Suspicious exit code::$rc looks like a signal (128+n), not a validation failure. A SIGPIPE from \`grep -q\`/\`head -N\` in the gate would do this."
+            exit 1
+          fi
+          echo "real gate returned $rc as required"
+
+      - name: Reverse sanity control — the same assertion must reject a swallowed gate
+        # 反向对照: 门换成吞错误版 (`|| true`), 断言逻辑仍必须抓到它。
+        # 若这一步反而绿了, 说明 mutation-control 自己没牙。
+        run: |
+          set -euo pipefail
+
+          # 吞错误版: 退出码被 || true 吃掉, 一定是 0
+          set +e
+          python scripts/validate_chapters.py > /tmp/swallowed.log 2>&1 || true
+          swallowed_rc=$?
+          set -e
+          echo "swallowed gate exit=$swallowed_rc"
+
+          if [ "$swallowed_rc" -ne 0 ]; then
+            echo "::error::swallowed gate returned $swallowed_rc; the reverse control is not exercising what it claims"
+            exit 1
+          fi
+
+          # 把这个 0 喂给与上面完全相同的判据
+          rc="$swallowed_rc"
+          if [ "$rc" -eq 0 ]; then
+            echo "::notice title=reverse control::swallowed gate returns 0 on the mutated tree, i.e. it WOULD have gone green in CI. Our assertion rejects 0, so this job would go red. Teeth confirmed."
+            exit 0
+          fi
+          echo "::error::assertion accepted a zero exit code"
+          exit 1
+
+      - name: Restore the tree and assert the gate is green again
+        run: |
+          set -euo pipefail
+          git checkout -- chapters/01-llm-agent-era.md
+          find . -type d -name __pycache__ -prune -exec rm -rf {} + 2>/dev/null || true
+          find . -type f -name '*.py[co]' -delete 2>/dev/null || true
+
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::error::working tree not clean after restore"
+            git status --porcelain
+            exit 1
+          fi
+
+          set +e
+          python scripts/validate_chapters.py
+          rc=$?
+          set -e
+          if [ "$rc" -ne 0 ]; then
+            echo "::error::gate still red after restore (rc=$rc); the mutation was not fully reversible"
+            exit 1
+          fi
+          echo "mutation-control: baseline=0 mutation=nonzero reverse-control=caught restored=$rc"
