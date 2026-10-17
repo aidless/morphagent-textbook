@@ -1,12 +1,16 @@
 version: 2
-updates:
-  - package-ecosystem: "pip"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    open-pull-requests-limit: 5
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    open-pull-requests-limit: 5
+updates: []
+
+# Dependabot scheduled version updates are intentionally disabled.
+#
+# This repository is in a maintenance freeze: dependency bumps are handled
+# manually, on demand. An empty `updates` list is the valid, honest
+# configuration -- it stops the weekly schedule instead of opening PRs that
+# nobody is reviewing. Re-enable it with:
+#
+#   version: 2
+#   updates:
+#     - package-ecosystem: "pip"   # or npm / github-actions
+#       directory: "/"
+#       schedule:
+#         interval: "weekly"
