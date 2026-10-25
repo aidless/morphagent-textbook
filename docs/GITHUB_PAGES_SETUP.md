@@ -46,7 +46,7 @@
 ### 步骤 2.2：进入项目目录
 
 ```powershell
-cd "C:\Users\Administrator\AppData\Roaming\TRAE SOLO CN\ModularData\ai-agent\work-mode-projects\6a5f557c9ea42441f41e0cda\morphagent-textbook"
+cd "<morphagent-textbook repo root>"
 ```
 
 ### 步骤 2.3：初始化 git 并提交
@@ -202,7 +202,7 @@ morphagent.yourdomain.com
 # 打开 https://github.com/new 创建 morphagent-textbook 仓库
 
 # 2. 本地提交并推送（5 分钟）
-cd "C:\Users\Administrator\AppData\Roaming\TRAE SOLO CN\ModularData\ai-agent\work-mode-projects\6a5f557c9ea42441f41e0cda\morphagent-textbook"
+cd "<morphagent-textbook repo root>"
 git init
 git add .
 git commit -m "v0.8: 全书31章完稿 (25章正文+6附录/800页/200,000字)"

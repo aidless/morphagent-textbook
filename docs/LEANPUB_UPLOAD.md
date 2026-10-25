@@ -75,7 +75,7 @@ Leanpub 会自动识别以下文件：
 ### 步骤 3.2：打包上传
 
 ```powershell
-cd "C:\Users\Administrator\AppData\Roaming\TRAE SOLO CN\ModularData\ai-agent\work-mode-projects\6a5f557c9ea42441f41e0cda\morphagent-textbook\Manuscript"
+cd "<morphagent-textbook repo root>/Manuscript"
 
 # 创建 ZIP
 Compress-Archive -Path Book.txt,Sample.txt,Description.txt -DestinationPath manuscript-v08.zip
