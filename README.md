@@ -25,13 +25,16 @@
 | 指标 | 数值 |
 |---|---|
 | 章节数 | 31（25 主章节 + 6 附录） |
-| 教学实验 | 30 |
-| 研究笔记 | 10 |
-| BibTeX 条目 | 144 |
-| SVG 配图 | 10 |
-| 总字数 | 96,742 字（约 178 页） |
+| 教学实验 | 31（`experiments/exp-01` … `exp-31`） |
+| 研究笔记 | 14（`research/r-note-001` … `r-note-014`） |
+| 论文笔记 | 35（`research/r-paper-001` … `r-paper-035`） |
+| BibTeX 条目 | 143（`references.bib`） |
+| SVG 配图 | 10（`assets/figures/`） |
+| 总字数 | 99,281 词当量（CJK 80,787 + EN 18,494，约 183 页） |
 | 练习题 | 100+ |
 | ASCII 图表 | 75+ |
+
+> 上述计数由 `python scripts/word_count.py` 实测输出，复算方法见「复算」一节。
 
 ---
 
@@ -109,7 +112,6 @@ morphagent-textbook/
 │   ├── r-note-010-5-year-roadmap-detail.md
 │   ├── INDEX.md
 │   └── MILESTONES.md
-├── benchmarks/              # 评测基准
 ├── scripts/                 # 构建与验证脚本
 │   ├── build_book.py
 │   ├── validate_chapters.py
@@ -117,9 +119,6 @@ morphagent-textbook/
 ├── docs/
 │   ├── ROADMAP.md           # 写作路线图
 │   └── CHAPTER_TEMPLATE.md  # 章节写作模板
-├── preview/                # 预览 HTML
-│   ├── chapter-01.html
-│   └── chapter-11.html
 └── .github/
     ├── workflows/
     │   └── build.yml        # GitHub Actions: 自动构建
@@ -146,7 +145,9 @@ morphagent-textbook/
 | V | 治理、伦理与未来 | 4 (Ch 22-25) | final |
 | VI | 附录 | 6 (Ch 26-31) | final |
 
-**总计**：31 章 / 总字数 96,742（正文汉字约 78,550）/ 10 SVG 配图 / 144 BibTeX 条目 / 100+ 练习题 / 75+ ASCII 图表 / 30 教学实验 / 10 研究笔记
+**总计**：31 章 / 总字数 99,281（词当量：CJK 80,787 + EN 18,494）/ 10 SVG 配图 / 143 BibTeX 条目 / 100+ 练习题 / 75+ ASCII 图表 / 31 教学实验 / 14 研究笔记 / 35 论文笔记
+
+> 计数均来自 `python scripts/word_count.py`（词当量/页数）与目录清单（实验/笔记/BibTeX），非估计。
 
 ---
 
@@ -190,6 +191,70 @@ python scripts/validate_chapters.py
 ### Leanpub 出版
 
 将 `Manuscript/` 目录下的 `Book.txt`、`Sample.txt`、`Description.txt` 上传到 Leanpub 项目即可。
+
+---
+
+## 证明什么 / 不证明什么（边界声明）
+
+> 诚实性约束（fail-closed 哲学）：以下边界**只陈述仓库内可验证的事实**，超出范围即不声称。
+
+**本书证明 / 提供（可复算）**
+
+- **概念框架**：操作形态四元组 `B = {P, T, M, C}` 与元控制器 `U(B_t, tau_t, r_t, C) -> B_{t+1}` 的**形式化定义**，见 Ch 11、Ch 16、Ch 17 与 [research/iclr-2027-submission/paper.md](research/iclr-2027-submission/paper.md) §2。
+- **五个可证伪假说（H1–H5）**：结构可塑性、协同进化、形态适应、迁移收益、治理必要性——每条都有对应的研究笔记（`r-note-002` 至 `r-note-007`、`r-note-010`）与实验骨架（`experiments/`）。
+- **评测基准**：MorphBench 的**设计规格**（7 组 × 5 干预 × 10 任务），见 Ch 19 与 [assets/figures/morphbench-eval-grid.svg](assets/figures/morphbench-eval-grid.svg)。
+- **参考实现**：MorphAgent 5 子系统（P / T / M / C / U）的**架构说明**，见 Ch 18。
+
+**本书不证明 / 不声称（边界）**
+
+- **不声称已训练出「能自我提升到超越固定架构」的实证 Agent**：ICLR 2027 摘要与 §1 的 "outperforms" 是**设计动机与待验证假说**，不是已测结果。仓库内可复算的 exp-01 基线 mock 结果（`experiments/results.json`）中，ReAct / Reflexion / AutoGPT / BabyAGI 四系统在 10 个 mock 任务上的 success 均为 **0/10**（mock 工具未接入真实 LLM 推理路径，属占位性数据）。因此"outperforms"目前只是**方向性主张**，不是**已证明事实**。
+- **不声称实验可跨环境复现**：教学实验以 mock/占位数据为主，真实 LLM 模式需要 `OPENAI_API_KEY` 且受 5 美元硬预算约束（见 `experiments/exp-01-baseline/run.py`），本仓库未提交真实 LLM 运行日志。
+- **不声称全书无内容错误**：`scripts/validate_chapters.py` 报告 31/31 章通过、1 处 WARN（`04-prompt-engineering.md` 第 274 行 `hack` 词），WARN 已记录但未消除。
+- **不声称「自修改必然安全」**：Ch 22–23 明确把安全性作为**开放问题**与治理框架，提供的是攻击面分级与三重验证（沙箱 + 属性测试 + SMT）的**方法**，不是安全保证。
+
+---
+
+## 复算（Reproduction）
+
+所有关键数字都来自仓库内脚本，重跑即得：
+
+```bash
+cd morphagent-textbook
+
+# 1) 字数 / 页数统计（README「统计数据」一节）
+python scripts/word_count.py
+
+# 2) 章节格式验证（31/31 通过，1 WARN）
+python scripts/validate_chapters.py
+
+# 3) 离线 HTML 构建（31 章 + index）
+pip install markdown pyyaml
+python _build_html.py
+# 产物: _build/site/index.html
+
+# 4) 实验基线数据抽查（exp-01，4 系统 × 10 任务，mock）
+python3 -c "import json; d=json.load(open('experiments/results.json')); [print(k, len(v), sum(1 for r in v if r.get('success'))) for k,v in d['results'].items()]"
+```
+
+> **说明**：`experiments/results.json` 的 success=0/10 是仓库内**当前可复算的真实数据**，不是笔误。任何声称「outperforms 已被实测」的说法都与这份落盘数据矛盾。
+
+---
+
+## 快速开始（Quick Start）
+
+```bash
+git clone https://github.com/aidless/morphagent-textbook.git
+cd morphagent-textbook
+pip install -r requirements.txt      # markdown, pyyaml, openai
+
+# 构建离线站点（31 章，无网络依赖）
+python _build_html.py
+# 打开 _build/site/index.html
+
+# 运行教学实验（mock 模式，无需 API key）
+cd experiments/exp-01-baseline
+python run.py
+```
 
 ---
 
