@@ -1,0 +1,29 @@
+name: Packaging
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Build distributions
+        run: |
+          set -euo pipefail
+          python -m pip install --quiet build
+          if ls pyproject.toml setup.py setup.cfg >/dev/null 2>&1; then
+            python -m build --sdist --wheel --outdir dist/
+          else
+            echo "no python packaging metadata; skipping"
+          fi
+      - name: Upload dist artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
