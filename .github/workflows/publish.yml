@@ -1,5 +1,6 @@
 name: Publish to PyPI
 on:
+  workflow_dispatch:
   release:
     types: [published]
 permissions:
@@ -25,5 +26,5 @@ jobs:
             echo "no packaging metadata; skipping build"
           fi
       - name: Publish (trusted publishing)
-        if: ${{ hashFiles('pyproject.toml', 'setup.py', 'setup.cfg') != '' }}
+        if: ${{ github.event_name == 'release' && hashFiles('pyproject.toml', 'setup.py', 'setup.cfg') != '' }}
         uses: pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557 # release/v1
