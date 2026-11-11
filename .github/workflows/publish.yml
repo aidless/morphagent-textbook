@@ -15,12 +15,15 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v5
         with:
           python-version: "3.11"
-        if: ${{ hashFiles('pyproject.toml', 'setup.py', 'setup.cfg') != '' }}
       - name: Build
         run: |
           set -euo pipefail
           python -m pip install --quiet build
-          python -m build --sdist --wheel --outdir dist/
-        if: ${{ hashFiles('pyproject.toml', 'setup.py', 'setup.cfg') != '' }}
+          if ls pyproject.toml setup.py setup.cfg >/dev/null 2>&1; then
+            python -m build --sdist --wheel --outdir dist/
+          else
+            echo "no packaging metadata; skipping build"
+          fi
       - name: Publish (trusted publishing)
+        if: ${{ hashFiles('pyproject.toml', 'setup.py', 'setup.cfg') != '' }}
         uses: pypa/gh-action-pypi-publish@2442bad8f54b06a326f3030ef5e6a7a674118557 # release/v1
