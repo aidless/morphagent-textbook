@@ -5,12 +5,13 @@ on:
   pull_request:
 permissions:
   contents: read
-  security-events: write
-jobs:
   gitleaks:
+    permissions:
+      security-events: write
+      id-token: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           fetch-depth: 0
       - name: gitleaks (secret scan, full history)
