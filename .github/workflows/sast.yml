@@ -10,7 +10,6 @@ permissions:
 jobs:
   gitleaks:
     permissions:
-      security-events: write
       id-token: write
     runs-on: ubuntu-latest
     steps:
