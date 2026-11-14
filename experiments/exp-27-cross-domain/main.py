@@ -143,7 +143,7 @@ def main():
     std_d = (sum((d - mean_d)**2 for d in dists) / n) ** 0.5
     corr = cov / (std_g * std_d) if std_g > 0 and std_d > 0 else 0
     print(f"\n领域距离与迁移增益的相关系数: {corr:.3f}")
-    print(f"  负相关: 距离越远，迁移增益越小")
+    print("  负相关: 距离越远，迁移增益越小")
 
     output = {"experiment": "exp-27-cross-domain", "results": all_results,
               "distance_performance_corr": corr}

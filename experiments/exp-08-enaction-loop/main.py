@@ -228,8 +228,8 @@ def main():
     print(f"平均行动-感知耦合率: {avg_coupling:.1%}")
     print(f"平均步数: {avg_steps:.1f}")
     print(f"到达目标: {goals_reached}/{len(all_results)}")
-    print(f"\n核心验证: 行动改变了环境 -> 新感知不同于旧感知 -> 形成耦合循环")
-    print(f"  耦合率 > 70% 即验证了 Enaction 循环的核心机制")
+    print("\n核心验证: 行动改变了环境 -> 新感知不同于旧感知 -> 形成耦合循环")
+    print("  耦合率 > 70% 即验证了 Enaction 循环的核心机制")
 
     output = {"experiment": "exp-08-enaction-loop", "results": all_results,
               "avg_coupling_ratio": avg_coupling, "goals_reached": goals_reached}

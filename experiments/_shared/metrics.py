@@ -4,7 +4,7 @@
 供实验 1-4 共用。
 所有实验的指标计算都应通过这个模块，便于横向对比。
 """
-from typing import List, Dict, Any
+from typing import List, Dict
 import statistics
 
 

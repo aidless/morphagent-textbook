@@ -107,8 +107,8 @@ def main() -> None:
     else:
         print("## Textbook Word Count")
         print()
-        print(f"| Metric | Value |")
-        print(f"|---|---|")
+        print("| Metric | Value |")
+        print("|---|---|")
         print(f"| Total chapters | {len(chapter_files)} |")
         print(f"| CJK characters | {total_cjk:,} |")
         print(f"| English words | {total_en:,} |")

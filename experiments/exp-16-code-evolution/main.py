@@ -9,7 +9,6 @@
 """
 import json
 import random
-import re
 
 
 # ==================== 代码任务定义 ====================

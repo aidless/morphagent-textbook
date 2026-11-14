@@ -20,12 +20,10 @@ import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '_shared'))
 
-from typing import List, Dict
+from typing import Dict
 import json
-import time
 
 from agent_loop import react_loop
-from metrics import action_consistency, summary_table
 
 
 # ==================== POMDP 构造 ====================
@@ -86,7 +84,7 @@ TOOLS = {
 # ==================== 实验运行 ====================
 def run_pomdp_test(pomdp: Dict) -> Dict:
     """在单个 POMDP 上跑 Agent，对比 LLM 行动与最优行动。"""
-    query = f"我应该做什么？（基于当前观察）"
+    query = "我应该做什么？（基于当前观察）"
 
     def pomdp_llm(prompt):
         # Mock LLM：根据 memory_prompt 选择行动
@@ -141,7 +139,7 @@ def main():
         results.append(result)
         print(f"  最优行动: {pomdp['optimal_action']}")
         print(f"  实际行动: {result['actual_actions']}")
-        print(f"  ✓ 匹配" if result["action_matches"] else "  ✗ 不匹配")
+        print("  ✓ 匹配" if result["action_matches"] else "  ✗ 不匹配")
 
     # 汇总
     print("\n" + "=" * 60)

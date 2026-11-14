@@ -7,8 +7,6 @@
     python main.py
 """
 import json
-import math
-import re
 
 
 # ==================== Mock 文档 ====================

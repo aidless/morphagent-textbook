@@ -162,7 +162,7 @@ def main():
         print(f"\n  {current_level} -> {next_level}: {status}")
 
         if check["gaps"]:
-            print(f"    能力差距:")
+            print("    能力差距:")
             for dim, gap in check["gaps"].items():
                 print(f"      {DIM_LABELS[dim]}: 差 {gap:.1%}")
 

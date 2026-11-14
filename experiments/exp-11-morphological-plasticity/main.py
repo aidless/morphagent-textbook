@@ -130,7 +130,7 @@ def main():
 
     avg_mpi = sum(r["mpi"] for r in all_results) / len(all_results)
     print(f"\n平均 MPI: {avg_mpi:.3f}")
-    print(f"验证: MPI > 0 即证明形态修改会影响表现（形态可塑性存在）")
+    print("验证: MPI > 0 即证明形态修改会影响表现（形态可塑性存在）")
 
     output = {"experiment": "exp-11-morphological-plasticity", "results": all_results,
               "avg_mpi": avg_mpi}

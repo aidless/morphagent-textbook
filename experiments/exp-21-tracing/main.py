@@ -9,7 +9,6 @@
 """
 import json
 import random
-import statistics
 import time
 
 
@@ -187,19 +186,19 @@ def main():
         print(f"  总耗时: {analysis['total_duration_ms']:.1f}ms")
         print(f"  关键路径: {' -> '.join(analysis['critical_path'])}")
 
-        print(f"  慢 Span (>50ms):")
+        print("  慢 Span (>50ms):")
         for s in analysis["slow_spans"]:
             print(f"    - {s['name']}: {s['duration_ms']:.1f}ms")
 
         if analysis["errors"]:
-            print(f"  错误 Span:")
+            print("  错误 Span:")
             for e in analysis["errors"]:
                 print(f"    - {e['name']}: {e['msg']}")
         else:
-            print(f"  错误 Span: 无")
+            print("  错误 Span: 无")
 
         # 打印调用树
-        print(f"  调用树:")
+        print("  调用树:")
         _print_tree(trace, indent=2)
         all_analyses[req_type] = analysis
 

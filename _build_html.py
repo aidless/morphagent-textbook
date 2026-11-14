@@ -3,8 +3,6 @@ Offline HTML builder for the MorphAgent Textbook.
 Converts all Markdown chapters into a static HTML site.
 Requires: pip install markdown pyyaml
 """
-import os
-import re
 import yaml
 from pathlib import Path
 from markdown import markdown

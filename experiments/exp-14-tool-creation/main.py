@@ -8,7 +8,6 @@
     python main.py
 """
 import json
-import random
 
 
 # ==================== 初始工具 ====================

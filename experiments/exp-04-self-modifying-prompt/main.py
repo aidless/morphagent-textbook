@@ -10,7 +10,6 @@
 import re
 import json
 import random
-import statistics
 
 
 # ==================== 数学任务集 ====================

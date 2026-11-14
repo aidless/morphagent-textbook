@@ -123,7 +123,7 @@ def main():
     std_y = (sum((y - mean_y)**2 for y in task_performances) / n) ** 0.5
     pearson = cov / (std_x * std_y) if std_x > 0 and std_y > 0 else 0.0
     print(f"\nSynergy Score 与任务表现的 Pearson 相关系数: {pearson:.3f}")
-    print(f"  r > 0.9: 强正相关，验证了'协同度越高，表现越好'的假设")
+    print("  r > 0.9: 强正相关，验证了'协同度越高，表现越好'的假设")
 
     output = {"experiment": "exp-10-synergy-score", "results": all_results,
               "pearson_correlation": pearson}

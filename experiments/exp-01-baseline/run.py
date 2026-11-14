@@ -20,7 +20,7 @@ from typing import Any, Callable, Dict, List, Optional, Tuple
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "_shared"))
 
 from agent_loop import parse_react_response, react_loop
-from metrics import avg_steps, avg_tokens, success_rate
+from metrics import avg_steps, success_rate
 
 try:
     # 按要求不自动安装。缺失时由 check_openai_environment() 负责优雅降级。

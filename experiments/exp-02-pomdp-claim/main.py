@@ -83,7 +83,7 @@ def main():
     print("实验 2：POMDP 框架验证（Mock 模式）")
     print("=" * 60)
     print(f"POMDP 场景数: {len(POMDPS)}")
-    print(f"假设 H1: 信念状态 ≈ 短期记忆\n")
+    print("假设 H1: 信念状态 ≈ 短期记忆\n")
 
     results = []
     for pomdp in POMDPS:

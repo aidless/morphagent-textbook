@@ -21,13 +21,12 @@ import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '_shared'))
 
-from typing import List, Dict
+from typing import Dict
 import json
 import time
-import random
 
 from agent_loop import react_loop
-from metrics import summary_table, tool_call_accuracy, success_rate
+from metrics import success_rate
 
 
 # ==================== 5 个描述级别 ====================

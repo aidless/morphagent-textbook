@@ -1,0 +1,19 @@
+# 统一换行与二进制判定（2026-11-14 补：此前 92 个仓缺此文件，Windows 侧 CRLF 会污染 diff）
+* text=auto eol=lf
+
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.webp binary
+*.ico  binary
+*.pdf  binary
+*.zip  binary
+*.gz   binary
+*.zst  binary
+*.pt   binary
+*.pth  binary
+*.npy  binary
+*.npz  binary
+*.parquet binary
+*.ipynb linguist-documentation

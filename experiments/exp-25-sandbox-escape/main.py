@@ -8,7 +8,6 @@
     python main.py
 """
 import json
-import random
 
 
 # ==================== 逃逸尝试定义 ====================
@@ -202,7 +201,7 @@ def main():
         print(f"  性能开销: {result['performance_overhead']:.0%}")
 
         # 按类别拦截详情
-        print(f"  按类别拦截:")
+        print("  按类别拦截:")
         for cat in ["file", "exec", "network"]:
             attempts = [a for a in ESCAPE_ATTEMPTS if a["category"] == cat]
             blocked = sum(1 for a in attempts if sandbox.check(a))

@@ -9,7 +9,6 @@
 """
 import json
 import random
-import statistics
 
 
 # ==================== 版本定义 ====================
@@ -123,7 +122,7 @@ def main():
     print("实验 22：金丝雀部署模拟（Mock 模式）")
     print("=" * 60)
     print(f"总用户: {TOTAL_USERS}, 流量阶段: {TRAFFIC_STAGES}")
-    print(f"错误率阈值: 5%, 延迟阈值: 100ms\n")
+    print("错误率阈值: 5%, 延迟阈值: 100ms\n")
 
     all_results = {}
 
@@ -138,7 +137,7 @@ def main():
         print(f"\n--- 故障场景: {FAULT_SCENARIOS[fault_key]['name']} ---")
 
         # 金丝雀阶段详情
-        print(f"  金丝雀部署:")
+        print("  金丝雀部署:")
         for s in canary["stages"]:
             alert_icon = " [ALERT]" if s["alert"] else ""
             print(f"    流量 {s['canary_pct']:>5.1%}: 错误率 {s['observed_error_rate']:.2%}, "
@@ -150,9 +149,9 @@ def main():
               f"({canary['affected_pct']:.1%})")
 
         if canary["detected"]:
-            print(f"  故障检测: 已检测到并停止扩展")
+            print("  故障检测: 已检测到并停止扩展")
         else:
-            print(f"  故障检测: 未检测到（全部通过）")
+            print("  故障检测: 未检测到（全部通过）")
 
         print(f"  全量部署受影响: {full['total_affected_users']} 人 ({full['affected_pct']:.1%})")
         saved = full["total_affected_users"] - canary["total_affected_users"]

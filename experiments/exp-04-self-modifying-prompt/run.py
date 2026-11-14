@@ -10,11 +10,10 @@
 """
 import json
 import os
-import sys
 import time
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Callable, Dict, List, Optional, Tuple
+from typing import Any, Callable, Dict, Optional, Tuple
 
 try:
     from openai import OpenAI

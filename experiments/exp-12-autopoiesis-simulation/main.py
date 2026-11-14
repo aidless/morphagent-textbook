@@ -173,7 +173,7 @@ def main():
     survived_perturbations = [r["perturbation"] for r in all_results if r["survived"]]
     max_survived = max(survived_perturbations) if survived_perturbations else 0
     print(f"\n系统最高承受扰动: {max_survived:.2f}")
-    print(f"\n核心验证:")
+    print("\n核心验证:")
     print(f"  - 自生产: 系统消耗能量生产/修复组件 ({all_results[0]['self_productions']} 次生产)")
     print(f"  - 自修复: 组件损坏后被自动修复 ({all_results[0]['self_repairs']} 次修复)")
     print(f"  - 自维持: 无扰动时系统持续存活 ({'是' if all_results[0]['survived'] else '否'})")
